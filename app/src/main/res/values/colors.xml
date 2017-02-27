@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- the green color -->
+    <color name="logo_green_light">#8BC34A</color>
+    <color name="logo_green_meduim">#689F38</color>
+    <color name="logo_green_dark">#33691E</color>
+
+    <!-- the blue color-->
+    <color name="logo_blue_light">#1E88E5</color>
+    <color name="logo_blue_meduim">#1976D2</color>
+    <color name="logo_blue_dark">#0D47A1</color>
+
+
+    <!-- gray color -->
+    <color name="white_color_smoke">#00ffffff</color>
+    <color name="white_color_smoke_with_lowOpacity">#E6EEEEEE</color>
+    <color name="white_color">#FAFAFA</color>
+    <color name="gray_color_dark">#9E9E9E</color>
+    <color name="gray_color_light">#BDBDBD</color>
+
+
+
+</resources>

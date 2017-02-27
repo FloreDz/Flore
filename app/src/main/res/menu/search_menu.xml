@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="@string/activity_search"
+        android:icon="@drawable/search"
+        android:id="@+id/app_search_bar"
+        android:visible="true"
+        android:showAsAction="ifRoom" />
+</menu>

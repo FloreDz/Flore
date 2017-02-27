@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="dz.esi.team.appprototype.HomePage">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.NoActionBar.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.NoActionBar.AppBarOverlay"
+            android:layout_weight="1" />
+    </android.support.design.widget.AppBarLayout>
+
+    <include layout="@layout/content_search_menu" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white_color_smoke_with_lowOpacity"
+        android:visibility="gone"
+        android:id="@+id/option_menu_background">
+
+    </FrameLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/recognition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@drawable/plus_button"
+        app:backgroundTint="@color/logo_green_meduim"
+        android:onClick="fabOnClick"
+        android:clickable="true"
+        tools:ignore="VectorDrawableCompat" />
+
+    <LinearLayout
+        android:id="@+id/importPictureLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="150dp"
+        android:visibility="gone"
+        tools:ignore="RtlHardcoded">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/importPhoto"
+            android:clickable="true"
+            android:onClick="labelOnClick"
+            style="@style/flotingButtonLabel"
+            android:id="@+id/importPictureLabel"
+            tools:ignore="HardcodedText"
+            android:layout_gravity="center" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/importPictureButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|right"
+            android:clickable="true"
+            android:onClick="fabOnClick"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="24dp"
+            app:elevation="5dp"
+            app:srcCompat="@drawable/gellery"
+            app:backgroundTint="@color/white_color"
+            app:rippleColor="@color/white_color_smoke"
+            app:fabSize="mini"
+            tools:ignore="VectorDrawableCompat" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/takePictureLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="88dp"
+        android:visibility="gone"
+        tools:ignore="RtlHardcoded"
+        android:textAlignment="textEnd">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="@string/take_a_photo"
+            android:clickable="true"
+            android:onClick="labelOnClick"
+            style="@style/flotingButtonLabel"
+            android:id="@+id/takePictureLabel"
+            android:layout_gravity="center"
+            />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/takePictureButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|right"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="24dp"
+            android:clickable="true"
+            android:onClick="fabOnClick"
+            app:elevation="5dp"
+            app:srcCompat="@drawable/camera"
+            app:backgroundTint="@color/white_color"
+            app:rippleColor="@color/white_color_smoke"
+            app:fabSize="mini"
+            tools:ignore="VectorDrawableCompat"
+            />
+
+    </LinearLayout>
+
+
+
+
+</android.support.design.widget.CoordinatorLayout>
