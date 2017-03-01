@@ -6,12 +6,12 @@
     android:layout_height="@dimen/nav_header_height"
     android:gravity="bottom"
     android:theme="@style/ThemeOverlay.AppCompat.Dark"
-    android:background="@drawable/nav_view_background_shape"
+    android:background="@drawable/drawer_background"
     tools:ignore="MissingConstraints">
 
     <ImageView
         android:id="@+id/imageView"
-        app:srcCompat="@drawable/logo_with_white_background"
+        app:srcCompat="@drawable/logo_white_background"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_height="75dp"
@@ -40,7 +40,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/appName"
+            android:text="@string/app_name"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:id="@+id/textView2"
             app:layout_constraintBottom_toTopOf="@+id/textView"
@@ -50,7 +50,7 @@
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/appSlegon"
+            android:text="@string/slogan"
             app:layout_constraintLeft_toRightOf="@+id/imageView"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

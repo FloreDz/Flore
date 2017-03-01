@@ -17,7 +17,7 @@ public class BaseActivity extends AppCompatActivity {
 
         ActionBar actionBar= getSupportActionBar();
         if(actionBar!=null) {
-            Toolbar toolbar = (Toolbar) findViewById(R.id.search_toolbar);
+            Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_search);
 
             if (toolbar == null) {
                 setSupportActionBar(toolbar);
@@ -27,6 +27,7 @@ public class BaseActivity extends AppCompatActivity {
 
         if(actionBar!=null){
                 actionBar.setDefaultDisplayHomeAsUpEnabled(enableHome);
+                getSupportActionBar().setDisplayShowHomeEnabled(enableHome);
         }
     }
 }

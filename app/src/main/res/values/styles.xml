@@ -5,14 +5,15 @@
         <!-- this color should be the most widely used across all screens and components. -->
         <item name="colorPrimary">@color/logo_blue_light</item>
         <!-- Palettes with a secondary color may use this color to indicate a related action or information.-->
-        <item name="colorPrimaryDark">@color/logo_blue_meduim</item>
+        <item name="colorPrimaryDark">@color/logo_blue_medium</item>
         <!---The accent should be used for the floating action button and interactive elements-->
-        <item name="colorAccent">@color/logo_green_meduim</item>
+        <item name="colorAccent">@color/logo_green_medium</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
@@ -26,7 +27,7 @@
 
     <style name="flotingButtonLabel" parent="TextAppearance.AppCompat.Title">
         <item name="android:textColor">@color/white_color</item>
-        <item name="android:background">@drawable/label_background_shape</item>
+        <item name="android:background">@drawable/fab_label_background</item>
         <item name="android:textSize">15sp</item>
         <item name="android:padding">5dp</item>
         <item name="android:clickable">true</item>

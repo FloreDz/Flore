@@ -42,7 +42,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
     //costum components
     private ListView plantListView;
     private NavigationView navigationView ;
-    private Toolbar toolbar;
+    private Toolbar toolbar_search_access;
     private  ActionBarDrawerToggle toggle;
 
     //layouts
@@ -70,6 +70,37 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.d(TAG, "onCreate: ");
+        // this thread will start the intro activity if the app is being lunched for the first time
+        //  Declare a new thread to do a preference check
+         Thread intro = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                //  Initialize SharedPreferences
+                SharedPreferences getPrefs = PreferenceManager
+                        .getDefaultSharedPreferences(getBaseContext());
+
+                //  Create a new boolean and preference and set it to true
+                boolean isFirstStart = getPrefs.getBoolean("firstStart", true);
+                Log.d(TAG, "run: this is the first start "+isFirstStart);
+                //  If the activity has never started before...
+                if (isFirstStart) {
+
+                    //  Launch app intro
+                    Intent introActivityIntent = new Intent(HomePage.this, IntroActivity.class);
+                    startActivity(introActivityIntent);
+
+                    //  Make a new preferences editor
+                    SharedPreferences.Editor preferenceEditor = getPrefs.edit();
+
+                    //  Edit preference to make it false because we don't want this to run again
+                    preferenceEditor.putBoolean("firstStart", false);
+
+                    //  Apply changes
+                    preferenceEditor.apply();
+                }
+            }
+        });
+        intro.start();
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
@@ -80,41 +111,40 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
 
                 // layouts
         optionMenuBackground = (FrameLayout) findViewById(R.id.option_menu_background);
-        takeImageLayout = (LinearLayout) findViewById(R.id.takePictureLayout);
-        importImageLayout = (LinearLayout) findViewById(R.id.importPictureLayout);
+        takeImageLayout = (LinearLayout) findViewById(R.id.layout_take_picture);
+        importImageLayout = (LinearLayout) findViewById(R.id.layout_import_picture);
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
+        toolbar_search_access = (Toolbar) findViewById(R.id.toolbar_search_access);
+        setSupportActionBar(toolbar_search_access);
 
 
 
-        //costum components
+
+        //costume components
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         plantListView = (ListView) findViewById(R.id.plantes_list_view);
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        toolbar_search_access = (Toolbar) findViewById(R.id.toolbar_search_access);
+        setSupportActionBar(toolbar_search_access);
         toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+                this, drawer, toolbar_search_access, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
 
             // buttons
-        fabRecognise = (FloatingActionButton) findViewById(R.id.recognition);
-        fabImportImage=(FloatingActionButton) findViewById(R.id.importPictureButton);
-        fabTakeImage=(FloatingActionButton) findViewById(R.id.takePictureButton);
+        fabRecognise = (FloatingActionButton) findViewById(R.id.fab_recognition);
+        fabImportImage=(FloatingActionButton) findViewById(R.id.fab_import_picture);
+        fabTakeImage=(FloatingActionButton) findViewById(R.id.fab_take_picture);
 
             //labels
-        importImageLabel = (TextView)findViewById(R.id.importPictureLabel) ;
-        takeImageLabel = (TextView)findViewById(R.id.takePictureLabel) ;
+        importImageLabel = (TextView)findViewById(R.id.label_import_picture) ;
+        takeImageLabel = (TextView)findViewById(R.id.label_take_picture) ;
 
 
         //handling events
             //costum components
         navigationView.setNavigationItemSelectedListener(this);
-        setSupportActionBar(toolbar);
+        setSupportActionBar(toolbar_search_access);
 
             //layout
         optionMenuBackground.setOnClickListener(new View.OnClickListener() {
@@ -130,8 +160,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
 
         //data handling
         // loading medical plant list view in the background
-        MedicalPlanesListViewHandler query = new MedicalPlanesListViewHandler();
-        query.execute("azeddine");
+        loadMedicalPlantsListView("all");
 
 
 
@@ -154,10 +183,10 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
                 this.imagePath = cursor.getString(cursor.getColumnIndex(filePath[0]));
 
                 // stating the image recognition activity
-                Intent intent = new Intent(HomePage.this,ImageRecognitionActivity.class);
+                /*Intent intent = new Intent(HomePage.this,ImageProcess.class);
                 intent.putExtra(LOADED_IMAGE_PATH,this.imagePath);
                 startActivity(intent);
-
+                */
             }else{
                 Toast.makeText(HomePage.this,ERROR_MESS,Toast.LENGTH_SHORT).show();
             }
@@ -188,7 +217,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         return super.onCreateOptionsMenu(menu);
     }
 
-    //slecting a navigation item from the manu drawer event handling
+    //slecting a navigation item from the menu drawer event handling
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -218,7 +247,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         Intent intent;
-        Log.d(TAG, "onOptionsItemSelected:  "+item.getItemId()+" "+R.id.toolbar);
+        Log.d(TAG, "onOptionsItemSelected:  "+item.getItemId()+" "+R.id.toolbar_search_access);
 
         int id = item.getItemId();
 
@@ -291,20 +320,20 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         @Override
         protected void onPostExecute(String s) {
             
-            List<MedicalPlante> plantes = new ArrayList<>();
-            MedicalPlante plante = new MedicalPlante("a3chabe","za3ter");
+            List<MedicalPlant> plantes = new ArrayList<>();
+            MedicalPlant plante = new MedicalPlant("a3chabe","za3ter");
             plantes.add(plante);
-            plante = new MedicalPlante("a3chabe","za3ter");
+            plante = new MedicalPlant("a3chabe","za3ter");
             plantes.add(plante);
-            plante = new MedicalPlante("a3chabe","za3ter");
+            plante = new MedicalPlant("a3chabe","za3ter");
             plantes.add(plante);
-            plante = new MedicalPlante("a3chabe","za3ter");
+            plante = new MedicalPlant("a3chabe","za3ter");
             plantes.add(plante);
-            plante = new MedicalPlante("a3chabe","za3ter");
+            plante = new MedicalPlant("a3chabe","za3ter");
             plantes.add(plante);
-            plante = new MedicalPlante("a3chabe","za3ter");
+            plante = new MedicalPlant("a3chabe","za3ter");
             plantes.add(plante);
-           MedicalPlantesAdapter plantesAdapter = new MedicalPlantesAdapter(HomePage.this,R.layout.plante_view_list,plantes);
+           MedicalPlantsAdapter plantesAdapter = new MedicalPlantsAdapter(HomePage.this,R.layout.listview_plantes,plantes);
             plantListView.setAdapter(plantesAdapter);
 
 
@@ -326,11 +355,11 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
     // optionMenu display handling
     private void hideOptionMenu(){
         Log.d(TAG, "hideOptionMenu: hiding the option menu");
-        final FloatingActionButton fabRecognise = (FloatingActionButton) findViewById(R.id.recognition);
+        final FloatingActionButton fabRecognise = (FloatingActionButton) findViewById(R.id.fab_recognition);
 
 
-        takeImageLayout = (LinearLayout) findViewById(R.id.takePictureLayout);
-        importImageLayout = (LinearLayout) findViewById(R.id.importPictureLayout);
+        takeImageLayout = (LinearLayout) findViewById(R.id.layout_take_picture);
+        importImageLayout = (LinearLayout) findViewById(R.id.layout_import_picture);
 
 
         final Animation rotateToPlus = AnimationUtils.loadAnimation(HomePage.this,R.anim.show_button_layout);
@@ -353,9 +382,9 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
 
         Log.d(TAG, "showOptionMenu: showing the option menu");
 
-        final FloatingActionButton fabRecognise = (FloatingActionButton) findViewById(R.id.recognition);
-        final LinearLayout  takeImageLayout = (LinearLayout) findViewById(R.id.takePictureLayout);
-        final LinearLayout  importImageLayout = (LinearLayout) findViewById(R.id.importPictureLayout);
+        final FloatingActionButton fabRecognise = (FloatingActionButton) findViewById(R.id.fab_recognition);
+        final LinearLayout  takeImageLayout = (LinearLayout) findViewById(R.id.layout_take_picture);
+        final LinearLayout  importImageLayout = (LinearLayout) findViewById(R.id.layout_import_picture);
 
         final Animation rotateToX = AnimationUtils.loadAnimation(HomePage.this,R.anim.hide_button_layout);
         final Animation showOptionButton = AnimationUtils.loadAnimation(HomePage.this,R.anim.show_buttons);
@@ -374,13 +403,35 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
     }
     
     // this method will recive the query of 
-    // the search activity after the search field had being submitted 
+    // the search activity after the search field had being submitted
+
+    /**
+     * Created by azeddine on 25/02/17.
+     */
     @Override
     protected void onResume() {
         Log.d(TAG, "onResume: start");
         super.onResume();
+
+        // accessing the shared prefrences file to get the query submitted by te user
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         String queryResult = sharedPreferences.getString(PLANT_QUERY,"");
+
+        // testing if the user had entered non empty query
         if(queryResult.length()>0) Toast.makeText(HomePage.this,queryResult,Toast.LENGTH_LONG).show();
     }
+
+    // this method will recive the text query submitted by the user
+    // call the sqlLite database helper to preform the search in the database
+    // dispaly the medicalplantslistView from the backgrond using the AsyncTask
+
+    /**
+     * Created by azeddine on 27/02/17.
+     */
+    private void loadMedicalPlantsListView(String textQueryResult){
+        MedicalPlanesListViewHandler medicalPlanesListViewHandler = new MedicalPlanesListViewHandler();
+        medicalPlanesListViewHandler.execute("azeddine");
+
+    }
+
 }

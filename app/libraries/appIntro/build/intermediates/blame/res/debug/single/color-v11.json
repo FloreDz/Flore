@@ -1,10 +1,18 @@
 [
     {
+        "merged": "/home/st_user/Android/AndroidWorkSpace/AppPrototype/app/libraries/appIntro/build/intermediates/res/merged/debug/color-v11/abc_background_cache_hint_selector_material_light.xml",
+        "source": "/home/st_user/Android/AndroidWorkSpace/AppPrototype/app/libraries/appIntro/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.1/res/color-v11/abc_background_cache_hint_selector_material_light.xml"
+    },
+    {
         "merged": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/appIntro/build/intermediates/res/merged/debug/color-v11/abc_background_cache_hint_selector_material_light.xml",
-        "source": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/appIntro/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/color-v11/abc_background_cache_hint_selector_material_light.xml"
+        "source": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/appIntro/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.1/res/color-v11/abc_background_cache_hint_selector_material_light.xml"
     },
     {
         "merged": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/appIntro/build/intermediates/res/merged/debug/color-v11/abc_background_cache_hint_selector_material_dark.xml",
-        "source": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/appIntro/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/color-v11/abc_background_cache_hint_selector_material_dark.xml"
+        "source": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/appIntro/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.1/res/color-v11/abc_background_cache_hint_selector_material_dark.xml"
+    },
+    {
+        "merged": "/home/st_user/Android/AndroidWorkSpace/AppPrototype/app/libraries/appIntro/build/intermediates/res/merged/debug/color-v11/abc_background_cache_hint_selector_material_dark.xml",
+        "source": "/home/st_user/Android/AndroidWorkSpace/AppPrototype/app/libraries/appIntro/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.1/res/color-v11/abc_background_cache_hint_selector_material_dark.xml"
     }
 ]

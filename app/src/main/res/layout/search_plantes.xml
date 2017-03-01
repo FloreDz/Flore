@@ -15,7 +15,7 @@
         android:background="?android:attr/colorActivatedHighlight">
 
         <android.support.v7.widget.Toolbar
-            android:id="@+id/search_toolbar"
+            android:id="@+id/toolbar_search"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:elevation="0dp"/>

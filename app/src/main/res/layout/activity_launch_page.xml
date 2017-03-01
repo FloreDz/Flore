@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_home_page"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="dz.esi.team.appprototype.LaunchPage"
+    android:background="@drawable/launch_background">
+
+    <!-- TODO: define project norme fonts and their styles -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="209dp"
+            app:srcCompat="@drawable/logo_glass_material"
+            android:id="@+id/logo"
+            tools:layout_constraintTop_creator="1"
+            tools:layout_constraintLeft_creator="1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.18" />
+
+        <TextView
+            android:text="@string/app_name"
+            tools:layout_editor_absoluteX="79dp"
+            android:id="@+id/name"
+            android:layout_height="51dp"
+            android:layout_width="match_parent"
+            android:textAlignment="center"
+            android:textColor="@color/logo_blue_dark"
+            android:textStyle="bold"
+            android:textSize="28sp"
+            tools:layout_editor_absoluteY="315dp" />
+
+        <TextView
+            android:text="@string/slogan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="38dp"
+            android:id="@+id/slogan"
+            app:layout_constraintTop_toBottomOf="@+id/name"
+            android:textAlignment="center"
+            android:textColor="@color/white_color"
+            android:textSize="24sp" />
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/appIntro/build/intermediates/res/merged/release/layout-v16/notification_template_custom_big.xml",
+        "source": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/appIntro/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.1/res/layout-v16/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "/home/st_user/Android/AndroidWorkSpace/AppPrototype/app/libraries/appIntro/build/intermediates/res/merged/release/layout-v16/notification_template_custom_big.xml",
+        "source": "/home/st_user/Android/AndroidWorkSpace/AppPrototype/app/libraries/appIntro/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.1/res/layout-v16/notification_template_custom_big.xml"
+    }
+]

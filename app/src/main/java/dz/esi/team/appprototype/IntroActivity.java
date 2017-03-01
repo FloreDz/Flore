@@ -1,50 +1,50 @@
 package dz.esi.team.appprototype;
 
-import android.graphics.Color;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 
+import android.widget.Toast;
 import com.github.paolorotolo.appintro.AppIntro;
-import com.github.paolorotolo.appintro.AppIntro2;
 import com.github.paolorotolo.appintro.AppIntroFragment;
 
 /**
  * Created by azeddine on 27/02/17.
  */
 
-public class IntroActivity  extends AppIntro2{
+public class IntroActivity  extends AppIntro  {
+    private static final String TAG = "IntroActivity";
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void init(Bundle savedInstanceState) {
 
-        // Note here that we DO NOT use setContentView();
-
-        // Add your slide fragments here.
-        // AppIntro will automatically generate the dots indicator and buttons.
-
-
-        // Instead of fragments, you can also use our default slide
-        // Just set a title, description, background and image. AppIntro will do the rest.
-        //addSlide(AppIntroFragment.newInstance(title, description, image, backgroundColor));
-        CharSequence tot = new String("azeddo,e");
-        CharSequence dis = new String("azeddofffffffffffffffffffffffffff,e");
-
-        addSlide(AppIntroFragment.newInstance(tot,dis,R.drawable.leaf, Color.parseColor("#EEEEEE")));
-        addSlide(AppIntroFragment.newInstance(tot,dis,R.drawable.app_logo_no_background, Color.parseColor("#EEEEEE")));
-        addSlide(AppIntroFragment.newInstance(tot,dis,R.drawable.logo_with_white_background, Color.parseColor("#EEEEEE")));
-
-        setDepthAnimation();
-        // OPTIONAL METHODS
-        // Override bar/separator color.
+        CharSequence title = "this is the title ";
+        CharSequence description = "this is the discription of the app where" +
+                "we are goind to speak about some details ";
+        addSlide(AppIntroFragment.newInstance(title, description, R.drawable.logo_white_background,getResources().getColor(R.color.logo_blue_light)));
+        addSlide(AppIntroFragment.newInstance(title, description, R.drawable.logo_white_background,getResources().getColor( R.color.logo_blue_light)));
+        addSlide(AppIntroFragment.newInstance(title, description, R.drawable.logo_white_background, getResources().getColor(R.color.logo_blue_light)));
+        showStatusBar(false);
 
 
-        // Hide Skip/Done button.
-        showSkipButton(true);
-        setProgressButtonEnabled(true);
-
-        // Turn vibration on and set intensity.
-        // NOTE: you will probably need to ask VIBRATE permission in Manifest.
-        setVibrate(true);
-        setVibrateIntensity(30);
     }
+    private void loadMainActivity(){
+         Intent intent = new Intent(this, HomePage.class);
+         startActivity(intent);
+    }
+
+    @Override
+    public void onSkipPressed() {
+        loadMainActivity();
+        Toast.makeText(getApplicationContext(),"azeddine", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onDonePressed() {
+        loadMainActivity();
+    }
+
+
+
+
+
+
 }

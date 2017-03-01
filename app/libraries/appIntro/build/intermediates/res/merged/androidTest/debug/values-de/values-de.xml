@@ -21,5 +21,6 @@
     <string msgid="1603543279005712093" name="abc_toolbar_collapse_description">"Minimieren"</string>
     <string name="app_intro_done_button">FERTIG</string>
     <string name="app_intro_skip_button">ÜBERSPRINGEN</string>
+    <string msgid="146198913615257606" name="search_menu_title">"Suchen"</string>
     <string msgid="2869576371154716097" name="status_bar_notification_info_overflow">"999+"</string>
 </resources>

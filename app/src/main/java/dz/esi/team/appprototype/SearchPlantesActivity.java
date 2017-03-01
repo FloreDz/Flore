@@ -14,7 +14,7 @@ import android.view.Menu;
 
 
 public class SearchPlantesActivity extends BaseActivity {
-    public static final String PLANTE_QUERY = "plante" ;
+    public static final String PLANTE_QUERY = "PLANT_QUERY" ;
     private static final String TAG = "SearchPlantesActivity";
     private  SearchView searchView;
 
@@ -24,6 +24,7 @@ public class SearchPlantesActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.search_plantes);
 
+        // this method will activate the layout toolBar i, it is implemented in the BaseActivity
         activateToolBar(false);
     }
 
@@ -39,13 +40,13 @@ public class SearchPlantesActivity extends BaseActivity {
 
         searchView.setSearchableInfo(searchableInfo);
         searchView.setIconified(false);
-
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+
+            // this methode will be called when the user submit the search query
             @Override
             public boolean onQueryTextSubmit(String query) {
                 SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
                 sharedPreferences.edit().putString(PLANTE_QUERY,query).apply();
-
                 searchView.clearFocus();
                 finish();
                 return true;
