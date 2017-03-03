@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/res/merged/debug/drawable-hdpi-v4/crop__ic_done.png",
+        "source": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/src/main/res/drawable-hdpi/crop__ic_done.png"
+    },
+    {
+        "merged": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/res/merged/debug/drawable-hdpi-v4/crop__ic_cancel.png",
+        "source": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/src/main/res/drawable-hdpi/crop__ic_cancel.png"
+    },
+    {
+        "merged": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/res/merged/debug/drawable-hdpi-v4/crop__divider.9.png",
+        "source": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/src/main/res/drawable-hdpi/crop__divider.9.png"
+    }
+]

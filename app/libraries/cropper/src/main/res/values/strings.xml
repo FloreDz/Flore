@@ -1,0 +1,10 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <string name="crop__saving">Sauvguardons limage …</string>
+    <string name="crop__wait">atander... SVP</string>
+    <string name="crop__pick_error">No image sources available</string>
+
+    <string name="crop__done">Terminé</string>
+    <string name="crop__cancel" tools:ignore="ButtonCase">Annuler</string>
+
+</resources>

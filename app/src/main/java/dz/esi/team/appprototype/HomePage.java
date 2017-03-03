@@ -33,6 +33,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
 
     public static final int LOAD_IMAGE_RESULT= 1;
     public static final String LOADED_IMAGE_PATH= "LOADED_IMAGE_PATH";
+    public static final String LOADED_IMAGE_URI= "LOADED_IMAGE_URI";
     private static final String TAG = "HomePage";
     public static final String ERROR_MESS = "Something went wrong";
 
@@ -182,11 +183,12 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
                 cursor.moveToFirst();
                 this.imagePath = cursor.getString(cursor.getColumnIndex(filePath[0]));
 
-                // stating the image recognition activity
-                /*Intent intent = new Intent(HomePage.this,ImageProcess.class);
+                // stating the ImageOptionsActivity activity
+                Intent intent = new Intent(HomePage.this,ImageOptionsActivity.class);
                 intent.putExtra(LOADED_IMAGE_PATH,this.imagePath);
+                intent.putExtra(LOADED_IMAGE_URI,pickedImage.toString());
                 startActivity(intent);
-                */
+
             }else{
                 Toast.makeText(HomePage.this,ERROR_MESS,Toast.LENGTH_SHORT).show();
             }
@@ -283,7 +285,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
 
 
         } else if (id == fabTakeImage.getId()) {
-          this.phoneCameraAccess();
+             this.phoneCameraAccess();
         }
     }
 
