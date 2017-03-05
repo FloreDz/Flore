@@ -250,14 +250,17 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
                 showOptionMenu();
             }
 
-        } else if (id == fabImportImage.getId()) {
-            this.hideOptionMenu();
-            this.loadImageFromGallery();
+        }else  if (takeImageLayout.getVisibility() == View.VISIBLE && importImageLayout.getVisibility() == View.VISIBLE){
+
+            if (id == fabImportImage.getId()) {
+                this.hideOptionMenu();
+                this.loadImageFromGallery();
 
 
-        } else if (id == fabTakeImage.getId()) {
-            this.hideOptionMenu();
-            this.phoneCameraAccess();
+            } else if (id == fabTakeImage.getId()) {
+                this.hideOptionMenu();
+                this.phoneCameraAccess();
+            }
         }
     }
 
@@ -268,14 +271,18 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         Log.d(TAG, "labelOnClick: ");
 
         int id = v.getId();
-        this.hideOptionMenu();
-        if (id == importImageLabel.getId()) {
+        if (takeImageLayout.getVisibility() == View.VISIBLE && importImageLayout.getVisibility() == View.VISIBLE) {
 
-            this.loadImageFromGallery();
+            this.hideOptionMenu();
+            if (id == importImageLabel.getId()) {
+
+                this.loadImageFromGallery();
 
 
-        } else if (id == takeImageLabel.getId()) {
-            this.phoneCameraAccess();
+            } else if (id == takeImageLabel.getId()) {
+                this.phoneCameraAccess();
+            }
+
         }
 
     }
@@ -331,7 +338,6 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         startActivityForResult(intent, LOAD_IMAGE_RESULT);
     }
 
-
     private void phoneCameraAccess() {
         // accessing the phone Camera
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -352,10 +358,9 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         final Animation hideOptionButton = AnimationUtils.loadAnimation(HomePage.this, R.anim.hide_buttons);
 
 
-        takeImageLayout.setVisibility(View.GONE);
-        importImageLayout.setVisibility(View.GONE);
-        optionMenuBackground.setVisibility(View.GONE);
 
+        this.disableLayoutsVisibility();
+        this.disableClickable();
 
         takeImageLayout.startAnimation(hideOptionButton);
         importImageLayout.startAnimation(hideOptionButton);
@@ -377,10 +382,9 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         final Animation showOptionButton = AnimationUtils.loadAnimation(HomePage.this, R.anim.show_buttons);
 
 
-        takeImageLayout.setVisibility(View.VISIBLE);
-        importImageLayout.setVisibility(View.VISIBLE);
 
-        optionMenuBackground.setVisibility(View.VISIBLE);
+        this.enableLayoutsVisibility();
+        this.enableClickable();
 
         takeImageLayout.startAnimation(showOptionButton);
         importImageLayout.startAnimation(showOptionButton);
@@ -389,10 +393,46 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         fabRecognise.startAnimation(rotateToX);
     }
 
+    public void disableClickable(){
+
+        importImageLayout.setClickable(false);
+        takeImageLayout.setClickable(false);
+        importImageLabel.setClickable(false);
+        takeImageLabel.setClickable(false);
+        fabImportImage.setClickable(false);
+        fabTakeImage.setClickable(false);
+    }
+
+    public  void enableClickable(){
+
+        importImageLayout.setClickable(true);
+        takeImageLayout.setClickable(true);
+        importImageLabel.setClickable(true);
+        takeImageLabel.setClickable(true);
+        fabImportImage.setClickable(true);
+        fabTakeImage.setClickable(true);
+
+    }
+
+    public  void enableLayoutsVisibility(){
+
+        takeImageLayout.setVisibility(View.VISIBLE);
+        importImageLayout.setVisibility(View.VISIBLE);
+        optionMenuBackground.setVisibility(View.VISIBLE);
+
+    }
+
+    public  void disableLayoutsVisibility(){
+
+        takeImageLayout.setVisibility(View.GONE);
+        importImageLayout.setVisibility(View.GONE);
+        optionMenuBackground.setVisibility(View.GONE);
+    }
 
     /**
      * Created by azeddine on 25/02/17.
      */
+
     @Override
     protected void onResume() {
         Log.d(TAG, "onResume: start");
