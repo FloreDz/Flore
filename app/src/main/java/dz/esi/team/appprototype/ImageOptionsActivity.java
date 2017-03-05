@@ -1,51 +1,39 @@
 package dz.esi.team.appprototype;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
-
 
 import com.soundcloud.android.crop.Crop;
 
 import java.io.File;
-import java.io.IOException;
-import java.net.URI;
 
 public class ImageOptionsActivity extends AppCompatActivity {
     private static final String TAG = "ImageOptionsActivity";
 
     // image proprieties
-    private  ImageView imageViewUploadedImage  ;
-    private  Uri imageViewUri;
-    private  Uri croppedImageUri;
+    private ImageView imageViewUploadedImage;
+    private Uri imageViewUri;
+    private Uri croppedImageUri;
 
-    private boolean croppedImage = false ;
+    private boolean croppedImage = false;
 
-    public static final String LOADED_IMAGE_PATH= "LOADED_IMAGE_PATH";
-    public static final String LOADED_IMAGE_URI= "LOADED_IMAGE_URI";
+    public static final String LOADED_IMAGE_PATH = "LOADED_IMAGE_PATH";
+    public static final String LOADED_IMAGE_URI = "LOADED_IMAGE_URI";
     public static final String STATE_IMAGE = "STATE_IMAGE";
-    private int croppedVersion =0;
+    private int croppedVersion = 0;
 
 
-
-
-    private  BottomNavigationView bottomNavigationViewImageOption;
+    private BottomNavigationView bottomNavigationViewImageOption;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,16 +54,16 @@ public class ImageOptionsActivity extends AppCompatActivity {
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                         int id = item.getItemId();
 
-                        switch (id){
+                        switch (id) {
                             case R.id.btn_crop:
-                                    croppedImage= true ;
-                                    beginCrop(imageViewUri);
+                                croppedImage = true;
+                                beginCrop(imageViewUri);
 
 
-                            break;
+                                break;
                             case R.id.btn_image_process:
-                                Toast.makeText(ImageOptionsActivity.this,"next",Toast.LENGTH_SHORT).show();
-                            break;
+                                Toast.makeText(ImageOptionsActivity.this, "next", Toast.LENGTH_SHORT).show();
+                                break;
                             default:
                         }
                         return true;
@@ -85,26 +73,26 @@ public class ImageOptionsActivity extends AppCompatActivity {
         if (!croppedImage) displayImage();
     }
 
-    private void displayImage(){
+    private void displayImage() {
         String uploadedImagePath = getIntent().getStringExtra(LOADED_IMAGE_PATH);
 
-        this.imageViewUri=  Uri.parse( getIntent().getStringExtra(LOADED_IMAGE_URI) );
+        this.imageViewUri = Uri.parse(getIntent().getStringExtra(LOADED_IMAGE_URI));
         this.imageViewUploadedImage.setImageBitmap(BitmapFactory.decodeFile(uploadedImagePath));
     }
 
-    private void beginCrop(Uri source)  {
-        this.croppedImageUri = Uri.fromFile(new File(getCacheDir(), "cropped"+croppedVersion));
-
+    private void beginCrop(Uri source) {
+        this.croppedImageUri = Uri.fromFile(new File(getCacheDir(), "cropped" + croppedVersion));
 
 
         Crop.of(source, this.croppedImageUri).start(this);
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent result) {
 
         if (requestCode == Crop.REQUEST_CROP && resultCode == RESULT_OK) {
             this.croppedVersion++;
-            this.imageViewUri=Crop.getOutput(result);
+            this.imageViewUri = Crop.getOutput(result);
             this.imageViewUploadedImage.setImageURI(this.imageViewUri);
         }
     }
@@ -112,21 +100,19 @@ public class ImageOptionsActivity extends AppCompatActivity {
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        croppedImage=savedInstanceState.getBoolean(STATE_IMAGE);
+        croppedImage = savedInstanceState.getBoolean(STATE_IMAGE);
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putBoolean(STATE_IMAGE,croppedImage);
-        Log.d(TAG, "onSaveInstanceState:  the cropped image "+ croppedImage);
-    }
-    
-    public void startRecognition(){
-       // convert the bitmap to mat using openCv
+        outState.putBoolean(STATE_IMAGE, croppedImage);
+        Log.d(TAG, "onSaveInstanceState:  the cropped image " + croppedImage);
     }
 
+    public void startRecognition() {
+        // convert the bitmap to mat using openCv
+    }
 
 
-    
 }

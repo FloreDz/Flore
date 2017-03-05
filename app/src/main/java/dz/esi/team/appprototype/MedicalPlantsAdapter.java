@@ -1,9 +1,7 @@
 package dz.esi.team.appprototype;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,14 +37,35 @@ public class MedicalPlantsAdapter extends ArrayAdapter {
     @NonNull
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View view = layoutInflater.inflate(resourceLayout, parent, false);
+        ViewHolder viewHolder;
 
-        TextView plantFamily = (TextView) view.findViewById(R.id.plant_name);
+        if (convertView == null) {
+
+            convertView = layoutInflater.inflate(resourceLayout, parent, false);
+            viewHolder = new ViewHolder(convertView);
+            convertView.setTag(viewHolder);
+
+        } else {
+            viewHolder = (ViewHolder) convertView.getTag();
+
+        }
+
 
         MedicalPlant plante = this.medicalPlants.get(position);
 
-        plantFamily.setText(plante.getFamilyName());
-        return view;
+        viewHolder.plantFamily.setText(plante.getFamilyName());
+
+        return convertView;
+    }
+
+
+    private class ViewHolder {
+        // this class is used to tore the widget ID for optimisation
+        final TextView plantFamily;
+
+        public ViewHolder(View view) {
+            this.plantFamily = (TextView) view.findViewById(R.id.plant_name);
+        }
     }
 
 

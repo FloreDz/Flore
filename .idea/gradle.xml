@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/app/libraries" />
             <option value="$PROJECT_DIR$/app/libraries/appIntro" />
+            <option value="$PROJECT_DIR$/app/libraries/cropper" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

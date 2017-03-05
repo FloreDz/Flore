@@ -5,17 +5,24 @@
     <color name="crop__button_text">#666666</color>
     <color name="crop__selector_focused">#77000000</color>
     <color name="crop__selector_pressed">#1a000000</color>
+    <color name="logo_blue_dark">#0D47A1</color>
+    <color name="logo_blue_light">#1E88E5</color>
+    <color name="logo_blue_medium">#1976D2</color>
+    <color name="logo_green_dark">#33691E</color>
+    <color name="logo_green_light">#8bc34a</color>
+    <color name="logo_green_medium">#689F38</color>
+    <color name="white_color_smoke">#fafafa</color>
     <declare-styleable name="CropImageView"><attr format="reference|color" name="highlightColor"/><attr format="boolean" name="showThirds"/><attr format="boolean" name="showCircle"/><attr name="showHandles">
           <enum name="changing" value="0"/>
           <enum name="always" value="1"/>
           <enum name="never" value="2"/>
         </attr></declare-styleable>
     <dimen name="crop__bar_height">56dp</dimen>
-    <string name="crop__cancel" ns1:ignore="ButtonCase">CANCEL</string>
-    <string name="crop__done">DONE</string>
+    <string name="crop__cancel" ns1:ignore="ButtonCase">Annuler</string>
+    <string name="crop__done">Terminé</string>
     <string name="crop__pick_error">No image sources available</string>
-    <string name="crop__saving">Saving picture…</string>
-    <string name="crop__wait">Please wait…</string>
+    <string name="crop__saving">Sauvguardons limage …</string>
+    <string name="crop__wait">atander... SVP</string>
     <style name="Crop"/>
     <style name="Crop.ActionButton">
         <item name="android:layout_width">0dp</item>
@@ -49,6 +56,6 @@
         <item name="android:divider">@drawable/crop__divider</item>
         <item name="android:showDividers" ns1:ignore="NewApi">middle</item>
         <item name="android:dividerPadding" ns1:ignore="NewApi">12dp</item>
-        <item name="android:background">@color/crop__button_bar</item>
+        <item name="android:background">@color/white_color_smoke</item>
     </style>
 </resources>

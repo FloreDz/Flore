@@ -19,17 +19,26 @@ public final class R {
 		public static final int crop__button_text = 0x7f060002;
 		public static final int crop__selector_focused = 0x7f060003;
 		public static final int crop__selector_pressed = 0x7f060000;
+		public static final int logo_blue_dark = 0x7f060004;
+		public static final int logo_blue_light = 0x7f060005;
+		public static final int logo_blue_medium = 0x7f060006;
+		public static final int logo_green_dark = 0x7f060007;
+		public static final int logo_green_light = 0x7f060008;
+		public static final int logo_green_medium = 0x7f060009;
+		public static final int white_color_smoke = 0x7f06000a;
 	}
 	public static final class dimen {
 		public static final int crop__bar_height = 0x7f050000;
 	}
 	public static final class drawable {
-		public static final int crop__divider = 0x7f020000;
-		public static final int crop__ic_cancel = 0x7f020001;
-		public static final int crop__ic_done = 0x7f020002;
-		public static final int crop__selectable_background = 0x7f020003;
-		public static final int crop__texture = 0x7f020004;
-		public static final int crop__tile = 0x7f020005;
+		public static final int cancel = 0x7f020000;
+		public static final int crop__divider = 0x7f020001;
+		public static final int crop__ic_cancel = 0x7f020002;
+		public static final int crop__ic_done = 0x7f020003;
+		public static final int crop__selectable_background = 0x7f020004;
+		public static final int crop__texture = 0x7f020005;
+		public static final int crop__tile = 0x7f020006;
+		public static final int done = 0x7f020007;
 	}
 	public static final class id {
 		public static final int always = 0x7f080000;
