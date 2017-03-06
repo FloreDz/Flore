@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4/crop__ic_done.png",
+        "source": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/bundles/debug/res/drawable-xhdpi-v4/crop__ic_done.png"
+    },
+    {
+        "merged": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4/cancel.png",
+        "source": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/bundles/debug/res/drawable-xhdpi-v4/cancel.png"
+    },
+    {
+        "merged": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4/crop__divider.9.png",
+        "source": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/bundles/debug/res/drawable-xhdpi-v4/crop__divider.9.png"
+    },
+    {
+        "merged": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4/crop__tile.png",
+        "source": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/bundles/debug/res/drawable-xhdpi-v4/crop__tile.png"
+    },
+    {
+        "merged": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4/done.png",
+        "source": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/bundles/debug/res/drawable-xhdpi-v4/done.png"
+    },
+    {
+        "merged": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4/crop__ic_cancel.png",
+        "source": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/bundles/debug/res/drawable-xhdpi-v4/crop__ic_cancel.png"
+    }
+]

@@ -4,10 +4,6 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_home"
-            android:icon="@drawable/home"
-            android:title="Accueille" />
-        <item
             android:id="@+id/nav_preferences"
             android:icon="@drawable/settings"
             android:title="Préférences" />

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="dz.esi.team.appprototype.ImageOptionsActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/imageOption_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+         />
+
+    </android.support.design.widget.AppBarLayout>
+
+
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/gallery"
+            android:id="@+id/imageView_uploadedImage"
+            android:layout_gravity="center"
+            android:contentDescription="image_placeholder" />
+
+
+    <LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:orientation="vertical">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@drawable/bottom_nav_bar_dropshadow"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white_color_smoke">
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottomNavigationView_ImageOption"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:elevation="10dp"
+        app:itemBackground="@color/white_color_smoke"
+        app:itemTextColor="@color/logo_blue_medium"
+        app:itemIconTint="@color/logo_blue_medium"
+        app:menu="@menu/menu_image_options" />
+        </LinearLayout>
+
+</LinearLayout>
+
+
+</android.support.design.widget.CoordinatorLayout>

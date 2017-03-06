@@ -6,17 +6,14 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.widget.SearchView;
-import android.util.Log;
 import android.view.Menu;
+import android.widget.SearchView;
 
 
 public class SearchPlantesActivity extends BaseActivity {
-    public static final String PLANTE_QUERY = "PLANT_QUERY" ;
+    public static final String PLANTE_QUERY = "PLANT_QUERY";
     private static final String TAG = "SearchPlantesActivity";
-    private  SearchView searchView;
+    private SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,13 +21,13 @@ public class SearchPlantesActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.search_plantes);
 
-        // this method will activate the layout toolBar i, it is implemented in the BaseActivity
+        // this method will activate the layout toolBar , it is implemented in the BaseActivity
         activateToolBar(false);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.plante_search_menu,menu);
+        getMenuInflater().inflate(R.menu.plante_search_menu, menu);
 
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
 
@@ -46,7 +43,7 @@ public class SearchPlantesActivity extends BaseActivity {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-                sharedPreferences.edit().putString(PLANTE_QUERY,query).apply();
+                sharedPreferences.edit().putString(PLANTE_QUERY, query).apply();
                 searchView.clearFocus();
                 finish();
                 return true;

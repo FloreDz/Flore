@@ -1,0 +1,22 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Crop.DoneCancelBar"
+    android:layout_gravity="bottom">
+
+    <FrameLayout
+        android:id="@+id/btn_cancel"
+        style="@style/Crop.ActionButton" >
+        <TextView style="@style/Crop.ActionButtonText.Cancel" android:textColor="@color/logo_blue_medium"
+            android:drawableLeft="@drawable/cancel"
+            tools:ignore="RtlHardcoded" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/btn_done"
+        style="@style/Crop.ActionButton">
+        <TextView style="@style/Crop.ActionButtonText.Done" android:textColor="@color/logo_blue_medium"
+            android:drawableLeft="@drawable/done"
+            tools:ignore="RtlHardcoded" />
+    </FrameLayout>
+
+</LinearLayout>

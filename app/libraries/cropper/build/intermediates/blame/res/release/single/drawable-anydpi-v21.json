@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/res/merged/release/drawable-anydpi-v21/done.xml",
+        "source": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/generated/res/pngs/release/drawable-anydpi-v21/done.xml"
+    },
+    {
+        "merged": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/res/merged/release/drawable-anydpi-v21/cancel.xml",
+        "source": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/generated/res/pngs/release/drawable-anydpi-v21/cancel.xml"
+    }
+]
