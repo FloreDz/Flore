@@ -195,7 +195,6 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-        this.hideOptionMenu();
 
         // the first condition to be verified
         if (id == R.id.content_search_menu) {

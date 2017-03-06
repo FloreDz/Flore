@@ -76,8 +76,16 @@ public class ImageOptionsActivity extends AppCompatActivity {
     private void displayImage() {
         String uploadedImagePath = getIntent().getStringExtra(LOADED_IMAGE_PATH);
 
-        this.imageViewUri = Uri.parse(getIntent().getStringExtra(LOADED_IMAGE_URI));
-        this.imageViewUploadedImage.setImageBitmap(BitmapFactory.decodeFile(uploadedImagePath));
+        if(this.imageViewUri != null){
+            this.imageViewUri = Uri.parse(getIntent().getStringExtra(LOADED_IMAGE_URI));
+            this.imageViewUploadedImage.setImageBitmap(BitmapFactory.decodeFile(uploadedImagePath));
+        }else{
+            this.imageViewUri = (Uri) getIntent().getExtras().get(Intent.EXTRA_STREAM);
+            this.imageViewUploadedImage.setImageURI(this.imageViewUri);
+            }
+
+
+
     }
 
     private void beginCrop(Uri source) {
