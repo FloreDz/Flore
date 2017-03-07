@@ -30,6 +30,12 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import dz.esi.team.appprototype.utils.MedicalPlant;
+import dz.esi.team.appprototype.utils.MedicalPlantsAdapter;
+import dz.esi.team.appprototype.utils.MedicalPlantsFamily;
+import dz.esi.team.appprototype.utils.Section;
+import dz.esi.team.appprototype.utils.ViewHolder;
+
 public class HomePage extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     public static final int LOAD_IMAGE_RESULT = 1;
@@ -302,20 +308,26 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         @Override
         protected void onPostExecute(String s) {
 
-            List<MedicalPlant> plants = new ArrayList<>();
-            MedicalPlant plante = new MedicalPlant("a3chabe", "za3ter");
-            plants.add(plante);
-            plante = new MedicalPlant("medical plant 1", "za3ter");
-            plants.add(plante);
-            plante = new MedicalPlant("medical plant  2", "za3ter");
-            plants.add(plante);
-            plante = new MedicalPlant("medical plant 3", "za3ter");
-            plants.add(plante);
-            plante = new MedicalPlant("medical plant 4", "za3ter");
-            plants.add(plante);
-            plante = new MedicalPlant("medical plant 5", "za3ter");
-            plants.add(plante);
-            MedicalPlantsAdapter plantsAdapter = new MedicalPlantsAdapter(HomePage.this, R.layout.listview_plantes, plants);
+            List<Section> sectionArrayList  = new ArrayList<>();
+            Section family = new MedicalPlantsFamily("medical plantes family 1");
+            sectionArrayList.add(family);
+            Section plant  = new MedicalPlant((MedicalPlantsFamily) family,"paln 1 ");
+            sectionArrayList.add(plant);
+             plant  = new MedicalPlant((MedicalPlantsFamily) family,"paln 2 ");
+            sectionArrayList.add(plant);
+            plant  = new MedicalPlant((MedicalPlantsFamily) family,"paln 3 ");
+            sectionArrayList.add(plant);
+            family = new MedicalPlantsFamily("medical plantes family 2");
+            sectionArrayList.add(family);
+            plant  = new MedicalPlant((MedicalPlantsFamily) family,"palnt 1 ");
+            sectionArrayList.add(plant);
+            plant  = new MedicalPlant((MedicalPlantsFamily) family,"palnt 2 ");
+            sectionArrayList.add(plant);
+            plant  = new MedicalPlant((MedicalPlantsFamily) family,"palnt 3 ");
+            sectionArrayList.add(plant);
+
+
+            MedicalPlantsAdapter plantsAdapter = new MedicalPlantsAdapter(HomePage.this,R.layout.listview_plantes,R.layout.plants_family_header,sectionArrayList);
             plantListView.setAdapter(plantsAdapter);
             plantListView.setOnItemClickListener(this);
         }
@@ -323,7 +335,8 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             Log.d(TAG, "onItemClick: the item with the position " + position + " and the id" + id);
-            String remarque = ((TextView) view.findViewById(R.id.plant_name)).getText().toString();
+
+            String remarque = ((ViewHolder) view.getTag()).getTitle().getText().toString();
             Toast.makeText(HomePage.this, remarque, Toast.LENGTH_LONG).show();
         }
 

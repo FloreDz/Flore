@@ -76,7 +76,7 @@ public class ImageOptionsActivity extends AppCompatActivity {
     private void displayImage() {
         String uploadedImagePath = getIntent().getStringExtra(LOADED_IMAGE_PATH);
 
-        if(this.imageViewUri != null){
+        if(uploadedImagePath!= null){
             this.imageViewUri = Uri.parse(getIntent().getStringExtra(LOADED_IMAGE_URI));
             this.imageViewUploadedImage.setImageBitmap(BitmapFactory.decodeFile(uploadedImagePath));
         }else{
