@@ -96,7 +96,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         optionMenuBackground.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (takeImageLayout.getVisibility() == View.VISIBLE && importImageLayout.getVisibility() == View.VISIBLE) {
+                if (isVisible()) {
                     hideOptionMenu();
                 }
             }
@@ -180,7 +180,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
 
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else if (takeImageLayout.getVisibility() == View.VISIBLE && importImageLayout.getVisibility() == View.VISIBLE) {
+        } else if (isVisible()) {
             hideOptionMenu();
         } else super.onBackPressed();
     }
@@ -226,7 +226,6 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         // as you specify a parent activity in AndroidManifest.xml.
 
         Intent intent;
-        Log.d(TAG, "onOptionsItemSelected:  " + item.getItemId() + " " + R.id.toolbar_search_access);
 
         int id = item.getItemId();
         // stating the searh activity
@@ -248,13 +247,13 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
 
         if (id == fabRecognise.getId()) {
             // the main FAB + is being clicked 
-            if (takeImageLayout.getVisibility() == View.VISIBLE && importImageLayout.getVisibility() == View.VISIBLE) {
+            if (isVisible()) {
                 hideOptionMenu();
             } else {
                 showOptionMenu();
             }
 
-        }else  if (takeImageLayout.getVisibility() == View.VISIBLE && importImageLayout.getVisibility() == View.VISIBLE){
+        }else  if (isVisible()){
 
             if (id == fabImportImage.getId()) {
                 this.hideOptionMenu();
@@ -275,7 +274,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         Log.d(TAG, "labelOnClick: ");
 
         int id = v.getId();
-        if (takeImageLayout.getVisibility() == View.VISIBLE && importImageLayout.getVisibility() == View.VISIBLE) {
+        if (isVisible()) {
 
             this.hideOptionMenu();
             if (id == importImageLabel.getId()) {
@@ -438,6 +437,14 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         takeImageLayout.setVisibility(View.GONE);
         importImageLayout.setVisibility(View.GONE);
         optionMenuBackground.setVisibility(View.GONE);
+    }
+
+    public boolean isVisible(){
+        if (takeImageLayout.getVisibility() == View.VISIBLE && importImageLayout.getVisibility() == View.VISIBLE) {
+            return true ;
+        } else {
+            return false ;
+        }
     }
 
     /**
