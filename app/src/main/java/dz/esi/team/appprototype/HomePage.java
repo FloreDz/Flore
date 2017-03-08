@@ -229,7 +229,6 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         Log.d(TAG, "onOptionsItemSelected:  " + item.getItemId() + " " + R.id.toolbar_search_access);
 
         int id = item.getItemId();
-        this.hideOptionMenu();
         // stating the searh activity
         if (id == R.id.app_search_bar) {
             intent = new Intent(HomePage.this, SearchPlantesActivity.class);
