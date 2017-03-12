@@ -12,6 +12,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -22,6 +23,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -52,6 +54,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
     private NavigationView navigationView;
     private Toolbar toolbar_search_access;
     private ActionBarDrawerToggle toggle;
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     //layouts
     LinearLayout takeImageLayout;
@@ -102,6 +105,22 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
             }
         });
 
+        swipeRefreshLayout.setOnRefreshListener(
+                new SwipeRefreshLayout.OnRefreshListener() {
+                    @Override
+                    public void onRefresh() {
+                        swipeRefreshLayout.setColorSchemeResources(R.color.logo_green_light);
+                        Toast.makeText(HomePage.this, "refresh", Toast.LENGTH_LONG).show();
+                        // This method performs the actual data-refresh operation.
+                        // The method calls setRefreshing(false) when it's finished.
+
+                    }
+
+                }
+        );
+
+
+
 
     }
 
@@ -126,6 +145,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
                 this, drawer, toolbar_search_access, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
+        swipeRefreshLayout = (SwipeRefreshLayout)findViewById(R.id.swiperefresh);
 
 
         // buttons
@@ -189,9 +209,8 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
     public boolean onCreateOptionsMenu(Menu menu) {
         Log.d(TAG, "onCreateOptionsMenu: creating the option menu");
         getMenuInflater().inflate(R.menu.search_menu, menu);
-        for (int i = 0; i < menu.size(); i++) {
-            menu.getItem(i).setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
-        }
+            menu.getItem(0).setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -200,20 +219,20 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
+        Intent intent  ;
         int id = item.getItemId();
 
-        // the first condition to be verified
-        if (id == R.id.content_search_menu) {
-            // Handle the home action
-            Log.d(TAG, "onNavigationItemSelected: navigate to the home activity");
-        } else if (id == R.id.nav_preferences) {
-            Log.d(TAG, "onNavigationItemSelected: navigate to the preferences activity ");
+       if (id == R.id.nav_preferences) {
+            intent = new Intent(HomePage.this,PreferencesActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_aboutus) {
-            Log.d(TAG, "onNavigationItemSelected: navigate to the about us activity ");
+            intent = new Intent(HomePage.this,AboutsUsActivity.class) ;
+            startActivity(intent);
         } else if (id == R.id.nav_user_guide) {
-            Log.d(TAG, "onNavigationItemSelected: navigate to the user guide activity");
+            intent = new Intent(HomePage.this,HelpActivity.class) ;
+           startActivity(intent);
         }
-
+        if(isVisible()) hideOptionMenu();
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
@@ -263,6 +282,8 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
             } else if (id == fabTakeImage.getId()) {
                 this.hideOptionMenu();
                 this.phoneCameraAccess();
+                ImageView imageView;
+
             }
         }
     }

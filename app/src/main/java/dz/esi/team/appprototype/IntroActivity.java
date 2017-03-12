@@ -20,8 +20,8 @@ public class IntroActivity extends AppIntro {
         CharSequence title = "slide title ";
         CharSequence description = "a simple and short discription of the option that our app provide  ";
         addSlide(AppIntroFragment.newInstance(title, description, R.drawable.intro_slide_take_photo, getResources().getColor(R.color.logo_blue_light)));
-        addSlide(AppIntroFragment.newInstance(title, description, R.drawable.intro_slide_choose_photo, getResources().getColor(R.color.logo_blue_light)));
         addSlide(AppIntroFragment.newInstance(title, description, R.drawable.intro_slide_search, getResources().getColor(R.color.logo_blue_light)));
+        addSlide(AppIntroFragment.newInstance(title, description, R.drawable.intro_slide_profile, getResources().getColor(R.color.logo_blue_light)));
         showStatusBar(false);
 
 

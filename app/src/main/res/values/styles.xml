@@ -8,6 +8,7 @@
         <item name="colorPrimaryDark">@color/logo_blue_medium</item>
         <!---The accent should be used for the floating action button and interactive elements-->
         <item name="colorAccent">@color/logo_green_medium</item>
+        <item name="android:actionMenuTextColor">@android:color/holo_orange_light</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
