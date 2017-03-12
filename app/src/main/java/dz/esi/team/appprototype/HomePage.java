@@ -105,7 +105,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
             }
         });
 
-        swipeRefreshLayout.setOnRefreshListener(
+       /* swipeRefreshLayout.setOnRefreshListener(
                 new SwipeRefreshLayout.OnRefreshListener() {
                     @Override
                     public void onRefresh() {
@@ -117,7 +117,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
                     }
 
                 }
-        );
+        );*/
 
 
 
@@ -145,7 +145,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
                 this, drawer, toolbar_search_access, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
-        swipeRefreshLayout = (SwipeRefreshLayout)findViewById(R.id.swiperefresh);
+      //  swipeRefreshLayout = (SwipeRefreshLayout)findViewById(R.id.swiperefresh);
 
 
         // buttons
@@ -223,14 +223,11 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         int id = item.getItemId();
 
        if (id == R.id.nav_preferences) {
-            intent = new Intent(HomePage.this,PreferencesActivity.class);
-            startActivity(intent);
+
         } else if (id == R.id.nav_aboutus) {
-            intent = new Intent(HomePage.this,AboutsUsActivity.class) ;
-            startActivity(intent);
+
         } else if (id == R.id.nav_user_guide) {
-            intent = new Intent(HomePage.this,HelpActivity.class) ;
-           startActivity(intent);
+
         }
         if(isVisible()) hideOptionMenu();
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

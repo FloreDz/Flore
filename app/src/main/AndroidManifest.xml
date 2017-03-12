@@ -71,28 +71,7 @@
             android:name="com.soundcloud.android.crop.CropImageActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
-        <activity
-            android:name=".HelpActivity"
-            android:label="@string/title_activity_help"
-            android:parentActivityName=".HomePage"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="dz.esi.team.appprototype.HomePage" />
-        </activity>
-        <activity
-            android:name=".AboutsUsActivity"
-            android:label="@string/title_activity_abouts_us"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".PreferencesActivity"
-            android:label="@string/title_activity_prefrences"
-            android:parentActivityName=".HomePage"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="dz.esi.team.appprototype.HomePage" />
-        </activity>
+
     </application>
 
 </manifest>
