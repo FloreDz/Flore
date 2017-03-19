@@ -1,22 +1,22 @@
 [
     {
-        "merged": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/res/merged/debug/drawable-mdpi-v4/crop__ic_done.png",
-        "source": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/src/main/res/drawable-mdpi/crop__ic_done.png"
+        "merged": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/cropper/build/intermediates/res/merged/debug/drawable-mdpi-v4/crop__ic_done.png",
+        "source": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/cropper/src/main/res/drawable-mdpi/crop__ic_done.png"
     },
     {
-        "merged": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/res/merged/debug/drawable-mdpi-v4/cancel.png",
-        "source": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/generated/res/pngs/debug/drawable-mdpi/cancel.png"
+        "merged": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/cropper/build/intermediates/res/merged/debug/drawable-mdpi-v4/crop__ic_cancel.png",
+        "source": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/cropper/src/main/res/drawable-mdpi/crop__ic_cancel.png"
     },
     {
-        "merged": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/res/merged/debug/drawable-mdpi-v4/crop__ic_cancel.png",
-        "source": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/src/main/res/drawable-mdpi/crop__ic_cancel.png"
+        "merged": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/cropper/build/intermediates/res/merged/debug/drawable-mdpi-v4/done.png",
+        "source": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/cropper/build/generated/res/pngs/debug/drawable-mdpi/done.png"
     },
     {
-        "merged": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/res/merged/debug/drawable-mdpi-v4/done.png",
-        "source": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/generated/res/pngs/debug/drawable-mdpi/done.png"
+        "merged": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/cropper/build/intermediates/res/merged/debug/drawable-mdpi-v4/cancel.png",
+        "source": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/cropper/build/generated/res/pngs/debug/drawable-mdpi/cancel.png"
     },
     {
-        "merged": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/res/merged/debug/drawable-mdpi-v4/crop__divider.9.png",
-        "source": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/src/main/res/drawable-mdpi/crop__divider.9.png"
+        "merged": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/cropper/build/intermediates/res/merged/debug/drawable-mdpi-v4/crop__divider.9.png",
+        "source": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/cropper/src/main/res/drawable-mdpi/crop__divider.9.png"
     }
 ]

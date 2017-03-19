@@ -5,6 +5,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import dz.esi.team.appprototype.utils.MedicalPlant;
+import dz.esi.team.appprototype.utils.MedicalPlantsFamily;
+import dz.esi.team.appprototype.utils.Section;
+
 /**
  * Created by azeddine on 25/02/17.
  */
@@ -30,4 +37,5 @@ public class BaseActivity extends AppCompatActivity {
                 getSupportActionBar().setDisplayShowHomeEnabled(enableHome);
         }
     }
+
 }

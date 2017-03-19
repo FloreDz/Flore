@@ -12,7 +12,6 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -30,6 +29,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import dz.esi.team.appprototype.utils.MedicalPlant;
@@ -43,8 +44,13 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
     public static final int LOAD_IMAGE_RESULT = 1;
     public static final String LOADED_IMAGE_PATH = "LOADED_IMAGE_PATH";
     public static final String LOADED_IMAGE_URI = "LOADED_IMAGE_URI";
-    private static final String TAG = "HomePage";
-    public static final String ERROR_MESS = "Something went wrong";
+    private static final String TAG = HomePage.class.getSimpleName();
+    private static final String ERROR_MESS = "Something went wrong";
+
+    private static final String SHOW_PLANTS_DEFAULT = "SHOW_PLANTS_DEFAULT";
+    private static final String SHOW_PLANTS_BY_FAMILIES = "SHOW_PLANTS_BY_FAMILIRS";
+    public static final String DISPLAY_TYPE = "DISPLAY_TYPE";
+    public static String DISPLAY_STATE = SHOW_PLANTS_DEFAULT;
 
     //image path
     private String imagePath;
@@ -54,7 +60,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
     private NavigationView navigationView;
     private Toolbar toolbar_search_access;
     private ActionBarDrawerToggle toggle;
-    private SwipeRefreshLayout swipeRefreshLayout;
+    private Menu optionMenu;
 
     //layouts
     LinearLayout takeImageLayout;
@@ -62,22 +68,17 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
     DrawerLayout drawer;
     FrameLayout optionMenuBackground;
 
-
     // buttons
     FloatingActionButton fabRecognise;
     FloatingActionButton fabTakeImage;
     FloatingActionButton fabImportImage;
 
-
     //labels
     TextView importImageLabel;
     TextView takeImageLabel;
-
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.d(TAG, "onCreate: ");
-
 
         introPageHandler();
 
@@ -89,12 +90,14 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
 
         //data handling
         // loading medical plant list view in the background
-        loadMedicalPlantsListView("all");
+        loadMedicalPlantsListView(DISPLAY_STATE);
 
         //handling events
+
         //costume components
         navigationView.setNavigationItemSelectedListener(this);
         setSupportActionBar(toolbar_search_access);
+
         //layout
         optionMenuBackground.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,24 +107,6 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
                 }
             }
         });
-
-       /* swipeRefreshLayout.setOnRefreshListener(
-                new SwipeRefreshLayout.OnRefreshListener() {
-                    @Override
-                    public void onRefresh() {
-                        swipeRefreshLayout.setColorSchemeResources(R.color.logo_green_light);
-                        Toast.makeText(HomePage.this, "refresh", Toast.LENGTH_LONG).show();
-                        // This method performs the actual data-refresh operation.
-                        // The method calls setRefreshing(false) when it's finished.
-
-                    }
-
-                }
-        );*/
-
-
-
-
     }
 
     public void widgetHydration() {
@@ -145,7 +130,6 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
                 this, drawer, toolbar_search_access, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
-      //  swipeRefreshLayout = (SwipeRefreshLayout)findViewById(R.id.swiperefresh);
 
 
         // buttons
@@ -209,7 +193,9 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
     public boolean onCreateOptionsMenu(Menu menu) {
         Log.d(TAG, "onCreateOptionsMenu: creating the option menu");
         getMenuInflater().inflate(R.menu.search_menu, menu);
-            menu.getItem(0).setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+        menu.getItem(0).setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+        if(DISPLAY_STATE.equals(SHOW_PLANTS_BY_FAMILIES))menu.getItem(1).setChecked(true);
+        this.optionMenu = menu;
 
         return super.onCreateOptionsMenu(menu);
     }
@@ -219,17 +205,18 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
-        Intent intent  ;
+        Intent intent;
         int id = item.getItemId();
 
-       if (id == R.id.nav_preferences) {
+        if (id == R.id.nav_preferences) {
 
         } else if (id == R.id.nav_aboutus) {
-
+            startActivity(new Intent(HomePage.this, AboutUsActivity.class));
         } else if (id == R.id.nav_user_guide) {
-
+            intent = new Intent(HomePage.this,HelpActivity.class);
+            startActivity(intent);
         }
-        if(isVisible()) hideOptionMenu();
+        if (isVisible()) hideOptionMenu();
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
@@ -242,18 +229,28 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         // as you specify a parent activity in AndroidManifest.xml.
 
         Intent intent;
-
+        MenuItem optionMenuItem;
         int id = item.getItemId();
         // stating the searh activity
-        if (id == R.id.app_search_bar) {
-            intent = new Intent(HomePage.this, SearchPlantesActivity.class);
-            startActivity(intent);
-            return true;
+        switch (id) {
+            case R.id.app_search_bar:
+
+                intent = new Intent(HomePage.this,SearchPlantesActivity.class);
+                startActivity(intent);
+                break;
+
+            case R.id.option_show_by_familly:
+
+                this.setDisplayState(item, item.isChecked());
+
+                break;
+
+            default:
         }
 
         return toggle.onOptionsItemSelected(item);
-    }
 
+    }
 
     public void fabOnClick(View v) {
         // one of the floating action button is being clicked
@@ -269,7 +266,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
                 showOptionMenu();
             }
 
-        }else  if (isVisible()){
+        } else if (isVisible()) {
 
             if (id == fabImportImage.getId()) {
                 this.hideOptionMenu();
@@ -284,7 +281,6 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
             }
         }
     }
-
 
     public void labelOnClick(View v) {
         // one of the label of floating action button is being clicked
@@ -308,42 +304,58 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
 
     }
 
-
-    private class MedicalPlanesListViewHandler extends AsyncTask<String, Void, String> implements AdapterView.OnItemClickListener {
+    private class MedicalPlanesListViewHandler extends AsyncTask<String, Void, List<Section>> implements AdapterView.OnItemClickListener {
         // this nested class extend AsyncTask , it use to load data in the background using multiThreding
         // after we implement the data base the signature will change to <String,Void,Cursor> the cursor will
         // point to the first element of the data that match our search query sent from the search activity
 
         @Override
-        protected String doInBackground(String... params) {
+        protected List<Section> doInBackground(String... params) {
 
-            return "azeddine";
+            String option = params[0];
+
+            List<MedicalPlant> medicalPlantsList = new ArrayList<>();
+            List<MedicalPlantsFamily> medicalPlantsFamilyList = new ArrayList<>();
+
+
+            /************************************************************************************************/
+            MedicalPlant plant = new MedicalPlant("Allium sativum L", R.mipmap.ail, "medical plants family");
+            medicalPlantsList.add(plant);
+            medicalPlantsList.add(plant);
+            medicalPlantsList.add(plant);
+            medicalPlantsList.add(plant);
+
+            MedicalPlantsFamily family = new MedicalPlantsFamily("medical plantes family 1", medicalPlantsList);
+            medicalPlantsFamilyList.add(family);
+
+            medicalPlantsList.add(plant);
+
+            family = new MedicalPlantsFamily("Aedical plantes family 1", medicalPlantsList);
+            medicalPlantsFamilyList.add(family);
+
+            medicalPlantsList.add(plant);
+            family = new MedicalPlantsFamily("medical plantes family 1", medicalPlantsList);
+            medicalPlantsFamilyList.add(family);
+            /***********************************************************************************************/
+
+            for (MedicalPlantsFamily medicalPlantsFamily : medicalPlantsFamilyList) {
+                Collections.sort(medicalPlantsFamily.getMedicalPlantList(), new Comparator<MedicalPlant>() {
+                    @Override
+                    public int compare(MedicalPlant o1, MedicalPlant o2) {
+                        return o1.getName().compareTo(o2.getName());
+                    }
+                });
+            }
+
+            return spreadFamilyList(medicalPlantsFamilyList, option);
+
+
         }
 
-
         @Override
-        protected void onPostExecute(String s) {
+        protected void onPostExecute(List<Section> listViewSections) {
 
-            List<Section> sectionArrayList  = new ArrayList<>();
-            Section family = new MedicalPlantsFamily("medical plantes family 1");
-            sectionArrayList.add(family);
-            Section plant  = new MedicalPlant((MedicalPlantsFamily) family,"paln 1 ");
-            sectionArrayList.add(plant);
-             plant  = new MedicalPlant((MedicalPlantsFamily) family,"paln 2 ");
-            sectionArrayList.add(plant);
-            plant  = new MedicalPlant((MedicalPlantsFamily) family,"paln 3 ");
-            sectionArrayList.add(plant);
-            family = new MedicalPlantsFamily("medical plantes family 2");
-            sectionArrayList.add(family);
-            plant  = new MedicalPlant((MedicalPlantsFamily) family,"palnt 1 ");
-            sectionArrayList.add(plant);
-            plant  = new MedicalPlant((MedicalPlantsFamily) family,"palnt 2 ");
-            sectionArrayList.add(plant);
-            plant  = new MedicalPlant((MedicalPlantsFamily) family,"palnt 3 ");
-            sectionArrayList.add(plant);
-
-
-            MedicalPlantsAdapter plantsAdapter = new MedicalPlantsAdapter(HomePage.this,R.layout.listview_plantes,R.layout.plants_family_header,sectionArrayList);
+            MedicalPlantsAdapter plantsAdapter = new MedicalPlantsAdapter(HomePage.this, R.layout.listview_plantes, R.layout.plants_family_header, listViewSections);
             plantListView.setAdapter(plantsAdapter);
             plantListView.setOnItemClickListener(this);
         }
@@ -354,11 +366,37 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
 
             String remarque = ((ViewHolder) view.getTag()).getTitle().getText().toString();
             Toast.makeText(HomePage.this, remarque, Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(HomePage.this, ProfileActivity.class);
+            startActivity(intent);
         }
 
+        private List<Section> spreadFamilyList(List<MedicalPlantsFamily> medicalPlantsFamilyList, String option) {
+            List<MedicalPlant> medicalPlantList;
+            List<Section> updatedList = new ArrayList<>();
+
+            if (option.equals(SHOW_PLANTS_BY_FAMILIES)) {
+                Collections.sort(medicalPlantsFamilyList, new Comparator<MedicalPlantsFamily>() {
+                    @Override
+                    public int compare(MedicalPlantsFamily o1, MedicalPlantsFamily o2) {
+                        return o1.getMedicalPlantsFamilyName().compareTo(o2.getMedicalPlantsFamilyName());
+                    }
+                });
+            }
+
+
+            for (MedicalPlantsFamily family : medicalPlantsFamilyList) {
+                if (option.equals(SHOW_PLANTS_BY_FAMILIES)) updatedList.add(family);
+                medicalPlantList = family.getMedicalPlantList();
+                for (MedicalPlant medicalPlant : medicalPlantList) {
+                    updatedList.add(medicalPlant);
+                }
+            }
+
+
+            return updatedList;
+        }
 
     }
-
 
     private void loadImageFromGallery() {
         // accessing the phone gallery
@@ -373,6 +411,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
     }
 
     // optionMenu display handling
+
     private void hideOptionMenu() {
         Log.d(TAG, "hideOptionMenu: hiding the option menu");
         final FloatingActionButton fabRecognise = (FloatingActionButton) findViewById(R.id.fab_recognition);
@@ -384,7 +423,6 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
 
         final Animation rotateToPlus = AnimationUtils.loadAnimation(HomePage.this, R.anim.show_button_layout);
         final Animation hideOptionButton = AnimationUtils.loadAnimation(HomePage.this, R.anim.hide_buttons);
-
 
 
         this.disableLayoutsVisibility();
@@ -410,7 +448,6 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         final Animation showOptionButton = AnimationUtils.loadAnimation(HomePage.this, R.anim.show_buttons);
 
 
-
         this.enableLayoutsVisibility();
         this.enableClickable();
 
@@ -421,7 +458,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         fabRecognise.startAnimation(rotateToX);
     }
 
-    public void disableClickable(){
+    public void disableClickable() {
 
         importImageLayout.setClickable(false);
         takeImageLayout.setClickable(false);
@@ -431,7 +468,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         fabTakeImage.setClickable(false);
     }
 
-    public  void enableClickable(){
+    public void enableClickable() {
 
         importImageLayout.setClickable(true);
         takeImageLayout.setClickable(true);
@@ -442,7 +479,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
 
     }
 
-    public  void enableLayoutsVisibility(){
+    public void enableLayoutsVisibility() {
 
         takeImageLayout.setVisibility(View.VISIBLE);
         importImageLayout.setVisibility(View.VISIBLE);
@@ -450,50 +487,44 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
 
     }
 
-    public  void disableLayoutsVisibility(){
+    public void disableLayoutsVisibility() {
 
         takeImageLayout.setVisibility(View.GONE);
         importImageLayout.setVisibility(View.GONE);
         optionMenuBackground.setVisibility(View.GONE);
     }
 
-    public boolean isVisible(){
+    public boolean isVisible() {
         if (takeImageLayout.getVisibility() == View.VISIBLE && importImageLayout.getVisibility() == View.VISIBLE) {
-            return true ;
+            return true;
         } else {
-            return false ;
+            return false;
         }
     }
 
-    /**
-     * Created by azeddine on 25/02/17.
-     */
+    public void setDisplayState(MenuItem item, boolean state) {
+        if (state) {
 
-    @Override
-    protected void onResume() {
-        Log.d(TAG, "onResume: start");
-        super.onResume();
+            item.setChecked(false);
+            loadMedicalPlantsListView(SHOW_PLANTS_DEFAULT);
+            DISPLAY_STATE = SHOW_PLANTS_DEFAULT;
 
-        // accessing the shared prefrences file to get the query submitted by te user
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        String queryResult = sharedPreferences.getString(PLANT_QUERY, "");
+        } else {
 
-        // testing if the user had entered non empty query
-        if (queryResult.length() > 0)
-            Toast.makeText(HomePage.this, queryResult, Toast.LENGTH_LONG).show();
+            item.setChecked(true);
+            loadMedicalPlantsListView(SHOW_PLANTS_BY_FAMILIES);
+            DISPLAY_STATE = SHOW_PLANTS_BY_FAMILIES;
+        }
+
     }
 
-
-    /**
-     * Created by azeddine on 27/02/17.
-     */
     private void loadMedicalPlantsListView(String textQueryResult) {
         // this method will recive the text query submitted by the user
         // call the sqlLite database helper to preform the search in the database
         // dispaly the medicalplantslistView from the backgrond using the AsyncTask
 
         MedicalPlanesListViewHandler medicalPlanesListViewHandler = new MedicalPlanesListViewHandler();
-        medicalPlanesListViewHandler.execute("azeddine");
+        medicalPlanesListViewHandler.execute(textQueryResult);
 
     }
 
@@ -525,5 +556,15 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
 
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putString(DISPLAY_TYPE, DISPLAY_STATE);
+        super.onSaveInstanceState(outState);
+    }
 
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        DISPLAY_STATE = savedInstanceState.getString(DISPLAY_TYPE);
+        super.onRestoreInstanceState(savedInstanceState);
+    }
 }

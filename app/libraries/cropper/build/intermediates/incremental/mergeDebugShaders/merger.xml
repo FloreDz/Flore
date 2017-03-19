@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/src/main/shaders"/></dataSet><dataSet config="debug"><source path="/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/src/debug/shaders"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="/home/azeddine/AndroidStudioProjects/Flore/app/libraries/cropper/src/main/shaders"/></dataSet><dataSet config="debug"><source path="/home/azeddine/AndroidStudioProjects/Flore/app/libraries/cropper/src/debug/shaders"/></dataSet></merger>

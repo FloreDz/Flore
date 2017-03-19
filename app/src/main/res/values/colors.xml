@@ -2,15 +2,14 @@
 <resources>
 
     <!-- the green color -->
-    <color name="logo_green_light">#8bc34a</color>
-    <color name="logo_green_medium">#689F38</color>
-    <color name="logo_green_dark">#33691E</color>
+    <color name="logo_green_light">#7cb342</color>
+    <color name="logo_green_medium">#689f38</color>
+    <color name="logo_green_dark">#558b2f</color>
 
     <!-- the blue color-->
     <color name="logo_blue_light">#1E88E5</color>
     <color name="logo_blue_medium">#1976D2</color>
     <color name="logo_blue_dark">#0D47A1</color>
-
 
     <!-- gray color -->
     <color name="white_color_smoke">#fafafa</color>

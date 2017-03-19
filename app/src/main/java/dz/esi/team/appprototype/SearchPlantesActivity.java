@@ -6,14 +6,35 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.Menu;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+import dz.esi.team.appprototype.utils.MedicalPlant;
+import dz.esi.team.appprototype.utils.MedicalPlantsAdapter;
+import dz.esi.team.appprototype.utils.MedicalPlantsFamily;
+import dz.esi.team.appprototype.utils.Section;
 
 
-public class SearchPlantesActivity extends BaseActivity {
+public class SearchPlantesActivity extends BaseActivity implements AdapterView.OnItemClickListener {
     public static final String PLANTE_QUERY = "PLANT_QUERY";
     private static final String TAG = "SearchPlantesActivity";
+
     private SearchView searchView;
+    private  List<Section> medicalPlantsFamilyList  = new ArrayList<>();
+    private MedicalPlantsAdapter plantsAdapter;
+
+    ListView searchResultListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,38 +43,78 @@ public class SearchPlantesActivity extends BaseActivity {
         setContentView(R.layout.search_plantes);
 
         // this method will activate the layout toolBar , it is implemented in the BaseActivity
-        activateToolBar(false);
-    }
 
+        activateToolBar(false);
+        searchResultListView = (ListView) findViewById(R.id.search_result_list_view);
+
+        List<MedicalPlant> medicalPlantsList = new ArrayList<>();
+
+        /************************************************************************************************/
+
+        MedicalPlant plant = new MedicalPlant("Allium sativum L", R.mipmap.ail, "medical plants family");
+        medicalPlantsList.add(plant);
+        medicalPlantsList.add(plant);
+        medicalPlantsList.add(plant);
+        medicalPlantsList.add(plant);
+
+        MedicalPlantsFamily family = new MedicalPlantsFamily("medical plantes family 1", medicalPlantsList);
+        medicalPlantsFamilyList.add(family);
+
+        medicalPlantsList.add(plant);
+
+        family = new MedicalPlantsFamily("Aedical plantes family 1", medicalPlantsList);
+        medicalPlantsFamilyList.add(family);
+
+        medicalPlantsList.add(plant);
+        family = new MedicalPlantsFamily("medical plantes family 1", medicalPlantsList);
+        medicalPlantsFamilyList.add(family);
+
+        /***********************************************************************************************/
+
+
+        searchResultListView.setOnItemClickListener(this);
+
+
+
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+
+
         getMenuInflater().inflate(R.menu.plante_search_menu, menu);
 
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-
-        searchView = (SearchView) menu.findItem(R.id.app_bar_search).getActionView();
-
         SearchableInfo searchableInfo = searchManager.getSearchableInfo(getComponentName());
 
+        searchView = (SearchView) menu.findItem(R.id.app_bar_search).getActionView();
         searchView.setSearchableInfo(searchableInfo);
         searchView.setIconified(false);
+
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 
-            // this methode will be called when the user submit the search query
             @Override
             public boolean onQueryTextSubmit(String query) {
-                SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-                sharedPreferences.edit().putString(PLANTE_QUERY, query).apply();
-                searchView.clearFocus();
-                finish();
                 return true;
             }
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                return false;
+                List<Section> updatedPlantList= new ArrayList<>();
+
+                for (Section section: medicalPlantsFamilyList) {
+                    for (MedicalPlant plant:((MedicalPlantsFamily)section).getMedicalPlantList() ) {
+                           if(plant.getName().toLowerCase().startsWith(newText.toLowerCase()) && newText.length()>0){
+                               updatedPlantList.add(plant);
+                           }
+                    }
+                }
+
+                updateSearchView(updatedPlantList);
+                return true;
+
             }
         });
+
         searchView.setOnCloseListener(new SearchView.OnCloseListener() {
             @Override
             public boolean onClose() {
@@ -63,6 +124,22 @@ public class SearchPlantesActivity extends BaseActivity {
         });
         return true;
 
+    }
 
+    public void updateSearchView(List<Section> updatedList){
+        Collections.sort(updatedList, new Comparator<Section>() {
+            @Override
+            public int compare(Section o1, Section o2) {
+                return ((MedicalPlant)o1).getName().compareTo(((MedicalPlant)o2).getName());
+            }
+        });
+
+        plantsAdapter = new MedicalPlantsAdapter(SearchPlantesActivity.this,R.layout.listview_plantes,R.layout.plants_family_header,updatedList);
+        searchResultListView.setAdapter(plantsAdapter);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Toast.makeText(SearchPlantesActivity.this,"rendering the plant profile",Toast.LENGTH_SHORT).show();
     }
 }

@@ -1,12 +1,13 @@
 package dz.esi.team.appprototype.utils;
 
+import java.util.Comparator;
+
 /**
  * Created by azeddine on 06/03/17.
  */
 
-public interface Section {
+public interface Section{
 
-    public boolean isSection();
-    public String getTitle();
+   boolean isViewHeader();
 
 }

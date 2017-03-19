@@ -2,13 +2,20 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:title="@string/activity_search"
-        android:icon="@drawable/search"
+    <item
         android:id="@+id/app_search_bar"
+        android:icon="@drawable/search"
+        android:title="@string/activity_search"
         android:visible="true"
         app:showAsAction="ifRoom" />
-    <item android:title="refresh"
-        android:id="@+id/refresh_item"
-        app:showAsAction="never"
-        />
+
+            <item
+                android:id="@+id/option_show_by_familly"
+                android:title="afficher par famile"
+                android:checkable="true"
+                android:checked="false"
+                />
+
+
+
 </menu>

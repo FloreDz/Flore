@@ -1,10 +1,10 @@
 [
     {
-        "merged": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/res/merged/androidTest/debug/drawable-anydpi-v21/cancel.xml",
-        "source": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/bundles/debug/res/drawable-anydpi-v21/cancel.xml"
+        "merged": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/cropper/build/intermediates/res/merged/androidTest/debug/drawable-anydpi-v21/done.xml",
+        "source": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/cropper/build/intermediates/bundles/debug/res/drawable-anydpi-v21/done.xml"
     },
     {
-        "merged": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/res/merged/androidTest/debug/drawable-anydpi-v21/done.xml",
-        "source": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/bundles/debug/res/drawable-anydpi-v21/done.xml"
+        "merged": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/cropper/build/intermediates/res/merged/androidTest/debug/drawable-anydpi-v21/cancel.xml",
+        "source": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/cropper/build/intermediates/bundles/debug/res/drawable-anydpi-v21/cancel.xml"
     }
 ]

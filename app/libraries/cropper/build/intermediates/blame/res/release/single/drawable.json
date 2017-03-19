@@ -1,10 +1,10 @@
 [
     {
-        "merged": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/res/merged/release/drawable/crop__texture.xml",
-        "source": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/src/main/res/drawable/crop__texture.xml"
+        "merged": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/cropper/build/intermediates/res/merged/release/drawable/crop__selectable_background.xml",
+        "source": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/cropper/src/main/res/drawable/crop__selectable_background.xml"
     },
     {
-        "merged": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/res/merged/release/drawable/crop__selectable_background.xml",
-        "source": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/src/main/res/drawable/crop__selectable_background.xml"
+        "merged": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/cropper/build/intermediates/res/merged/release/drawable/crop__texture.xml",
+        "source": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/cropper/src/main/res/drawable/crop__texture.xml"
     }
 ]

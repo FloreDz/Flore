@@ -1,42 +1,43 @@
 package dz.esi.team.appprototype.utils;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
+
+import java.util.Comparator;
+
 /**
  * Created by azeddine on 21/02/17.
  */
 
 public class MedicalPlant implements Section{
-    private String name;
-    private MedicalPlantsFamily family;
+    private final String name;
+    private  final String familyName;
+    private final int imageSource;
 
 
 
-    public MedicalPlant(MedicalPlantsFamily  familyName, String name) {
-        this.setFamily(familyName);
+    public MedicalPlant(String name,int imageSource,String familyName) {
+
         this.name = name;
+        this.imageSource = imageSource  ;
+        this.familyName = familyName ;
     }
 
     public String getName() {
         return name;
     }
-    public void setName(String name) {
-        this.name = name;
-    }
 
-    public MedicalPlantsFamily getFamily() {
-        return family;
+    public int getImage() {
+        return imageSource;
     }
-    public void setFamily(MedicalPlantsFamily  family) {
-        this.family = family;
-    }
-
 
     @Override
-    public boolean isSection() {
+    public boolean isViewHeader() {
         return false;
     }
 
-    @Override
-    public String getTitle() {
-        return this.getName();
-    }
+
+
+
 }

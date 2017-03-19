@@ -1,6 +1,8 @@
 package dz.esi.team.appprototype.utils;
 
+import android.graphics.Bitmap;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import dz.esi.team.appprototype.R;
@@ -12,16 +14,17 @@ import dz.esi.team.appprototype.R;
 
 public  class ViewHolder {
 
-    private final TextView title;
+    private final TextView ViewTitel;
 
+    public ViewHolder(View view, int titleWidgetId) {
+        ViewTitel = (TextView) view.findViewById(titleWidgetId);
 
-    public ViewHolder(View view, int WidgetTitleId) {
-        title = (TextView) view.findViewById(WidgetTitleId);
     }
 
     public TextView getTitle() {
-        return title;
+        return ViewTitel;
     }
+
 
 
 }

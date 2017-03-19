@@ -27,8 +27,6 @@ public class LaunchPage extends AppCompatActivity {
                 ActivityCompat.finishAffinity(LaunchPage.this);
             }
         }, 2000);
-
-
     }
 
 }

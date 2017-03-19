@@ -41,6 +41,7 @@
             android:layout_height="51dp"
             android:layout_width="match_parent"
             android:textAlignment="center"
+            android:gravity="center_vertical"
             android:textColor="@color/logo_blue_dark"
             android:textStyle="bold"
             android:textSize="28sp"

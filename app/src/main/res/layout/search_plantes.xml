@@ -21,5 +21,11 @@
             app:elevation="0dp"/>
 
     </android.support.design.widget.AppBarLayout>
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/clean_white"
+        android:id="@+id/search_result_list_view"
+        android:listSelector="@drawable/plants_listview_event" />
 
 </android.support.design.widget.CoordinatorLayout>

@@ -1,3 +1,4 @@
 include ':app'
 include ':app:libraries:appIntro'
 include ':app:libraries:cropper'
+include ':openCVLibrary24110'
