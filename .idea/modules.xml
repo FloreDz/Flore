@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/AppPrototype.iml" filepath="$PROJECT_DIR$/AppPrototype.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Flore.iml" filepath="$PROJECT_DIR$/Flore.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/libraries/appIntro/appIntro.iml" filepath="$PROJECT_DIR$/app/libraries/appIntro/appIntro.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/libraries/cropper/cropper.iml" filepath="$PROJECT_DIR$/app/libraries/cropper/cropper.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/libraries/libraries.iml" filepath="$PROJECT_DIR$/app/libraries/libraries.iml" />
+      <module fileurl="file://$PROJECT_DIR$/openCVLibrary24110/openCVLibrary24110.iml" filepath="$PROJECT_DIR$/openCVLibrary24110/openCVLibrary24110.iml" />
     </modules>
   </component>
 </project>
