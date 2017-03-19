@@ -10,8 +10,8 @@ this is the repository of our second year project : 2cpi/team number 1
     *  com.android.support version "25.1.1"
     *  NDK 
 ## collaboration  guidlines 
+ - you must not fork the repo just clone it to your sys and work simply ,each colaborater has a direct writing access
  - any indivdual changes must be done in an independent branch 
- - pull request must be joined with all the new changes madee in the branch 
  - to evoid the mergin conflicts , each branch must be used to make just one new feature 
  - to update the forked repository follow these instructions https://help.github.com/articles/syncing-a-fork/ 
        * 
