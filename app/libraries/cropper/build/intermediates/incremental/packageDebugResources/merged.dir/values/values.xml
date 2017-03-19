@@ -21,8 +21,8 @@
     <string name="crop__cancel" ns1:ignore="ButtonCase">Annuler</string>
     <string name="crop__done">Terminé</string>
     <string name="crop__pick_error">No image sources available</string>
-    <string name="crop__saving">Sauvguardons limage …</string>
-    <string name="crop__wait">atander... SVP</string>
+    <string name="crop__saving">Recadrons l\'image …</string>
+    <string name="crop__wait">atender... SVP</string>
     <style name="Crop"/>
     <style name="Crop.ActionButton">
         <item name="android:layout_width">0dp</item>

@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/done.png",
+        "source": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/generated/res/pngs/debug/drawable-xxhdpi/done.png"
+    },
+    {
+        "merged": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/cancel.png",
+        "source": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/generated/res/pngs/debug/drawable-xxhdpi/cancel.png"
+    }
+]

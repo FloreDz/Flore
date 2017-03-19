@@ -29,7 +29,9 @@
             app:srcCompat="@drawable/gallery"
             android:id="@+id/imageView_uploadedImage"
             android:layout_gravity="center"
-            android:contentDescription="image_placeholder" />
+            android:contentDescription="image_placeholder"
+            android:minHeight="176dp"
+            android:minWidth="176dp" />
 
 
     <LinearLayout

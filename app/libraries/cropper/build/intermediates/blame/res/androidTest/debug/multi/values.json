@@ -11,7 +11,14 @@
                     "endOffset": 148
                 },
                 "from": {
-                    "file": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/bundles/debug/res/values/values.xml"
+                    "file": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 100,
+                        "endColumn": 52,
+                        "endOffset": 148
+                    }
                 }
             },
             {
@@ -23,7 +30,14 @@
                     "endOffset": 199
                 },
                 "from": {
-                    "file": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/bundles/debug/res/values/values.xml"
+                    "file": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 153,
+                        "endColumn": 50,
+                        "endOffset": 199
+                    }
                 }
             },
             {
@@ -35,7 +49,14 @@
                     "endOffset": 251
                 },
                 "from": {
-                    "file": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/bundles/debug/res/values/values.xml"
+                    "file": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 204,
+                        "endColumn": 51,
+                        "endOffset": 251
+                    }
                 }
             },
             {
@@ -47,7 +68,14 @@
                     "endOffset": 310
                 },
                 "from": {
-                    "file": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/bundles/debug/res/values/values.xml"
+                    "file": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 256,
+                        "endColumn": 58,
+                        "endOffset": 310
+                    }
                 }
             },
             {
@@ -59,7 +87,14 @@
                     "endOffset": 369
                 },
                 "from": {
-                    "file": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/bundles/debug/res/values/values.xml"
+                    "file": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 315,
+                        "endColumn": 58,
+                        "endOffset": 369
+                    }
                 }
             },
             {
@@ -204,7 +239,14 @@
                     "endOffset": 1143
                 },
                 "from": {
-                    "file": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/bundles/debug/res/values/values.xml"
+                    "file": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 1100,
+                        "endColumn": 47,
+                        "endOffset": 1143
+                    }
                 }
             },
             {
@@ -254,7 +296,14 @@
                     "endOffset": 1335
                 },
                 "from": {
-                    "file": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/bundles/debug/res/values/values.xml"
+                    "file": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 4,
+                        "startOffset": 1268,
+                        "endColumn": 71,
+                        "endOffset": 1335
+                    }
                 }
             },
             {
@@ -262,8 +311,8 @@
                     "startLine": 23,
                     "startColumn": 4,
                     "startOffset": 1340,
-                    "endColumn": 62,
-                    "endOffset": 1398
+                    "endColumn": 61,
+                    "endOffset": 1397
                 },
                 "from": {
                     "file": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/bundles/debug/res/values/values.xml",
@@ -271,8 +320,8 @@
                         "startLine": 23,
                         "startColumn": 4,
                         "startOffset": 1340,
-                        "endColumn": 62,
-                        "endOffset": 1398
+                        "endColumn": 61,
+                        "endOffset": 1397
                     }
                 }
             },
@@ -280,18 +329,18 @@
                 "to": {
                     "startLine": 24,
                     "startColumn": 4,
-                    "startOffset": 1403,
+                    "startOffset": 1402,
                     "endColumn": 53,
-                    "endOffset": 1452
+                    "endOffset": 1451
                 },
                 "from": {
                     "file": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/bundles/debug/res/values/values.xml",
                     "position": {
                         "startLine": 24,
                         "startColumn": 4,
-                        "startOffset": 1403,
+                        "startOffset": 1402,
                         "endColumn": 53,
-                        "endOffset": 1452
+                        "endOffset": 1451
                     }
                 }
             },
@@ -299,45 +348,60 @@
                 "to": {
                     "startLine": 25,
                     "startColumn": 4,
-                    "startOffset": 1457,
+                    "startOffset": 1456,
                     "endColumn": 24,
-                    "endOffset": 1477
+                    "endOffset": 1476
                 },
                 "from": {
-                    "file": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/bundles/debug/res/values/values.xml"
+                    "file": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 25,
+                        "startColumn": 4,
+                        "startOffset": 1456,
+                        "endColumn": 24,
+                        "endOffset": 1476
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 26,
                     "startColumn": 4,
-                    "startOffset": 1482,
+                    "startOffset": 1481,
                     "endLine": 31,
                     "endColumn": 12,
-                    "endOffset": 1780
+                    "endOffset": 1779
                 },
                 "from": {
-                    "file": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/bundles/debug/res/values/values.xml"
+                    "file": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 26,
+                        "startColumn": 4,
+                        "startOffset": 1481,
+                        "endLine": 31,
+                        "endColumn": 12,
+                        "endOffset": 1779
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 32,
                     "startColumn": 4,
-                    "startOffset": 1785,
+                    "startOffset": 1784,
                     "endLine": 42,
                     "endColumn": 12,
-                    "endOffset": 2390
+                    "endOffset": 2389
                 },
                 "from": {
                     "file": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/bundles/debug/res/values/values.xml",
                     "position": {
                         "startLine": 32,
                         "startColumn": 4,
-                        "startOffset": 1785,
+                        "startOffset": 1784,
                         "endLine": 42,
                         "endColumn": 12,
-                        "endOffset": 2390
+                        "endOffset": 2389
                     }
                 }
             },
@@ -345,46 +409,62 @@
                 "to": {
                     "startLine": 43,
                     "startColumn": 4,
-                    "startOffset": 2395,
+                    "startOffset": 2394,
                     "endLine": 46,
                     "endColumn": 12,
-                    "endOffset": 2588
+                    "endOffset": 2587
                 },
                 "from": {
-                    "file": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/bundles/debug/res/values/values.xml"
+                    "file": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 43,
+                        "startColumn": 4,
+                        "startOffset": 2394,
+                        "endLine": 46,
+                        "endColumn": 12,
+                        "endOffset": 2587
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 47,
                     "startColumn": 4,
-                    "startOffset": 2593,
+                    "startOffset": 2592,
                     "endLine": 50,
                     "endColumn": 12,
-                    "endOffset": 2780
+                    "endOffset": 2779
                 },
                 "from": {
-                    "file": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/bundles/debug/res/values/values.xml"
+                    "file": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 47,
+                        "startColumn": 4,
+                        "startOffset": 2592,
+                        "endLine": 50,
+                        "endColumn": 12,
+                        "endOffset": 2779
+                    }
                 }
             },
             {
                 "to": {
                     "startLine": 51,
                     "startColumn": 4,
-                    "startOffset": 2785,
+                    "startOffset": 2784,
                     "endLine": 59,
                     "endColumn": 12,
-                    "endOffset": 3318
+                    "endOffset": 3317
                 },
                 "from": {
                     "file": "/home/azeddine/AndroidStudioProjects/AppPrototype/app/libraries/cropper/build/intermediates/bundles/debug/res/values/values.xml",
                     "position": {
                         "startLine": 51,
                         "startColumn": 4,
-                        "startOffset": 2785,
+                        "startOffset": 2784,
                         "endLine": 59,
                         "endColumn": 12,
-                        "endOffset": 3318
+                        "endOffset": 3317
                     }
                 }
             }

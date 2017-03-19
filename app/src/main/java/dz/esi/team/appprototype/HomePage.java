@@ -12,6 +12,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -22,6 +23,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -29,6 +31,12 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import dz.esi.team.appprototype.utils.MedicalPlant;
+import dz.esi.team.appprototype.utils.MedicalPlantsAdapter;
+import dz.esi.team.appprototype.utils.MedicalPlantsFamily;
+import dz.esi.team.appprototype.utils.Section;
+import dz.esi.team.appprototype.utils.ViewHolder;
 
 public class HomePage extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -46,6 +54,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
     private NavigationView navigationView;
     private Toolbar toolbar_search_access;
     private ActionBarDrawerToggle toggle;
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     //layouts
     LinearLayout takeImageLayout;
@@ -90,11 +99,27 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         optionMenuBackground.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (takeImageLayout.getVisibility() == View.VISIBLE && importImageLayout.getVisibility() == View.VISIBLE) {
+                if (isVisible()) {
                     hideOptionMenu();
                 }
             }
         });
+
+       /* swipeRefreshLayout.setOnRefreshListener(
+                new SwipeRefreshLayout.OnRefreshListener() {
+                    @Override
+                    public void onRefresh() {
+                        swipeRefreshLayout.setColorSchemeResources(R.color.logo_green_light);
+                        Toast.makeText(HomePage.this, "refresh", Toast.LENGTH_LONG).show();
+                        // This method performs the actual data-refresh operation.
+                        // The method calls setRefreshing(false) when it's finished.
+
+                    }
+
+                }
+        );*/
+
+
 
 
     }
@@ -120,6 +145,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
                 this, drawer, toolbar_search_access, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
+      //  swipeRefreshLayout = (SwipeRefreshLayout)findViewById(R.id.swiperefresh);
 
 
         // buttons
@@ -174,7 +200,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
 
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else if (takeImageLayout.getVisibility() == View.VISIBLE && importImageLayout.getVisibility() == View.VISIBLE) {
+        } else if (isVisible()) {
             hideOptionMenu();
         } else super.onBackPressed();
     }
@@ -183,9 +209,8 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
     public boolean onCreateOptionsMenu(Menu menu) {
         Log.d(TAG, "onCreateOptionsMenu: creating the option menu");
         getMenuInflater().inflate(R.menu.search_menu, menu);
-        for (int i = 0; i < menu.size(); i++) {
-            menu.getItem(i).setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
-        }
+            menu.getItem(0).setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -194,20 +219,17 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
+        Intent intent  ;
         int id = item.getItemId();
 
-        // the first condition to be verified
-        if (id == R.id.content_search_menu) {
-            // Handle the home action
-            Log.d(TAG, "onNavigationItemSelected: navigate to the home activity");
-        } else if (id == R.id.nav_preferences) {
-            Log.d(TAG, "onNavigationItemSelected: navigate to the preferences activity ");
-        } else if (id == R.id.nav_aboutus) {
-            Log.d(TAG, "onNavigationItemSelected: navigate to the about us activity ");
-        } else if (id == R.id.nav_user_guide) {
-            Log.d(TAG, "onNavigationItemSelected: navigate to the user guide activity");
-        }
+       if (id == R.id.nav_preferences) {
 
+        } else if (id == R.id.nav_aboutus) {
+
+        } else if (id == R.id.nav_user_guide) {
+
+        }
+        if(isVisible()) hideOptionMenu();
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
@@ -220,10 +242,8 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         // as you specify a parent activity in AndroidManifest.xml.
 
         Intent intent;
-        Log.d(TAG, "onOptionsItemSelected:  " + item.getItemId() + " " + R.id.toolbar_search_access);
 
         int id = item.getItemId();
-        this.hideOptionMenu();
         // stating the searh activity
         if (id == R.id.app_search_bar) {
             intent = new Intent(HomePage.this, SearchPlantesActivity.class);
@@ -243,13 +263,13 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
 
         if (id == fabRecognise.getId()) {
             // the main FAB + is being clicked 
-            if (takeImageLayout.getVisibility() == View.VISIBLE && importImageLayout.getVisibility() == View.VISIBLE) {
+            if (isVisible()) {
                 hideOptionMenu();
             } else {
                 showOptionMenu();
             }
 
-        }else  if (takeImageLayout.getVisibility() == View.VISIBLE && importImageLayout.getVisibility() == View.VISIBLE){
+        }else  if (isVisible()){
 
             if (id == fabImportImage.getId()) {
                 this.hideOptionMenu();
@@ -259,6 +279,8 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
             } else if (id == fabTakeImage.getId()) {
                 this.hideOptionMenu();
                 this.phoneCameraAccess();
+                ImageView imageView;
+
             }
         }
     }
@@ -270,7 +292,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         Log.d(TAG, "labelOnClick: ");
 
         int id = v.getId();
-        if (takeImageLayout.getVisibility() == View.VISIBLE && importImageLayout.getVisibility() == View.VISIBLE) {
+        if (isVisible()) {
 
             this.hideOptionMenu();
             if (id == importImageLabel.getId()) {
@@ -302,20 +324,26 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         @Override
         protected void onPostExecute(String s) {
 
-            List<MedicalPlant> plants = new ArrayList<>();
-            MedicalPlant plante = new MedicalPlant("a3chabe", "za3ter");
-            plants.add(plante);
-            plante = new MedicalPlant("medical plant 1", "za3ter");
-            plants.add(plante);
-            plante = new MedicalPlant("medical plant  2", "za3ter");
-            plants.add(plante);
-            plante = new MedicalPlant("medical plant 3", "za3ter");
-            plants.add(plante);
-            plante = new MedicalPlant("medical plant 4", "za3ter");
-            plants.add(plante);
-            plante = new MedicalPlant("medical plant 5", "za3ter");
-            plants.add(plante);
-            MedicalPlantsAdapter plantsAdapter = new MedicalPlantsAdapter(HomePage.this, R.layout.listview_plantes, plants);
+            List<Section> sectionArrayList  = new ArrayList<>();
+            Section family = new MedicalPlantsFamily("medical plantes family 1");
+            sectionArrayList.add(family);
+            Section plant  = new MedicalPlant((MedicalPlantsFamily) family,"paln 1 ");
+            sectionArrayList.add(plant);
+             plant  = new MedicalPlant((MedicalPlantsFamily) family,"paln 2 ");
+            sectionArrayList.add(plant);
+            plant  = new MedicalPlant((MedicalPlantsFamily) family,"paln 3 ");
+            sectionArrayList.add(plant);
+            family = new MedicalPlantsFamily("medical plantes family 2");
+            sectionArrayList.add(family);
+            plant  = new MedicalPlant((MedicalPlantsFamily) family,"palnt 1 ");
+            sectionArrayList.add(plant);
+            plant  = new MedicalPlant((MedicalPlantsFamily) family,"palnt 2 ");
+            sectionArrayList.add(plant);
+            plant  = new MedicalPlant((MedicalPlantsFamily) family,"palnt 3 ");
+            sectionArrayList.add(plant);
+
+
+            MedicalPlantsAdapter plantsAdapter = new MedicalPlantsAdapter(HomePage.this,R.layout.listview_plantes,R.layout.plants_family_header,sectionArrayList);
             plantListView.setAdapter(plantsAdapter);
             plantListView.setOnItemClickListener(this);
         }
@@ -323,7 +351,8 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             Log.d(TAG, "onItemClick: the item with the position " + position + " and the id" + id);
-            String remarque = ((TextView) view.findViewById(R.id.plant_name)).getText().toString();
+
+            String remarque = ((ViewHolder) view.getTag()).getTitle().getText().toString();
             Toast.makeText(HomePage.this, remarque, Toast.LENGTH_LONG).show();
         }
 
@@ -426,6 +455,14 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         takeImageLayout.setVisibility(View.GONE);
         importImageLayout.setVisibility(View.GONE);
         optionMenuBackground.setVisibility(View.GONE);
+    }
+
+    public boolean isVisible(){
+        if (takeImageLayout.getVisibility() == View.VISIBLE && importImageLayout.getVisibility() == View.VISIBLE) {
+            return true ;
+        } else {
+            return false ;
+        }
     }
 
     /**
