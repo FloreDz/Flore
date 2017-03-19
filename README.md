@@ -22,8 +22,9 @@ all the bugs must be declared in the issues https://github.com/chenineazeddine/F
   - if any one had issues with the gradel version follow these instructions :
     1.  File > Settings > Build ,Execution .. > Gradel 
     2.  Select : use default gradle wrapper 
-#### GitHub courses for collaboration : https://www.youtube.com/watch?v=YTbRzhQju4c
-
+#### GitHub courses for collaboration : 
+  * https://www.youtube.com/watch?v=YTbRzhQju4c
+  * working as a colaboraters : https://help.github.com/articles/why-are-my-contributions-not-showing-up-on-my-profile/
 
    
           
