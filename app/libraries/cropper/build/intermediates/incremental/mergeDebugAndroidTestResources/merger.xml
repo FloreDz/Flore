@@ -4,7 +4,7 @@
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_weight">1</item>
         <item name="android:background">@drawable/crop__selectable_background</item>
-    </style><color name="white_color_smoke">#fafafa</color><color name="logo_green_medium">#689F38</color><declare-styleable name="CropImageView"><attr format="reference|color" name="highlightColor"/><attr format="boolean" name="showThirds"/><attr format="boolean" name="showCircle"/><attr name="showHandles">
+    </style><color name="white_color">#fafafa</color><color name="white_color_smoke">#fafafa</color><color name="logo_green_medium">#689F38</color><declare-styleable name="CropImageView"><attr format="reference|color" name="highlightColor"/><attr format="boolean" name="showThirds"/><attr format="boolean" name="showCircle"/><attr name="showHandles">
           <enum name="changing" value="0"/>
           <enum name="always" value="1"/>
           <enum name="never" value="2"/>

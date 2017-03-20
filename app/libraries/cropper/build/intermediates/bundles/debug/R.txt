@@ -13,7 +13,8 @@ int color logo_blue_medium 0x7f060006
 int color logo_green_dark 0x7f060007
 int color logo_green_light 0x7f060008
 int color logo_green_medium 0x7f060009
-int color white_color_smoke 0x7f06000a
+int color white_color 0x7f06000a
+int color white_color_smoke 0x7f06000b
 int dimen crop__bar_height 0x7f050000
 int drawable cancel 0x7f020000
 int drawable crop__divider 0x7f020001

@@ -13,7 +13,8 @@ int color logo_blue_medium 0x7f060006
 int color logo_green_dark 0x7f060007
 int color logo_green_light 0x7f060008
 int color logo_green_medium 0x7f060009
-int color white_color_smoke 0x7f06000a
+int color white_color 0x7f06000a
+int color white_color_smoke 0x7f06000b
 int dimen crop__bar_height 0x7f050000
 int drawable cancel 0x7f020000
 int drawable crop__divider 0x7f020001
@@ -27,8 +28,8 @@ int id always 0x7f080000
 int id btn_cancel 0x7f080005
 int id btn_done 0x7f080006
 int id changing 0x7f080001
-int id crop_image 0x7f080004
-int id done_cancel_bar 0x7f080003
+int id crop_image 0x7f080003
+int id done_cancel_bar 0x7f080004
 int id never 0x7f080002
 int layout crop__activity_crop 0x7f030000
 int layout crop__layout_done_cancel 0x7f030001
