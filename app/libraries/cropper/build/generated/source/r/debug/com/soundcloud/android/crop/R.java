@@ -59,7 +59,8 @@ containing a value of this type.
         public static int logo_green_dark=0x7f060007;
         public static int logo_green_light=0x7f060008;
         public static int logo_green_medium=0x7f060009;
-        public static int white_color_smoke=0x7f06000a;
+        public static int white_color=0x7f06000a;
+        public static int white_color_smoke=0x7f06000b;
     }
     public static final class dimen {
         public static int crop__bar_height=0x7f050000;
