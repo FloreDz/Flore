@@ -47,16 +47,16 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white_color_smoke">
+            android:background="@color/logo_blue_light">
 
             <android.support.design.widget.BottomNavigationView
                 android:id="@+id/bottomNavigationView_ImageOption"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:elevation="10dp"
-                app:itemBackground="@color/white_color_smoke"
-                app:itemIconTint="@color/logo_blue_medium"
-                app:itemTextColor="@color/logo_blue_medium"
+                app:itemBackground="@color/logo_blue_light"
+                app:itemIconTint="@color/white_color"
+                app:itemTextColor="@color/white_color"
                 app:menu="@menu/menu_image_options" />
         </LinearLayout>
 

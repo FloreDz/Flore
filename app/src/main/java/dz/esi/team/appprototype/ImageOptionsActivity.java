@@ -1,7 +1,10 @@
 package dz.esi.team.appprototype;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -16,6 +19,7 @@ import android.widget.Toast;
 import com.soundcloud.android.crop.Crop;
 
 import java.io.File;
+import java.io.IOException;
 
 public class ImageOptionsActivity extends AppCompatActivity {
     private static final String TAG = "ImageOptionsActivity";
@@ -76,32 +80,68 @@ public class ImageOptionsActivity extends AppCompatActivity {
     private void displayImage() {
         String uploadedImagePath = getIntent().getStringExtra(LOADED_IMAGE_PATH);
 
+
         if(uploadedImagePath!= null){
             this.imageViewUri = Uri.parse(getIntent().getStringExtra(LOADED_IMAGE_URI));
             this.imageViewUploadedImage.setImageBitmap(BitmapFactory.decodeFile(uploadedImagePath));
         }else{
             this.imageViewUri = (Uri) getIntent().getExtras().get(Intent.EXTRA_STREAM);
-            this.imageViewUploadedImage.setImageURI(this.imageViewUri);
+            uploadedImagePath = new File(this.imageViewUri.toString()).getAbsolutePath();
             }
+        Log.d(TAG, "displayImage: ==============================================="+uploadedImagePath);
+      Bitmap bitmap = fixImageRotation(uploadedImagePath);
+        this.imageViewUploadedImage.setImageBitmap(bitmap);
 
 
 
     }
+    private Bitmap fixImageRotation(String path){
+        Bitmap bitmap;
+        int rotation ;
+        int rotationInDegrees ;
+        bitmap = BitmapFactory.decodeFile(path);
+        ExifInterface exif = null;
+        try {
+            exif = new ExifInterface(path);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        rotation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL);
+        rotationInDegrees = exifToDegrees(rotation);
+        Matrix matrix = new Matrix();
+
+        if (rotation != 0f) {
+            matrix.preRotate(rotationInDegrees);
+            bitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+        }
+        return  bitmap ;
+
+    }
+    private static int exifToDegrees(int exifOrientation) {
+        if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_90) { return 90; }
+        else if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_180) {  return 180; }
+        else if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_270) {  return 270; }
+        return 0;
+    }
+
 
     private void beginCrop(Uri source) {
-        this.croppedImageUri = Uri.fromFile(new File(getCacheDir(), "cropped" + croppedVersion));
-
+        this.croppedImageUri = Uri.fromFile(new File(getFilesDir(), "cropped" + croppedVersion));
 
         Crop.of(source, this.croppedImageUri).start(this);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent result) {
-
+    String path ;
+    Bitmap bitmap ;
         if (requestCode == Crop.REQUEST_CROP && resultCode == RESULT_OK) {
             this.croppedVersion++;
             this.imageViewUri = Crop.getOutput(result);
-            this.imageViewUploadedImage.setImageURI(this.imageViewUri);
+            path = imageViewUri.getPath();
+            bitmap = fixImageRotation(path);
+
+            this.imageViewUploadedImage.setImageBitmap(bitmap);
         }
     }
 
