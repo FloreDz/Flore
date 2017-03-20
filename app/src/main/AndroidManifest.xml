@@ -38,7 +38,6 @@
             android:name=".SearchPlantesActivity"
             android:label="@string/title_activity_search_plants"
             android:parentActivityName=".HomePage"
-            android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
 
             <meta-data

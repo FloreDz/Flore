@@ -27,12 +27,14 @@ import dz.esi.team.appprototype.utils.Section;
 
 
 public class SearchPlantesActivity extends BaseActivity implements AdapterView.OnItemClickListener {
-    public static final String PLANTE_QUERY = "PLANT_QUERY";
+    public static final String PLANT_QUERY = "PLANT_QUERY";
     private static final String TAG = "SearchPlantesActivity";
 
     private SearchView searchView;
+    private  String queryText;
     private  List<Section> medicalPlantsFamilyList  = new ArrayList<>();
     private MedicalPlantsAdapter plantsAdapter;
+
 
     ListView searchResultListView;
 
@@ -89,18 +91,20 @@ public class SearchPlantesActivity extends BaseActivity implements AdapterView.O
         searchView = (SearchView) menu.findItem(R.id.app_bar_search).getActionView();
         searchView.setSearchableInfo(searchableInfo);
         searchView.setIconified(false);
+        searchView.setQuery(this.queryText,false);
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 
             @Override
             public boolean onQueryTextSubmit(String query) {
+                Log.d(TAG, "onQueryTextSubmit: ");
                 return true;
             }
 
             @Override
             public boolean onQueryTextChange(String newText) {
                 List<Section> updatedPlantList= new ArrayList<>();
-
+                queryText =  newText  ;
                 for (Section section: medicalPlantsFamilyList) {
                     for (MedicalPlant plant:((MedicalPlantsFamily)section).getMedicalPlantList() ) {
                            if(plant.getName().toLowerCase().startsWith(newText.toLowerCase()) && newText.length()>0){
@@ -141,5 +145,17 @@ public class SearchPlantesActivity extends BaseActivity implements AdapterView.O
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Toast.makeText(SearchPlantesActivity.this,"rendering the plant profile",Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putString(PLANT_QUERY,this.queryText);
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+       this.queryText =  savedInstanceState.getString(PLANT_QUERY)  ;
+        super.onRestoreInstanceState(savedInstanceState);
     }
 }
