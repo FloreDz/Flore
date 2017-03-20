@@ -27,12 +27,10 @@
 
         <activity
             android:name=".IntroActivity"
-            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
             android:name=".HomePage"
-            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
             <!-- TODO : fix landscape problem for : homepage, searchPlant, ImageOption and CropImage -->
 
