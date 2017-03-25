@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/cropper/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-ja/values-ja.xml",
+        "outputFile": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\cropper\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-ja\\values-ja.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 166
                 },
                 "from": {
-                    "file": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/cropper/src/main/res/values-ja/strings.xml",
+                    "file": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\cropper\\src\\main\\res\\values-ja\\strings.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
@@ -30,7 +30,7 @@
                     "endOffset": 208
                 },
                 "from": {
-                    "file": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/cropper/src/main/res/values-ja/strings.xml",
+                    "file": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\cropper\\src\\main\\res\\values-ja\\strings.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
@@ -49,7 +49,7 @@
                     "endOffset": 264
                 },
                 "from": {
-                    "file": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/cropper/src/main/res/values-ja/strings.xml",
+                    "file": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\cropper\\src\\main\\res\\values-ja\\strings.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -68,7 +68,7 @@
                     "endOffset": 310
                 },
                 "from": {
-                    "file": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/cropper/src/main/res/values-ja/strings.xml",
+                    "file": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\cropper\\src\\main\\res\\values-ja\\strings.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -87,13 +87,113 @@
                     "endOffset": 358
                 },
                 "from": {
-                    "file": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/cropper/src/main/res/values-ja/strings.xml",
+                    "file": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\cropper\\src\\main\\res\\values-ja\\strings.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
                         "startOffset": 110,
                         "endColumn": 47,
                         "endOffset": 153
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "C:\\Android\\Projects\\Flore\\app\\libraries\\cropper\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-ja\\values-ja.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 100,
+                    "endColumn": 70,
+                    "endOffset": 166
+                },
+                "from": {
+                    "file": "C:\\Android\\Projects\\Flore\\app\\libraries\\cropper\\src\\main\\res\\values-ja\\strings.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 264,
+                        "endColumn": 72,
+                        "endOffset": 332
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 171,
+                    "endColumn": 41,
+                    "endOffset": 208
+                },
+                "from": {
+                    "file": "C:\\Android\\Projects\\Flore\\app\\libraries\\cropper\\src\\main\\res\\values-ja\\strings.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 221,
+                        "endColumn": 41,
+                        "endOffset": 258
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 213,
+                    "endColumn": 55,
+                    "endOffset": 264
+                },
+                "from": {
+                    "file": "C:\\Android\\Projects\\Flore\\app\\libraries\\cropper\\src\\main\\res\\values-ja\\strings.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 162,
+                        "endColumn": 55,
+                        "endOffset": 213
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 269,
+                    "endColumn": 45,
+                    "endOffset": 310
+                },
+                "from": {
+                    "file": "C:\\Android\\Projects\\Flore\\app\\libraries\\cropper\\src\\main\\res\\values-ja\\strings.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 66,
+                        "endColumn": 45,
+                        "endOffset": 107
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 315,
+                    "endColumn": 47,
+                    "endOffset": 358
+                },
+                "from": {
+                    "file": "C:\\Android\\Projects\\Flore\\app\\libraries\\cropper\\src\\main\\res\\values-ja\\strings.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 113,
+                        "endColumn": 47,
+                        "endOffset": 156
                     }
                 }
             }

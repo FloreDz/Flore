@@ -1,26 +1,50 @@
 [
     {
-        "merged": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/appIntro/build/intermediates/res/merged/release/layout-v11/notification_template_big_media_narrow.xml",
-        "source": "/home/azeddine/.android/build-cache/0b1bbdf9ca6931607ae09de1c06227b30c392821/output/res/layout-v11/notification_template_big_media_narrow.xml"
+        "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\release\\layout-v11\\notification_template_big_media_custom.xml",
+        "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout-v11\\notification_template_big_media_custom.xml"
     },
     {
-        "merged": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/appIntro/build/intermediates/res/merged/release/layout-v11/notification_template_big_media_narrow_custom.xml",
-        "source": "/home/azeddine/.android/build-cache/0b1bbdf9ca6931607ae09de1c06227b30c392821/output/res/layout-v11/notification_template_big_media_narrow_custom.xml"
+        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\release\\layout-v11\\notification_media_action.xml",
+        "source": "C:\\home\\azeddine\\.android\\build-cache\\0b1bbdf9ca6931607ae09de1c06227b30c392821\\output\\res\\layout-v11\\notification_media_action.xml"
     },
     {
-        "merged": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/appIntro/build/intermediates/res/merged/release/layout-v11/notification_template_big_media.xml",
-        "source": "/home/azeddine/.android/build-cache/0b1bbdf9ca6931607ae09de1c06227b30c392821/output/res/layout-v11/notification_template_big_media.xml"
+        "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\release\\layout-v11\\notification_template_big_media_narrow_custom.xml",
+        "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout-v11\\notification_template_big_media_narrow_custom.xml"
     },
     {
-        "merged": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/appIntro/build/intermediates/res/merged/release/layout-v11/notification_media_cancel_action.xml",
-        "source": "/home/azeddine/.android/build-cache/0b1bbdf9ca6931607ae09de1c06227b30c392821/output/res/layout-v11/notification_media_cancel_action.xml"
+        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\release\\layout-v11\\notification_template_big_media.xml",
+        "source": "C:\\home\\azeddine\\.android\\build-cache\\0b1bbdf9ca6931607ae09de1c06227b30c392821\\output\\res\\layout-v11\\notification_template_big_media.xml"
     },
     {
-        "merged": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/appIntro/build/intermediates/res/merged/release/layout-v11/notification_media_action.xml",
-        "source": "/home/azeddine/.android/build-cache/0b1bbdf9ca6931607ae09de1c06227b30c392821/output/res/layout-v11/notification_media_action.xml"
+        "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\release\\layout-v11\\notification_template_big_media.xml",
+        "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout-v11\\notification_template_big_media.xml"
     },
     {
-        "merged": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/appIntro/build/intermediates/res/merged/release/layout-v11/notification_template_big_media_custom.xml",
-        "source": "/home/azeddine/.android/build-cache/0b1bbdf9ca6931607ae09de1c06227b30c392821/output/res/layout-v11/notification_template_big_media_custom.xml"
+        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\release\\layout-v11\\notification_template_big_media_narrow_custom.xml",
+        "source": "C:\\home\\azeddine\\.android\\build-cache\\0b1bbdf9ca6931607ae09de1c06227b30c392821\\output\\res\\layout-v11\\notification_template_big_media_narrow_custom.xml"
+    },
+    {
+        "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\release\\layout-v11\\notification_media_action.xml",
+        "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout-v11\\notification_media_action.xml"
+    },
+    {
+        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\release\\layout-v11\\notification_media_cancel_action.xml",
+        "source": "C:\\home\\azeddine\\.android\\build-cache\\0b1bbdf9ca6931607ae09de1c06227b30c392821\\output\\res\\layout-v11\\notification_media_cancel_action.xml"
+    },
+    {
+        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\release\\layout-v11\\notification_template_big_media_custom.xml",
+        "source": "C:\\home\\azeddine\\.android\\build-cache\\0b1bbdf9ca6931607ae09de1c06227b30c392821\\output\\res\\layout-v11\\notification_template_big_media_custom.xml"
+    },
+    {
+        "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\release\\layout-v11\\notification_template_big_media_narrow.xml",
+        "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout-v11\\notification_template_big_media_narrow.xml"
+    },
+    {
+        "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\release\\layout-v11\\notification_media_cancel_action.xml",
+        "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout-v11\\notification_media_cancel_action.xml"
+    },
+    {
+        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\release\\layout-v11\\notification_template_big_media_narrow.xml",
+        "source": "C:\\home\\azeddine\\.android\\build-cache\\0b1bbdf9ca6931607ae09de1c06227b30c392821\\output\\res\\layout-v11\\notification_template_big_media_narrow.xml"
     }
 ]
