@@ -44,38 +44,32 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
     public static final int LOAD_IMAGE_RESULT = 1;
     public static final String LOADED_IMAGE_PATH = "LOADED_IMAGE_PATH";
     public static final String LOADED_IMAGE_URI = "LOADED_IMAGE_URI";
+    public static final String DISPLAY_TYPE = "DISPLAY_TYPE";
     private static final String TAG = HomePage.class.getSimpleName();
     private static final String ERROR_MESS = "Something went wrong";
-
     private static final String SHOW_PLANTS_DEFAULT = "SHOW_PLANTS_DEFAULT";
     private static final String SHOW_PLANTS_BY_FAMILIES = "SHOW_PLANTS_BY_FAMILIRS";
-    public static final String DISPLAY_TYPE = "DISPLAY_TYPE";
     public static String DISPLAY_STATE = SHOW_PLANTS_DEFAULT;
-
+    //layouts
+    LinearLayout takeImageLayout;
+    LinearLayout importImageLayout;
+    DrawerLayout drawer;
+    FrameLayout optionMenuBackground;
+    // buttons
+    FloatingActionButton fabRecognise;
+    FloatingActionButton fabTakeImage;
+    FloatingActionButton fabImportImage;
+    //labels
+    TextView importImageLabel;
+    TextView takeImageLabel;
     //image path
     private String imagePath;
-
     //costum components
     private ListView plantListView;
     private NavigationView navigationView;
     private Toolbar toolbar_search_access;
     private ActionBarDrawerToggle toggle;
     private Menu optionMenu;
-
-    //layouts
-    LinearLayout takeImageLayout;
-    LinearLayout importImageLayout;
-    DrawerLayout drawer;
-    FrameLayout optionMenuBackground;
-
-    // buttons
-    FloatingActionButton fabRecognise;
-    FloatingActionButton fabTakeImage;
-    FloatingActionButton fabImportImage;
-
-    //labels
-    TextView importImageLabel;
-    TextView takeImageLabel;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,7 +82,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         widgetHydration();
 
 
-        //data handling
+        // data handling
         // loading medical plant list view in the background
         loadMedicalPlantsListView(DISPLAY_STATE);
 
@@ -128,7 +122,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         setSupportActionBar(toolbar_search_access);
         toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar_search_access, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
+        drawer.setDrawerListener(toggle); //TODO: check this method, it's deprecated
         toggle.syncState();
 
 
@@ -145,7 +139,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
 
     public void introPageHandler() {
         // this thread will start the intro activity if the app is being lunched for the first time
-        //  Declare a new thread to do a preference check
+        // declare a new thread to do a preference check
         Thread intro = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -304,6 +298,175 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
 
     }
 
+    private void loadImageFromGallery() {
+        // accessing the phone gallery
+        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(intent, LOAD_IMAGE_RESULT);
+    }
+
+    private void phoneCameraAccess() {
+        // accessing the phone Camera
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(intent, LOAD_IMAGE_RESULT);
+    }
+
+    private void hideOptionMenu() {
+        Log.d(TAG, "hideOptionMenu: hiding the option menu");
+        final FloatingActionButton fabRecognise = (FloatingActionButton) findViewById(R.id.fab_recognition);
+
+
+        takeImageLayout = (LinearLayout) findViewById(R.id.layout_take_picture);
+        importImageLayout = (LinearLayout) findViewById(R.id.layout_import_picture);
+
+
+        final Animation rotateToPlus = AnimationUtils.loadAnimation(HomePage.this, R.anim.show_button_layout);
+        final Animation hideOptionButton = AnimationUtils.loadAnimation(HomePage.this, R.anim.hide_buttons);
+
+
+        this.disableLayoutsVisibility();
+        this.disableClickable();
+
+        takeImageLayout.startAnimation(hideOptionButton);
+        importImageLayout.startAnimation(hideOptionButton);
+
+
+        fabRecognise.startAnimation(rotateToPlus);
+
+    }
+
+    // optionMenu display handling
+
+    private void showOptionMenu() {
+
+        Log.d(TAG, "showOptionMenu: showing the option menu");
+
+        final FloatingActionButton fabRecognise = (FloatingActionButton) findViewById(R.id.fab_recognition);
+        final LinearLayout takeImageLayout = (LinearLayout) findViewById(R.id.layout_take_picture);
+        final LinearLayout importImageLayout = (LinearLayout) findViewById(R.id.layout_import_picture);
+
+        final Animation rotateToX = AnimationUtils.loadAnimation(HomePage.this, R.anim.hide_button_layout);
+        final Animation showOptionButton = AnimationUtils.loadAnimation(HomePage.this, R.anim.show_buttons);
+
+
+        this.enableLayoutsVisibility();
+        this.enableClickable();
+
+        takeImageLayout.startAnimation(showOptionButton);
+        importImageLayout.startAnimation(showOptionButton);
+
+
+        fabRecognise.startAnimation(rotateToX);
+    }
+
+    public void disableClickable() {
+
+        importImageLayout.setClickable(false);
+        takeImageLayout.setClickable(false);
+        importImageLabel.setClickable(false);
+        takeImageLabel.setClickable(false);
+        fabImportImage.setClickable(false);
+        fabTakeImage.setClickable(false);
+    }
+
+    public void enableClickable() {
+
+        importImageLayout.setClickable(true);
+        takeImageLayout.setClickable(true);
+        importImageLabel.setClickable(true);
+        takeImageLabel.setClickable(true);
+        fabImportImage.setClickable(true);
+        fabTakeImage.setClickable(true);
+
+    }
+
+    public void enableLayoutsVisibility() {
+
+        takeImageLayout.setVisibility(View.VISIBLE);
+        importImageLayout.setVisibility(View.VISIBLE);
+        optionMenuBackground.setVisibility(View.VISIBLE);
+
+    }
+
+    public void disableLayoutsVisibility() {
+
+        takeImageLayout.setVisibility(View.GONE);
+        importImageLayout.setVisibility(View.GONE);
+        optionMenuBackground.setVisibility(View.GONE);
+    }
+
+    public boolean isVisible() {
+        if (takeImageLayout.getVisibility() == View.VISIBLE && importImageLayout.getVisibility() == View.VISIBLE) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public void setDisplayState(MenuItem item, boolean state) {
+        if (state) {
+
+            item.setChecked(false);
+            loadMedicalPlantsListView(SHOW_PLANTS_DEFAULT);
+            DISPLAY_STATE = SHOW_PLANTS_DEFAULT;
+
+        } else {
+
+            item.setChecked(true);
+            loadMedicalPlantsListView(SHOW_PLANTS_BY_FAMILIES);
+            DISPLAY_STATE = SHOW_PLANTS_BY_FAMILIES;
+        }
+
+    }
+
+    private void loadMedicalPlantsListView(String textQueryResult) {
+        // this method will recieve the text query submitted by the user
+        // call the sqlLite database helper to preform the search in the database
+        // dispaly the medicalplantslistView from the backgrond using the AsyncTask
+
+        MedicalPlanesListViewHandler medicalPlanesListViewHandler = new MedicalPlanesListViewHandler();
+        medicalPlanesListViewHandler.execute(textQueryResult);
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        // CheckING which request we're responding to
+        if (requestCode == LOAD_IMAGE_RESULT) {
+            // MakNGeI sure the request was successful
+            if (resultCode == RESULT_OK) {
+
+                Uri pickedImage = data.getData();
+                String[] filePath = {MediaStore.Images.Media.DATA};
+                Cursor cursor = getContentResolver().query(pickedImage, filePath, null, null, null);
+                cursor.moveToFirst();
+                this.imagePath = cursor.getString(cursor.getColumnIndex(filePath[0]));
+
+                // stating the ImageOptionsActivity activity
+                Intent intent = new Intent(HomePage.this, ImageOptionsActivity.class);
+                intent.putExtra(LOADED_IMAGE_PATH, this.imagePath);
+                intent.putExtra(LOADED_IMAGE_URI, pickedImage.toString());
+                startActivity(intent);
+
+            } else {
+                Toast.makeText(HomePage.this, ERROR_MESS, Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putString(DISPLAY_TYPE, DISPLAY_STATE);
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        DISPLAY_STATE = savedInstanceState.getString(DISPLAY_TYPE);
+        super.onRestoreInstanceState(savedInstanceState);
+    }
+
     private class MedicalPlanesListViewHandler extends AsyncTask<String, Void, List<Section>> implements AdapterView.OnItemClickListener {
         // this nested class extend AsyncTask , it use to load data in the background using multiThreding
         // after we implement the data base the signature will change to <String,Void,Cursor> the cursor will
@@ -396,175 +559,5 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
             return updatedList;
         }
 
-    }
-
-    private void loadImageFromGallery() {
-        // accessing the phone gallery
-        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        startActivityForResult(intent, LOAD_IMAGE_RESULT);
-    }
-
-    private void phoneCameraAccess() {
-        // accessing the phone Camera
-        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        startActivityForResult(intent, LOAD_IMAGE_RESULT);
-    }
-
-    // optionMenu display handling
-
-    private void hideOptionMenu() {
-        Log.d(TAG, "hideOptionMenu: hiding the option menu");
-        final FloatingActionButton fabRecognise = (FloatingActionButton) findViewById(R.id.fab_recognition);
-
-
-        takeImageLayout = (LinearLayout) findViewById(R.id.layout_take_picture);
-        importImageLayout = (LinearLayout) findViewById(R.id.layout_import_picture);
-
-
-        final Animation rotateToPlus = AnimationUtils.loadAnimation(HomePage.this, R.anim.show_button_layout);
-        final Animation hideOptionButton = AnimationUtils.loadAnimation(HomePage.this, R.anim.hide_buttons);
-
-
-        this.disableLayoutsVisibility();
-        this.disableClickable();
-
-        takeImageLayout.startAnimation(hideOptionButton);
-        importImageLayout.startAnimation(hideOptionButton);
-
-
-        fabRecognise.startAnimation(rotateToPlus);
-
-    }
-
-    private void showOptionMenu() {
-
-        Log.d(TAG, "showOptionMenu: showing the option menu");
-
-        final FloatingActionButton fabRecognise = (FloatingActionButton) findViewById(R.id.fab_recognition);
-        final LinearLayout takeImageLayout = (LinearLayout) findViewById(R.id.layout_take_picture);
-        final LinearLayout importImageLayout = (LinearLayout) findViewById(R.id.layout_import_picture);
-
-        final Animation rotateToX = AnimationUtils.loadAnimation(HomePage.this, R.anim.hide_button_layout);
-        final Animation showOptionButton = AnimationUtils.loadAnimation(HomePage.this, R.anim.show_buttons);
-
-
-        this.enableLayoutsVisibility();
-        this.enableClickable();
-
-        takeImageLayout.startAnimation(showOptionButton);
-        importImageLayout.startAnimation(showOptionButton);
-
-
-        fabRecognise.startAnimation(rotateToX);
-    }
-
-    public void disableClickable() {
-
-        importImageLayout.setClickable(false);
-        takeImageLayout.setClickable(false);
-        importImageLabel.setClickable(false);
-        takeImageLabel.setClickable(false);
-        fabImportImage.setClickable(false);
-        fabTakeImage.setClickable(false);
-    }
-
-    public void enableClickable() {
-
-        importImageLayout.setClickable(true);
-        takeImageLayout.setClickable(true);
-        importImageLabel.setClickable(true);
-        takeImageLabel.setClickable(true);
-        fabImportImage.setClickable(true);
-        fabTakeImage.setClickable(true);
-
-    }
-
-    public void enableLayoutsVisibility() {
-
-        takeImageLayout.setVisibility(View.VISIBLE);
-        importImageLayout.setVisibility(View.VISIBLE);
-        optionMenuBackground.setVisibility(View.VISIBLE);
-
-    }
-
-    public void disableLayoutsVisibility() {
-
-        takeImageLayout.setVisibility(View.GONE);
-        importImageLayout.setVisibility(View.GONE);
-        optionMenuBackground.setVisibility(View.GONE);
-    }
-
-    public boolean isVisible() {
-        if (takeImageLayout.getVisibility() == View.VISIBLE && importImageLayout.getVisibility() == View.VISIBLE) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public void setDisplayState(MenuItem item, boolean state) {
-        if (state) {
-
-            item.setChecked(false);
-            loadMedicalPlantsListView(SHOW_PLANTS_DEFAULT);
-            DISPLAY_STATE = SHOW_PLANTS_DEFAULT;
-
-        } else {
-
-            item.setChecked(true);
-            loadMedicalPlantsListView(SHOW_PLANTS_BY_FAMILIES);
-            DISPLAY_STATE = SHOW_PLANTS_BY_FAMILIES;
-        }
-
-    }
-
-    private void loadMedicalPlantsListView(String textQueryResult) {
-        // this method will recive the text query submitted by the user
-        // call the sqlLite database helper to preform the search in the database
-        // dispaly the medicalplantslistView from the backgrond using the AsyncTask
-
-        MedicalPlanesListViewHandler medicalPlanesListViewHandler = new MedicalPlanesListViewHandler();
-        medicalPlanesListViewHandler.execute(textQueryResult);
-
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        // CheckING which request we're responding to
-        if (requestCode == LOAD_IMAGE_RESULT) {
-            // MakNGeI sure the request was successful
-            if (resultCode == RESULT_OK) {
-
-                Uri pickedImage = data.getData();
-                String[] filePath = {MediaStore.Images.Media.DATA};
-                Cursor cursor = getContentResolver().query(pickedImage, filePath, null, null, null);
-                cursor.moveToFirst();
-                this.imagePath = cursor.getString(cursor.getColumnIndex(filePath[0]));
-
-                // stating the ImageOptionsActivity activity
-                Intent intent = new Intent(HomePage.this, ImageOptionsActivity.class);
-                intent.putExtra(LOADED_IMAGE_PATH, this.imagePath);
-                intent.putExtra(LOADED_IMAGE_URI, pickedImage.toString());
-                startActivity(intent);
-
-            } else {
-                Toast.makeText(HomePage.this, ERROR_MESS, Toast.LENGTH_SHORT).show();
-            }
-        }
-
-    }
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        outState.putString(DISPLAY_TYPE, DISPLAY_STATE);
-        super.onSaveInstanceState(outState);
-    }
-
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        DISPLAY_STATE = savedInstanceState.getString(DISPLAY_TYPE);
-        super.onRestoreInstanceState(savedInstanceState);
     }
 }
