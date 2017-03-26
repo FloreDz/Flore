@@ -9,6 +9,7 @@ import android.provider.BaseColumns;
 
 public class PlantContract {
 
+    //TODO: do not forget to change the package name
     public static final String CONTENT_AUTHORITY = "dz.esi.team.appprototype";
     public static final String PATH_PLANTS = "Plante";
     public static final String PATH_FAMILIES = "Famille";
@@ -52,7 +53,6 @@ public class PlantContract {
 
         public static final String TABLE_NAME = "Famille";
 
-        public static final String _ID = BaseColumns._ID,
-                nom = "nom";
+        public static final String _ID = BaseColumns._ID, nom = "nom";
     }
 }

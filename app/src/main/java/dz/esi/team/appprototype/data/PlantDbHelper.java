@@ -18,9 +18,10 @@ import java.io.OutputStream;
 
 public class PlantDbHelper extends SQLiteOpenHelper {
 
+
     private static final int DB_VERSION = 1;
     private static final String DB_NAME = "FloreDB.sqlite";
-    private static String DB_PATH = "/data/data/dz.esi.team.appprototype.data/databases/";
+    private static String DB_PATH = "";
     private final Context mContext;
     private String TAG = this.getClass().getSimpleName();
     private SQLiteDatabase mDataBase;
@@ -29,20 +30,25 @@ public class PlantDbHelper extends SQLiteOpenHelper {
     public PlantDbHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
         this.mContext = context;
+        DB_PATH = "/data/data/" + context.getPackageName() + "/databases/";
+        Log.v("DB path :", DB_PATH);
         //TODO: check the other code for sdk backward compatibility
+        //TODO: do not forget to change the package name
     }
 
     public void createDataBase() throws IOException {
         if (!checkDataBase())  // database does not exist
         {
+            Log.v("into if, DB not exist", "from PlantDbHelper class -> createDataBase methode.");
             this.getReadableDatabase();
             try {
                 copyDataBase();   // copy the database from assests
-                Log.e(TAG, "createDatabase , database created");
+                Log.v(TAG, "createDatabase , database created");
             } catch (IOException mIOException) {
                 throw new Error("ErrorCopyingDataBase");
             }
-        }
+        } else
+            Log.v("DB exists!", "from PlantDbHelper class -> createDataBase methode.");
     }
 
     //Check that the database exists here: /data/data/package/databases/DB_NAME
@@ -53,7 +59,9 @@ public class PlantDbHelper extends SQLiteOpenHelper {
             String myPath = DB_PATH + DB_NAME;
             checkDB = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
 
-        } catch (SQLiteException e) { /* database does't exist yet. */ }
+        } catch (SQLiteException e) { /* database does't exist yet. */
+            Log.e(TAG, "database does't exist");
+        }
 
         if (checkDB != null) {
             checkDB.close();
@@ -101,3 +109,4 @@ public class PlantDbHelper extends SQLiteOpenHelper {
 
     }
 }
+

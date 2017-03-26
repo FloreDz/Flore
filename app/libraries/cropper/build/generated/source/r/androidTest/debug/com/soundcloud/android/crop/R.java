@@ -46,8 +46,8 @@ public final class R {
         public static final int btn_cancel = 0x7f080005;
         public static final int btn_done = 0x7f080006;
         public static final int changing = 0x7f080001;
-        public static final int crop_image = 0x7f080004;
-        public static final int done_cancel_bar = 0x7f080003;
+        public static final int crop_image = 0x7f080003;
+        public static final int done_cancel_bar = 0x7f080004;
         public static final int never = 0x7f080002;
     }
     public static final class layout {
