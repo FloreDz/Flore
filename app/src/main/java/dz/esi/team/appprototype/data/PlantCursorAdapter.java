@@ -32,15 +32,17 @@ public class PlantCursorAdapter extends CursorAdapter {
     public PlantCursorAdapter(Context context, Cursor c) {
         super(context, c, 0);
         mContext = context;
+        Log.v("PlantCursorAdapter", "an object just got instantiated");
     }
 
     @Override
     public View newView(Context context, Cursor cursor, ViewGroup parent) {
-        return LayoutInflater.from(context).inflate(R.layout.listview_plantes, parent, false); // TODO: here
+        Log.v("PlantCursorAdapter", "newView in");
+        return LayoutInflater.from(context).inflate(R.layout.item_plant, parent, false);
     }
 
     @Override
-    public void bindView(View view, Context context, Cursor cursor) { // TODO: here
+    public void bindView(View view, Context context, Cursor cursor) {
 
         TextView tvPlantName = (TextView) view.findViewById(R.id.plant_sci_name);
         ImageView tvPlantImage = (ImageView) view.findViewById(R.id.plant_image);
@@ -51,10 +53,13 @@ public class PlantCursorAdapter extends CursorAdapter {
         tvPlantName.setText(plantSciName);
         tvPlantImage.setScaleType(ImageView.ScaleType.FIT_CENTER);
         tvPlantImage.setImageBitmap(getBitmapFromAssets(plantImage, context));
+
+        Log.v("PlantCursorAdapter", "bindView finished");
     }
 
     private Bitmap getBitmapFromAssets(String imagePath, Context context) {
 
+        Log.v("PlantCursorAdapter", "accessed getBitmap...");
         AssetManager assetManager = context.getAssets();
         InputStream is = null;
         Bitmap bitmap = null;
@@ -72,6 +77,7 @@ public class PlantCursorAdapter extends CursorAdapter {
                 Log.e("getBitmap methode->try2", e.getMessage());
             }
         }
+        Log.v("PlantCursorAdapter", "about to return getBitmap...");
         return bitmap;
     }
 

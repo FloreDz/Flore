@@ -198,7 +198,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         return super.onCreateOptionsMenu(menu);
     }
 
-    //slecting a navigation item from the menu drawer event handling
+    //selecting a navigation item from the menu drawer event handling
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -239,7 +239,9 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
                 this.setDisplayState(item, item.isChecked());
                 break;
             case R.id.mohamed:   // ADDED BY MOHAMED
+                Log.v(TAG, "about to go to mohamed activity");
                 startActivity(new Intent(HomePage.this, DatabaseTest.class));
+                Log.v(TAG, "just went to mohamed activity");
                 break;
             default:
         }

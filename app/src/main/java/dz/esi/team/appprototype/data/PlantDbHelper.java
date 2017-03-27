@@ -31,7 +31,7 @@ public class PlantDbHelper extends SQLiteOpenHelper {
         super(context, DB_NAME, null, DB_VERSION);
         this.mContext = context;
         DB_PATH = "/data/data/" + context.getPackageName() + "/databases/";
-        Log.v("DB path :", DB_PATH);
+        Log.v("DB path ", DB_PATH);
         //TODO: check the other code for sdk backward compatibility
         //TODO: do not forget to change the package name
     }
@@ -39,7 +39,7 @@ public class PlantDbHelper extends SQLiteOpenHelper {
     public void createDataBase() throws IOException {
         if (!checkDataBase())  // database does not exist
         {
-            Log.v("into if, DB not exist", "from PlantDbHelper class -> createDataBase methode.");
+            Log.v("into if, DB not exist", "from PlantDbHelper class -> createDataBase method.");
             this.getReadableDatabase();
             try {
                 copyDataBase();   // copy the database from assests
@@ -48,10 +48,10 @@ public class PlantDbHelper extends SQLiteOpenHelper {
                 throw new Error("ErrorCopyingDataBase");
             }
         } else
-            Log.v("DB exists!", "from PlantDbHelper class -> createDataBase methode.");
+            Log.v("DB exists!", "from PlantDbHelper class -> createDataBase method.");
     }
 
-    //Check that the database exists here: /data/data/package/databases/DB_NAME
+    // check if the database exists here: /data/data/package/databases/DB_NAME
     private boolean checkDataBase() {
         SQLiteDatabase checkDB = null;
 
@@ -101,12 +101,10 @@ public class PlantDbHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
     }
 }
 

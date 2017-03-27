@@ -30,23 +30,25 @@ public class DatabaseTest extends AppCompatActivity implements LoaderManager.Loa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_database_test);
 
-        ListView plantsListView = (ListView) findViewById(R.id.listview_plantes);
+        ListView plantsListView = (ListView) findViewById(R.id.listview_plants);
         View emptyView = findViewById(R.id.empty_view);
         plantsListView.setEmptyView(emptyView);
 
         mCursorAdapter = new PlantCursorAdapter(this, null);
         plantsListView.setAdapter(mCursorAdapter);
 
+        mDbHelper = new PlantDbHelper(this);
+
         try {
-            mDbHelper = new PlantDbHelper(this);
             mDbHelper.createDataBase();
         } catch (Exception e) {
             Log.e("From Main.db creation", e.getMessage());
         }
         mDbHelper.openDataBase();
 
+        Log.v("DatabaseTest", "about to init loader");
         getLoaderManager().initLoader(PLANT_LOADER, null, this);
-
+        Log.v("DatabaseTest", "loader inited");
 
 /*
         try {
@@ -62,7 +64,7 @@ public class DatabaseTest extends AppCompatActivity implements LoaderManager.Loa
             cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME ,null);
             Log.v("Got the Query","from Main.try2");
             TextView tv = (TextView) findViewById(R.id.tv);
-            Log.v("Setting count","from Main.try , count to be : " + cursor.getCount());
+            Log.v("Setting count","from Main.try2 , count to be : " + cursor.getCount());
             tv.setText(cursor.getCount() + "");
 
         } catch (Exception e) {
@@ -75,6 +77,7 @@ public class DatabaseTest extends AppCompatActivity implements LoaderManager.Loa
 
     }
 
+
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         String[] projection = {
@@ -83,18 +86,22 @@ public class DatabaseTest extends AppCompatActivity implements LoaderManager.Loa
                 image
         };
 
+        Log.v("DatabaseTest", "in loader creation");
+
         // the loader will execute the CP query method on a background thread
         return new CursorLoader(this, CONTENT_URI, projection, null, null, null);
     }
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+        Log.v("DatabaseTest", "in loader finish");
         // update the adapter with this new cursor containing updated pet data
         mCursorAdapter.swapCursor(data);
     }
 
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
+        Log.v("DatabaseTest", "in loader reset");
         // delete the current data
         mCursorAdapter.swapCursor(null);
     }

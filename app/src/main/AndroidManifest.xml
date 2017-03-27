@@ -90,7 +90,15 @@
         <activity
             android:name=".DatabaseTest"
             android:label="Mohamed"
-            android:parentActivityName=".HomePage"></activity>
+            android:parentActivityName=".HomePage"
+            android:theme="@style/AppTheme"></activity>
+
+        <!-- TODO : add the provider here -->
+        <provider
+            android:name=".data.PlantProvider"
+            android:authorities="dz.esi.team.appprototype"
+            android:exported="false" />
+        <!--exported : whether or not the provider is visible to other apps-->
     </application>
 
 </manifest>

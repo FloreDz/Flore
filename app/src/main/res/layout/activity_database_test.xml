@@ -4,10 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="dz.esi.team.appprototype.DatabaseTest">
+    tools:context="dz.esi.team.appprototype.DatabaseTest"
+    tools:ignore="GradleDependency">
 
     <ListView
-        android:id="@+id/listview_plantes"
+        android:id="@+id/listview_plants"
         android:layout_width="368dp"
         android:layout_height="495dp"
         android:layout_marginBottom="0dp"
