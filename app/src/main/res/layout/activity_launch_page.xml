@@ -42,9 +42,10 @@
             android:layout_width="match_parent"
             android:textAlignment="center"
             android:gravity="center_vertical"
-            android:textColor="@color/logo_blue_dark"
+            android:textColor="@color/white_color_smoke"
             android:textStyle="bold"
             android:textSize="28sp"
+
             tools:layout_editor_absoluteY="315dp" />
 
         <TextView
