@@ -107,7 +107,7 @@ public class MedicalPlantsAdapter extends ArrayAdapter {
         private final ImageView image ;
 
         public PlantViewHolder(View view) {
-            super(view, R.id.plant_name);
+            super(view, R.id.plant_sci_name);
             image = (ImageView) view.findViewById(R.id.plant_image);
         }
 

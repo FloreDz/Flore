@@ -6,15 +6,19 @@
         android:id="@+id/app_search_bar"
         android:icon="@drawable/search"
         android:title="@string/activity_search"
-        android:visible="true"
         app:showAsAction="ifRoom" />
 
-            <item
-                android:id="@+id/option_show_by_familly"
-                android:title="afficher par famile"
-                android:checkable="true"
-                android:checked="false"
-                />
+    <item
+        android:id="@+id/option_show_by_familly"
+        android:checkable="true"
+        android:checked="false"
+        android:title="Afficher par famile" />
+
+    <!--ADDED BY MOHAMED-->
+    <item
+        android:id="@+id/mohamed"
+        android:title="Mohamed"
+        app:showAsAction="ifRoom" />
 
 
 

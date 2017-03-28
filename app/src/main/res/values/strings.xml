@@ -10,8 +10,8 @@
     <string name="plant_name">le nom de la plante</string>
 
     <!-- Floating button options -->
-    <string name="take_photo">prendre une photo</string>
-    <string name="import_photo">importer une photo</string>
+    <string name="take_photo">Prendre une photo</string>
+    <string name="import_photo">Importer une photo</string>
 
     <!-- Search activity -->
     <string name="searchable">le nom de la plante</string>
@@ -49,5 +49,6 @@
     <string name="plant_name_sci">Nom scientifique</string>
     <string name="plant_name_fr">Nom français</string>
     <string name="plant_family">Plant Family</string>
+    <string name="title_activity_database_test">DatabaseTest</string>
 
 </resources>
