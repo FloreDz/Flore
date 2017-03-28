@@ -106,5 +106,4 @@ public class DatabaseTest extends AppCompatActivity implements LoaderManager.Loa
         mCursorAdapter.swapCursor(null);
     }
 
-
 }

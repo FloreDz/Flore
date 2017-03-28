@@ -99,6 +99,10 @@
             android:authorities="dz.esi.team.appprototype"
             android:exported="false" />
         <!--exported : whether or not the provider is visible to other apps-->
+
+        <meta-data
+            android:name="dz.esi.team.appprototype.glide.GlideConfiguration"
+            android:value="GlideModule" />
     </application>
 
 </manifest>

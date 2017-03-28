@@ -17,14 +17,14 @@
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/toolbar_layout_aboutus"
-            app:title="Apropos"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
-            app:contentScrim="?attr/colorPrimary"
             app:collapsedTitleTextAppearance="@style/CollapsingToolbarCollapsedTextAppearance"
+            app:contentScrim="?attr/colorPrimary"
             app:expandedTitleTextAppearance="@style/CollapsingToolbarExpandedTextAppearance"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:title="Apropos">
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar_aboutus"

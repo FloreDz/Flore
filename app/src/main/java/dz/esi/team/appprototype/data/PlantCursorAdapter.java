@@ -1,10 +1,8 @@
 package dz.esi.team.appprototype.data;
 
 import android.content.Context;
-import android.content.res.AssetManager;
 import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,8 +11,7 @@ import android.widget.CursorAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.io.IOException;
-import java.io.InputStream;
+import com.bumptech.glide.Glide;
 
 import dz.esi.team.appprototype.R;
 
@@ -51,34 +48,16 @@ public class PlantCursorAdapter extends CursorAdapter {
         String plantImage = cursor.getString(cursor.getColumnIndex(image));
 
         tvPlantName.setText(plantSciName);
-        tvPlantImage.setScaleType(ImageView.ScaleType.FIT_CENTER);
-        tvPlantImage.setImageBitmap(getBitmapFromAssets(plantImage, context));
+
+        plantImage = plantImage.replace("./images", "thumbnails");
+
+        Glide.with(context)
+                .load(Uri.parse("file:///android_asset/" + plantImage))
+                .placeholder(R.drawable.placeholder_image)
+                .fitCenter()
+                .into(tvPlantImage);
 
         Log.v("PlantCursorAdapter", "bindView finished");
-    }
-
-    private Bitmap getBitmapFromAssets(String imagePath, Context context) {
-
-        Log.v("PlantCursorAdapter", "accessed getBitmap...");
-        AssetManager assetManager = context.getAssets();
-        InputStream is = null;
-        Bitmap bitmap = null;
-        imagePath = imagePath.replaceFirst("./images", "thumbnails");
-        try {
-            is = assetManager.open(imagePath);
-            bitmap = BitmapFactory.decodeStream(is);
-        } catch (IOException ioe) {
-            Log.e("getBitmap methode->try1", ioe.getMessage());
-        } finally {
-            try {
-                is.close();
-                is = null;
-            } catch (Exception e) {
-                Log.e("getBitmap methode->try2", e.getMessage());
-            }
-        }
-        Log.v("PlantCursorAdapter", "about to return getBitmap...");
-        return bitmap;
     }
 
 }
