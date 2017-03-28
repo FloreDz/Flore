@@ -30,7 +30,7 @@ public class PlantDbHelper extends SQLiteOpenHelper {
     public PlantDbHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
         this.mContext = context;
-        DB_PATH = "/data/data/" + context.getPackageName() + "/databases/";
+        DB_PATH = "/data/data/dz.esi.team.appprototype/databases/";
         Log.v("DB path ", DB_PATH);
         //TODO: check the other code for sdk backward compatibility
         //TODO: do not forget to change the package name

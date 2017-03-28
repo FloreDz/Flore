@@ -3,24 +3,17 @@ package dz.esi.team.appprototype;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import dz.esi.team.appprototype.utils.MedicalPlant;
-import dz.esi.team.appprototype.utils.MedicalPlantsFamily;
-import dz.esi.team.appprototype.utils.Section;
 
 /**
  * Created by azeddine on 25/02/17.
  */
 
 public class BaseActivity extends AppCompatActivity {
-    private static final String TAG = "BaseActivity";
-    public static final String PLANT_QUERY = "plant" ;
-    public void activateToolBar(boolean enableHome){
 
+    public static final String PLANT_QUERY = "plant" ;
+    private static final String TAG = "BaseActivity";
+
+    public void activateToolBar(boolean enableHome) {
 
         ActionBar actionBar= getSupportActionBar();
         if(actionBar!=null) {

@@ -33,6 +33,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import dz.esi.team.appprototype.data.PlantProfile;
 import dz.esi.team.appprototype.utils.MedicalPlant;
 import dz.esi.team.appprototype.utils.MedicalPlantsAdapter;
 import dz.esi.team.appprototype.utils.MedicalPlantsFamily;
@@ -81,6 +82,13 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
     protected void onCreate(Bundle savedInstanceState) {
 
         introPageHandler();
+
+        Log.v("text", "in home, about to go in initializer");
+        PlantProfile thisInstanceIsCreatedAndThenDestroyedJustToInitilizeTheIdTable =
+                new PlantProfile(-5L);
+        Log.v("text", "in home, out of initializer, about to unreference");
+        thisInstanceIsCreatedAndThenDestroyedJustToInitilizeTheIdTable = null;
+        Log.v("text", "in home, referenced");
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);

@@ -26,6 +26,7 @@ public class PlantCursorAdapter extends CursorAdapter {
 
     Context mContext = null;
 
+
     public PlantCursorAdapter(Context context, Cursor c) {
         super(context, c, 0);
         mContext = context;
