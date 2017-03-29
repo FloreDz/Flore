@@ -5,6 +5,7 @@
     android:id="@+id/content_help"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/clean_white"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -12,5 +13,117 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="dz.esi.team.appprototype.HelpActivity"
     tools:showIn="@layout/activity_help">
+
+    <Button
+        android:id="@+id/expandableButton1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/clean_white"
+        android:drawableRight="@android:drawable/arrow_down_float"
+        android:onClick="expandableButton1"
+        android:paddingRight="10dp"
+        android:text="Expandable Layout Example"
+        android:textAlignment="textStart"
+        android:paddingLeft="8dp"
+        android:textSize="16sp"
+        style="?android:attr/borderlessButtonStyle"
+        android:textColor="@android:color/holo_blue_light" />
+
+    <com.github.aakira.expandablelayout.ExpandableRelativeLayout
+        android:id="@+id/expandableLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/expandableButton1"
+        android:background="@color/clean_white"
+        android:padding="16dp"
+        app:ael_duration="400"
+        app:ael_expanded="false"
+        app:ael_interpolator="fastOutSlowIn"
+        app:ael_orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/clean_white">
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:paddingBottom="16dp"
+                android:layout_height="wrap_content"
+                android:text="0- in thi row we will explain a step " />
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:paddingBottom="16dp"
+                android:layout_height="wrap_content"
+                android:text="0- in thi row we will explain a step " />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:paddingBottom="16dp"
+                android:layout_height="wrap_content"
+                android:text="0- in thi row we will explain a step " />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:paddingBottom="16dp"
+                android:layout_height="wrap_content"
+                android:text="0- in thi row we will explain a step " />
+
+        </LinearLayout>
+
+    </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
+
+
+    <Button
+        android:id="@+id/expandableButton2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/expandableLayout1"
+        android:background="@color/clean_white"
+        android:drawableRight="@android:drawable/arrow_down_float"
+        android:onClick="expandableButton2"
+        style="?android:attr/borderlessButtonStyle"
+        android:paddingLeft="8dp"
+        android:paddingRight="10dp"
+        android:text="Expandable Layout Example"
+        android:textAlignment="textStart"
+        android:textColor="@android:color/holo_blue_light"
+        android:textSize="16sp" />
+
+    <com.github.aakira.expandablelayout.ExpandableRelativeLayout
+        android:id="@+id/expandableLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/expandableButton2"
+        android:padding="16dp"
+        android:background="@color/clean_white"
+        app:ael_duration="400"
+        app:ael_expanded="false"
+        app:ael_interpolator="fastOutSlowIn"
+        app:ael_orientation="vertical">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:paddingBottom="16dp"
+                android:layout_height="wrap_content"
+                android:text="0- in thi row we will explain a step dskflldskfjsdlfj lksd jflksdj fls sdfj lskdjf lsdjf lksf ljsdijf slkdf klsdjf lksj flksjd flksjd fljs f lksj flksdjf lksjd flsjd f" />
+
+
+    </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
+
+
+
+
 
 </RelativeLayout>
