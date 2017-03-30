@@ -5,125 +5,289 @@
     android:id="@+id/content_help"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/clean_white"
+    android:background="@android:color/white"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp"
+    android:paddingTop="8dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="dz.esi.team.appprototype.HelpActivity"
     tools:showIn="@layout/activity_help">
-
-    <Button
-        android:id="@+id/expandableButton1"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/clean_white"
-        android:drawableRight="@android:drawable/arrow_down_float"
-        android:onClick="expandableButton1"
-        android:paddingRight="10dp"
-        android:text="Expandable Layout Example"
-        android:textAlignment="textStart"
-        android:paddingLeft="8dp"
-        android:textSize="16sp"
-        style="?android:attr/borderlessButtonStyle"
-        android:textColor="@android:color/holo_blue_light" />
-
-    <com.github.aakira.expandablelayout.ExpandableRelativeLayout
-        android:id="@+id/expandableLayout1"
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/help_options"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/expandableButton1"
-        android:background="@color/clean_white"
-        android:padding="16dp"
-        app:ael_duration="400"
-        app:ael_expanded="false"
-        app:ael_interpolator="fastOutSlowIn"
-        app:ael_orientation="vertical">
+        android:layout_marginRight="8dp"
+        android:background="@android:color/white">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/expandableButton1"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@color/clean_white">
+            android:onClick="expandableButton1"
+            android:drawableRight="@drawable/ic_arrow_drop_down"
+            android:clickable="true"
+            android:paddingRight="10dp"
+            android:text="Comment accéder à un profil ?"
+            android:textAlignment="textStart"
+            android:paddingLeft="8dp"
+            android:textSize="22sp"
+            android:layout_marginBottom="4dp"
+            android:textColor="@color/logo_blue_medium" />
+        <com.github.aakira.expandablelayout.ExpandableRelativeLayout
+            android:id="@+id/expandableLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/expandableButton1"
+            android:background="@color/clean_white"
+            android:padding="16dp"
+
+            app:ael_duration="400"
+            app:ael_expanded="false"
+            app:ael_interpolator="fastOutSlowIn"
+            app:ael_orientation="vertical">
+
+            <TextView
+                android:id="@+id/subtitle1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Différentes façons existent pour accéder à un profil :"
+                android:textAlignment="viewStart"
+                android:textAllCaps="false"
+                android:textColor="@android:color/black"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/subtitle1"
+                android:layout_marginTop="16dp"
+                android:paddingLeft="15dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="• Directement en appuyant sur les plantes apparentes dans la page d’accueil."
+                    android:textColor="@android:color/black"
+                    android:layout_marginBottom="8dp"
+                    android:textSize="15sp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="• Après le processus de reconnaissance d’image."
+                    android:textColor="@android:color/black"
+                    android:layout_marginBottom="8dp"
+                    android:textSize="15sp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="• A travers une recherche textuelle du nom de la plante."
+                    android:textColor="@android:color/black"
+                    android:layout_marginBottom="8dp"
+                    android:textSize="15sp"/>
+            </LinearLayout>
+
+
+        </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_below="@id/expandableLayout1"
+            android:background="@drawable/border_bottom"/>
+
+
+        <TextView
+            android:id="@+id/expandableButton2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/expandableLayout1"
+            android:drawableRight="@drawable/ic_arrow_drop_down"
+            android:onClick="expandableButton2"
+            android:clickable="true"
+            android:paddingLeft="8dp"
+            android:paddingRight="10dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="4dp"
+            android:text="Comment reconnaître une plante à travers sa photo ?"
+            android:textAlignment="textStart"
+            android:textColor="@color/logo_blue_medium"
+            android:textSize="22sp" />
+        <com.github.aakira.expandablelayout.ExpandableRelativeLayout
+            android:id="@+id/expandableLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/expandableButton2"
+            android:padding="16dp"
+            android:background="@color/clean_white"
+            app:ael_duration="400"
+            app:ael_expanded="false"
+            app:ael_interpolator="fastOutSlowIn"
+            app:ael_orientation="vertical">
+
+
             <TextView
                 android:layout_width="wrap_content"
                 android:textColor="@android:color/black"
-                android:textSize="16sp"
+                android:textSize="15sp"
                 android:paddingBottom="16dp"
                 android:layout_height="wrap_content"
-                android:text="0- in thi row we will explain a step " />
-            <TextView
-                android:layout_width="wrap_content"
-                android:textColor="@android:color/black"
-                android:textSize="16sp"
-                android:paddingBottom="16dp"
-                android:layout_height="wrap_content"
-                android:text="0- in thi row we will explain a step " />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:textColor="@android:color/black"
-                android:textSize="16sp"
-                android:paddingBottom="16dp"
-                android:layout_height="wrap_content"
-                android:text="0- in thi row we will explain a step " />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:textColor="@android:color/black"
-                android:textSize="16sp"
-                android:paddingBottom="16dp"
-                android:layout_height="wrap_content"
-                android:text="0- in thi row we will explain a step " />
-
-        </LinearLayout>
-
-    </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
+                android:text="Que ce soit vous avez son image dans votre galerie, ou vous rencontrez la plante pour la première fois, en cliquant sur le Button Vous pouvez importer la photo dont vous voulez reconnaitre la plante, ou prendre une photo de cette dernière. Après, l’application va s’occuper de trouver son profil pour vous." />
 
 
-    <Button
-        android:id="@+id/expandableButton2"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/expandableLayout1"
-        android:background="@color/clean_white"
-        android:drawableRight="@android:drawable/arrow_down_float"
-        android:onClick="expandableButton2"
-        style="?android:attr/borderlessButtonStyle"
-        android:paddingLeft="8dp"
-        android:paddingRight="10dp"
-        android:text="Expandable Layout Example"
-        android:textAlignment="textStart"
-        android:textColor="@android:color/holo_blue_light"
-        android:textSize="16sp" />
+        </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_below="@id/expandableLayout2"
+            android:background="@drawable/border_bottom"/>
 
-    <com.github.aakira.expandablelayout.ExpandableRelativeLayout
-        android:id="@+id/expandableLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/expandableButton2"
-        android:padding="16dp"
-        android:background="@color/clean_white"
-        app:ael_duration="400"
-        app:ael_expanded="false"
-        app:ael_interpolator="fastOutSlowIn"
-        app:ael_orientation="vertical">
+        <TextView
+            android:id="@+id/expandableButton3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/expandableLayout2"
+            android:background="@color/clean_white"
+            android:drawableRight="@drawable/ic_arrow_drop_down"
+            android:onClick="expandableButton3"
+            android:clickable="true"
+            android:paddingLeft="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="4dp"
+            android:paddingRight="10dp"
+            android:text="Si la photo contient beaucoup de plantes ?"
+            android:textAlignment="textStart"
+            android:textColor="@color/logo_blue_medium"
+            android:textSize="22sp" />
+        <com.github.aakira.expandablelayout.ExpandableRelativeLayout
+            android:id="@+id/expandableLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/expandableButton3"
+            android:padding="16dp"
+            android:background="@color/clean_white"
+            app:ael_duration="400"
+            app:ael_expanded="false"
+            app:ael_interpolator="fastOutSlowIn"
+
+            app:ael_orientation="vertical">
 
 
             <TextView
                 android:layout_width="wrap_content"
                 android:textColor="@android:color/black"
-                android:textSize="16sp"
+                android:textSize="15sp"
                 android:paddingBottom="16dp"
                 android:layout_height="wrap_content"
-                android:text="0- in thi row we will explain a step dskflldskfjsdlfj lksd jflksdj fls sdfj lskdjf lsdjf lksf ljsdijf slkdf klsdjf lksj flksjd flksjd fljs f lksj flksdjf lksjd flsjd f" />
+                android:text="Après le choix de la photo, une option de recadrage est disponible afin de préciser la plante que vous voulez identifier." />
 
 
-    </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
+        </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_marginBottom="16dp"
+            android:layout_below="@id/expandableLayout3"
+            android:background="@drawable/border_bottom"/>
+
+        <TextView
+            android:id="@+id/expandableButton4"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/expandableLayout3"
+            android:drawableRight="@drawable/ic_arrow_drop_down"
+            android:onClick="expandableButton4"
+            android:clickable="true"
+            android:paddingLeft="8dp"
+            android:paddingRight="10dp"
+            android:text="Si je ne connais que le nom e la plante ?"
+            android:textAlignment="textStart"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="4dp"
+            android:textColor="@color/logo_blue_medium"
+            android:textSize="22sp" />
+        <com.github.aakira.expandablelayout.ExpandableRelativeLayout
+            android:id="@+id/expandableLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/expandableButton4"
+            android:padding="16dp"
+            android:background="@color/clean_white"
+            app:ael_duration="400"
+            app:ael_expanded="false"
+            app:ael_interpolator="fastOutSlowIn"
+            app:ael_orientation="vertical">
 
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@android:color/black"
+                android:textSize="15sp"
+                android:paddingBottom="16dp"
+                android:layout_height="wrap_content"
+                android:text="Dans ce cas en appuyant sur le Button  grâce à une recherche vivante, vous aurez toutes les résultats possibles, après l’introduction de chaque caractère." />
 
 
+        </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_marginBottom="16dp"
+            android:layout_below="@id/expandableLayout4"
+            android:background="@drawable/border_bottom"/>
+
+        <TextView
+            android:id="@+id/expandableButton5"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/expandableLayout4"
+            android:drawableRight="@drawable/ic_arrow_drop_down"
+            android:onClick="expandableButton5"
+            android:clickable="true"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="4dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="10dp"
+            android:text="Comment catégoriser les plantes ?"
+            android:textAlignment="textStart"
+            android:textColor="@color/logo_blue_medium"
+            android:textSize="22sp" />
+        <com.github.aakira.expandablelayout.ExpandableRelativeLayout
+            android:id="@+id/expandableLayout5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/expandableButton5"
+            android:padding="16dp"
+            android:background="@color/clean_white"
+            app:ael_duration="400"
+            app:ael_expanded="false"
+            app:ael_interpolator="fastOutSlowIn"
+            app:ael_orientation="vertical">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@android:color/black"
+                android:textSize="15sp"
+                android:paddingBottom="16dp"
+                android:layout_height="wrap_content"
+                android:text="Parce que la plus importante catégorisation et celle des familles, une option est offerte pour faire cela dans la page d’accueil en appuyant sur  puis « Afficher par famille »" />
+
+
+        </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_marginBottom="16dp"
+            android:layout_below="@id/expandableLayout5"
+            android:background="@drawable/border_bottom"/>
+        </RelativeLayout>
+
+
+</ScrollView>
 
 </RelativeLayout>
