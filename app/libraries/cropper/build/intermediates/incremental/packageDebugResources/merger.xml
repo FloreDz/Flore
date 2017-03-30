@@ -15,7 +15,7 @@
         <item name="android:divider">@drawable/crop__divider</item>
         <item name="android:showDividers" ns1:ignore="NewApi">middle</item>
         <item name="android:dividerPadding" ns1:ignore="NewApi">12dp</item>
-        <item name="android:background">@color/white_color_smoke</item>
+        <item name="android:background">@color/logo_blue_light</item>
     </style><style name="Crop.ActionButtonText.Done">
         <item name="android:drawableLeft">@drawable/crop__ic_done</item>
         <item name="android:text">@string/crop__done</item>
@@ -23,7 +23,7 @@
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_weight">1</item>
-        <item name="android:background">@drawable/crop__selectable_background</item>
+        <item name="android:background">@color/logo_blue_light</item>
     </style><style name="Crop.ActionButtonText">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -31,7 +31,7 @@
         <item name="android:gravity">center_vertical</item>
         <item name="android:paddingRight">20dp</item> 
         <item name="android:drawablePadding">8dp</item>
-        <item name="android:textColor">@color/crop__button_text</item>
+        <item name="android:textColor">@color/white_color_smoke</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">13sp</item>
     </style><style name="Crop.ActionButtonText.Cancel">
