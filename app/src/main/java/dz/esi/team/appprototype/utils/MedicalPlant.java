@@ -21,7 +21,7 @@ public class MedicalPlant implements Section{
 
         this.name = name;
         this.imageSource = imageSource  ;
-        this.familyName = familyName ;
+        this.familyName = familyName;
     }
 
     public String getName() {

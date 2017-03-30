@@ -133,10 +133,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:textColor="@android:color/black"
+                android:id="@+id/textView2"
                 android:textSize="15sp"
                 android:paddingBottom="16dp"
-                android:layout_height="wrap_content"
-                android:text="Que ce soit vous avez son image dans votre galerie, ou vous rencontrez la plante pour la première fois, en cliquant sur le Button Vous pouvez importer la photo dont vous voulez reconnaitre la plante, ou prendre une photo de cette dernière. Après, l’application va s’occuper de trouver son profil pour vous." />
+                android:layout_height="wrap_content"/>
 
 
         </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
@@ -204,7 +204,7 @@
             android:clickable="true"
             android:paddingLeft="8dp"
             android:paddingRight="10dp"
-            android:text="Si je ne connais que le nom e la plante ?"
+            android:text="Si je ne connais que le nom de la plante ?"
             android:textAlignment="textStart"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="4dp"
@@ -226,10 +226,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:textColor="@android:color/black"
+                android:id="@+id/textView4"
                 android:textSize="15sp"
                 android:paddingBottom="16dp"
                 android:layout_height="wrap_content"
-                android:text="Dans ce cas en appuyant sur le Button  grâce à une recherche vivante, vous aurez toutes les résultats possibles, après l’introduction de chaque caractère." />
+              />
 
 
         </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
@@ -273,9 +274,10 @@
                 android:layout_width="wrap_content"
                 android:textColor="@android:color/black"
                 android:textSize="15sp"
+                android:id="@+id/textView5"
                 android:paddingBottom="16dp"
                 android:layout_height="wrap_content"
-                android:text="Parce que la plus importante catégorisation et celle des familles, une option est offerte pour faire cela dans la page d’accueil en appuyant sur  puis « Afficher par famille »" />
+            />
 
 
         </com.github.aakira.expandablelayout.ExpandableRelativeLayout>

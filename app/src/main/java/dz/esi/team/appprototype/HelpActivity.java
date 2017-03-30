@@ -6,8 +6,11 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.SpannableStringBuilder;
+import android.text.style.ImageSpan;
 import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.github.aakira.expandablelayout.ExpandableLayoutListener;
 import com.github.aakira.expandablelayout.ExpandableRelativeLayout;
@@ -16,6 +19,7 @@ import com.github.aakira.expandablelayout.Utils;
 public class HelpActivity extends AppCompatActivity{
 
     ExpandableRelativeLayout expandableLayout1 ,expandableLayout2, expandableLayout3,expandableLayout4 ,expandableLayout5;
+    TextView textView2 , textView4 , textView5 ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +28,44 @@ public class HelpActivity extends AppCompatActivity{
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        textView2 = (TextView) findViewById(R.id.textView2);
+        textView4 = (TextView) findViewById(R.id.textView4);
+        textView5 = (TextView) findViewById(R.id.textView5);
+
+
+
+        SpannableStringBuilder builder = new SpannableStringBuilder();
+
+        builder.append("Que ce soit vous avez son image dans votre galerie");
+        builder.append(",ou vous rencontrez la plante pour la première fois, en cliquant sur le Button ").append("\n  ");
+        builder.setSpan(new ImageSpan(HelpActivity.this,R.drawable.ic_fab_icone),
+                builder.length() - 1, builder.length(), 0);
+        builder.append(" Vous pouvez importer la photo dont vous voulez reconnaitre la plante, ou prendre une photo de cette dernière. Après, l’application va s’occuper de trouver son profil pour vous.");
+        textView2.setText(builder);
+
+        SpannableStringBuilder builderFour = new SpannableStringBuilder();
+        builderFour.append("Dans ce cas en appuyant sur le Button ").append("\n  ");
+        builderFour.setSpan(new ImageSpan(HelpActivity.this ,R.drawable.search_icone),
+                builderFour.length() -1, builderFour.length(), 0);
+        builderFour.append(" grâce à une recherche vivante, vous aurez toutes les résultats possibles,après l’introduction de chaque caractère");
+
+        textView4.setText(builderFour);
+
+
+
+        SpannableStringBuilder builderFive = new SpannableStringBuilder();
+        builderFive.append("Parce que la plus importante catégorisation et celle des familles, une option est offerte pour faire cela dans la page d’accueil en appuyant sur").append(" ");
+        builderFive.setSpan(new ImageSpan(HelpActivity.this,R.drawable.option_menu),
+                builderFive.length() - 1, builderFive.length(), 0);
+        builderFive.append(" puis « Afficher par famille »");
+
+        textView5.setText(builderFive);
+
+
+
+
+
     }
 
 
