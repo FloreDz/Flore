@@ -1,5 +1,9 @@
 [
     {
+        "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_action_mode_bar.xml",
+        "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout\\abc_action_mode_bar.xml"
+    },
+    {
         "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\select_dialog_multichoice_material.xml",
         "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout\\select_dialog_multichoice_material.xml"
     },
@@ -8,64 +12,64 @@
         "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout\\abc_dialog_title_material.xml"
     },
     {
-        "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\default_indicator.xml",
-        "source": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\bundles\\debug\\res\\layout\\default_indicator.xml"
+        "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\fragment_intro2.xml",
+        "source": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\bundles\\debug\\res\\layout\\fragment_intro2.xml"
     },
     {
-        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_alert_dialog_title_material.xml",
-        "source": "C:\\home\\azeddine\\.android\\build-cache\\0b1bbdf9ca6931607ae09de1c06227b30c392821\\output\\res\\layout\\abc_alert_dialog_title_material.xml"
+        "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\default_indicator.xml",
+        "source": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\bundles\\debug\\res\\layout\\default_indicator.xml"
     },
     {
         "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_search_view.xml",
         "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout\\abc_search_view.xml"
     },
     {
-        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\intro_layout2.xml",
-        "source": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\bundles\\debug\\res\\layout\\intro_layout2.xml"
-    },
-    {
         "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_alert_dialog_material.xml",
         "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout\\abc_alert_dialog_material.xml"
+    },
+    {
+        "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_activity_chooser_view_list_item.xml",
+        "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout\\abc_activity_chooser_view_list_item.xml"
     },
     {
         "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_action_mode_close_item_material.xml",
         "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout\\abc_action_mode_close_item_material.xml"
     },
     {
-        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_list_menu_item_radio.xml",
-        "source": "C:\\home\\azeddine\\.android\\build-cache\\0b1bbdf9ca6931607ae09de1c06227b30c392821\\output\\res\\layout\\abc_list_menu_item_radio.xml"
+        "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\fragment_intro.xml",
+        "source": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\bundles\\debug\\res\\layout\\fragment_intro.xml"
     },
     {
-        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_action_mode_close_item_material.xml",
-        "source": "C:\\home\\azeddine\\.android\\build-cache\\0b1bbdf9ca6931607ae09de1c06227b30c392821\\output\\res\\layout\\abc_action_mode_close_item_material.xml"
-    },
-    {
-        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_expanded_menu_layout.xml",
-        "source": "C:\\home\\azeddine\\.android\\build-cache\\0b1bbdf9ca6931607ae09de1c06227b30c392821\\output\\res\\layout\\abc_expanded_menu_layout.xml"
+        "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_action_menu_layout.xml",
+        "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout\\abc_action_menu_layout.xml"
     },
     {
         "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\select_dialog_item_material.xml",
         "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout\\select_dialog_item_material.xml"
     },
     {
-        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\fragment_intro_content.xml",
-        "source": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\bundles\\debug\\res\\layout\\fragment_intro_content.xml"
+        "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_template_media_custom.xml",
+        "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout\\notification_template_media_custom.xml"
+    },
+    {
+        "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_action_bar_up_container.xml",
+        "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout\\abc_action_bar_up_container.xml"
     },
     {
         "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_action_tombstone.xml",
         "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout\\notification_action_tombstone.xml"
     },
     {
+        "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_popup_menu_header_item_layout.xml",
+        "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout\\abc_popup_menu_header_item_layout.xml"
+    },
+    {
         "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_template_part_time.xml",
         "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout\\notification_template_part_time.xml"
     },
     {
-        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_screen_simple_overlay_action_mode.xml",
-        "source": "C:\\home\\azeddine\\.android\\build-cache\\0b1bbdf9ca6931607ae09de1c06227b30c392821\\output\\res\\layout\\abc_screen_simple_overlay_action_mode.xml"
-    },
-    {
-        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_search_dropdown_item_icons_2line.xml",
-        "source": "C:\\home\\azeddine\\.android\\build-cache\\0b1bbdf9ca6931607ae09de1c06227b30c392821\\output\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
+        "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\select_dialog_singlechoice_material.xml",
+        "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout\\select_dialog_singlechoice_material.xml"
     },
     {
         "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_alert_dialog_button_bar_material.xml",
@@ -80,32 +84,28 @@
         "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout\\notification_template_media.xml"
     },
     {
-        "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\support_simple_spinner_dropdown_item.xml",
-        "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout\\support_simple_spinner_dropdown_item.xml"
+        "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_screen_simple.xml",
+        "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout\\abc_screen_simple.xml"
     },
     {
-        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_popup_menu_header_item_layout.xml",
-        "source": "C:\\home\\azeddine\\.android\\build-cache\\0b1bbdf9ca6931607ae09de1c06227b30c392821\\output\\res\\layout\\abc_popup_menu_header_item_layout.xml"
+        "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\support_simple_spinner_dropdown_item.xml",
+        "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout\\support_simple_spinner_dropdown_item.xml"
     },
     {
         "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_action_menu_item_layout.xml",
         "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout\\abc_action_menu_item_layout.xml"
     },
     {
-        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\intro_layout.xml",
-        "source": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\bundles\\debug\\res\\layout\\intro_layout.xml"
-    },
-    {
-        "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_search_dropdown_item_icons_2line.xml",
-        "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
+        "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_template_custom_big.xml",
+        "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout\\notification_template_custom_big.xml"
     },
     {
         "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_template_lines_media.xml",
         "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout\\notification_template_lines_media.xml"
     },
     {
-        "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_template_custom_big.xml",
-        "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout\\notification_template_custom_big.xml"
+        "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_search_dropdown_item_icons_2line.xml",
+        "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
     },
     {
         "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_screen_content_include.xml",
@@ -120,12 +120,16 @@
         "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout\\abc_popup_menu_item_layout.xml"
     },
     {
-        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_list_menu_item_icon.xml",
-        "source": "C:\\home\\azeddine\\.android\\build-cache\\0b1bbdf9ca6931607ae09de1c06227b30c392821\\output\\res\\layout\\abc_list_menu_item_icon.xml"
+        "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_action_bar_title_item.xml",
+        "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout\\abc_action_bar_title_item.xml"
     },
     {
-        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_screen_toolbar.xml",
-        "source": "C:\\home\\azeddine\\.android\\build-cache\\0b1bbdf9ca6931607ae09de1c06227b30c392821\\output\\res\\layout\\abc_screen_toolbar.xml"
+        "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_select_dialog_material.xml",
+        "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout\\abc_select_dialog_material.xml"
+    },
+    {
+        "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_action.xml",
+        "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout\\notification_action.xml"
     },
     {
         "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_template_part_chronometer.xml",
@@ -140,32 +144,12 @@
         "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout\\abc_action_bar_view_list_nav_layout.xml"
     },
     {
-        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_alert_dialog_button_bar_material.xml",
-        "source": "C:\\home\\azeddine\\.android\\build-cache\\0b1bbdf9ca6931607ae09de1c06227b30c392821\\output\\res\\layout\\abc_alert_dialog_button_bar_material.xml"
-    },
-    {
-        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_list_menu_item_layout.xml",
-        "source": "C:\\home\\azeddine\\.android\\build-cache\\0b1bbdf9ca6931607ae09de1c06227b30c392821\\output\\res\\layout\\abc_list_menu_item_layout.xml"
-    },
-    {
-        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_screen_simple.xml",
-        "source": "C:\\home\\azeddine\\.android\\build-cache\\0b1bbdf9ca6931607ae09de1c06227b30c392821\\output\\res\\layout\\abc_screen_simple.xml"
-    },
-    {
-        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\select_dialog_multichoice_material.xml",
-        "source": "C:\\home\\azeddine\\.android\\build-cache\\0b1bbdf9ca6931607ae09de1c06227b30c392821\\output\\res\\layout\\select_dialog_multichoice_material.xml"
-    },
-    {
         "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_list_menu_item_checkbox.xml",
         "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout\\abc_list_menu_item_checkbox.xml"
     },
     {
-        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_dialog_title_material.xml",
-        "source": "C:\\home\\azeddine\\.android\\build-cache\\0b1bbdf9ca6931607ae09de1c06227b30c392821\\output\\res\\layout\\abc_dialog_title_material.xml"
-    },
-    {
-        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\default_indicator.xml",
-        "source": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\bundles\\debug\\res\\layout\\default_indicator.xml"
+        "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\intro_layout2.xml",
+        "source": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\bundles\\debug\\res\\layout\\intro_layout2.xml"
     },
     {
         "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\progress_indicator.xml",
@@ -176,188 +160,8 @@
         "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout\\notification_template_icon_group.xml"
     },
     {
-        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_template_part_chronometer.xml",
-        "source": "C:\\home\\azeddine\\.android\\build-cache\\0b1bbdf9ca6931607ae09de1c06227b30c392821\\output\\res\\layout\\notification_template_part_chronometer.xml"
-    },
-    {
-        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_action_menu_item_layout.xml",
-        "source": "C:\\home\\azeddine\\.android\\build-cache\\0b1bbdf9ca6931607ae09de1c06227b30c392821\\output\\res\\layout\\abc_action_menu_item_layout.xml"
-    },
-    {
-        "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_alert_dialog_title_material.xml",
-        "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout\\abc_alert_dialog_title_material.xml"
-    },
-    {
-        "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_screen_toolbar.xml",
-        "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout\\abc_screen_toolbar.xml"
-    },
-    {
-        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_template_icon_group.xml",
-        "source": "C:\\home\\azeddine\\.android\\build-cache\\0b1bbdf9ca6931607ae09de1c06227b30c392821\\output\\res\\layout\\notification_template_icon_group.xml"
-    },
-    {
-        "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_action_mode_bar.xml",
-        "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout\\abc_action_mode_bar.xml"
-    },
-    {
-        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_template_media.xml",
-        "source": "C:\\home\\azeddine\\.android\\build-cache\\0b1bbdf9ca6931607ae09de1c06227b30c392821\\output\\res\\layout\\notification_template_media.xml"
-    },
-    {
-        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_select_dialog_material.xml",
-        "source": "C:\\home\\azeddine\\.android\\build-cache\\0b1bbdf9ca6931607ae09de1c06227b30c392821\\output\\res\\layout\\abc_select_dialog_material.xml"
-    },
-    {
-        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_action_bar_title_item.xml",
-        "source": "C:\\home\\azeddine\\.android\\build-cache\\0b1bbdf9ca6931607ae09de1c06227b30c392821\\output\\res\\layout\\abc_action_bar_title_item.xml"
-    },
-    {
-        "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\fragment_intro2.xml",
-        "source": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\bundles\\debug\\res\\layout\\fragment_intro2.xml"
-    },
-    {
-        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\select_dialog_item_material.xml",
-        "source": "C:\\home\\azeddine\\.android\\build-cache\\0b1bbdf9ca6931607ae09de1c06227b30c392821\\output\\res\\layout\\select_dialog_item_material.xml"
-    },
-    {
-        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_template_media_custom.xml",
-        "source": "C:\\home\\azeddine\\.android\\build-cache\\0b1bbdf9ca6931607ae09de1c06227b30c392821\\output\\res\\layout\\notification_template_media_custom.xml"
-    },
-    {
-        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_popup_menu_item_layout.xml",
-        "source": "C:\\home\\azeddine\\.android\\build-cache\\0b1bbdf9ca6931607ae09de1c06227b30c392821\\output\\res\\layout\\abc_popup_menu_item_layout.xml"
-    },
-    {
-        "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_activity_chooser_view_list_item.xml",
-        "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout\\abc_activity_chooser_view_list_item.xml"
-    },
-    {
-        "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\fragment_intro.xml",
-        "source": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\bundles\\debug\\res\\layout\\fragment_intro.xml"
-    },
-    {
-        "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_action_menu_layout.xml",
-        "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout\\abc_action_menu_layout.xml"
-    },
-    {
-        "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_template_media_custom.xml",
-        "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout\\notification_template_media_custom.xml"
-    },
-    {
-        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_list_menu_item_checkbox.xml",
-        "source": "C:\\home\\azeddine\\.android\\build-cache\\0b1bbdf9ca6931607ae09de1c06227b30c392821\\output\\res\\layout\\abc_list_menu_item_checkbox.xml"
-    },
-    {
-        "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_action_bar_up_container.xml",
-        "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout\\abc_action_bar_up_container.xml"
-    },
-    {
-        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_action_tombstone.xml",
-        "source": "C:\\home\\azeddine\\.android\\build-cache\\0b1bbdf9ca6931607ae09de1c06227b30c392821\\output\\res\\layout\\notification_action_tombstone.xml"
-    },
-    {
-        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_activity_chooser_view_list_item.xml",
-        "source": "C:\\home\\azeddine\\.android\\build-cache\\0b1bbdf9ca6931607ae09de1c06227b30c392821\\output\\res\\layout\\abc_activity_chooser_view_list_item.xml"
-    },
-    {
-        "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_popup_menu_header_item_layout.xml",
-        "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout\\abc_popup_menu_header_item_layout.xml"
-    },
-    {
-        "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\select_dialog_singlechoice_material.xml",
-        "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout\\select_dialog_singlechoice_material.xml"
-    },
-    {
-        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_template_lines_media.xml",
-        "source": "C:\\home\\azeddine\\.android\\build-cache\\0b1bbdf9ca6931607ae09de1c06227b30c392821\\output\\res\\layout\\notification_template_lines_media.xml"
-    },
-    {
-        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\support_simple_spinner_dropdown_item.xml",
-        "source": "C:\\home\\azeddine\\.android\\build-cache\\0b1bbdf9ca6931607ae09de1c06227b30c392821\\output\\res\\layout\\support_simple_spinner_dropdown_item.xml"
-    },
-    {
-        "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_screen_simple.xml",
-        "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout\\abc_screen_simple.xml"
-    },
-    {
-        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_activity_chooser_view.xml",
-        "source": "C:\\home\\azeddine\\.android\\build-cache\\0b1bbdf9ca6931607ae09de1c06227b30c392821\\output\\res\\layout\\abc_activity_chooser_view.xml"
-    },
-    {
-        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_screen_content_include.xml",
-        "source": "C:\\home\\azeddine\\.android\\build-cache\\0b1bbdf9ca6931607ae09de1c06227b30c392821\\output\\res\\layout\\abc_screen_content_include.xml"
-    },
-    {
-        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_action.xml",
-        "source": "C:\\home\\azeddine\\.android\\build-cache\\0b1bbdf9ca6931607ae09de1c06227b30c392821\\output\\res\\layout\\notification_action.xml"
-    },
-    {
-        "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_action_bar_title_item.xml",
-        "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout\\abc_action_bar_title_item.xml"
-    },
-    {
-        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_search_view.xml",
-        "source": "C:\\home\\azeddine\\.android\\build-cache\\0b1bbdf9ca6931607ae09de1c06227b30c392821\\output\\res\\layout\\abc_search_view.xml"
-    },
-    {
-        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\progress_indicator.xml",
-        "source": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\bundles\\debug\\res\\layout\\progress_indicator.xml"
-    },
-    {
-        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_template_custom_big.xml",
-        "source": "C:\\home\\azeddine\\.android\\build-cache\\0b1bbdf9ca6931607ae09de1c06227b30c392821\\output\\res\\layout\\notification_template_custom_big.xml"
-    },
-    {
-        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_alert_dialog_material.xml",
-        "source": "C:\\home\\azeddine\\.android\\build-cache\\0b1bbdf9ca6931607ae09de1c06227b30c392821\\output\\res\\layout\\abc_alert_dialog_material.xml"
-    },
-    {
-        "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_select_dialog_material.xml",
-        "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout\\abc_select_dialog_material.xml"
-    },
-    {
-        "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_action.xml",
-        "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout\\notification_action.xml"
-    },
-    {
-        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\fragment_intro2.xml",
-        "source": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\bundles\\debug\\res\\layout\\fragment_intro2.xml"
-    },
-    {
-        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_action_bar_up_container.xml",
-        "source": "C:\\home\\azeddine\\.android\\build-cache\\0b1bbdf9ca6931607ae09de1c06227b30c392821\\output\\res\\layout\\abc_action_bar_up_container.xml"
-    },
-    {
-        "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\intro_layout2.xml",
-        "source": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\bundles\\debug\\res\\layout\\intro_layout2.xml"
-    },
-    {
-        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\select_dialog_singlechoice_material.xml",
-        "source": "C:\\home\\azeddine\\.android\\build-cache\\0b1bbdf9ca6931607ae09de1c06227b30c392821\\output\\res\\layout\\select_dialog_singlechoice_material.xml"
-    },
-    {
-        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_template_part_time.xml",
-        "source": "C:\\home\\azeddine\\.android\\build-cache\\0b1bbdf9ca6931607ae09de1c06227b30c392821\\output\\res\\layout\\notification_template_part_time.xml"
-    },
-    {
-        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_action_menu_layout.xml",
-        "source": "C:\\home\\azeddine\\.android\\build-cache\\0b1bbdf9ca6931607ae09de1c06227b30c392821\\output\\res\\layout\\abc_action_menu_layout.xml"
-    },
-    {
-        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_action_mode_bar.xml",
-        "source": "C:\\home\\azeddine\\.android\\build-cache\\0b1bbdf9ca6931607ae09de1c06227b30c392821\\output\\res\\layout\\abc_action_mode_bar.xml"
-    },
-    {
         "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_list_menu_item_icon.xml",
         "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout\\abc_list_menu_item_icon.xml"
-    },
-    {
-        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\fragment_intro.xml",
-        "source": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\bundles\\debug\\res\\layout\\fragment_intro.xml"
-    },
-    {
-        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_action_bar_view_list_nav_layout.xml",
-        "source": "C:\\home\\azeddine\\.android\\build-cache\\0b1bbdf9ca6931607ae09de1c06227b30c392821\\output\\res\\layout\\abc_action_bar_view_list_nav_layout.xml"
     },
     {
         "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_screen_simple_overlay_action_mode.xml",
@@ -370,6 +174,14 @@
     {
         "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\fragment_intro_content.xml",
         "source": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\bundles\\debug\\res\\layout\\fragment_intro_content.xml"
+    },
+    {
+        "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_alert_dialog_title_material.xml",
+        "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout\\abc_alert_dialog_title_material.xml"
+    },
+    {
+        "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_screen_toolbar.xml",
+        "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\layout\\abc_screen_toolbar.xml"
     },
     {
         "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_expanded_menu_layout.xml",

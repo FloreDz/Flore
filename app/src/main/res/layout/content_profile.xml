@@ -26,6 +26,7 @@
                 android:layout_height="wrap_content"
                 android:padding="8dp"
                 android:text="@string/plant_resume_default_text" />
+
         </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView
@@ -37,47 +38,54 @@
                 android:id="@+id/plant_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="8dp"
+                android:layout_margin="8dp"
                 android:orientation="vertical"
+                android:padding="8dp"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
                 <TextView
-                    android:id="@+id/plant_constituent_title"
+                    android:id="@+id/plant_noms_title"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="Noms" />
+
+                <TextView
+                    android:id="@+id/plant_noms"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:gravity="center_vertical"
+                    android:text="noms de la plante" />
+
+                <TextView
+                    android:id="@+id/plant_constituents_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:clickable="true"
                     android:gravity="center_vertical"
                     android:onClick="onClickConstituents"
+                    android:padding="5dp"
                     android:text="@string/plant_title_constituants" />
 
-                <LinearLayout
+                <TextView
                     android:id="@+id/plant_constituents"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/plant_constituent1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:gravity="center_vertical"
-                        android:text="1er Constituant" />
-
-                    <TextView
-                        android:id="@+id/plant_constituent2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:gravity="center_vertical"
-                        android:text="2eme Constituant" />
-                </LinearLayout>
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:gravity="center_vertical"
+                    android:text="les constituants" />
 
                 <TextView
                     android:id="@+id/plant_habitat_title"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:gravity="center_vertical"
+                    android:padding="5dp"
                     android:text="Habitat" />
 
                 <TextView
@@ -86,13 +94,15 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:gravity="center_vertical"
-                    android:text="la localisation géographique où on peut trouver la plente" />
+                    android:text="la localisation géographique où on peut trouver la plante" />
 
                 <TextView
                     android:id="@+id/plant_harvest_title"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:gravity="center_vertical"
+                    android:padding="5dp"
                     android:text="Temps de Récolte" />
 
                 <TextView
@@ -106,8 +116,10 @@
                 <TextView
                     android:id="@+id/plant_used_parts_title"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:gravity="center_vertical"
+                    android:padding="5dp"
                     android:text="Parties utilisés" />
 
                 <TextView
@@ -121,8 +133,10 @@
                 <TextView
                     android:id="@+id/plant_effects_title"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:gravity="center_vertical"
+                    android:padding="5dp"
                     android:text="Les effets" />
 
                 <TextView
@@ -136,8 +150,10 @@
                 <TextView
                     android:id="@+id/plant_2nd_effects_title"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:gravity="center_vertical"
+                    android:padding="5dp"
                     android:text="Les effets secondaires" />
 
                 <TextView
@@ -151,8 +167,10 @@
                 <TextView
                     android:id="@+id/plant_interactions_title"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:gravity="center_vertical"
+                    android:padding="5dp"
                     android:text="Les interactions" />
 
                 <TextView
@@ -175,23 +193,25 @@
                 android:id="@+id/plant_benefit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="8dp"
                 android:layout_margin="8dp"
                 android:orientation="vertical"
+                android:padding="8dp"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/plant_description">
 
                 <TextView
-                    android:id="@+id/plant_use_title"
+                    android:id="@+id/plant_indications_title"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:gravity="center_vertical"
-                    android:text="Indication de la plante" />
+                    android:padding="5dp"
+                    android:text="Indications de la plante" />
 
                 <TextView
-                    android:id="@+id/plant_use"
+                    android:id="@+id/plant_indications"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -199,54 +219,90 @@
                     android:text="Here we put the necessary information" />
 
                 <TextView
-                    android:id="@+id/plant_main_use_title"
+                    android:id="@+id/plant_contreIndications_title"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:gravity="center_vertical"
-                    android:text="Indication principale de la plante" />
+                    android:padding="5dp"
+                    android:text="Contre-indications de la plante" />
 
                 <TextView
-                    android:id="@+id/plant_main_use"
+                    android:id="@+id/plant_contreIndications"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:text="Here we put the necessary information" />
-
-                <TextView
-                    android:id="@+id/plant_non_use_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:gravity="center_vertical"
-                    android:text="Contre-indication de la plante" />
-
-                <TextView
-                    android:id="@+id/plant_non_use"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:gravity="center_vertical"
                     android:text="Here we put the necessary information" />
 
                 <TextView
                     android:id="@+id/plant_preparation_title"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:gravity="center_vertical"
+                    android:padding="5dp"
                     android:text="les préparations de la plante" />
 
                 <TextView
                     android:id="@+id/plant_preparation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="Here we put the necessary information" />
+
+                <TextView
+                    android:id="@+id/plant_remarks_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="Des remarques sur la plante" />
+
+                <TextView
+                    android:id="@+id/plant_remarks"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:gravity="center_vertical"
                     android:text="Here we put the necessary information" />
+
+                <TextView
+                    android:id="@+id/plant_liens_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="Des liens supplémentaires sur la plante" />
+
+                <TextView
+                    android:id="@+id/plant_liens"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:gravity="center_vertical"
+                    android:text="Here we put the necessary information" />
+
+                <TextView
+                    android:id="@+id/plant_source_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="Source" />
+
+                <TextView
+                    android:id="@+id/plant_source"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:gravity="center_vertical"
+                    android:text="Here we put the necessary information"
+                    android:textStyle="italic" />
 
             </LinearLayout>
         </android.support.v7.widget.CardView>

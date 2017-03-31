@@ -14,7 +14,9 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 
 import dz.esi.team.appprototype.R;
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
+import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.famille;
 import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.image;
 import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.sci_name;
 
@@ -42,21 +44,27 @@ public class PlantCursorAdapter extends CursorAdapter {
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
 
+        Log.v("PlantCursorAdapter", "bindView in");
+
         TextView tvPlantName = (TextView) view.findViewById(R.id.plant_sci_name);
-        ImageView tvPlantImage = (ImageView) view.findViewById(R.id.plant_image);
+        TextView tvPlantFamily = (TextView) view.findViewById(R.id.plant_family);
+        ImageView ivPlantImage = (ImageView) view.findViewById(R.id.plant_image);
 
         String plantSciName = cursor.getString(cursor.getColumnIndex(sci_name));
+        String plantFamily = cursor.getString(cursor.getColumnIndex(famille));
         String plantImage = cursor.getString(cursor.getColumnIndex(image));
 
         tvPlantName.setText(plantSciName);
-
-        plantImage = plantImage.replace("./images", "thumbnails");
+        tvPlantFamily.setText(plantFamily);
+        ivPlantImage.setScaleType(ImageView.ScaleType.FIT_CENTER);
 
         Glide.with(context)
-                .load(Uri.parse("file:///android_asset/" + plantImage))
+                .load(Uri.parse("file:///android_asset/thumbnails/" + plantImage))
+                .asBitmap()
+                .override(300, 200)
+                .transform(new RoundedCornersTransformation(context, 20, 0))
                 .placeholder(R.drawable.placeholder_image)
-                .fitCenter()
-                .into(tvPlantImage);
+                .into(ivPlantImage);
 
         Log.v("PlantCursorAdapter", "bindView finished");
     }

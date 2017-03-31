@@ -44,11 +44,15 @@
     <string name="borsali_name">BORSALI Fayçal</string>
     <string name="souab_name">SOUAB Nadjib</string>
     <string name="benchohra_name">BENCHOHRA Mohammed Amine</string>
+
+
     <string name="plant_resume_default_text">Un résumé sur la plante</string>
     <string name="plant_title_constituants">Constituants</string>
     <string name="plant_name_sci">Nom scientifique</string>
     <string name="plant_name_fr">Nom français</string>
     <string name="plant_family">Plant Family</string>
     <string name="title_activity_database_test">DatabaseTest</string>
+    <string name="plant_profile_app_bar_title">This is changed by JAVA</string>
+
 
 </resources>
