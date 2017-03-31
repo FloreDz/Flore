@@ -33,6 +33,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import dz.esi.team.appprototype.data.PlantProfile;
 import dz.esi.team.appprototype.utils.MedicalPlant;
 import dz.esi.team.appprototype.utils.MedicalPlantsAdapter;
 import dz.esi.team.appprototype.utils.MedicalPlantsFamily;
@@ -41,26 +42,16 @@ import dz.esi.team.appprototype.utils.ViewHolder;
 
 public class HomePage extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
+
     public static final int LOAD_IMAGE_RESULT = 1;
     public static final String LOADED_IMAGE_PATH = "LOADED_IMAGE_PATH";
     public static final String LOADED_IMAGE_URI = "LOADED_IMAGE_URI";
+    public static final String DISPLAY_TYPE = "DISPLAY_TYPE";
     private static final String TAG = HomePage.class.getSimpleName();
     private static final String ERROR_MESS = "Something went wrong";
-
     private static final String SHOW_PLANTS_DEFAULT = "SHOW_PLANTS_DEFAULT";
     private static final String SHOW_PLANTS_BY_FAMILIES = "SHOW_PLANTS_BY_FAMILIRS";
-    public static final String DISPLAY_TYPE = "DISPLAY_TYPE";
     public static String DISPLAY_STATE = SHOW_PLANTS_DEFAULT;
-
-    //image path
-    private String imagePath;
-
-    //costum components
-    private ListView plantListView;
-    private NavigationView navigationView;
-    private Toolbar toolbar_search_access;
-    private ActionBarDrawerToggle toggle;
-    private Menu optionMenu;
 
     //layouts
     LinearLayout takeImageLayout;
@@ -76,19 +67,35 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
     //labels
     TextView importImageLabel;
     TextView takeImageLabel;
+
+    //image path
+    private String imagePath;
+
+    //costum components
+    private ListView plantListView;
+    private NavigationView navigationView;
+    private Toolbar toolbar_search_access;
+    private ActionBarDrawerToggle toggle;
+    private Menu optionMenu;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         introPageHandler();
 
+        Log.v("text", "in home, about to go in initializer");
+        PlantProfile thisInstanceIsCreatedAndThenDestroyedJustToInitilizeTheIdTable =
+                new PlantProfile(-5L);
+        Log.v("text", "in home, out of initializer, about to unreference");
+        thisInstanceIsCreatedAndThenDestroyedJustToInitilizeTheIdTable = null;
+        Log.v("text", "in home, referenced");
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
 
         widgetHydration();
 
-
-        //data handling
+        // data handling
         // loading medical plant list view in the background
         loadMedicalPlantsListView(DISPLAY_STATE);
 
@@ -109,8 +116,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         });
     }
 
-    public void widgetHydration() {
-        // widgets hydration
+    public void widgetHydration() { // widgets hydration
 
         // layouts
         optionMenuBackground = (FrameLayout) findViewById(R.id.option_menu_background);
@@ -128,7 +134,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         setSupportActionBar(toolbar_search_access);
         toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar_search_access, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
+        drawer.setDrawerListener(toggle); // TODO: check this method, it's deprecated
         toggle.syncState();
 
 
@@ -145,7 +151,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
 
     public void introPageHandler() {
         // this thread will start the intro activity if the app is being lunched for the first time
-        //  Declare a new thread to do a preference check
+        // declare a new thread to do a preference check
         Thread intro = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -200,7 +206,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         return super.onCreateOptionsMenu(menu);
     }
 
-    //slecting a navigation item from the menu drawer event handling
+    //selecting a navigation item from the menu drawer event handling
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -234,17 +240,17 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         // stating the searh activity
         switch (id) {
             case R.id.app_search_bar:
-
                 intent = new Intent(HomePage.this,SearchPlantesActivity.class);
                 startActivity(intent);
                 break;
-
             case R.id.option_show_by_familly:
-
                 this.setDisplayState(item, item.isChecked());
-
                 break;
-
+            case R.id.mohamed:   // ADDED BY MOHAMED
+                Log.v(TAG, "about to go to mohamed activity");
+                startActivity(new Intent(HomePage.this, DatabaseTest.class));
+                Log.v(TAG, "just went to mohamed activity");
+                break;
             default:
         }
 
@@ -283,7 +289,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
     }
 
     public void labelOnClick(View v) {
-        // one of the label of floating action button is being clicked
+        // one of the labels of floating action button is clicked
         // this method had been implemented in the XML file content_main.xml and linked to each one of the three label of FAB
         Log.d(TAG, "labelOnClick: ");
 
@@ -292,110 +298,11 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
 
             this.hideOptionMenu();
             if (id == importImageLabel.getId()) {
-
                 this.loadImageFromGallery();
-
-
             } else if (id == takeImageLabel.getId()) {
                 this.phoneCameraAccess();
             }
-
         }
-
-    }
-
-    private class MedicalPlanesListViewHandler extends AsyncTask<String, Void, List<Section>> implements AdapterView.OnItemClickListener {
-        // this nested class extend AsyncTask , it use to load data in the background using multiThreding
-        // after we implement the data base the signature will change to <String,Void,Cursor> the cursor will
-        // point to the first element of the data that match our search query sent from the search activity
-
-        @Override
-        protected List<Section> doInBackground(String... params) {
-
-            String option = params[0];
-
-            List<MedicalPlant> medicalPlantsList = new ArrayList<>();
-            List<MedicalPlantsFamily> medicalPlantsFamilyList = new ArrayList<>();
-
-
-            /************************************************************************************************/
-            MedicalPlant plant = new MedicalPlant("Allium sativum L", R.mipmap.ail, "medical plants family");
-            medicalPlantsList.add(plant);
-            medicalPlantsList.add(plant);
-            medicalPlantsList.add(plant);
-            medicalPlantsList.add(plant);
-
-            MedicalPlantsFamily family = new MedicalPlantsFamily("medical plantes family 1", medicalPlantsList);
-            medicalPlantsFamilyList.add(family);
-
-            medicalPlantsList.add(plant);
-
-            family = new MedicalPlantsFamily("Aedical plantes family 1", medicalPlantsList);
-            medicalPlantsFamilyList.add(family);
-
-            medicalPlantsList.add(plant);
-            family = new MedicalPlantsFamily("medical plantes family 1", medicalPlantsList);
-            medicalPlantsFamilyList.add(family);
-            /***********************************************************************************************/
-
-            for (MedicalPlantsFamily medicalPlantsFamily : medicalPlantsFamilyList) {
-                Collections.sort(medicalPlantsFamily.getMedicalPlantList(), new Comparator<MedicalPlant>() {
-                    @Override
-                    public int compare(MedicalPlant o1, MedicalPlant o2) {
-                        return o1.getName().compareTo(o2.getName());
-                    }
-                });
-            }
-
-            return spreadFamilyList(medicalPlantsFamilyList, option);
-
-
-        }
-
-        @Override
-        protected void onPostExecute(List<Section> listViewSections) {
-
-            MedicalPlantsAdapter plantsAdapter = new MedicalPlantsAdapter(HomePage.this, R.layout.listview_plantes, R.layout.plants_family_header, listViewSections);
-            plantListView.setAdapter(plantsAdapter);
-            plantListView.setOnItemClickListener(this);
-        }
-
-        @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            Log.d(TAG, "onItemClick: the item with the position " + position + " and the id" + id);
-
-            String remarque = ((ViewHolder) view.getTag()).getTitle().getText().toString();
-            Toast.makeText(HomePage.this, remarque, Toast.LENGTH_LONG).show();
-            Intent intent = new Intent(HomePage.this, ProfileActivity.class);
-            startActivity(intent);
-        }
-
-        private List<Section> spreadFamilyList(List<MedicalPlantsFamily> medicalPlantsFamilyList, String option) {
-            List<MedicalPlant> medicalPlantList;
-            List<Section> updatedList = new ArrayList<>();
-
-            if (option.equals(SHOW_PLANTS_BY_FAMILIES)) {
-                Collections.sort(medicalPlantsFamilyList, new Comparator<MedicalPlantsFamily>() {
-                    @Override
-                    public int compare(MedicalPlantsFamily o1, MedicalPlantsFamily o2) {
-                        return o1.getMedicalPlantsFamilyName().compareTo(o2.getMedicalPlantsFamilyName());
-                    }
-                });
-            }
-
-
-            for (MedicalPlantsFamily family : medicalPlantsFamilyList) {
-                if (option.equals(SHOW_PLANTS_BY_FAMILIES)) updatedList.add(family);
-                medicalPlantList = family.getMedicalPlantList();
-                for (MedicalPlant medicalPlant : medicalPlantList) {
-                    updatedList.add(medicalPlant);
-                }
-            }
-
-
-            return updatedList;
-        }
-
     }
 
     private void loadImageFromGallery() {
@@ -410,20 +317,15 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         startActivityForResult(intent, LOAD_IMAGE_RESULT);
     }
 
-    // optionMenu display handling
-
     private void hideOptionMenu() {
         Log.d(TAG, "hideOptionMenu: hiding the option menu");
         final FloatingActionButton fabRecognise = (FloatingActionButton) findViewById(R.id.fab_recognition);
 
-
         takeImageLayout = (LinearLayout) findViewById(R.id.layout_take_picture);
         importImageLayout = (LinearLayout) findViewById(R.id.layout_import_picture);
 
-
         final Animation rotateToPlus = AnimationUtils.loadAnimation(HomePage.this, R.anim.show_button_layout);
         final Animation hideOptionButton = AnimationUtils.loadAnimation(HomePage.this, R.anim.hide_buttons);
-
 
         this.disableLayoutsVisibility();
         this.disableClickable();
@@ -431,10 +333,11 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         takeImageLayout.startAnimation(hideOptionButton);
         importImageLayout.startAnimation(hideOptionButton);
 
-
         fabRecognise.startAnimation(rotateToPlus);
 
     }
+
+    // optionMenu display handling
 
     private void showOptionMenu() {
 
@@ -519,7 +422,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
     }
 
     private void loadMedicalPlantsListView(String textQueryResult) {
-        // this method will recive the text query submitted by the user
+        // this method will recieve the text query submitted by the user
         // call the sqlLite database helper to preform the search in the database
         // dispaly the medicalplantslistView from the backgrond using the AsyncTask
 
@@ -553,7 +456,6 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
                 Toast.makeText(HomePage.this, ERROR_MESS, Toast.LENGTH_SHORT).show();
             }
         }
-
     }
 
     @Override
@@ -567,4 +469,103 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         DISPLAY_STATE = savedInstanceState.getString(DISPLAY_TYPE);
         super.onRestoreInstanceState(savedInstanceState);
     }
+
+
+    private class MedicalPlanesListViewHandler extends AsyncTask<String, Void,
+            List<Section>> implements AdapterView.OnItemClickListener {
+        // this nested class extend AsyncTask , it use to load data in the background using multiThreding
+        // after we implement the data base the signature will change to <String,Void,Cursor> the cursor will
+        // point to the first element of the data that match our search query sent from the search activity
+
+        @Override
+        protected List<Section> doInBackground(String... params) {
+
+            String option = params[0];
+
+            List<MedicalPlant> medicalPlantsList = new ArrayList<>();
+            List<MedicalPlantsFamily> medicalPlantsFamilyList = new ArrayList<>();
+
+
+            /************************************************************************************************/
+            MedicalPlant plant = new MedicalPlant("Allium sativum L", R.mipmap.ail, "medical plants family");
+            medicalPlantsList.add(plant);
+            medicalPlantsList.add(plant);
+            medicalPlantsList.add(plant);
+            medicalPlantsList.add(plant);
+
+            MedicalPlantsFamily family = new MedicalPlantsFamily("medical plantes family 1", medicalPlantsList);
+            medicalPlantsFamilyList.add(family);
+
+            medicalPlantsList.add(plant);
+
+            family = new MedicalPlantsFamily("Aedical plantes family 1", medicalPlantsList);
+            medicalPlantsFamilyList.add(family);
+
+            medicalPlantsList.add(plant);
+            family = new MedicalPlantsFamily("medical plantes family 1", medicalPlantsList);
+            medicalPlantsFamilyList.add(family);
+            /***********************************************************************************************/
+
+            for (MedicalPlantsFamily medicalPlantsFamily : medicalPlantsFamilyList) {
+                Collections.sort(medicalPlantsFamily.getMedicalPlantList(), new Comparator<MedicalPlant>() {
+                    @Override
+                    public int compare(MedicalPlant o1, MedicalPlant o2) {
+                        return o1.getName().compareTo(o2.getName());
+                    }
+                });
+            }
+
+            return spreadFamilyList(medicalPlantsFamilyList, option);
+
+
+        }
+
+        @Override
+        protected void onPostExecute(List<Section> listViewSections) {
+
+            MedicalPlantsAdapter plantsAdapter = new MedicalPlantsAdapter(HomePage.this,
+                    R.layout.listview_plantes, R.layout.plants_family_header, listViewSections);
+            plantListView.setAdapter(plantsAdapter);
+            plantListView.setOnItemClickListener(this);
+        }
+
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            Log.d(TAG, "onItemClick: the item with the position " + position + " and the id" + id);
+
+            String remarque = ((ViewHolder) view.getTag()).getTitle().getText().toString();
+            Toast.makeText(HomePage.this, remarque, Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(HomePage.this, ProfileActivity.class);
+            startActivity(intent);
+        }
+
+        private List<Section> spreadFamilyList(List<MedicalPlantsFamily> medicalPlantsFamilyList, String option) {
+            List<MedicalPlant> medicalPlantList;
+            List<Section> updatedList = new ArrayList<>();
+
+            if (option.equals(SHOW_PLANTS_BY_FAMILIES)) {
+                Collections.sort(medicalPlantsFamilyList, new Comparator<MedicalPlantsFamily>() {
+                    @Override
+                    public int compare(MedicalPlantsFamily o1, MedicalPlantsFamily o2) {
+                        return o1.getMedicalPlantsFamilyName().compareTo(o2.getMedicalPlantsFamilyName());
+                    }
+                });
+            }
+
+
+            for (MedicalPlantsFamily family : medicalPlantsFamilyList) {
+                if (option.equals(SHOW_PLANTS_BY_FAMILIES)) updatedList.add(family);
+                medicalPlantList = family.getMedicalPlantList();
+                for (MedicalPlant medicalPlant : medicalPlantList) {
+                    updatedList.add(medicalPlant);
+                }
+            }
+
+
+            return updatedList;
+        }
+
+    }
+
+
 }

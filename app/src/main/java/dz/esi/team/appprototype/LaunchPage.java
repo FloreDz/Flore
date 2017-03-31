@@ -6,6 +6,10 @@ import android.os.Handler;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.IntentCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.ImageView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 public class LaunchPage extends AppCompatActivity {
 
@@ -18,6 +22,12 @@ public class LaunchPage extends AppCompatActivity {
 
         nextPage = new Intent(LaunchPage.this, HomePage.class);
 
+        Glide.with(this)
+                .load(R.drawable.logo_glass_material)
+                .crossFade(1000)
+                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                .into((ImageView) findViewById(R.id.logo));
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -26,7 +36,7 @@ public class LaunchPage extends AppCompatActivity {
                 startActivity(nextPage);
                 ActivityCompat.finishAffinity(LaunchPage.this);
             }
-        }, 2000);
+        }, 3000);
     }
 
 }
