@@ -20,7 +20,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import dz.esi.team.appprototype.utils.MedicalPlant;
+import dz.esi.team.appprototype.utils.PlantCompactProfile;
 import dz.esi.team.appprototype.utils.MedicalPlantsAdapter;
 import dz.esi.team.appprototype.utils.MedicalPlantsFamily;
 import dz.esi.team.appprototype.utils.Section;
@@ -49,11 +49,11 @@ public class SearchPlantesActivity extends BaseActivity implements AdapterView.O
         activateToolBar(false);
         searchResultListView = (ListView) findViewById(R.id.search_result_list_view);
 
-        List<MedicalPlant> medicalPlantsList = new ArrayList<>();
+        List<PlantCompactProfile> medicalPlantsList = new ArrayList<>();
 
         /************************************************************************************************/
 
-        MedicalPlant plant = new MedicalPlant("Allium sativum L", R.mipmap.ail, "medical plants family");
+        PlantCompactProfile plant = new PlantCompactProfile("Allium sativum L", R.mipmap.ail, "medical plants family");
         medicalPlantsList.add(plant);
         medicalPlantsList.add(plant);
         medicalPlantsList.add(plant);
@@ -106,8 +106,8 @@ public class SearchPlantesActivity extends BaseActivity implements AdapterView.O
                 List<Section> updatedPlantList= new ArrayList<>();
                 queryText =  newText  ;
                 for (Section section: medicalPlantsFamilyList) {
-                    for (MedicalPlant plant:((MedicalPlantsFamily)section).getMedicalPlantList() ) {
-                           if(plant.getName().toLowerCase().startsWith(newText.toLowerCase()) && newText.length()>0){
+                    for (PlantCompactProfile plant:((MedicalPlantsFamily)section).getMedicalPlantList() ) {
+                           if(plant.getSci_name().toLowerCase().startsWith(newText.toLowerCase()) && newText.length()>0){
                                updatedPlantList.add(plant);
                            }
                     }
@@ -134,7 +134,7 @@ public class SearchPlantesActivity extends BaseActivity implements AdapterView.O
         Collections.sort(updatedList, new Comparator<Section>() {
             @Override
             public int compare(Section o1, Section o2) {
-                return ((MedicalPlant)o1).getName().compareTo(((MedicalPlant)o2).getName());
+                return ((PlantCompactProfile)o1).getSci_name().compareTo(((PlantCompactProfile)o2).getSci_name());
             }
         });
 

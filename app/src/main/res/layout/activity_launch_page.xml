@@ -26,6 +26,7 @@
             android:id="@+id/logo"
             android:layout_width="match_parent"
             android:layout_height="209dp"
+            app:srcCompat="@drawable/logo_glass_material"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -38,19 +39,13 @@
             android:layout_width="match_parent"
             android:layout_height="51dp"
             android:gravity="center_vertical"
-<<<<<<< HEAD
+
             android:textColor="@color/white_color_smoke"
             android:textStyle="bold"
             android:textSize="28sp"
-
-=======
             android:text="@string/app_name"
             android:textAlignment="center"
-            android:textColor="@color/logo_blue_dark"
-            android:textSize="28sp"
-            android:textStyle="bold"
             tools:layout_editor_absoluteX="79dp"
->>>>>>> DataBase
             tools:layout_editor_absoluteY="315dp" />
 
         <TextView

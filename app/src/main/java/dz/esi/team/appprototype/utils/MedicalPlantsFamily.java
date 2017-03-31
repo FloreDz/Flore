@@ -9,7 +9,7 @@ import java.util.List;
 
 public class MedicalPlantsFamily implements Section{
     private String medicalPlantsFamilyName;
-    private List<MedicalPlant> medicalPlantList;
+    private List<PlantCompactProfile> medicalPlantList;
     private  int familySize ;
 
     public MedicalPlantsFamily(){}
@@ -31,10 +31,10 @@ public class MedicalPlantsFamily implements Section{
 
     }
 
-    public List<MedicalPlant> getMedicalPlantList() {
+    public List<PlantCompactProfile> getMedicalPlantList() {
         return this.medicalPlantList;
     }
-    public void setMedicalPlantList(List<MedicalPlant> medicalPlantList) {
+    public void setMedicalPlantList(List<PlantCompactProfile> medicalPlantList) {
         this.medicalPlantList = medicalPlantList;
     }
 
@@ -45,7 +45,7 @@ public class MedicalPlantsFamily implements Section{
         this.familySize = familySize;
     }
 
-    public void addPlants(MedicalPlant o){
+    public void addPlants(PlantCompactProfile o){
         this.medicalPlantList.add(o);
     }
 

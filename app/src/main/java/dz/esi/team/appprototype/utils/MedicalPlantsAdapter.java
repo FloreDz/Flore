@@ -53,7 +53,7 @@ public class MedicalPlantsAdapter extends ArrayAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
 
 
-        MedicalPlant plant ;
+        PlantCompactProfile plant ;
         MedicalPlantsFamily family ;
         PlantViewHolder plantViewHolder ;
         FamilyViewHolder familyViewHolder ;
@@ -79,18 +79,18 @@ public class MedicalPlantsAdapter extends ArrayAdapter {
 
             }else{
 
-                 Log.d(TAG, "getView: ===============================================");
+
                  convertView = layoutInflater.inflate(plantResourceLayout, parent, false);
                  viewHolder =plantViewHolder = new PlantViewHolder(convertView);
                  convertView.setTag(viewHolder);
-                 plant = (MedicalPlant) section ;
+                 plant = (PlantCompactProfile) section ;
 
 
 
 
                  // setting the main information of the plant on the resource Layout
-                  plantViewHolder.getImage().setImageResource(plant.getImage());
-                  plantViewHolder.getTitle().setText(plant.getName());
+             //todo : getting the image source     plantViewHolder.getImage().setImageResource(plant.getImage());
+                  plantViewHolder.getTitle().setText(plant.getSci_name());
 
             }
 

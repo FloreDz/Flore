@@ -34,7 +34,7 @@ import java.util.Comparator;
 import java.util.List;
 
 import dz.esi.team.appprototype.data.PlantProfile;
-import dz.esi.team.appprototype.utils.MedicalPlant;
+import dz.esi.team.appprototype.utils.PlantCompactProfile;
 import dz.esi.team.appprototype.utils.MedicalPlantsAdapter;
 import dz.esi.team.appprototype.utils.MedicalPlantsFamily;
 import dz.esi.team.appprototype.utils.Section;
@@ -482,12 +482,12 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
 
             String option = params[0];
 
-            List<MedicalPlant> medicalPlantsList = new ArrayList<>();
+            List<PlantCompactProfile> medicalPlantsList = new ArrayList<>();
             List<MedicalPlantsFamily> medicalPlantsFamilyList = new ArrayList<>();
 
 
             /************************************************************************************************/
-            MedicalPlant plant = new MedicalPlant("Allium sativum L", R.mipmap.ail, "medical plants family");
+            PlantCompactProfile plant = new PlantCompactProfile("Allium sativum L", R.mipmap.ail, "medical plants family");
             medicalPlantsList.add(plant);
             medicalPlantsList.add(plant);
             medicalPlantsList.add(plant);
@@ -507,10 +507,10 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
             /***********************************************************************************************/
 
             for (MedicalPlantsFamily medicalPlantsFamily : medicalPlantsFamilyList) {
-                Collections.sort(medicalPlantsFamily.getMedicalPlantList(), new Comparator<MedicalPlant>() {
+                Collections.sort(medicalPlantsFamily.getMedicalPlantList(), new Comparator<PlantCompactProfile>() {
                     @Override
-                    public int compare(MedicalPlant o1, MedicalPlant o2) {
-                        return o1.getName().compareTo(o2.getName());
+                    public int compare(PlantCompactProfile o1, PlantCompactProfile o2) {
+                        return o1.getSci_name().compareTo(o2.getSci_name());
                     }
                 });
             }
@@ -540,7 +540,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         }
 
         private List<Section> spreadFamilyList(List<MedicalPlantsFamily> medicalPlantsFamilyList, String option) {
-            List<MedicalPlant> medicalPlantList;
+            List<PlantCompactProfile> medicalPlantList;
             List<Section> updatedList = new ArrayList<>();
 
             if (option.equals(SHOW_PLANTS_BY_FAMILIES)) {
@@ -556,7 +556,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
             for (MedicalPlantsFamily family : medicalPlantsFamilyList) {
                 if (option.equals(SHOW_PLANTS_BY_FAMILIES)) updatedList.add(family);
                 medicalPlantList = family.getMedicalPlantList();
-                for (MedicalPlant medicalPlant : medicalPlantList) {
+                for (PlantCompactProfile medicalPlant : medicalPlantList) {
                     updatedList.add(medicalPlant);
                 }
             }
