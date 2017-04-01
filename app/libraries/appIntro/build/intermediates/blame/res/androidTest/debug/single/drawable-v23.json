@@ -1,9 +1,5 @@
 [
     {
-        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-v23\\abc_control_background_material.xml",
-        "source": "C:\\home\\azeddine\\.android\\build-cache\\0b1bbdf9ca6931607ae09de1c06227b30c392821\\output\\res\\drawable-v23\\abc_control_background_material.xml"
-    },
-    {
         "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-v23\\abc_control_background_material.xml",
         "source": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\drawable-v23\\abc_control_background_material.xml"
     }

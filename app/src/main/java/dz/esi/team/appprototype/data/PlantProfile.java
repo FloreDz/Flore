@@ -1,11 +1,14 @@
 package dz.esi.team.appprototype.data;
 
-import android.content.ContentUris;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
-import dz.esi.team.appprototype.data.PlantContract.FamilyEntry;
+import dz.esi.team.appprototype.data.PlantContract.PlantEntry;
 
-import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.CONTENT_URI;
+import static dz.esi.team.appprototype.HomePage.mDbHelper;
+import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.TABLE_NAME;
+import static dz.esi.team.appprototype.data.PlantContract.PlantEntry._ID;
 
 
 /**
@@ -35,62 +38,74 @@ public class PlantProfile {
     private String liens;
 
 
-    public PlantProfile(Long plantID) {
+    public PlantProfile(Long plantID) {  // TODO : free up the Cursor
 
-        if (plantID < 0) return;
+        if (plantID < 0L) return;
 
-        PlantProvider pp = new PlantProvider();
+        Cursor plantProfile = null;
 
-        Cursor plantProfile = pp.query(ContentUris.withAppendedId(CONTENT_URI, plantID),
-                null, null, null, null);
+        try {     /*
+            PlantProvider pp = new PlantProvider();
+            Log.v("text", " pp == null ? : " + (pp == null));
+            Log.v("PlantProfile try", " new Uri : " + ContentUris.withAppendedId(CONTENT_URI, plantID).toString());
+            plantProfile = pp.query(ContentUris.withAppendedId(CONTENT_URI, plantID),
+                    null, null, null, null);
+            pp = null;  */
 
-        this.sci_name = plantProfile.
-                getString(plantProfile.getColumnIndex(PlantContract.PlantEntry.sci_name));
-        this.nom = plantProfile.
-                getString(plantProfile.getColumnIndex(PlantContract.PlantEntry.nom));
-        this.image = plantProfile.
-                getString(plantProfile.getColumnIndex(PlantContract.PlantEntry.image));
-        this.resume = plantProfile
-                .getString(plantProfile.getColumnIndex(PlantContract.PlantEntry.resume));
-        this.constituants = plantProfile.
-                getString(plantProfile.getColumnIndex(PlantContract.PlantEntry.constituants));
-        this.partiesUtilitees = plantProfile.
-                getString(plantProfile.getColumnIndex(PlantContract.PlantEntry.partiesUtilitees));
-        this.effets = plantProfile.
-                getString(plantProfile.getColumnIndex(PlantContract.PlantEntry.effets));
-        this.effetsSecondaires = plantProfile.
-                getString(plantProfile.getColumnIndex(PlantContract.PlantEntry.effetsSecondaires));
-        this.indications = plantProfile.
-                getString(plantProfile.getColumnIndex(PlantContract.PlantEntry.indications));
-        this.contreIndication = plantProfile.
-                getString(plantProfile.getColumnIndex(PlantContract.PlantEntry.contreIndication));
-        this.interaction = plantProfile.
-                getString(plantProfile.getColumnIndex(PlantContract.PlantEntry.interaction));
-        this.preparation = plantProfile.
-                getString(plantProfile.getColumnIndex(PlantContract.PlantEntry.preparation));
-        this.lieu = plantProfile.
-                getString(plantProfile.getColumnIndex(PlantContract.PlantEntry.lieu));
-        this.periodeRecolte = plantProfile.
-                getString(plantProfile.getColumnIndex(PlantContract.PlantEntry.periodeRecolte));
-        this.remarques = plantProfile.
-                getString(plantProfile.getColumnIndex(PlantContract.PlantEntry.remarques));
-        this.source = plantProfile.
-                getString(plantProfile.getColumnIndex(PlantContract.PlantEntry.source));
-        this.liens = plantProfile.
-                getString(plantProfile.getColumnIndex(PlantContract.PlantEntry.liens));
-        this.id = plantID.toString();
+            SQLiteDatabase db = mDbHelper.getReadableDatabase();
+            String[] selectionArgs = {"" + plantID};
+            Log.v("text", " in plantprofile , about to query");
+            plantProfile = db.query(TABLE_NAME, null, _ID + "=?", selectionArgs, null, null, null);
+            Log.v("text", " in plantprofile , done query");
 
+            plantProfile.moveToFirst();
 
-        String familyID = plantProfile.
-                getString(plantProfile.getColumnIndex(PlantContract.PlantEntry.idFamille));
+            this.sci_name = plantProfile.
+                    getString(plantProfile.getColumnIndexOrThrow(PlantEntry.sci_name));
+            this.nom = plantProfile.
+                    getString(plantProfile.getColumnIndexOrThrow(PlantEntry.nom));
+            this.image = plantProfile.
+                    getString(plantProfile.getColumnIndexOrThrow(PlantEntry.image));
+            this.famille = plantProfile.
+                    getString(plantProfile.getColumnIndexOrThrow(PlantEntry.famille));
+            this.resume = plantProfile.
+                    getString(plantProfile.getColumnIndexOrThrow(PlantEntry.resume));
+            this.constituants = plantProfile.
+                    getString(plantProfile.getColumnIndexOrThrow(PlantEntry.constituants));
+            this.partiesUtilitees = plantProfile.
+                    getString(plantProfile.getColumnIndexOrThrow(PlantEntry.partiesUtilisees));
+            this.effets = plantProfile.
+                    getString(plantProfile.getColumnIndexOrThrow(PlantEntry.effets));
+            this.effetsSecondaires = plantProfile.
+                    getString(plantProfile.getColumnIndexOrThrow(PlantEntry.effetsSecondaires));
+            this.indications = plantProfile.
+                    getString(plantProfile.getColumnIndexOrThrow(PlantEntry.indications));
+            this.contreIndication = plantProfile.
+                    getString(plantProfile.getColumnIndexOrThrow(PlantEntry.contreIndication));
+            this.interaction = plantProfile.
+                    getString(plantProfile.getColumnIndexOrThrow(PlantEntry.interaction));
+            this.preparation = plantProfile.
+                    getString(plantProfile.getColumnIndexOrThrow(PlantEntry.preparation));
+            this.lieu = plantProfile.
+                    getString(plantProfile.getColumnIndexOrThrow(PlantEntry.lieu));
+            this.periodeRecolte = plantProfile.
+                    getString(plantProfile.getColumnIndexOrThrow(PlantEntry.periodeRecolte));
+            this.remarques = plantProfile.
+                    getString(plantProfile.getColumnIndexOrThrow(PlantEntry.remarques));
+            this.source = plantProfile.
+                    getString(plantProfile.getColumnIndexOrThrow(PlantEntry.source));
+            this.liens = plantProfile.
+                    getString(plantProfile.getColumnIndexOrThrow(PlantEntry.liens));
+            this.id = plantID.toString();
 
-        Long idFamille = Long.parseLong(familyID);
+            Log.v("text", " in plantprofile , about to exit the constructor");
 
-        Cursor plantFamily = pp
-                .query(ContentUris.withAppendedId(FamilyEntry.CONTENT_URI, idFamille),
-                        null, null, null, null);
+        } catch (Exception e) {
+            Log.v("PlantProfil Constructor", e.getMessage());
+        } finally {
+            plantProfile.close();
+        }
 
-        this.famille = plantFamily.getString(plantFamily.getColumnIndex(FamilyEntry.nom));
     }
 
     public String get_ID() {
@@ -168,5 +183,6 @@ public class PlantProfile {
     public String getLiens() {
         return liens;
     }
+
 
 }

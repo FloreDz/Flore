@@ -16,6 +16,9 @@ import com.bumptech.glide.Glide;
 import dz.esi.team.appprototype.R;
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
+import static android.view.View.GONE;
+import static dz.esi.team.appprototype.HomePage.DISPLAY_STATE;
+import static dz.esi.team.appprototype.HomePage.SHOW_PLANTS_DEFAULT;
 import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.famille;
 import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.image;
 import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.sci_name;
@@ -26,6 +29,8 @@ import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.sci_name;
 
 public class PlantCursorAdapter extends CursorAdapter {
 
+    private static String previousFamily = null;
+    private static String currentFamily = null;
     Context mContext = null;
 
 
@@ -38,7 +43,10 @@ public class PlantCursorAdapter extends CursorAdapter {
     @Override
     public View newView(Context context, Cursor cursor, ViewGroup parent) {
         Log.v("PlantCursorAdapter", "newView in");
-        return LayoutInflater.from(context).inflate(R.layout.item_plant, parent, false);
+        if (DISPLAY_STATE == SHOW_PLANTS_DEFAULT)
+            return LayoutInflater.from(context).inflate(R.layout.item_plant, parent, false);
+        else
+            return LayoutInflater.from(context).inflate(R.layout.item_family, parent, false);
     }
 
     @Override
@@ -46,16 +54,41 @@ public class PlantCursorAdapter extends CursorAdapter {
 
         Log.v("PlantCursorAdapter", "bindView in");
 
-        TextView tvPlantName = (TextView) view.findViewById(R.id.plant_sci_name);
-        TextView tvPlantFamily = (TextView) view.findViewById(R.id.plant_family);
-        ImageView ivPlantImage = (ImageView) view.findViewById(R.id.plant_image);
+        TextView tvPlantFamily;
+        TextView tvPlantName;
+        ImageView ivPlantImage;
 
+        String plantFamily = currentFamily = cursor.getString(cursor.getColumnIndex(famille));
+        Log.v("PlantCursorAdapter", "plantFamily ==  " + plantFamily);
         String plantSciName = cursor.getString(cursor.getColumnIndex(sci_name));
-        String plantFamily = cursor.getString(cursor.getColumnIndex(famille));
         String plantImage = cursor.getString(cursor.getColumnIndex(image));
 
+        if (DISPLAY_STATE == SHOW_PLANTS_DEFAULT) {
+
+            tvPlantName = (TextView) view.findViewById(R.id.plant_sci_name_in_plant_view);
+            tvPlantFamily = (TextView) view.findViewById(R.id.plant_family_in_plant_view);
+            Log.v("PlantCursorAdapter", "tvPlantFamily == null ? " + (tvPlantFamily == null));
+            ivPlantImage = (ImageView) view.findViewById(R.id.plant_image_in_plant_view);
+
+            Log.v("PlantCursorAdapter", "about to set text to the plant family");
+            tvPlantFamily.setText("Famille : " + plantFamily);
+
+        } else {
+
+            tvPlantName = (TextView) view.findViewById(R.id.plant_sci_name_in_family_view);
+            tvPlantFamily = (TextView) view.findViewById(R.id.plant_family_in_family_view);
+            ivPlantImage = (ImageView) view.findViewById(R.id.plant_image_in_family_view);
+
+            if (previousFamily == null || !previousFamily.equals(currentFamily)) {
+                Log.v("PlantCursorAdapter", "in else -> if");
+                tvPlantFamily.setText(plantFamily);
+                previousFamily = currentFamily;
+            } else
+                tvPlantFamily.setVisibility(GONE);
+        }
+
+        Log.v("PlantCursorAdapter", "about to set text to the plant name");
         tvPlantName.setText(plantSciName);
-        tvPlantFamily.setText(plantFamily);
         ivPlantImage.setScaleType(ImageView.ScaleType.FIT_CENTER);
 
         Glide.with(context)

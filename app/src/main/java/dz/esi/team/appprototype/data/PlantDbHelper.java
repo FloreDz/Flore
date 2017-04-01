@@ -31,7 +31,7 @@ public class PlantDbHelper extends SQLiteOpenHelper {
         super(context, DB_NAME, null, DB_VERSION);
         this.mContext = context;
         DB_PATH = "/data/data/dz.esi.team.appprototype/databases/";
-        Log.v("DB path ", DB_PATH);
+        Log.v(TAG, "DB path " + DB_PATH);
         //TODO: check the other code for sdk backward compatibility
         //TODO: do not forget to change the package name
     }
@@ -51,7 +51,7 @@ public class PlantDbHelper extends SQLiteOpenHelper {
             Log.v("DB exists!", "from PlantDbHelper class -> createDataBase method.");
     }
 
-    // check if the database exists here: /data/data/package/databases/DB_NAME
+    // check if the database exists here: /data/data/package/databases/
     private boolean checkDataBase() {
         SQLiteDatabase checkDB = null;
 
@@ -59,8 +59,10 @@ public class PlantDbHelper extends SQLiteOpenHelper {
             String myPath = DB_PATH + DB_NAME;
             checkDB = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
 
-        } catch (SQLiteException e) { /* database does't exist yet. */
-            Log.e(TAG, "database does't exist");
+        } catch (SQLiteException sqle) { /* database does't exist yet. */
+            Log.e(TAG, "database does't exist : " + sqle.getMessage());
+        } catch (Exception e) {
+            Log.e(TAG, "2nd catch : " + e.getMessage());
         }
 
         if (checkDB != null) {

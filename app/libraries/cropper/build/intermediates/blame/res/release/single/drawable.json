@@ -4,15 +4,7 @@
         "source": "C:\\Android\\Projects\\Flore\\app\\libraries\\cropper\\src\\main\\res\\drawable\\crop__texture.xml"
     },
     {
-        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\cropper\\build\\intermediates\\res\\merged\\release\\drawable\\crop__texture.xml",
-        "source": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\cropper\\src\\main\\res\\drawable\\crop__texture.xml"
-    },
-    {
         "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\cropper\\build\\intermediates\\res\\merged\\release\\drawable\\crop__selectable_background.xml",
         "source": "C:\\Android\\Projects\\Flore\\app\\libraries\\cropper\\src\\main\\res\\drawable\\crop__selectable_background.xml"
-    },
-    {
-        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\cropper\\build\\intermediates\\res\\merged\\release\\drawable\\crop__selectable_background.xml",
-        "source": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\cropper\\src\\main\\res\\drawable\\crop__selectable_background.xml"
     }
 ]

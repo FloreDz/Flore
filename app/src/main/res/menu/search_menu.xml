@@ -9,17 +9,10 @@
         app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/option_show_by_familly"
+        android:id="@+id/option_show_by_family"
         android:checkable="true"
         android:checked="false"
-        android:title="Afficher par famile" />
-
-    <!--ADDED BY MOHAMED-->
-    <item
-        android:id="@+id/mohamed"
-        android:title="Mohamed"
-        app:showAsAction="ifRoom" />
-
+        android:title="Afficher par famille" />
 
 
 </menu>

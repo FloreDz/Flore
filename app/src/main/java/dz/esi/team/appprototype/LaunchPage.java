@@ -22,6 +22,7 @@ public class LaunchPage extends AppCompatActivity {
 
         nextPage = new Intent(LaunchPage.this, HomePage.class);
 
+
         Glide.with(this)
                 .load(R.drawable.logo_glass_material)
                 .crossFade(1000)

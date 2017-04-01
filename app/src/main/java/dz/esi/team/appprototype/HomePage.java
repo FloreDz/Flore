@@ -1,6 +1,9 @@
 package dz.esi.team.appprototype;
 
+import android.app.LoaderManager;
+import android.content.CursorLoader;
 import android.content.Intent;
+import android.content.Loader;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
@@ -14,6 +17,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.transition.Fade;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -33,71 +37,82 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import dz.esi.team.appprototype.data.PlantProfile;
+import dz.esi.team.appprototype.data.PlantCursorAdapter;
+import dz.esi.team.appprototype.data.PlantDbHelper;
 import dz.esi.team.appprototype.utils.MedicalPlant;
 import dz.esi.team.appprototype.utils.MedicalPlantsAdapter;
 import dz.esi.team.appprototype.utils.MedicalPlantsFamily;
 import dz.esi.team.appprototype.utils.Section;
 import dz.esi.team.appprototype.utils.ViewHolder;
 
-public class HomePage extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
+import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.CONTENT_URI;
+import static dz.esi.team.appprototype.data.PlantContract.PlantEntry._ID;
+import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.famille;
+import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.image;
+import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.sci_name;
 
+public class HomePage extends BaseActivity implements LoaderManager.LoaderCallbacks<Cursor>,
+        NavigationView.OnNavigationItemSelectedListener {
 
     public static final int LOAD_IMAGE_RESULT = 1;
     public static final String LOADED_IMAGE_PATH = "LOADED_IMAGE_PATH";
     public static final String LOADED_IMAGE_URI = "LOADED_IMAGE_URI";
     public static final String DISPLAY_TYPE = "DISPLAY_TYPE";
+    public static final String SHOW_PLANTS_DEFAULT = sci_name + " ASC";
+    public static final String SHOW_PLANTS_BY_FAMILIES = famille + " ASC";
     private static final String TAG = HomePage.class.getSimpleName();
     private static final String ERROR_MESS = "Something went wrong";
-    private static final String SHOW_PLANTS_DEFAULT = "SHOW_PLANTS_DEFAULT";
-    private static final String SHOW_PLANTS_BY_FAMILIES = "SHOW_PLANTS_BY_FAMILIRS";
+    private static final int PLANT_LOADER = 0;
     public static String DISPLAY_STATE = SHOW_PLANTS_DEFAULT;
-
+    public static PlantDbHelper mDbHelper;
     //layouts
     LinearLayout takeImageLayout;
     LinearLayout importImageLayout;
     DrawerLayout drawer;
     FrameLayout optionMenuBackground;
-
     // buttons
     FloatingActionButton fabRecognise;
     FloatingActionButton fabTakeImage;
     FloatingActionButton fabImportImage;
-
     //labels
     TextView importImageLabel;
     TextView takeImageLabel;
-
+    PlantCursorAdapter mCursorAdapter;
+    ListView plantsListView;
     //image path
     private String imagePath;
-
     //costum components
     private ListView plantListView;
+
+
+    /* TODO : MOHAMED added : */
     private NavigationView navigationView;
     private Toolbar toolbar_search_access;
     private ActionBarDrawerToggle toggle;
     private Menu optionMenu;
+    private String[] homeMenuProjection = {
+            _ID,
+            sci_name,
+            image,
+            famille
+    };
+
+    // ****************************************************************************
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         introPageHandler();
 
-        Log.v("text", "in home, about to go in initializer");
-        PlantProfile thisInstanceIsCreatedAndThenDestroyedJustToInitilizeTheIdTable =
-                new PlantProfile(-5L);
-        Log.v("text", "in home, out of initializer, about to unreference");
-        thisInstanceIsCreatedAndThenDestroyedJustToInitilizeTheIdTable = null;
-        Log.v("text", "in home, referenced");
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
+        setupWindowAnimations();
 
         widgetHydration();
 
         // data handling
         // loading medical plant list view in the background
-        loadMedicalPlantsListView(DISPLAY_STATE);
+        //loadMedicalPlantsListView(DISPLAY_STATE);
 
         //handling events
 
@@ -114,7 +129,103 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
                 }
             }
         });
+
+
+        /* TODO : MOHAMED added : */
+
+        plantsListView = (ListView) findViewById(R.id.plantes_list_view);
+        View emptyView = findViewById(R.id.empty_view);
+        plantsListView.setEmptyView(emptyView);
+        plantsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.d(TAG, "onItemClick: the item with the position " + position
+                        + " and the id " + id + " is clicked");
+                Intent intent = new Intent(HomePage.this, ProfileActivity.class);
+                intent.putExtra("PlantID", id);
+                Log.d(TAG, "about to start activity 'plantactivity");
+                startActivity(intent);
+            }
+        });
+
+        mCursorAdapter = new PlantCursorAdapter(this, null);
+        plantsListView.setAdapter(mCursorAdapter);
+
+        mDbHelper = new PlantDbHelper(this);
+
+        try {
+            mDbHelper.createDataBase();
+        } catch (Exception e) {
+            Log.e("From Main.db creation", e.getMessage());
+        }
+        mDbHelper.openDataBase();
+
+        Log.v(TAG, "about to init loader");
+        getLoaderManager().initLoader(PLANT_LOADER, null, this);
+        Log.v(TAG, "loader inited");
+
     }
+
+    @Override
+    public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+
+        Log.v(TAG, "in loader creation");
+
+        // the loader will execute the CP query method on a background thread
+        return new CursorLoader(this, CONTENT_URI, homeMenuProjection, null, null, DISPLAY_STATE);
+    }
+
+    @Override
+    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+        Log.v(TAG, "in loader finish");
+        // update the adapter with this new cursor containing updated plant data
+        mCursorAdapter.swapCursor(data);
+    }
+
+    @Override
+    public void onLoaderReset(Loader<Cursor> loader) {
+        Log.v(TAG, "in loader reset");
+        // delete the current data
+        mCursorAdapter.swapCursor(null);
+    }
+
+    private void refreshList() {
+//        recreate();  //hard blink
+        finish();
+        overridePendingTransition(0, 0);
+        startActivity(getIntent());
+        overridePendingTransition(0, 0);
+//        onLoaderReset(new CursorLoader(this, CONTENT_URI, homeMenuProjection, null, null, DISPLAY_STATE));
+//        getLoaderManager().initLoader(PLANT_LOADER, null, this);
+//        Log.v(TAG, "about to restart");
+//        getLoaderManager().restartLoader(PLANT_LOADER, null, this);
+//        Log.v(TAG, "done restart");
+    }
+
+    private void switchDisplayState() {
+        if (DISPLAY_STATE == SHOW_PLANTS_BY_FAMILIES) {
+            DISPLAY_STATE = SHOW_PLANTS_DEFAULT;
+            Toast.makeText(this, "Affichage des plantes", Toast.LENGTH_SHORT).show();
+        } else {
+            DISPLAY_STATE = SHOW_PLANTS_BY_FAMILIES;
+            Toast.makeText(this, "Affichage des familles", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    //@RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    private void setupWindowAnimations() {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            Log.v(TAG, "Into LOLLIPOP");
+            Fade fade = new Fade();
+            fade.setDuration(1000);
+            getWindow().setEnterTransition(fade);
+            getWindow().setExitTransition(fade);
+        }
+    }
+
+
+    // ****************************************************************************
+
 
     public void widgetHydration() { // widgets hydration
 
@@ -206,6 +317,33 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         return super.onCreateOptionsMenu(menu);
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+
+        Intent intent;
+        MenuItem optionMenuItem;
+        int id = item.getItemId();
+        switch (id) {
+            case R.id.app_search_bar:   // start the search activity
+                intent = new Intent(HomePage.this,SearchPlantesActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.option_show_by_family:
+                //switchDisplayState();
+                item.setChecked(DISPLAY_STATE == SHOW_PLANTS_BY_FAMILIES);
+                //refreshList();
+                //this.setDisplayState(item, item.isChecked());
+                break;
+            default:
+        }
+
+        return toggle.onOptionsItemSelected(item);
+
+    }
+
     //selecting a navigation item from the menu drawer event handling
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -219,43 +357,13 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         } else if (id == R.id.nav_aboutus) {
             startActivity(new Intent(HomePage.this, AboutUsActivity.class));
         } else if (id == R.id.nav_user_guide) {
-            intent = new Intent(HomePage.this,HelpActivity.class);
+            intent = new Intent(HomePage.this, HelpActivity.class);
             startActivity(intent);
         }
         if (isVisible()) hideOptionMenu();
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-
-        Intent intent;
-        MenuItem optionMenuItem;
-        int id = item.getItemId();
-        // stating the searh activity
-        switch (id) {
-            case R.id.app_search_bar:
-                intent = new Intent(HomePage.this,SearchPlantesActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.option_show_by_familly:
-                this.setDisplayState(item, item.isChecked());
-                break;
-            case R.id.mohamed:   // ADDED BY MOHAMED
-                Log.v(TAG, "about to go to mohamed activity");
-                startActivity(new Intent(HomePage.this, DatabaseTest.class));
-                Log.v(TAG, "just went to mohamed activity");
-                break;
-            default:
-        }
-
-        return toggle.onOptionsItemSelected(item);
-
     }
 
     public void fabOnClick(View v) {

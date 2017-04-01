@@ -4,6 +4,8 @@ import android.content.ContentProvider;
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.UriMatcher;
+import android.content.res.AssetFileDescriptor;
+import android.content.res.AssetManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
@@ -11,10 +13,10 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
-import dz.esi.team.appprototype.data.PlantContract.FamilyEntry;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import static dz.esi.team.appprototype.data.PlantContract.CONTENT_AUTHORITY;
-import static dz.esi.team.appprototype.data.PlantContract.PATH_FAMILIES;
 import static dz.esi.team.appprototype.data.PlantContract.PATH_PLANTS;
 import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.TABLE_NAME;
 import static dz.esi.team.appprototype.data.PlantContract.PlantEntry._ID;
@@ -28,13 +30,13 @@ import static dz.esi.team.appprototype.data.PlantContract.PlantEntry._ID;
 public class PlantProvider extends ContentProvider {
 
     public static final String LOG_TAG = PlantProvider.class.getSimpleName();
-    private static final int PLANTS = 100, PLANT_ID = 101, FAMILY_ID = 102;
+    private static final int PLANTS = 100;
+    private static final int PLANT_ID = 101;
     private static final UriMatcher sUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
 
     static {
         sUriMatcher.addURI(CONTENT_AUTHORITY, PATH_PLANTS, PLANTS);
         sUriMatcher.addURI(CONTENT_AUTHORITY, PATH_PLANTS + "/#", PLANT_ID);
-        sUriMatcher.addURI(CONTENT_AUTHORITY, PATH_FAMILIES + "/#", FAMILY_ID);
     }
 
     private PlantDbHelper mDbHelper;
@@ -54,7 +56,7 @@ public class PlantProvider extends ContentProvider {
                         @Nullable String selection, @Nullable String[] selectionArgs, @Nullable String sortOrder) {
 
         Log.v("text", "in query, about to get readable db");
-        mDbHelper = new PlantDbHelper(getContext());
+        Log.v("text", "mDbHelper initialized ; mDbHelper == null ?" + (mDbHelper == null));
         SQLiteDatabase db = mDbHelper.getReadableDatabase();
         Log.v("text", "in query, got readable db");
         Cursor cursor;
@@ -69,12 +71,6 @@ public class PlantProvider extends ContentProvider {
                 selectionArgs = new String[]{String.valueOf(ContentUris.parseId(uri))};
                 cursor = db.query(TABLE_NAME, projection, selection, selectionArgs, null, null, sortOrder);
                 break;
-            case FAMILY_ID: // query the specific ID family
-                selection = _ID + "=?";
-                selectionArgs = new String[]{String.valueOf(ContentUris.parseId(uri))};
-                cursor = db.query(FamilyEntry.TABLE_NAME, projection, selection, selectionArgs,
-                        null, null, sortOrder);
-                break;
             default:
                 Log.e(LOG_TAG, "IllegalArgumentException");
                 throw new IllegalArgumentException("Cannot query unknown URI " + uri);
@@ -83,6 +79,22 @@ public class PlantProvider extends ContentProvider {
         cursor.setNotificationUri(getContext().getContentResolver(), uri);
 
         return cursor;
+    }
+
+    @Override
+    public AssetFileDescriptor openAssetFile(Uri uri, String mode) throws FileNotFoundException {
+        AssetManager am = getContext().getAssets();
+        String file_name = uri.getLastPathSegment();
+
+        if (file_name == null)
+            throw new FileNotFoundException();
+        AssetFileDescriptor afd = null;
+        try {
+            afd = am.openFd(file_name);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return afd;
     }
 
     @Nullable

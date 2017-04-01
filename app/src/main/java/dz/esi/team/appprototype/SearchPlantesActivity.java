@@ -3,9 +3,7 @@ package dz.esi.team.appprototype;
 import android.app.SearchManager;
 import android.app.SearchableInfo;
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -15,7 +13,6 @@ import android.widget.SearchView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -29,14 +26,11 @@ import dz.esi.team.appprototype.utils.Section;
 public class SearchPlantesActivity extends BaseActivity implements AdapterView.OnItemClickListener {
     public static final String PLANT_QUERY = "PLANT_QUERY";
     private static final String TAG = "SearchPlantesActivity";
-
-    private SearchView searchView;
-    private  String queryText;
-    private  List<Section> medicalPlantsFamilyList  = new ArrayList<>();
-    private MedicalPlantsAdapter plantsAdapter;
-
-
     ListView searchResultListView;
+    private SearchView searchView;
+    private String queryText;
+    private List<Section> medicalPlantsFamilyList = new ArrayList<>();
+    private MedicalPlantsAdapter plantsAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,8 +69,6 @@ public class SearchPlantesActivity extends BaseActivity implements AdapterView.O
 
 
         searchResultListView.setOnItemClickListener(this);
-
-
 
     }
     @Override

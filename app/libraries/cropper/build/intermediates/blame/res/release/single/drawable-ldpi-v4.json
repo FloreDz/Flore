@@ -4,15 +4,7 @@
         "source": "C:\\Android\\Projects\\Flore\\app\\libraries\\cropper\\build\\generated\\res\\pngs\\release\\drawable-ldpi\\done.png"
     },
     {
-        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\cropper\\build\\intermediates\\res\\merged\\release\\drawable-ldpi-v4\\cancel.png",
-        "source": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\cropper\\build\\generated\\res\\pngs\\release\\drawable-ldpi\\cancel.png"
-    },
-    {
         "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\cropper\\build\\intermediates\\res\\merged\\release\\drawable-ldpi-v4\\cancel.png",
         "source": "C:\\Android\\Projects\\Flore\\app\\libraries\\cropper\\build\\generated\\res\\pngs\\release\\drawable-ldpi\\cancel.png"
-    },
-    {
-        "merged": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\cropper\\build\\intermediates\\res\\merged\\release\\drawable-ldpi-v4\\done.png",
-        "source": "C:\\home\\azeddine\\AndroidStudioProjects\\Flore\\app\\libraries\\cropper\\build\\generated\\res\\pngs\\release\\drawable-ldpi\\done.png"
     }
 ]

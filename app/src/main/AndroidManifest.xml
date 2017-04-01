@@ -87,22 +87,18 @@
             android:name=".AboutUsActivity"
             android:label="@string/title_activity_about_us"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".DatabaseTest"
-            android:label="Mohamed"
-            android:parentActivityName=".HomePage"
-            android:theme="@style/AppTheme"></activity>
 
         <!-- TODO : add the provider here -->
         <provider
             android:name=".data.PlantProvider"
             android:authorities="dz.esi.team.appprototype"
             android:exported="false" />
-        <!--exported : whether or not the provider is visible to other apps-->
+        <!-- exported : whether or not the provider is visible to other apps -->
 
         <meta-data
             android:name="dz.esi.team.appprototype.glide.GlideConfiguration"
             android:value="GlideModule" />
+
     </application>
 
 </manifest>

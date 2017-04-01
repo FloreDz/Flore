@@ -81,7 +81,7 @@ public class MedicalPlantsAdapter extends ArrayAdapter {
 
                  Log.d(TAG, "getView: ===============================================");
                  convertView = layoutInflater.inflate(plantResourceLayout, parent, false);
-                 viewHolder =plantViewHolder = new PlantViewHolder(convertView);
+             viewHolder = plantViewHolder = new PlantViewHolder(convertView);
                  convertView.setTag(viewHolder);
                  plant = (MedicalPlant) section ;
 

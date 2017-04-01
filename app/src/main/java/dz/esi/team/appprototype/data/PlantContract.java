@@ -12,7 +12,6 @@ public class PlantContract {
     //TODO: do not forget to change the package name
     public static final String CONTENT_AUTHORITY = "dz.esi.team.appprototype";
     public static final String PATH_PLANTS = "Plante";
-    public static final String PATH_FAMILIES = "Famille";
 
     public static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
 
@@ -26,14 +25,15 @@ public class PlantContract {
 
         public static final String TABLE_NAME = "Plante";
 
-        public static final String _ID = BaseColumns._ID,
+        public static final String
+                _ID = BaseColumns._ID,
                 sci_name = "sci_name",
                 nom = "nom",
                 image = "image",
-                idFamille = "idFamille",
+                famille = "famille",
                 resume = "resume",
                 constituants = "constituants",
-                partiesUtilitees = "partiesUtilitees",
+                partiesUtilisees = "partiesUtilisees",
                 effets = "effets",
                 effetsSecondaires = "effetsSecondaires",
                 indications = "indications",
@@ -47,12 +47,4 @@ public class PlantContract {
                 liens = "liens";
     }
 
-    public static final class FamilyEntry implements BaseColumns {
-
-        public static final Uri CONTENT_URI = Uri.withAppendedPath(BASE_CONTENT_URI, PATH_FAMILIES);
-
-        public static final String TABLE_NAME = "Famille";
-
-        public static final String _ID = BaseColumns._ID, nom = "nom";
-    }
 }
