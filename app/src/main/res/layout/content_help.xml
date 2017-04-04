@@ -100,7 +100,6 @@
             android:layout_below="@id/expandableLayout1"
             android:background="@drawable/border_bottom"/>
 
-
         <TextView
             android:id="@+id/expandableButton2"
             android:layout_width="fill_parent"
@@ -228,6 +227,7 @@
                 android:textColor="@android:color/black"
                 android:id="@+id/textView4"
                 android:textSize="15sp"
+                android:paddingTop="5dp"
                 android:paddingBottom="16dp"
                 android:layout_height="wrap_content"
               />

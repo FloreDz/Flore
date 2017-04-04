@@ -44,12 +44,12 @@
         "source": "/home/azeddine/.android/build-cache/0b1bbdf9ca6931607ae09de1c06227b30c392821/output/res/drawable-xxxhdpi-v4/abc_ic_star_black_36dp.png"
     },
     {
-        "merged": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/appIntro/build/intermediates/res/merged/androidTest/debug/drawable-xxxhdpi-v4/abc_ic_menu_copy_mtrl_am_alpha.png",
-        "source": "/home/azeddine/.android/build-cache/0b1bbdf9ca6931607ae09de1c06227b30c392821/output/res/drawable-xxxhdpi-v4/abc_ic_menu_copy_mtrl_am_alpha.png"
-    },
-    {
         "merged": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/appIntro/build/intermediates/res/merged/androidTest/debug/drawable-xxxhdpi-v4/abc_btn_radio_to_on_mtrl_015.png",
         "source": "/home/azeddine/.android/build-cache/0b1bbdf9ca6931607ae09de1c06227b30c392821/output/res/drawable-xxxhdpi-v4/abc_btn_radio_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/appIntro/build/intermediates/res/merged/androidTest/debug/drawable-xxxhdpi-v4/abc_ic_menu_copy_mtrl_am_alpha.png",
+        "source": "/home/azeddine/.android/build-cache/0b1bbdf9ca6931607ae09de1c06227b30c392821/output/res/drawable-xxxhdpi-v4/abc_ic_menu_copy_mtrl_am_alpha.png"
     },
     {
         "merged": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/appIntro/build/intermediates/res/merged/androidTest/debug/drawable-xxxhdpi-v4/abc_ic_star_black_16dp.png",
