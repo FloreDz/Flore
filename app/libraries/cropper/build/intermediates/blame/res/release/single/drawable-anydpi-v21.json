@@ -1,10 +1,18 @@
 [
     {
-        "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\cropper\\build\\intermediates\\res\\merged\\release\\drawable-anydpi-v21\\done.xml",
-        "source": "C:\\Android\\Projects\\Flore\\app\\libraries\\cropper\\build\\generated\\res\\pngs\\release\\drawable-anydpi-v21\\done.xml"
+        "merged": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/cropper/build/intermediates/res/merged/release/drawable-anydpi-v21/cancel.xml",
+        "source": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/cropper/build/generated/res/pngs/release/drawable-anydpi-v21/cancel.xml"
     },
     {
-        "merged": "C:\\Android\\Projects\\Flore\\app\\libraries\\cropper\\build\\intermediates\\res\\merged\\release\\drawable-anydpi-v21\\cancel.xml",
-        "source": "C:\\Android\\Projects\\Flore\\app\\libraries\\cropper\\build\\generated\\res\\pngs\\release\\drawable-anydpi-v21\\cancel.xml"
+        "merged": "/home/azeddine/AndroidStudioProjects/Flore/C:\\Android\\Projects\\Flore\\app\\libraries\\cropper\\build\\intermediates\\res\\merged\\release\\drawable-anydpi-v21\\done.xml",
+        "source": "/home/azeddine/AndroidStudioProjects/Flore/C:\\Android\\Projects\\Flore\\app\\libraries\\cropper\\build\\generated\\res\\pngs\\release\\drawable-anydpi-v21\\done.xml"
+    },
+    {
+        "merged": "/home/azeddine/AndroidStudioProjects/Flore/C:\\Android\\Projects\\Flore\\app\\libraries\\cropper\\build\\intermediates\\res\\merged\\release\\drawable-anydpi-v21\\cancel.xml",
+        "source": "/home/azeddine/AndroidStudioProjects/Flore/C:\\Android\\Projects\\Flore\\app\\libraries\\cropper\\build\\generated\\res\\pngs\\release\\drawable-anydpi-v21\\cancel.xml"
+    },
+    {
+        "merged": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/cropper/build/intermediates/res/merged/release/drawable-anydpi-v21/done.xml",
+        "source": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/cropper/build/generated/res/pngs/release/drawable-anydpi-v21/done.xml"
     }
 ]
