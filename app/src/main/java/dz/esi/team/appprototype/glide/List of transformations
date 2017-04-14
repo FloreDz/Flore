@@ -1,0 +1,33 @@
+Transformations :
+
+        Crop:
+    CropTransformation, CropCircleTransformation, CropSquareTransformation, RoundedCornersTransformation
+
+        Color:
+    ColorFilterTransformation, GrayscaleTransformation
+
+        Blur:
+    BlurTransformation
+
+        Mask:
+    MaskTransformation
+
+        GPU Filter (use GPUImage) Will require add dependencies for GPUImage. :
+    ToonFilterTransformation, SepiaFilterTransformation, ContrastFilterTransformation
+    InvertFilterTransformation, PixelationFilterTransformation, SketchFilterTransformation
+    SwirlFilterTransformation, BrightnessFilterTransformation, KuwaharaFilterTransformation VignetteFilterTransformation
+
+
+How do I use :
+
+     Single :
+        Glide.with(this).load(R.drawable.demo)
+                .bitmapTransform(new BlurTransformation(context))
+                .into((ImageView) findViewById(R.id.image));
+
+
+    OR Multiple :
+
+        Glide.with(this).load(R.drawable.demo)
+                  .bitmapTransform(new BlurTransformation(context, 25), new CropCircleTransformation(context))
+                  .into((ImageView) findViewById(R.id.image));

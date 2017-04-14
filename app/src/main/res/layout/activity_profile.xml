@@ -22,8 +22,7 @@
             app:collapsedTitleTextAppearance="@style/CollapsingToolbarCollapsedTextAppearance"
             app:contentScrim="@color/logo_green_medium"
             app:expandedTitleTextAppearance="@style/CollapsingToolbarExpandedTextAppearance"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            app:title="Profile">
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <android.support.constraint.ConstraintLayout
                 android:id="@+id/plant_main_info"
@@ -36,20 +35,19 @@
                 <ImageView
                     android:id="@+id/plant_image"
                     android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:layout_marginBottom="0dp"
+                    android:layout_height="100dp"
+                    android:layout_marginBottom="8dp"
                     android:layout_marginEnd="0dp"
-                    android:layout_marginLeft="8dp"
+                    android:layout_marginLeft="16dp"
                     android:layout_marginRight="0dp"
                     android:layout_marginStart="0dp"
                     android:layout_marginTop="0dp"
-                    android:padding="24dp"
+                    android:padding="8dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/camomille" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <LinearLayout
                     android:id="@+id/linearLayout"
@@ -73,17 +71,6 @@
                         android:text="@string/plant_name_sci"
                         android:textColor="@color/white_color_smoke"
                         android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/plant_name_fr"
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:layout_marginStart="24dp"
-                        android:gravity="center_vertical"
-                        android:text="@string/plant_name_fr"
-                        android:textColor="@color/white_color_smoke"
-                        android:textStyle="bold" />
-
 
                     <TextView
                         android:id="@+id/plant_family"

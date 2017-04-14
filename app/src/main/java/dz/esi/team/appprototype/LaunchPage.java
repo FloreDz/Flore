@@ -18,6 +18,12 @@ public class LaunchPage extends AppCompatActivity {
 
         nextPage = new Intent(LaunchPage.this, HomePage.class);
 
+//        Glide.with(this)
+//                .load(R.drawable.logo_glass_material)
+//                .crossFade(250)
+//                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+//                .into((ImageView) findViewById(R.id.logo));
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -26,7 +32,7 @@ public class LaunchPage extends AppCompatActivity {
                 startActivity(nextPage);
                 ActivityCompat.finishAffinity(LaunchPage.this);
             }
-        }, 2000);
+        }, 3000);
     }
 
 }

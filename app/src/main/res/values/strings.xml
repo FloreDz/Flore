@@ -10,8 +10,8 @@
     <string name="plant_name">le nom de la plante</string>
 
     <!-- Floating button options -->
-    <string name="take_photo">prendre une photo</string>
-    <string name="import_photo">importer une photo</string>
+    <string name="take_photo">Prendre une photo</string>
+    <string name="import_photo">Importer une photo</string>
 
     <!-- Search activity -->
     <string name="searchable">le nom de la plante</string>
@@ -21,21 +21,21 @@
     <string name="title_activity_home_page">Page d\'acceuille</string>
     <string name="title_activity_search_plants">Rechercher des plantes</string>
     <string name="title_activity_plant_profile">Profil</string>
-    <string name="title_activity_image_process">traitement d\'image</string>
+    <string name="title_activity_image_process">Traitement d\'image</string>
     <string name="title_activity_search_menu">Menu de recherche</string>
-    <string name="activity_search">Recherche</string>
+    <string name="activity_search">Rechercher</string>
     <string name="title_activity_settings">Préférences</string>
     <string name="title_activity_main">activité principale</string>
     <string name="title_activity_image_options">Modifier</string>
     <string name="title_activity_help">Guide d\'utilisateur</string>
-    <string name="title_activity_about_us">Apropos</string>
+    <string name="title_activity_about_us">A propos</string>
 
 
     <!-- Captured image options -->
-    <string name="retry">réessayer</string>
-    <string name="save">sauvegarder</string>
-    <string name="crop">recadrer</string>
-    <string name="process">traiter</string>
+    <string name="retry">Réessayer</string>
+    <string name="save">Sauvegarder</string>
+    <string name="crop">Recadrer</string>
+    <string name="process">Traiter</string>
 
     <!-- The team members names -->
     <string name="chenine_name">CHENINE Azzedine</string>
@@ -44,10 +44,15 @@
     <string name="borsali_name">BORSALI Fayçal</string>
     <string name="souab_name">SOUAB Nadjib</string>
     <string name="benchohra_name">BENCHOHRA Mohammed Amine</string>
+
+
     <string name="plant_resume_default_text">Un résumé sur la plante</string>
     <string name="plant_title_constituants">Constituants</string>
     <string name="plant_name_sci">Nom scientifique</string>
     <string name="plant_name_fr">Nom français</string>
     <string name="plant_family">Plant Family</string>
+    <string name="title_activity_database_test">DatabaseTest</string>
+    <string name="plant_profile_app_bar_title">This is changed by JAVA</string>
+
 
 </resources>

@@ -16,20 +16,20 @@
             android:id="@+id/toolbar_search_access"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
+            android:layout_weight="1"
             android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme"
-            android:layout_weight="1" />
+            app:popupTheme="@style/AppTheme" />
 
     </android.support.design.widget.AppBarLayout>
 
     <include layout="@layout/content_search_menu" />
 
     <FrameLayout
+        android:id="@+id/option_menu_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white_color_smoke_lowOpacity"
-        android:visibility="gone"
-        android:id="@+id/option_menu_background">
+        android:visibility="gone">
 
     </FrameLayout>
 
@@ -39,10 +39,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@drawable/plus_button"
-        app:backgroundTint="@color/logo_green_medium"
-        android:onClick="fabOnClick"
         android:clickable="true"
+        android:onClick="fabOnClick"
+        app:backgroundTint="@color/logo_green_medium"
+        app:srcCompat="@drawable/camera_fab"
         tools:ignore="VectorDrawableCompat" />
 
     <LinearLayout
@@ -55,32 +55,32 @@
         tools:ignore="RtlHardcoded">
 
         <TextView
+            android:id="@+id/label_import_picture"
+            style="@style/flotingButtonLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/import_photo"
+            android:layout_gravity="center"
             android:clickable="true"
             android:onClick="labelOnClick"
-            style="@style/flotingButtonLabel"
-            android:id="@+id/label_import_picture"
-            tools:ignore="HardcodedText"
-            android:layout_gravity="center" />
+            android:text="@string/import_photo"
+            tools:ignore="HardcodedText" />
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab_import_picture"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center|right"
-            android:clickable="true"
-            android:onClick="fabOnClick"
             android:layout_marginBottom="8dp"
             android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
             android:layout_marginRight="24dp"
-            app:elevation="5dp"
-            app:srcCompat="@drawable/gallery"
+            android:layout_marginTop="8dp"
+            android:clickable="true"
+            android:onClick="fabOnClick"
             app:backgroundTint="@color/white_color"
-            app:rippleColor="@color/white_color_smoke"
+            app:elevation="5dp"
             app:fabSize="mini"
+            app:rippleColor="@color/white_color_smoke"
+            app:srcCompat="@drawable/gallery"
             tools:ignore="VectorDrawableCompat" />
 
     </LinearLayout>
@@ -91,21 +91,20 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_marginBottom="88dp"
+        android:textAlignment="textEnd"
         android:visibility="gone"
-        tools:ignore="RtlHardcoded"
-        android:textAlignment="textEnd">
+        tools:ignore="RtlHardcoded">
 
         <TextView
+            android:id="@+id/label_take_picture"
+            style="@style/flotingButtonLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginLeft="10dp"
-            android:text="@string/take_photo"
             android:clickable="true"
             android:onClick="labelOnClick"
-            style="@style/flotingButtonLabel"
-            android:id="@+id/label_take_picture"
-            android:layout_gravity="center"
-            />
+            android:text="@string/take_photo" />
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab_take_picture"
@@ -114,21 +113,18 @@
             android:layout_gravity="center|right"
             android:layout_marginBottom="8dp"
             android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
             android:layout_marginRight="24dp"
+            android:layout_marginTop="8dp"
             android:clickable="true"
             android:onClick="fabOnClick"
-            app:elevation="5dp"
-            app:srcCompat="@drawable/camera"
             app:backgroundTint="@color/white_color"
-            app:rippleColor="@color/white_color_smoke"
+            app:elevation="5dp"
             app:fabSize="mini"
-            tools:ignore="VectorDrawableCompat"
-            />
+            app:rippleColor="@color/white_color_smoke"
+            app:srcCompat="@drawable/camera"
+            tools:ignore="VectorDrawableCompat" />
 
     </LinearLayout>
-
-
 
 
 </android.support.design.widget.CoordinatorLayout>

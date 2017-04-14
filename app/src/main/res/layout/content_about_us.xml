@@ -7,9 +7,13 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="dz.esi.team.appprototype.AboutUsActivity"
     tools:showIn="@layout/activity_about_us">
-    <TextView
-        android:layout_width="match_parent"
+
+
+    <ImageView
+        android:id="@+id/gif"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Here we put content"/>
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp" />
 
 </android.support.v4.widget.NestedScrollView>

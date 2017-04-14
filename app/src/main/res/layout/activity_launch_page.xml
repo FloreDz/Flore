@@ -5,58 +5,57 @@
     android:id="@+id/activity_home_page"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="dz.esi.team.appprototype.LaunchPage"
-    android:background="@drawable/launch_background">
+    android:background="@drawable/launch_background"
+    tools:context="dz.esi.team.appprototype.LaunchPage">
 
     <!-- TODO: define project norme fonts and their styles -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="16dp"
-        android:layout_marginStart="16dp"
-        app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginEnd="16dp"
-        app:layout_constraintRight_toRightOf="parent">
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
+            android:id="@+id/logo"
             android:layout_width="match_parent"
             android:layout_height="209dp"
-            app:srcCompat="@drawable/logo_glass_material"
-            android:id="@+id/logo"
-            tools:layout_constraintTop_creator="1"
-            tools:layout_constraintLeft_creator="1"
+            android:src="@drawable/logo_glass_material"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0.18" />
+            app:layout_constraintVertical_bias="0.18"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintTop_creator="1" />
 
         <TextView
-            android:text="@string/app_name"
-            tools:layout_editor_absoluteX="79dp"
             android:id="@+id/name"
-            android:layout_height="51dp"
             android:layout_width="match_parent"
-            android:textAlignment="center"
+            android:layout_height="51dp"
             android:gravity="center_vertical"
-            android:textColor="@color/white_color_smoke"
-            android:textStyle="bold"
+            android:text="@string/app_name"
+            android:textAlignment="center"
+            android:textColor="@color/white_color"
             android:textSize="28sp"
-
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="79dp"
             tools:layout_editor_absoluteY="315dp" />
 
         <TextView
-            android:text="@string/slogan"
+            android:id="@+id/slogan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:layout_editor_absoluteX="38dp"
-            android:id="@+id/slogan"
-            app:layout_constraintTop_toBottomOf="@+id/name"
+            android:text="@string/slogan"
             android:textAlignment="center"
             android:textColor="@color/white_color"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            app:layout_constraintTop_toBottomOf="@+id/name"
+            tools:layout_editor_absoluteX="38dp" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

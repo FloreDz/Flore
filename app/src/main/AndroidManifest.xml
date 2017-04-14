@@ -24,22 +24,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".IntroActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name=".HomePage"
             android:theme="@style/AppTheme.NoActionBar" />
-            <!-- TODO : fix landscape problem for : homepage, searchPlant, ImageOption and CropImage -->
+        <!-- TODO : fix landscape problem for : homepage, searchPlant, ImageOption and CropImage -->
 
         <activity
             android:name=".SearchPlantesActivity"
             android:label="@string/title_activity_search_plants"
             android:parentActivityName=".HomePage"
             android:theme="@style/AppTheme">
-
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="dz.esi.team.appprototype.HomePage" />
@@ -51,14 +48,12 @@
                 <action android:name="android.intent.action.SEARCH" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".ImageOptionsActivity"
             android:label="@string/title_activity_image_options"
             android:parentActivityName=".HomePage"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
-
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="dz.esi.team.appprototype.HomePage" />
@@ -71,17 +66,14 @@
                 <data android:mimeType="image/*" />
             </intent-filter>
         </activity>
-
         <activity
             android:name="com.soundcloud.android.crop.CropImageActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
-
         <activity
             android:name=".ProfileActivity"
             android:label="@string/title_activity_plant_profile"
-            android:theme="@style/ProfileTheme"/>
-
+            android:theme="@style/ProfileTheme" />
         <activity
             android:name=".HelpActivity"
             android:label="@string/title_activity_help"
@@ -91,11 +83,22 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="dz.esi.team.appprototype.HomePage" />
         </activity>
-
         <activity
             android:name=".AboutUsActivity"
             android:label="@string/title_activity_about_us"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <!-- TODO : add the provider here -->
+        <provider
+            android:name=".data.PlantProvider"
+            android:authorities="dz.esi.team.appprototype"
+            android:exported="false" />
+        <!-- exported : whether or not the provider is visible to other apps -->
+
+        <meta-data
+            android:name="dz.esi.team.appprototype.glide.GlideConfiguration"
+            android:value="GlideModule" />
+
     </application>
 
 </manifest>

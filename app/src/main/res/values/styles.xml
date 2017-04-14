@@ -1,7 +1,16 @@
 <resources>
+    <!-- Activating overflow menu offset -->
+    <style name="OverflowMenu" parent="Widget.AppCompat.PopupMenu.Overflow">
+        <!-- Required for pre-Lollipop. -->
+        <item name="overlapAnchor">false</item>
+
+        <!-- Required for Lollipop. -->
+        <item name="android:overlapAnchor">false</item>
+    </style>
+
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-
+        <item name="actionOverflowMenuStyle">@style/OverflowMenu</item>
         <!-- this color should be the most widely used across all screens and components. -->
         <item name="colorPrimary">@color/logo_blue_light</item>
         <!-- Palettes with a secondary color may use this color to indicate a related action or information.-->
@@ -39,6 +48,18 @@
 
     <style name="CollapsingToolbarCollapsedTextAppearance" parent="AppTheme.NoActionBar">
         <item name="android:textColor">@color/white_color_smoke</item>
+    </style>
+
+    <style name="FullscreenTheme" parent="AppTheme">
+        <item name="android:actionBarStyle">@style/FullscreenActionBarStyle</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="metaButtonBarStyle">?android:attr/buttonBarStyle</item>
+        <item name="metaButtonBarButtonStyle">?android:attr/buttonBarButtonStyle</item>
+    </style>
+
+    <style name="FullscreenActionBarStyle" parent="Widget.AppCompat.ActionBar">
+        <item name="android:background">@color/black_overlay</item>
     </style>
 
 </resources>
