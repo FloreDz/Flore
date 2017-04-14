@@ -28,6 +28,7 @@ dependencies {
     })
     compile project('libraries:appIntro')
     compile project('libraries:cropper')
+    compile 'com.github.aakira:expandable-layout:1.6.0@aar'
     compile 'com.android.support:appcompat-v7:25.1.1'
     compile 'com.android.support:design:25.1.1'
     compile 'com.android.support:support-v4:25.1.1'
