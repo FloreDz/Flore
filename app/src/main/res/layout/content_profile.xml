@@ -208,7 +208,7 @@
                     android:layout_marginTop="10dp"
                     android:gravity="center_vertical"
                     android:padding="5dp"
-                    android:text="Indications de la plante" />
+                    android:text="indications title" />
 
                 <TextView
                     android:id="@+id/plant_indications"
@@ -216,7 +216,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:gravity="center_vertical"
-                    android:text="Here we put the necessary information" />
+                    android:text="indications" />
 
                 <TextView
                     android:id="@+id/plant_contreIndications_title"
@@ -225,14 +225,14 @@
                     android:layout_marginTop="10dp"
                     android:gravity="center_vertical"
                     android:padding="5dp"
-                    android:text="Contre-indications de la plante" />
+                    android:text="Contre Indications" />
 
                 <TextView
                     android:id="@+id/plant_contreIndications"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:text="Here we put the necessary information" />
+                    android:text="contre indications" />
 
                 <TextView
                     android:id="@+id/plant_preparation_title"
@@ -241,16 +241,35 @@
                     android:layout_marginTop="10dp"
                     android:gravity="center_vertical"
                     android:padding="5dp"
-                    android:text="les préparations de la plante" />
+                    android:text="Preparation" />
 
                 <TextView
                     android:id="@+id/plant_preparation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
                     android:gravity="center_vertical"
                     android:padding="5dp"
-                    android:text="Here we put the necessary information" />
+                    android:text="preparation" />
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp">
+
+            <LinearLayout
+                android:id="@+id/plant_extra"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="vertical"
+                android:padding="8dp"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/plant_description">
 
                 <TextView
                     android:id="@+id/plant_remarks_title"
@@ -259,7 +278,7 @@
                     android:layout_marginTop="10dp"
                     android:gravity="center_vertical"
                     android:padding="5dp"
-                    android:text="Des remarques sur la plante" />
+                    android:text="Remarques" />
 
                 <TextView
                     android:id="@+id/plant_remarks"
@@ -267,7 +286,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:gravity="center_vertical"
-                    android:text="Here we put the necessary information" />
+                    android:text="remarks" />
 
                 <TextView
                     android:id="@+id/plant_liens_title"
@@ -276,7 +295,7 @@
                     android:layout_marginTop="10dp"
                     android:gravity="center_vertical"
                     android:padding="5dp"
-                    android:text="Des liens supplémentaires sur la plante" />
+                    android:text="Liens supplémentaires" />
 
                 <TextView
                     android:id="@+id/plant_liens"
@@ -284,7 +303,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:gravity="center_vertical"
-                    android:text="Here we put the necessary information" />
+                    android:text="title" />
 
                 <TextView
                     android:id="@+id/plant_source_title"
@@ -301,11 +320,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:gravity="center_vertical"
-                    android:text="Here we put the necessary information"
+                    android:text="source"
                     android:textStyle="italic" />
 
             </LinearLayout>
         </android.support.v7.widget.CardView>
+
 
     </LinearLayout>
 

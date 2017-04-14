@@ -14,5 +14,4 @@
         android:checked="false"
         android:title="Afficher par famille" />
 
-
 </menu>

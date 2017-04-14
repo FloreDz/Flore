@@ -17,8 +17,10 @@ import dz.esi.team.appprototype.R;
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
 import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
 import static dz.esi.team.appprototype.HomePage.DISPLAY_STATE;
-import static dz.esi.team.appprototype.HomePage.SHOW_PLANTS_DEFAULT;
+import static dz.esi.team.appprototype.HomePage.SHOW_PLANTS_BY_DEFAULT;
+import static dz.esi.team.appprototype.HomePage.plantsHeaders;
 import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.famille;
 import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.image;
 import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.sci_name;
@@ -29,21 +31,21 @@ import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.sci_name;
 
 public class PlantCursorAdapter extends CursorAdapter {
 
-    private static String previousFamily = null;
-    private static String currentFamily = null;
+    private final String TAG = this.getClass().getSimpleName();
+    
     Context mContext = null;
 
 
     public PlantCursorAdapter(Context context, Cursor c) {
         super(context, c, 0);
         mContext = context;
-        Log.v("PlantCursorAdapter", "an object just got instantiated");
+        Log.d(TAG, "an object just got instantiated");
     }
 
     @Override
     public View newView(Context context, Cursor cursor, ViewGroup parent) {
-        Log.v("PlantCursorAdapter", "newView in");
-        if (DISPLAY_STATE == SHOW_PLANTS_DEFAULT)
+        Log.d(TAG, "newView in");
+        if (DISPLAY_STATE.equals(SHOW_PLANTS_BY_DEFAULT))
             return LayoutInflater.from(context).inflate(R.layout.item_plant, parent, false);
         else
             return LayoutInflater.from(context).inflate(R.layout.item_family, parent, false);
@@ -52,25 +54,22 @@ public class PlantCursorAdapter extends CursorAdapter {
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
 
-        Log.v("PlantCursorAdapter", "bindView in");
+        Log.d(TAG, "bindView in");
 
         TextView tvPlantFamily;
         TextView tvPlantName;
         ImageView ivPlantImage;
 
-        String plantFamily = currentFamily = cursor.getString(cursor.getColumnIndex(famille));
-        Log.v("PlantCursorAdapter", "plantFamily ==  " + plantFamily);
+        String plantFamily = cursor.getString(cursor.getColumnIndex(famille));
         String plantSciName = cursor.getString(cursor.getColumnIndex(sci_name));
         String plantImage = cursor.getString(cursor.getColumnIndex(image));
 
-        if (DISPLAY_STATE == SHOW_PLANTS_DEFAULT) {
+        if (DISPLAY_STATE.equals(SHOW_PLANTS_BY_DEFAULT)) {
 
             tvPlantName = (TextView) view.findViewById(R.id.plant_sci_name_in_plant_view);
             tvPlantFamily = (TextView) view.findViewById(R.id.plant_family_in_plant_view);
-            Log.v("PlantCursorAdapter", "tvPlantFamily == null ? " + (tvPlantFamily == null));
             ivPlantImage = (ImageView) view.findViewById(R.id.plant_image_in_plant_view);
 
-            Log.v("PlantCursorAdapter", "about to set text to the plant family");
             tvPlantFamily.setText("Famille : " + plantFamily);
 
         } else {
@@ -79,15 +78,16 @@ public class PlantCursorAdapter extends CursorAdapter {
             tvPlantFamily = (TextView) view.findViewById(R.id.plant_family_in_family_view);
             ivPlantImage = (ImageView) view.findViewById(R.id.plant_image_in_family_view);
 
-            if (previousFamily == null || !previousFamily.equals(currentFamily)) {
-                Log.v("PlantCursorAdapter", "in else -> if");
+            if (plantsHeaders.contains(plantSciName)) {
+                tvPlantFamily.setVisibility(VISIBLE);
+                Log.d(TAG, "in else -> if");
                 tvPlantFamily.setText(plantFamily);
-                previousFamily = currentFamily;
-            } else
+            } else {
                 tvPlantFamily.setVisibility(GONE);
+                Log.d(TAG, "in else -> else");
+            }
         }
 
-        Log.v("PlantCursorAdapter", "about to set text to the plant name");
         tvPlantName.setText(plantSciName);
         ivPlantImage.setScaleType(ImageView.ScaleType.FIT_CENTER);
 
@@ -99,7 +99,6 @@ public class PlantCursorAdapter extends CursorAdapter {
                 .placeholder(R.drawable.placeholder_image)
                 .into(ivPlantImage);
 
-        Log.v("PlantCursorAdapter", "bindView finished");
+        Log.d(TAG, "bindView finished");
     }
-
 }

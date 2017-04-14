@@ -1,27 +1,25 @@
 package dz.esi.team.appprototype.data;
 
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.CONTENT_URI;
-import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.famille;
+import static dz.esi.team.appprototype.HomePage.mDbHelper;
+import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.TABLE_NAME;
 
 /**
  * Created by The King Mohamed on 28/03/2017.
  */
 
-class PlantRetriever {
+public class PlantRetriever {
 
-    // could add other critias (family view)
-    static void RetrievePlants(String[] projection, String selection, String[] selectionArgs) {
-        PlantProvider pp = new PlantProvider();
-        Log.v("text", " in plantprofile , about to query");
-        Log.v("text", " pp == null ? : " + (pp == null));
+    public static Cursor RetrievePlants(String[] projection, String selection, String[] selectionArgs, String order) {
+        SQLiteDatabase db = mDbHelper.getReadableDatabase();
+        Log.v("text", " in plantretriver , about to query");
+        Cursor cursor = db.query(TABLE_NAME, projection, selection, selectionArgs, null, null, order);
+        Log.v("text", " in plantretriver  , done query");
 
-        Cursor plantProfile = pp.query(CONTENT_URI, projection, selection, selectionArgs, famille + "ASC");
-        Log.v("text", " in plantprofile , done query");
-
-        pp = null;
+        return cursor;
     }
 
 }

@@ -24,7 +24,7 @@ public class PlantProfile {
     private String famille;
     private String resume;
     private String constituants;
-    private String partiesUtilitees;
+    private String partiesUtilisees;
     private String effets;
     private String effetsSecondaires;
     private String indications;
@@ -52,11 +52,12 @@ public class PlantProfile {
                     null, null, null, null);
             pp = null;  */
 
+
             SQLiteDatabase db = mDbHelper.getReadableDatabase();
             String[] selectionArgs = {"" + plantID};
-            Log.v("text", " in plantprofile , about to query");
+            Log.v("PlantProfile", " , about to query");
             plantProfile = db.query(TABLE_NAME, null, _ID + "=?", selectionArgs, null, null, null);
-            Log.v("text", " in plantprofile , done query");
+            Log.v("PlantProfile", " , done query");
 
             plantProfile.moveToFirst();
 
@@ -72,7 +73,7 @@ public class PlantProfile {
                     getString(plantProfile.getColumnIndexOrThrow(PlantEntry.resume));
             this.constituants = plantProfile.
                     getString(plantProfile.getColumnIndexOrThrow(PlantEntry.constituants));
-            this.partiesUtilitees = plantProfile.
+            this.partiesUtilisees = plantProfile.
                     getString(plantProfile.getColumnIndexOrThrow(PlantEntry.partiesUtilisees));
             this.effets = plantProfile.
                     getString(plantProfile.getColumnIndexOrThrow(PlantEntry.effets));
@@ -98,7 +99,7 @@ public class PlantProfile {
                     getString(plantProfile.getColumnIndexOrThrow(PlantEntry.liens));
             this.id = plantID.toString();
 
-            Log.v("text", " in plantprofile , about to exit the constructor");
+            Log.v("PlantProfile", " , about to exit the constructor");
 
         } catch (Exception e) {
             Log.v("PlantProfil Constructor", e.getMessage());
@@ -136,8 +137,8 @@ public class PlantProfile {
         return constituants;
     }
 
-    public String getPartiesUtilitees() {
-        return partiesUtilitees;
+    public String getPartiesUtilisees() {
+        return partiesUtilisees;
     }
 
     public String getEffets() {

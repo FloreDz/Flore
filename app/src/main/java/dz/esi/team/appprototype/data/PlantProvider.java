@@ -16,6 +16,8 @@ import android.util.Log;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+import dz.esi.team.appprototype.HomePage;
+
 import static dz.esi.team.appprototype.data.PlantContract.CONTENT_AUTHORITY;
 import static dz.esi.team.appprototype.data.PlantContract.PATH_PLANTS;
 import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.TABLE_NAME;
@@ -42,11 +44,12 @@ public class PlantProvider extends ContentProvider {
     private PlantDbHelper mDbHelper;
 
     public PlantProvider() {
+        mDbHelper = HomePage.mDbHelper;
     }
 
     @Override
     public boolean onCreate() {
-        mDbHelper = new PlantDbHelper(getContext());
+        mDbHelper = HomePage.mDbHelper;
         return true;
     }
 
@@ -55,10 +58,18 @@ public class PlantProvider extends ContentProvider {
     public Cursor query(@NonNull Uri uri, @Nullable String[] projection,
                         @Nullable String selection, @Nullable String[] selectionArgs, @Nullable String sortOrder) {
 
-        Log.v("text", "in query, about to get readable db");
-        Log.v("text", "mDbHelper initialized ; mDbHelper == null ?" + (mDbHelper == null));
-        SQLiteDatabase db = mDbHelper.getReadableDatabase();
-        Log.v("text", "in query, got readable db");
+
+        Log.v("PlantProvider", "in query, about to get readable db");
+        mDbHelper = HomePage.mDbHelper;
+        Log.v("PlantProvider", "mDbHelper initialized ; mDbHelper == null ?" + (mDbHelper == null));
+        SQLiteDatabase db = null;
+        try {
+            db = mDbHelper.getReadableDatabase();
+        } catch (Exception e) {
+            Log.e("PlantProvider Query", e.getMessage());
+        }
+        Log.v("PlantProvider", "in query, db == null ?" + (db == null));
+        Log.v("PlantProvider", "in query, got readable db");
         Cursor cursor;
         final int match = sUriMatcher.match(uri);
         switch (match) {
@@ -66,7 +77,7 @@ public class PlantProvider extends ContentProvider {
                 cursor = db.query(TABLE_NAME, projection, selection, selectionArgs, null, null, sortOrder);
                 break;
             case PLANT_ID: // query the specific ID plant
-                Log.v("text", "in query, in case: plant id");
+                Log.v("PlantProvider", "in query, in case: plant id");
                 selection = _ID + "=?";
                 selectionArgs = new String[]{String.valueOf(ContentUris.parseId(uri))};
                 cursor = db.query(TABLE_NAME, projection, selection, selectionArgs, null, null, sortOrder);

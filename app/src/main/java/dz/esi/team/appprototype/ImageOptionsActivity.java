@@ -1,14 +1,18 @@
 package dz.esi.team.appprototype;
 
+import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.content.CursorLoader;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -22,22 +26,30 @@ import java.io.File;
 import java.io.IOException;
 
 public class ImageOptionsActivity extends AppCompatActivity {
+    public static final String LOADED_IMAGE_PATH = "LOADED_IMAGE_PATH";
+    public static final String LOADED_IMAGE_URI = "LOADED_IMAGE_URI";
+    public static final String STATE_IMAGE = "STATE_IMAGE";
     private static final String TAG = "ImageOptionsActivity";
-
     // image proprieties
     private ImageView imageViewUploadedImage;
     private Uri imageViewUri;
     private Uri croppedImageUri;
-
     private boolean croppedImage = false;
-
-    public static final String LOADED_IMAGE_PATH = "LOADED_IMAGE_PATH";
-    public static final String LOADED_IMAGE_URI = "LOADED_IMAGE_URI";
-    public static final String STATE_IMAGE = "STATE_IMAGE";
     private int croppedVersion = 0;
 
 
     private BottomNavigationView bottomNavigationViewImageOption;
+
+    private static int exifToDegrees(int exifOrientation) {
+        if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_90) {
+            return 90;
+        } else if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_180) {
+            return 180;
+        } else if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_270) {
+            return 270;
+        }
+        return 0;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,18 +95,31 @@ public class ImageOptionsActivity extends AppCompatActivity {
 
         if(uploadedImagePath!= null){
             this.imageViewUri = Uri.parse(getIntent().getStringExtra(LOADED_IMAGE_URI));
-            this.imageViewUploadedImage.setImageBitmap(BitmapFactory.decodeFile(uploadedImagePath));
+//            this.imageViewUploadedImage.setImageBitmap(BitmapFactory.decodeFile(uploadedImagePath));
         }else{
             this.imageViewUri = (Uri) getIntent().getExtras().get(Intent.EXTRA_STREAM);
-            uploadedImagePath = new File(this.imageViewUri.toString()).getAbsolutePath();
-            }
-        Log.d(TAG, "displayImage: ==============================================="+uploadedImagePath);
-      Bitmap bitmap = fixImageRotation(uploadedImagePath);
+            //uploadedImagePath = new File(this.imageViewUri.toString()).getPath();
+            //uploadedImagePath = imageViewUri.getPath();
+            uploadedImagePath = getRealPathFromURI(this, this.imageViewUri);
+        }
+        Log.d(TAG, "displayImage: =============================================== " + uploadedImagePath);
+        Bitmap bitmap = fixImageRotation(uploadedImagePath);
         this.imageViewUploadedImage.setImageBitmap(bitmap);
 
+    }///storage/emulated/0/Pictures/Screenshots/Screenshot_2017-04-04-22-36-45.png
 
+    private String getRealPathFromURI(Context context, Uri contentUri) {
+        String[] proj = {MediaStore.Audio.Media.DATA};
+        CursorLoader loader = new CursorLoader(context, contentUri, proj, null, null, null);
+        Cursor cursor = loader.loadInBackground();
+        int column_index = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.DATA);
+        cursor.moveToFirst();
+        String path = cursor.getString(column_index);
+        cursor.close();
 
+        return path;
     }
+
     private Bitmap fixImageRotation(String path){
         Bitmap bitmap;
         int rotation ;
@@ -117,18 +142,11 @@ public class ImageOptionsActivity extends AppCompatActivity {
         return  bitmap ;
 
     }
-    private static int exifToDegrees(int exifOrientation) {
-        if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_90) { return 90; }
-        else if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_180) {  return 180; }
-        else if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_270) {  return 270; }
-        return 0;
-    }
-
 
     private void beginCrop(Uri source) {
         this.croppedImageUri = Uri.fromFile(new File(getFilesDir(), "cropped" + croppedVersion));
 
-        Crop.of(source, this.croppedImageUri).start(this);
+        Crop.of(source, this.croppedImageUri).asSquare().start(this);
     }
 
     @Override

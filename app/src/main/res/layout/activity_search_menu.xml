@@ -42,7 +42,7 @@
         android:clickable="true"
         android:onClick="fabOnClick"
         app:backgroundTint="@color/logo_green_medium"
-        app:srcCompat="@drawable/plus_button"
+        app:srcCompat="@drawable/camera_fab"
         tools:ignore="VectorDrawableCompat" />
 
     <LinearLayout
@@ -125,8 +125,6 @@
             tools:ignore="VectorDrawableCompat" />
 
     </LinearLayout>
-
-
 
 
 </android.support.design.widget.CoordinatorLayout>
