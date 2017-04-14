@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/appIntro/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sw600dp-v13/values-sw600dp-v13.xml",
+        "outputFile": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sw600dp-v13\\values-sw600dp-v13.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 119
                 },
                 "from": {
-                    "file": "/home/azeddine/.android/build-cache/0b1bbdf9ca6931607ae09de1c06227b30c392821/output/res/values-sw600dp-v13/values-sw600dp-v13.xml",
+                    "file": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -30,7 +30,7 @@
                     "endOffset": 188
                 },
                 "from": {
-                    "file": "/home/azeddine/.android/build-cache/0b1bbdf9ca6931607ae09de1c06227b30c392821/output/res/values-sw600dp-v13/values-sw600dp-v13.xml",
+                    "file": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -49,7 +49,7 @@
                     "endOffset": 258
                 },
                 "from": {
-                    "file": "/home/azeddine/.android/build-cache/0b1bbdf9ca6931607ae09de1c06227b30c392821/output/res/values-sw600dp-v13/values-sw600dp-v13.xml",
+                    "file": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -68,7 +68,7 @@
                     "endOffset": 332
                 },
                 "from": {
-                    "file": "/home/azeddine/.android/build-cache/0b1bbdf9ca6931607ae09de1c06227b30c392821/output/res/values-sw600dp-v13/values-sw600dp-v13.xml",
+                    "file": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -87,7 +87,7 @@
                     "endOffset": 408
                 },
                 "from": {
-                    "file": "/home/azeddine/.android/build-cache/0b1bbdf9ca6931607ae09de1c06227b30c392821/output/res/values-sw600dp-v13/values-sw600dp-v13.xml",
+                    "file": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
@@ -106,7 +106,7 @@
                     "endOffset": 467
                 },
                 "from": {
-                    "file": "/home/azeddine/.android/build-cache/0b1bbdf9ca6931607ae09de1c06227b30c392821/output/res/values-sw600dp-v13/values-sw600dp-v13.xml",
+                    "file": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
@@ -125,7 +125,7 @@
                     "endOffset": 538
                 },
                 "from": {
-                    "file": "/home/azeddine/.android/build-cache/0b1bbdf9ca6931607ae09de1c06227b30c392821/output/res/values-sw600dp-v13/values-sw600dp-v13.xml",
+                    "file": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
                     "position": {
                         "startLine": 8,
                         "startColumn": 4,
@@ -144,7 +144,7 @@
                     "endOffset": 606
                 },
                 "from": {
-                    "file": "/home/azeddine/.android/build-cache/0b1bbdf9ca6931607ae09de1c06227b30c392821/output/res/values-sw600dp-v13/values-sw600dp-v13.xml",
+                    "file": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
                     "position": {
                         "startLine": 9,
                         "startColumn": 4,
@@ -163,13 +163,13 @@
                     "endOffset": 664
                 },
                 "from": {
-                    "file": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/appIntro/src/main/res/values-sw600dp/dimen.xml",
+                    "file": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\src\\main\\res\\values-sw600dp\\dimen.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
-                        "startOffset": 55,
+                        "startOffset": 57,
                         "endColumn": 57,
-                        "endOffset": 108
+                        "endOffset": 110
                     }
                 }
             },
@@ -182,13 +182,13 @@
                     "endOffset": 723
                 },
                 "from": {
-                    "file": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/appIntro/src/main/res/values-sw600dp/dimen.xml",
+                    "file": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\src\\main\\res\\values-sw600dp\\dimen.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
-                        "startOffset": 113,
+                        "startOffset": 116,
                         "endColumn": 58,
-                        "endOffset": 167
+                        "endOffset": 170
                     }
                 }
             }

@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/appIntro/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-tr/values-tr.xml",
+        "outputFile": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-tr\\values-tr.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 155
                 },
                 "from": {
-                    "file": "/home/azeddine/.android/build-cache/0b1bbdf9ca6931607ae09de1c06227b30c392821/output/res/values-tr/values-tr.xml",
+                    "file": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\values-tr\\values-tr.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -30,7 +30,7 @@
                     "endOffset": 263
                 },
                 "from": {
-                    "file": "/home/azeddine/.android/build-cache/0b1bbdf9ca6931607ae09de1c06227b30c392821/output/res/values-tr/values-tr.xml",
+                    "file": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\values-tr\\values-tr.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -49,7 +49,7 @@
                     "endOffset": 386
                 },
                 "from": {
-                    "file": "/home/azeddine/.android/build-cache/0b1bbdf9ca6931607ae09de1c06227b30c392821/output/res/values-tr/values-tr.xml",
+                    "file": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\values-tr\\values-tr.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -68,7 +68,7 @@
                     "endOffset": 485
                 },
                 "from": {
-                    "file": "/home/azeddine/.android/build-cache/0b1bbdf9ca6931607ae09de1c06227b30c392821/output/res/values-tr/values-tr.xml",
+                    "file": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\values-tr\\values-tr.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -87,7 +87,7 @@
                     "endOffset": 597
                 },
                 "from": {
-                    "file": "/home/azeddine/.android/build-cache/0b1bbdf9ca6931607ae09de1c06227b30c392821/output/res/values-tr/values-tr.xml",
+                    "file": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\values-tr\\values-tr.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
@@ -106,7 +106,7 @@
                     "endOffset": 682
                 },
                 "from": {
-                    "file": "/home/azeddine/.android/build-cache/0b1bbdf9ca6931607ae09de1c06227b30c392821/output/res/values-tr/values-tr.xml",
+                    "file": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\values-tr\\values-tr.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
@@ -125,7 +125,7 @@
                     "endOffset": 788
                 },
                 "from": {
-                    "file": "/home/azeddine/.android/build-cache/0b1bbdf9ca6931607ae09de1c06227b30c392821/output/res/values-tr/values-tr.xml",
+                    "file": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\values-tr\\values-tr.xml",
                     "position": {
                         "startLine": 8,
                         "startColumn": 4,
@@ -144,7 +144,7 @@
                     "endOffset": 908
                 },
                 "from": {
-                    "file": "/home/azeddine/.android/build-cache/0b1bbdf9ca6931607ae09de1c06227b30c392821/output/res/values-tr/values-tr.xml",
+                    "file": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\values-tr\\values-tr.xml",
                     "position": {
                         "startLine": 9,
                         "startColumn": 4,
@@ -163,7 +163,7 @@
                     "endOffset": 987
                 },
                 "from": {
-                    "file": "/home/azeddine/.android/build-cache/0b1bbdf9ca6931607ae09de1c06227b30c392821/output/res/values-tr/values-tr.xml",
+                    "file": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\values-tr\\values-tr.xml",
                     "position": {
                         "startLine": 10,
                         "startColumn": 4,
@@ -182,7 +182,7 @@
                     "endOffset": 1063
                 },
                 "from": {
-                    "file": "/home/azeddine/.android/build-cache/0b1bbdf9ca6931607ae09de1c06227b30c392821/output/res/values-tr/values-tr.xml",
+                    "file": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\values-tr\\values-tr.xml",
                     "position": {
                         "startLine": 11,
                         "startColumn": 4,
@@ -201,7 +201,7 @@
                     "endOffset": 1142
                 },
                 "from": {
-                    "file": "/home/azeddine/.android/build-cache/0b1bbdf9ca6931607ae09de1c06227b30c392821/output/res/values-tr/values-tr.xml",
+                    "file": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\values-tr\\values-tr.xml",
                     "position": {
                         "startLine": 12,
                         "startColumn": 4,
@@ -220,7 +220,7 @@
                     "endOffset": 1249
                 },
                 "from": {
-                    "file": "/home/azeddine/.android/build-cache/0b1bbdf9ca6931607ae09de1c06227b30c392821/output/res/values-tr/values-tr.xml",
+                    "file": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\values-tr\\values-tr.xml",
                     "position": {
                         "startLine": 13,
                         "startColumn": 4,
@@ -239,7 +239,7 @@
                     "endOffset": 1354
                 },
                 "from": {
-                    "file": "/home/azeddine/.android/build-cache/0b1bbdf9ca6931607ae09de1c06227b30c392821/output/res/values-tr/values-tr.xml",
+                    "file": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\values-tr\\values-tr.xml",
                     "position": {
                         "startLine": 14,
                         "startColumn": 4,
@@ -258,7 +258,7 @@
                     "endOffset": 1450
                 },
                 "from": {
-                    "file": "/home/azeddine/.android/build-cache/0b1bbdf9ca6931607ae09de1c06227b30c392821/output/res/values-tr/values-tr.xml",
+                    "file": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\values-tr\\values-tr.xml",
                     "position": {
                         "startLine": 15,
                         "startColumn": 4,
@@ -277,7 +277,7 @@
                     "endOffset": 1557
                 },
                 "from": {
-                    "file": "/home/azeddine/.android/build-cache/0b1bbdf9ca6931607ae09de1c06227b30c392821/output/res/values-tr/values-tr.xml",
+                    "file": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\values-tr\\values-tr.xml",
                     "position": {
                         "startLine": 16,
                         "startColumn": 4,
@@ -296,7 +296,7 @@
                     "endOffset": 1659
                 },
                 "from": {
-                    "file": "/home/azeddine/.android/build-cache/0b1bbdf9ca6931607ae09de1c06227b30c392821/output/res/values-tr/values-tr.xml",
+                    "file": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\values-tr\\values-tr.xml",
                     "position": {
                         "startLine": 17,
                         "startColumn": 4,
@@ -315,7 +315,7 @@
                     "endOffset": 1767
                 },
                 "from": {
-                    "file": "/home/azeddine/.android/build-cache/0b1bbdf9ca6931607ae09de1c06227b30c392821/output/res/values-tr/values-tr.xml",
+                    "file": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\values-tr\\values-tr.xml",
                     "position": {
                         "startLine": 18,
                         "startColumn": 4,
@@ -334,7 +334,7 @@
                     "endOffset": 1886
                 },
                 "from": {
-                    "file": "/home/azeddine/.android/build-cache/0b1bbdf9ca6931607ae09de1c06227b30c392821/output/res/values-tr/values-tr.xml",
+                    "file": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\values-tr\\values-tr.xml",
                     "position": {
                         "startLine": 19,
                         "startColumn": 4,
@@ -353,7 +353,7 @@
                     "endOffset": 1984
                 },
                 "from": {
-                    "file": "/home/azeddine/.android/build-cache/0b1bbdf9ca6931607ae09de1c06227b30c392821/output/res/values-tr/values-tr.xml",
+                    "file": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\values-tr\\values-tr.xml",
                     "position": {
                         "startLine": 20,
                         "startColumn": 4,
@@ -372,13 +372,13 @@
                     "endOffset": 2040
                 },
                 "from": {
-                    "file": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/appIntro/src/main/res/values-tr/strings.xml",
+                    "file": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\src\\main\\res\\values-tr\\strings.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
-                        "startOffset": 109,
+                        "startOffset": 112,
                         "endColumn": 55,
-                        "endOffset": 160
+                        "endOffset": 163
                     }
                 }
             },
@@ -391,13 +391,13 @@
                     "endOffset": 2094
                 },
                 "from": {
-                    "file": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/appIntro/src/main/res/values-tr/strings.xml",
+                    "file": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\src\\main\\res\\values-tr\\strings.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
-                        "startOffset": 55,
+                        "startOffset": 57,
                         "endColumn": 53,
-                        "endOffset": 104
+                        "endOffset": 106
                     }
                 }
             },
@@ -410,13 +410,13 @@
                     "endOffset": 2131
                 },
                 "from": {
-                    "file": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/appIntro/src/main/res/values-tr/library_appintro_strings.xml",
+                    "file": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\src\\main\\res\\values-tr\\library_appintro_strings.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
-                        "startOffset": 56,
+                        "startOffset": 59,
                         "endColumn": 44,
-                        "endOffset": 96
+                        "endOffset": 99
                     }
                 }
             },
@@ -429,13 +429,13 @@
                     "endOffset": 2196
                 },
                 "from": {
-                    "file": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/appIntro/src/main/res/values-tr/library_appintro_strings.xml",
+                    "file": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\src\\main\\res\\values-tr\\library_appintro_strings.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
-                        "startOffset": 129,
+                        "startOffset": 134,
                         "endColumn": 64,
-                        "endOffset": 189
+                        "endOffset": 194
                     }
                 }
             },
@@ -448,13 +448,13 @@
                     "endOffset": 2285
                 },
                 "from": {
-                    "file": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/appIntro/src/main/res/values-tr/library_appintro_strings.xml",
+                    "file": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\src\\main\\res\\values-tr\\library_appintro_strings.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
-                        "startOffset": 194,
+                        "startOffset": 200,
                         "endColumn": 88,
-                        "endOffset": 278
+                        "endOffset": 284
                     }
                 }
             },
@@ -467,13 +467,13 @@
                     "endOffset": 2372
                 },
                 "from": {
-                    "file": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/appIntro/src/main/res/values-tr/library_appintro_strings.xml",
+                    "file": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\src\\main\\res\\values-tr\\library_appintro_strings.xml",
                     "position": {
                         "startLine": 16,
                         "startColumn": 4,
-                        "startOffset": 955,
+                        "startOffset": 971,
                         "endColumn": 86,
-                        "endOffset": 1037
+                        "endOffset": 1053
                     }
                 }
             },
@@ -486,13 +486,13 @@
                     "endOffset": 2448
                 },
                 "from": {
-                    "file": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/appIntro/src/main/res/values-tr/library_appintro_strings.xml",
+                    "file": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\src\\main\\res\\values-tr\\library_appintro_strings.xml",
                     "position": {
                         "startLine": 13,
                         "startColumn": 4,
-                        "startOffset": 733,
+                        "startOffset": 746,
                         "endColumn": 75,
-                        "endOffset": 804
+                        "endOffset": 817
                     }
                 }
             },
@@ -505,13 +505,13 @@
                     "endOffset": 2605
                 },
                 "from": {
-                    "file": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/appIntro/src/main/res/values-tr/library_appintro_strings.xml",
+                    "file": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\src\\main\\res\\values-tr\\library_appintro_strings.xml",
                     "position": {
                         "startLine": 9,
                         "startColumn": 4,
-                        "startOffset": 378,
+                        "startOffset": 387,
                         "endColumn": 156,
-                        "endOffset": 530
+                        "endOffset": 539
                     }
                 }
             },
@@ -524,13 +524,13 @@
                     "endOffset": 2671
                 },
                 "from": {
-                    "file": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/appIntro/src/main/res/values-tr/library_appintro_strings.xml",
+                    "file": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\src\\main\\res\\values-tr\\library_appintro_strings.xml",
                     "position": {
                         "startLine": 8,
                         "startColumn": 4,
-                        "startOffset": 312,
+                        "startOffset": 320,
                         "endColumn": 65,
-                        "endOffset": 373
+                        "endOffset": 381
                     }
                 }
             },
@@ -543,13 +543,13 @@
                     "endOffset": 2737
                 },
                 "from": {
-                    "file": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/appIntro/src/main/res/values-tr/library_appintro_strings.xml",
+                    "file": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\src\\main\\res\\values-tr\\library_appintro_strings.xml",
                     "position": {
                         "startLine": 11,
                         "startColumn": 4,
-                        "startOffset": 635,
+                        "startOffset": 646,
                         "endColumn": 65,
-                        "endOffset": 696
+                        "endOffset": 707
                     }
                 }
             },
@@ -562,13 +562,13 @@
                     "endOffset": 2837
                 },
                 "from": {
-                    "file": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/appIntro/src/main/res/values-tr/library_appintro_strings.xml",
+                    "file": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\src\\main\\res\\values-tr\\library_appintro_strings.xml",
                     "position": {
                         "startLine": 10,
                         "startColumn": 4,
-                        "startOffset": 535,
+                        "startOffset": 545,
                         "endColumn": 99,
-                        "endOffset": 630
+                        "endOffset": 640
                     }
                 }
             },
@@ -581,13 +581,13 @@
                     "endOffset": 2903
                 },
                 "from": {
-                    "file": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/appIntro/src/main/res/values-tr/library_appintro_strings.xml",
+                    "file": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\src\\main\\res\\values-tr\\library_appintro_strings.xml",
                     "position": {
                         "startLine": 18,
                         "startColumn": 4,
-                        "startOffset": 1071,
+                        "startOffset": 1089,
                         "endColumn": 65,
-                        "endOffset": 1132
+                        "endOffset": 1150
                     }
                 }
             },
@@ -600,13 +600,13 @@
                     "endOffset": 3003
                 },
                 "from": {
-                    "file": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/appIntro/src/main/res/values-tr/library_appintro_strings.xml",
+                    "file": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\src\\main\\res\\values-tr\\library_appintro_strings.xml",
                     "position": {
                         "startLine": 14,
                         "startColumn": 4,
-                        "startOffset": 809,
+                        "startOffset": 823,
                         "endColumn": 99,
-                        "endOffset": 904
+                        "endOffset": 918
                     }
                 }
             },
@@ -619,7 +619,7 @@
                     "endOffset": 3082
                 },
                 "from": {
-                    "file": "/home/azeddine/.android/build-cache/0b1bbdf9ca6931607ae09de1c06227b30c392821/output/res/values-tr/values-tr.xml",
+                    "file": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\values-tr\\values-tr.xml",
                     "position": {
                         "startLine": 21,
                         "startColumn": 4,
@@ -638,7 +638,7 @@
                     "endOffset": 3183
                 },
                 "from": {
-                    "file": "/home/azeddine/.android/build-cache/0b1bbdf9ca6931607ae09de1c06227b30c392821/output/res/values-tr/values-tr.xml",
+                    "file": "C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\values-tr\\values-tr.xml",
                     "position": {
                         "startLine": 22,
                         "startColumn": 4,
