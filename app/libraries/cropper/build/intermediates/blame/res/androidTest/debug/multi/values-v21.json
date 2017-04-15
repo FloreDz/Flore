@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "C:\\Android\\Projects\\Flore\\app\\libraries\\cropper\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-v21\\values-v21.xml",
+        "outputFile": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/cropper/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-v21/values-v21.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 107
                 },
                 "from": {
-                    "file": "C:\\Android\\Projects\\Flore\\app\\libraries\\cropper\\build\\intermediates\\bundles\\debug\\res\\values-v21\\values-v21.xml",
+                    "file": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/cropper/build/intermediates/bundles/debug/res/values-v21/values-v21.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,

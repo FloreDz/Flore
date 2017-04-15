@@ -592,26 +592,21 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         }
 
         public void execute() {
-            this.progressBar.setVisibility(VISIBLE);
+
             if (firstRun) {
+                this.progressBar.setVisibility(VISIBLE);
                 Log.v(TAG, "about to init loader");
                 getLoaderManager().initLoader(PLANT_LOADER, null, this);
                 Log.v(TAG, "loader inited");
                 firstRun = false;
             } else {
                 final Cursor cursor = PlantRetriever.RetrievePlants(homeMenuProjection, null, null, DISPLAY_STATE);
-
-                mCursorAdapter.swapCursor(null);
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        listViewLoader.progressBar.setVisibility(GONE);
-                        mCursorAdapter.swapCursor(cursor);
-                        plantsListView.setAdapter(mCursorAdapter);
-                    }
-                }, 1000);
+                mCursorAdapter.swapCursor(cursor);
+                plantsListView.setAdapter(mCursorAdapter);
             }
-        }
+
+            }
+
 
 
         @Override
