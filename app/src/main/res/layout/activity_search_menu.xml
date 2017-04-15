@@ -24,6 +24,17 @@
 
     <include layout="@layout/content_search_menu" />
 
+    <ProgressBar
+        android:indeterminate="true"
+        android:indeterminateTintMode="src_atop"
+        android:indeterminateTint="@color/logo_green_medium"
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/app_bar_height"
+        android:layout_gravity="top|center"
+        android:visibility="gone"/>
+
     <FrameLayout
         android:id="@+id/option_menu_background"
         android:layout_width="match_parent"

@@ -7,11 +7,15 @@ import android.content.Loader;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.IntentCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -27,6 +31,7 @@ import android.widget.AdapterView;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,10 +48,10 @@ import static dz.esi.team.appprototype.data.PlantContract.PlantEntry._ID;
 import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.famille;
 import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.image;
 import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.sci_name;
+import static java.lang.Thread.currentThread;
 
 
-public class HomePage extends BaseActivity implements LoaderManager.LoaderCallbacks<Cursor>,
-        NavigationView.OnNavigationItemSelectedListener {
+public class HomePage extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     public static final int LOAD_IMAGE_RESULT = 1;
     public static final String LOADED_IMAGE_PATH = "LOADED_IMAGE_PATH";
@@ -59,8 +64,11 @@ public class HomePage extends BaseActivity implements LoaderManager.LoaderCallba
     private static final int PLANT_LOADER = 0;
     public static String DISPLAY_STATE = SHOW_PLANTS_BY_FAMILIES;
     public static PlantDbHelper mDbHelper;
+
     /* TODO : MOHAMED added : */
     public static ArrayList<String> plantsHeaders = null;
+    ProgressBar progressBar;
+    ListViewLoader listViewLoader;
     //layouts
     LinearLayout takeImageLayout;
     LinearLayout importImageLayout;
@@ -73,7 +81,6 @@ public class HomePage extends BaseActivity implements LoaderManager.LoaderCallba
     //labels
     TextView importImageLabel;
     TextView takeImageLabel;
-    PlantCursorAdapter mCursorAdapter;
     ListView plantsListView;
     //image path
     private String imagePath;
@@ -138,9 +145,6 @@ public class HomePage extends BaseActivity implements LoaderManager.LoaderCallba
             }
         });
 
-        mCursorAdapter = new PlantCursorAdapter(this, null);
-        plantsListView.setAdapter(mCursorAdapter);
-
         mDbHelper = new PlantDbHelper(this);
 
         try {
@@ -152,9 +156,8 @@ public class HomePage extends BaseActivity implements LoaderManager.LoaderCallba
 
         initializePlantsHeaders();
 
-        Log.v(TAG, "about to init loader");
-        getLoaderManager().initLoader(PLANT_LOADER, null, this);
-        Log.v(TAG, "loader inited");
+        listViewLoader = new ListViewLoader(progressBar,true);
+        listViewLoader.execute();
 
     }
 
@@ -188,33 +191,12 @@ public class HomePage extends BaseActivity implements LoaderManager.LoaderCallba
         Log.v("HomePage", "ACTIVITY RESTARTED");
     }
 
-    @Override
-    public Loader<Cursor> onCreateLoader(int id, Bundle args) {
 
-        Log.v(TAG, "in loader creation");
-
-        // the loader will execute the CP query method on a background thread
-        return new CursorLoader(this, CONTENT_URI, homeMenuProjection, null, null, DISPLAY_STATE);
-    }
-
-    @Override
-    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-        Log.v(TAG, "in loader finish");
-        // update the adapter with this new cursor containing updated plant data
-        mCursorAdapter.swapCursor(data);
-    }
-
-    @Override
-    public void onLoaderReset(Loader<Cursor> loader) {
-        Log.v(TAG, "in loader reset");
-        // delete the current data
-        mCursorAdapter.swapCursor(null);
-    }
-
-    private void refreshList() {
-        mCursorAdapter.swapCursor(PlantRetriever.RetrievePlants(homeMenuProjection, null, null, DISPLAY_STATE));
-        plantsListView.setAdapter(mCursorAdapter);
-    }
+//    private void refreshList() {
+//        Log.d(TAG ,"about to refresh activity");
+//        mCursorAdapter.swapCursor(PlantRetriever.RetrievePlants(homeMenuProjection, null, null, DISPLAY_STATE));
+//        plantsListView.setAdapter(mCursorAdapter);
+//    }
 
     private void switchDisplayState() {
         String displayMessage = null;
@@ -279,6 +261,8 @@ public class HomePage extends BaseActivity implements LoaderManager.LoaderCallba
 
 
     public void widgetHydration() {
+
+        progressBar = (ProgressBar) findViewById(R.id.progress_bar);
 
         // layouts
         optionMenuBackground = (FrameLayout) findViewById(R.id.option_menu_background);
@@ -384,8 +368,7 @@ public class HomePage extends BaseActivity implements LoaderManager.LoaderCallba
             case R.id.option_show_by_family:
                 switchDisplayState();
                 item.setChecked(DISPLAY_STATE.equals(SHOW_PLANTS_BY_FAMILIES));
-                refreshList();
-                //this.setDisplayState(item, item.isChecked());
+                listViewLoader.execute();
                 break;
             default:
         }
@@ -596,6 +579,74 @@ public class HomePage extends BaseActivity implements LoaderManager.LoaderCallba
         DISPLAY_STATE = savedInstanceState.getString(DISPLAY_TYPE);
         super.onRestoreInstanceState(savedInstanceState);
     }
+
+    class ListViewLoader implements LoaderManager.LoaderCallbacks<Cursor> {
+
+        PlantCursorAdapter mCursorAdapter = new PlantCursorAdapter(HomePage.this, null);
+        ProgressBar progressBar;
+        boolean firstRun;
+
+        public ListViewLoader(ProgressBar progressBar, boolean firstRun) {
+            this.progressBar = progressBar;
+            this.firstRun = firstRun;
+        }
+
+        public void execute() {
+            this.progressBar.setVisibility(VISIBLE);
+            if (firstRun) {
+                Log.v(TAG, "about to init loader");
+                getLoaderManager().initLoader(PLANT_LOADER, null, this);
+                Log.v(TAG, "loader inited");
+                firstRun = false;
+            } else {
+                final Cursor cursor = PlantRetriever.RetrievePlants(homeMenuProjection, null, null, DISPLAY_STATE);
+
+                mCursorAdapter.swapCursor(null);
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        listViewLoader.progressBar.setVisibility(GONE);
+                        mCursorAdapter.swapCursor(cursor);
+                        plantsListView.setAdapter(mCursorAdapter);
+                    }
+                }, 1000);
+            }
+        }
+
+
+        @Override
+        public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+
+            Log.v(TAG, "in loader creation");
+
+            // the loader will execute the CP query method on a background thread
+            return new CursorLoader(HomePage.this, CONTENT_URI, homeMenuProjection, null, null, DISPLAY_STATE);
+        }
+
+        @Override
+        public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
+            final Cursor cur = cursor;
+
+            Log.v(TAG, "in loader finish");
+            // update the adapter with this new cursor containing updated plant data
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    listViewLoader.progressBar.setVisibility(GONE);
+                    mCursorAdapter.swapCursor(cur);
+                    plantsListView.setAdapter(mCursorAdapter);
+                }
+            }, 1000);
+        }
+
+        @Override
+        public void onLoaderReset(Loader<Cursor> loader) {
+            Log.v(TAG, "in loader reset");
+            // delete the current data
+            mCursorAdapter.swapCursor(null);
+        }
+
+    };
 
 
 }

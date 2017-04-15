@@ -62,10 +62,6 @@ public class HelpActivity extends AppCompatActivity{
 
         textView5.setText(builderFive);
 
-
-
-
-
     }
 
 
