@@ -22,6 +22,7 @@
 
             <TextView
                 android:id="@+id/plant_resume"
+                style="@style/profileFieldsContent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
@@ -38,148 +39,274 @@
                 android:id="@+id/plant_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
                 android:orientation="vertical"
                 android:padding="8dp"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-                <TextView
-                    android:id="@+id/plant_noms_title"
-                    android:layout_width="match_parent"
+                <LinearLayout
+                    android:id="@+id/container_noms"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center_vertical"
-                    android:padding="5dp"
-                    android:text="Noms" />
+                    android:orientation="vertical"
+                    >
 
-                <TextView
-                    android:id="@+id/plant_noms"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:gravity="center_vertical"
-                    android:text="noms de la plante" />
+                    <TextView
+                        android:id="@+id/plant_noms_title"
+                        style="@style/profileFieldsTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:text="Noms" />
 
-                <TextView
-                    android:id="@+id/plant_constituents_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:clickable="true"
-                    android:gravity="center_vertical"
-                    android:onClick="onClickConstituents"
-                    android:padding="5dp"
-                    android:text="@string/plant_title_constituants" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:background="@drawable/title_border_bottom"></View>
 
-                <TextView
-                    android:id="@+id/plant_constituents"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:gravity="center_vertical"
-                    android:text="les constituants" />
+                    <TextView
+                        android:id="@+id/plant_noms"
+                        style="@style/profileFieldsContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:text="noms de la plante" />
+                </LinearLayout>
 
-                <TextView
-                    android:id="@+id/plant_habitat_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center_vertical"
-                    android:padding="5dp"
-                    android:text="Habitat" />
 
-                <TextView
-                    android:id="@+id/plant_habitat"
-                    android:layout_width="match_parent"
+                <LinearLayout
+                    android:id="@+id/container_constituants"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:gravity="center_vertical"
-                    android:text="la localisation géographique où on peut trouver la plante" />
+                    android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/plant_harvest_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center_vertical"
-                    android:padding="5dp"
-                    android:text="Temps de Récolte" />
+                    <TextView
+                        android:id="@+id/plant_constituents_title"
+                        style="@style/profileFieldsTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/plant_title_constituants" />
 
-                <TextView
-                    android:id="@+id/plant_harvest"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:gravity="center_vertical"
-                    android:text="la période de récolte de la plante" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:layout_marginBottom="4dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:background="@drawable/title_border_bottom"></View>
 
-                <TextView
-                    android:id="@+id/plant_used_parts_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center_vertical"
-                    android:padding="5dp"
-                    android:text="Parties utilisés" />
+                    <TextView
+                        android:id="@+id/plant_constituents"
+                        style="@style/profileFieldsContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:text="les constituants" />
+                </LinearLayout>
 
-                <TextView
-                    android:id="@+id/plant_used_parts"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:gravity="center_vertical"
-                    android:text="déclaration des parties utilisés de la plante" />
 
-                <TextView
-                    android:id="@+id/plant_effects_title"
-                    android:layout_width="match_parent"
+                <LinearLayout
+                    android:id="@+id/container_habitat"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center_vertical"
-                    android:padding="5dp"
-                    android:text="Les effets" />
+                    android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/plant_effects"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:gravity="center_vertical"
-                    android:text="les effets de la plante" />
+                    <TextView
+                        android:id="@+id/plant_habitat_title"
+                        style="@style/profileFieldsTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical"
+                        android:text="Habitat" />
 
-                <TextView
-                    android:id="@+id/plant_2nd_effects_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center_vertical"
-                    android:padding="5dp"
-                    android:text="Les effets secondaires" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:background="@drawable/title_border_bottom"></View>
 
-                <TextView
-                    android:id="@+id/plant_2nd_effects"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:gravity="center_vertical"
-                    android:text="les effets secondaires de la plante" />
+                    <TextView
+                        android:id="@+id/plant_habitat"
+                        style="@style/profileFieldsContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:text="la localisation géographique où on peut trouver la plante" />
+                </LinearLayout>
 
-                <TextView
-                    android:id="@+id/plant_interactions_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center_vertical"
-                    android:padding="5dp"
-                    android:text="Les interactions" />
 
-                <TextView
-                    android:id="@+id/plant_interactions"
-                    android:layout_width="match_parent"
+                <LinearLayout
+                    android:id="@+id/container_temps_recolte"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:gravity="center_vertical"
-                    android:text="les interactions de la plantes avec d'autres espèces" />
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/plant_harvest_title"
+                        style="@style/profileFieldsTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical"
+                        android:text="Temps de Récolte" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:background="@drawable/title_border_bottom"></View>
+
+                    <TextView
+                        android:id="@+id/plant_harvest"
+                        style="@style/profileFieldsContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:text="la période de récolte de la plante" />
+                </LinearLayout>
+
+
+                <LinearLayout
+
+                    android:id="@+id/container_parties_utilisees"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/plant_used_parts_title"
+                        style="@style/profileFieldsTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical"
+                        android:text="Parties utilisées" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:background="@drawable/title_border_bottom"></View>
+
+                    <TextView
+                        android:id="@+id/plant_used_parts"
+                        style="@style/profileFieldsContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:text="déclaration des parties utilisés de la plante" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/container_effets"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/plant_effects_title"
+                        style="@style/profileFieldsTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical"
+                        android:text="Les effets" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:background="@drawable/title_border_bottom"></View>
+
+                    <TextView
+                        android:id="@+id/plant_effects"
+                        style="@style/profileFieldsContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:text="les effets de la plante" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/container_effets_secondaires"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/plant_2nd_effects_title"
+                        style="@style/profileFieldsTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical"
+                        android:text="Les effets secondaires" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:background="@drawable/title_border_bottom"></View>
+
+                    <TextView
+                        android:id="@+id/plant_2nd_effects"
+                        style="@style/profileFieldsContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:text="les effets secondaires de la plante" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/container_interactions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/plant_interactions_title"
+                        style="@style/profileFieldsTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical"
+                        android:text="Les interactions" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:background="@drawable/title_border_bottom"></View>
+
+                    <TextView
+                        android:id="@+id/plant_interactions"
+                        style="@style/profileFieldsContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:text="les interactions de la plantes avec d'autres espèces" />
+                </LinearLayout>
+
 
             </LinearLayout>
         </android.support.v7.widget.CardView>
@@ -193,7 +320,6 @@
                 android:id="@+id/plant_benefit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
                 android:orientation="vertical"
                 android:padding="8dp"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior"
@@ -201,55 +327,103 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/plant_description">
 
-                <TextView
-                    android:id="@+id/plant_indications_title"
-                    android:layout_width="match_parent"
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center_vertical"
-                    android:padding="5dp"
-                    android:text="indications title" />
+                    android:orientation="vertical"
+                    android:id="@+id/container_indications">
 
-                <TextView
-                    android:id="@+id/plant_indications"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:gravity="center_vertical"
-                    android:text="indications" />
+                    <TextView
+                        android:id="@+id/plant_indications_title"
+                        style="@style/profileFieldsTitle"
+                        android:layout_width="match_parent"
 
-                <TextView
-                    android:id="@+id/plant_contreIndications_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center_vertical"
-                    android:padding="5dp"
-                    android:text="Contre Indications" />
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:text="Indications" />
 
-                <TextView
-                    android:id="@+id/plant_contreIndications"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:text="contre indications" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:background="@drawable/title_border_bottom"></View>
 
-                <TextView
-                    android:id="@+id/plant_preparation_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center_vertical"
-                    android:padding="5dp"
-                    android:text="Preparation" />
+                    <TextView
+                        android:id="@+id/plant_indications"
+                        style="@style/profileFieldsContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:text="indications" />
+                </LinearLayout>
 
-                <TextView
-                    android:id="@+id/plant_preparation"
-                    android:layout_width="match_parent"
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:padding="5dp"
-                    android:text="preparation" />
+                    android:orientation="vertical"
+                    android:id="@+id/container_contre_indications">
+
+                    <TextView
+                        android:id="@+id/plant_contreIndications_title"
+                        style="@style/profileFieldsTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical"
+                        android:text="Contre Indications" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:background="@drawable/title_border_bottom"></View>
+
+                    <TextView
+                        android:id="@+id/plant_contreIndications"
+                        style="@style/profileFieldsContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="contre indications" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:id="@+id/container_preparation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/plant_preparation_title"
+                        style="@style/profileFieldsTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical"
+                        android:text="Preparation" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:background="@drawable/title_border_bottom"></View>
+
+                    <TextView
+                        android:id="@+id/plant_preparation"
+                        style="@style/profileFieldsContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:text="preparation" />
+                </LinearLayout>
+
 
             </LinearLayout>
         </android.support.v7.widget.CardView>
@@ -263,7 +437,6 @@
                 android:id="@+id/plant_extra"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
                 android:orientation="vertical"
                 android:padding="8dp"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior"
@@ -271,57 +444,106 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/plant_description">
 
-                <TextView
-                    android:id="@+id/plant_remarks_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center_vertical"
-                    android:padding="5dp"
-                    android:text="Remarques" />
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:id="@+id/container_remarks"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/plant_remarks"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:gravity="center_vertical"
-                    android:text="remarks" />
+                    <TextView
+                        android:id="@+id/plant_remarks_title"
+                        style="@style/profileFieldsTitle"
+                        android:layout_width="match_parent"
 
-                <TextView
-                    android:id="@+id/plant_liens_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center_vertical"
-                    android:padding="5dp"
-                    android:text="Liens supplémentaires" />
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:text="Remarques" />
 
-                <TextView
-                    android:id="@+id/plant_liens"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:gravity="center_vertical"
-                    android:text="title" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:background="@drawable/title_border_bottom"></View>
 
-                <TextView
-                    android:id="@+id/plant_source_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center_vertical"
-                    android:padding="5dp"
-                    android:text="Source" />
+                    <TextView
+                        android:id="@+id/plant_remarks"
+                        style="@style/profileFieldsContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:text="remarks" />
+                </LinearLayout>
 
-                <TextView
-                    android:id="@+id/plant_source"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:gravity="center_vertical"
-                    android:text="source"
-                    android:textStyle="italic" />
+
+                <LinearLayout
+                    android:id="@+id/container_liens"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/plant_liens_title"
+                        style="@style/profileFieldsTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical"
+                        android:text="Liens supplémentaires" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:background="@drawable/title_border_bottom"></View>
+
+                    <TextView
+                        android:id="@+id/plant_liens"
+                        style="@style/profileFieldsContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:text="title" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/container_source"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/plant_source_title"
+                        style="@style/profileFieldsTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical"
+                        android:text="Source" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:background="@drawable/title_border_bottom"></View>
+                    <!--TODO: CREATING A LINK STYLE -->
+                    <TextView
+                        android:id="@+id/plant_source"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:gravity="center_vertical"
+                        android:text="source"
+                        android:textColor="@color/logo_blue_light"
+                        android:textStyle="italic" />
+                </LinearLayout>
+
 
             </LinearLayout>
         </android.support.v7.widget.CardView>

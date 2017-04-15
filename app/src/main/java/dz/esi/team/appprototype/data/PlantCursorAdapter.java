@@ -96,7 +96,7 @@ public class PlantCursorAdapter extends CursorAdapter {
                 .asBitmap()
                 .override(300, 200)
                 .transform(new RoundedCornersTransformation(context, 20, 0))
-                .placeholder(R.drawable.placeholder_image)
+                .placeholder(R.drawable.thumbnail_placeholder)
                 .into(ivPlantImage);
 
         Log.d(TAG, "bindView finished");

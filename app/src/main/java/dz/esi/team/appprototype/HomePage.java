@@ -7,15 +7,12 @@ import android.content.Loader;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.IntentCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -48,7 +45,6 @@ import static dz.esi.team.appprototype.data.PlantContract.PlantEntry._ID;
 import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.famille;
 import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.image;
 import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.sci_name;
-import static java.lang.Thread.currentThread;
 
 
 public class HomePage extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -191,13 +187,6 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         Log.v("HomePage", "ACTIVITY RESTARTED");
     }
 
-
-//    private void refreshList() {
-//        Log.d(TAG ,"about to refresh activity");
-//        mCursorAdapter.swapCursor(PlantRetriever.RetrievePlants(homeMenuProjection, null, null, DISPLAY_STATE));
-//        plantsListView.setAdapter(mCursorAdapter);
-//    }
-
     private void switchDisplayState() {
         String displayMessage = null;
         if (DISPLAY_STATE.equals(SHOW_PLANTS_BY_FAMILIES)) {
@@ -255,9 +244,6 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         Log.v(TAG, "Finally : ArrayList = " + plantsHeaders.toString());
 
     }
-
-
-    // *******************************************************************************************************
 
 
     public void widgetHydration() {
@@ -470,18 +456,20 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         switchFabImageTo(fabRecognise, R.drawable.camera_fab);
 
         final Animation rotateCamera = AnimationUtils.loadAnimation(HomePage.this, R.anim.rotate_to_camera);
-        final Animation hideOptionButtons = AnimationUtils.loadAnimation(HomePage.this, R.anim.hide_buttons);
+        final Animation hideOptionButtons = AnimationUtils.loadAnimation(HomePage.this, R.anim.fade_out_with_translation);
+        final Animation hideOptionMenuBackground = AnimationUtils.loadAnimation(HomePage.this, R.anim.fade_out);
+
+
+
+        takeImageLayout.startAnimation(hideOptionButtons);
+        importImageLayout.startAnimation(hideOptionButtons);
+        optionMenuBackground.startAnimation(hideOptionMenuBackground);
+        fabRecognise.startAnimation(rotateCamera);
 
         this.disableLayoutsVisibility();
         this.disableClickable();
 
-        takeImageLayout.startAnimation(hideOptionButtons);
-        importImageLayout.startAnimation(hideOptionButtons);
-        fabRecognise.startAnimation(rotateCamera);
-
     }
-
-    // optionMenu display handling
 
     private void showOptionMenu() {
         Log.d(TAG, "showOptionMenu: showing the option menu");
@@ -489,11 +477,14 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         switchFabImageTo(fabRecognise, R.drawable.plus_button);
 
         final Animation rotateCamera = AnimationUtils.loadAnimation(HomePage.this, R.anim.rotate_to_x);
-        final Animation showOptionButtons = AnimationUtils.loadAnimation(HomePage.this, R.anim.show_buttons);
+        final Animation showOptionButtons = AnimationUtils.loadAnimation(HomePage.this, R.anim.fade_in_with_translation);
+        final Animation showOptionMenuBackground = AnimationUtils.loadAnimation(HomePage.this, R.anim.fade_in);
 
         this.enableLayoutsVisibility();
         this.enableClickable();
 
+
+        optionMenuBackground.startAnimation(showOptionMenuBackground);
         takeImageLayout.startAnimation(showOptionButtons);
         importImageLayout.startAnimation(showOptionButtons);
         fabRecognise.startAnimation(rotateCamera);
@@ -526,6 +517,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         takeImageLayout.setVisibility(VISIBLE);
         importImageLayout.setVisibility(VISIBLE);
         optionMenuBackground.setVisibility(VISIBLE);
+
 
     }
 
@@ -601,8 +593,10 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
                 firstRun = false;
             } else {
                 final Cursor cursor = PlantRetriever.RetrievePlants(homeMenuProjection, null, null, DISPLAY_STATE);
+                final Animation showListView = AnimationUtils.loadAnimation(HomePage.this, R.anim.fade_in_with_translation);
                 mCursorAdapter.swapCursor(cursor);
                 plantsListView.setAdapter(mCursorAdapter);
+                plantListView.startAnimation(showListView);
             }
 
             }
@@ -621,7 +615,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         @Override
         public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
             final Cursor cur = cursor;
-
+            final Animation showListView = AnimationUtils.loadAnimation(HomePage.this, R.anim.fade_in_with_translation);
             Log.v(TAG, "in loader finish");
             // update the adapter with this new cursor containing updated plant data
             new Handler().postDelayed(new Runnable() {
@@ -630,6 +624,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
                     listViewLoader.progressBar.setVisibility(GONE);
                     mCursorAdapter.swapCursor(cur);
                     plantsListView.setAdapter(mCursorAdapter);
+                    plantListView.startAnimation(showListView);
                 }
             }, 1000);
         }

@@ -47,6 +47,7 @@ public class ProfileActivity extends AppCompatActivity {
     TextView contreIndications;
     TextView preparation;
     TextView lieu;
+    TextView interactions;
     TextView periodeRecolte;
     TextView remarques;
     TextView source;
@@ -179,7 +180,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     public void onClickConstituents(View v) {
         if (v == collapseConstituent) {
-            Constituents.setVisibility( (Constituents.getVisibility() == VISIBLE) ? GONE : VISIBLE);
+            Constituents.setVisibility((Constituents.getVisibility() == VISIBLE) ? GONE : VISIBLE);
         }
     }
 
@@ -188,47 +189,86 @@ public class ProfileActivity extends AppCompatActivity {
         Log.v("PlantProfile", "in widgets population");
 
         plantProfileAppBar = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout_profile);
-        sci_name = (TextView) findViewById(R.id.plant_name_sci);
-        noms = (TextView) findViewById(R.id.plant_noms);
-        famille = (TextView) findViewById(R.id.plant_family);
-        resume = (TextView) findViewById(R.id.plant_resume);
-        constituants = (TextView) findViewById(R.id.plant_constituents);
-        partiesUtilisees = (TextView) findViewById(R.id.plant_used_parts);
-        effets = (TextView) findViewById(R.id.plant_effects);
-        effetsSecondaires = (TextView) findViewById(R.id.plant_2nd_effects);
-        indications = (TextView) findViewById(R.id.plant_interactions);
-        contreIndications = (TextView) findViewById(R.id.plant_contreIndications);
-        preparation = (TextView) findViewById(R.id.plant_preparation);
-        lieu = (TextView) findViewById(R.id.plant_habitat);
-        periodeRecolte = (TextView) findViewById(R.id.plant_harvest);
-        remarques = (TextView) findViewById(R.id.plant_remarks);
-        source = (TextView) findViewById(R.id.plant_source);
-        liens = (TextView) findViewById(R.id.plant_liens);
-        image = (ImageView) findViewById(R.id.plant_image);
-
         plantProfileAppBar.setTitle(profile.getSci_name());
+
+
+        sci_name = (TextView) findViewById(R.id.plant_name_sci);
         sci_name.setText(profile.getSci_name());
+
+        noms = (TextView) findViewById(R.id.plant_noms);
         noms.setText(profile.getNom());
-        famille.setText(profile.getFamille());
+
+
+        famille = (TextView) findViewById(R.id.plant_family);
+        famille.setText("Famille: "+profile.getFamille());
+
+        resume = (TextView) findViewById(R.id.plant_resume);
         resume.setText(profile.getResume());
+
+        constituants = (TextView) findViewById(R.id.plant_constituents);
         constituants.setText(profile.getConstituants());
+
+        partiesUtilisees = (TextView) findViewById(R.id.plant_used_parts);
         partiesUtilisees.setText(profile.getPartiesUtilisees());
+
+        effets = (TextView) findViewById(R.id.plant_effects);
         effets.setText(profile.getEffets());
+
+        effetsSecondaires = (TextView) findViewById(R.id.plant_2nd_effects);
         effetsSecondaires.setText(profile.getEffetsSecondaires());
+
+        indications = (TextView) findViewById(R.id.plant_indications);
         indications.setText(profile.getIndications());
+
+        contreIndications = (TextView) findViewById(R.id.plant_contreIndications);
         contreIndications.setText(profile.getContreIndication());
+
+        preparation = (TextView) findViewById(R.id.plant_preparation);
         preparation.setText(profile.getPreparation());
+
+        lieu = (TextView) findViewById(R.id.plant_habitat);
         lieu.setText(profile.getLieu());
+
+        periodeRecolte = (TextView) findViewById(R.id.plant_harvest);
         periodeRecolte.setText(profile.getPeriodeRecolte());
+
+        remarques = (TextView) findViewById(R.id.plant_remarks);
         remarques.setText(profile.getRemarques());
-        source.setText(profile.getSource());
-        liens.setText(profile.getLiens());
+
+
+
+        if(profile.getSource() == null ){
+            findViewById(R.id.container_source).setVisibility(View.GONE);
+        }else{
+            source = (TextView) findViewById(R.id.plant_source);
+            source.setText(profile.getSource());
+        }
+
+
+        if (profile.getLiens() == null ) {
+            findViewById(R.id.container_liens).setVisibility(View.GONE);
+        }else {
+            liens = (TextView) findViewById(R.id.plant_liens);
+            liens.setText(profile.getLiens());
+        }
+
+
+
+        interactions = (TextView) findViewById(R.id.plant_interactions) ;
+        interactions.setText(profile.getInteraction());
+
+        image = (ImageView) findViewById(R.id.plant_image);
         Glide.with(this)
                 .load("file:///android_asset/thumbnails/" + profile.getImage())
                 .asBitmap()
                 .transform(new RoundedCornersTransformation(this, 20, 0))
                 .override(300, 200)
                 .into(image);
-    }
 
+
+
+
+    }
 }
+
+
