@@ -1,6 +1,7 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <ListPreference
         android:dialogTitle="@string/settings_plants_display_state_content"
+        android:negativeButtonText="Annuler"
         android:entries="@array/plants_display_state_label"
         android:entryValues="@array/plants_display_state_values"
         android:defaultValue="0"
