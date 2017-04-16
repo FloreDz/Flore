@@ -3,9 +3,11 @@ package dz.esi.team.appprototype;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -30,6 +32,7 @@ public class ProfileActivity extends AppCompatActivity {
     static private PlantProfile profile = null;
     static private boolean PLANT_IMAGE_POPUP_STATE = false;
     private final String TAG = this.getClass().getSimpleName();
+    private  SharedPreferences sharedPref ;
     TextView collapseConstituent;
     LinearLayout Constituents;
 
@@ -70,6 +73,7 @@ public class ProfileActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         profile = new PlantProfile(getIntent().getLongExtra("PlantID", 0L));
+        sharedPref=PreferenceManager.getDefaultSharedPreferences(this);
 
 
     }
@@ -177,12 +181,20 @@ public class ProfileActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState);
     }
 
+    private  void  setField(TextView textView,String key,int id,String value,int containerId){
 
-    public void onClickConstituents(View v) {
-        if (v == collapseConstituent) {
-            Constituents.setVisibility((Constituents.getVisibility() == VISIBLE) ? GONE : VISIBLE);
+        boolean state = sharedPref.getBoolean(key,true);
+        Log.d(TAG, "setFieldText: "+state);
+        if(state){
+            textView = (TextView) findViewById(id);
+            textView.setText(value);
+        }else{
+            findViewById(containerId).setVisibility(View.GONE);
         }
+
     }
+
+
 
     private void widgetsPopulation(PlantProfile profile) {
 
@@ -202,38 +214,25 @@ public class ProfileActivity extends AppCompatActivity {
         famille = (TextView) findViewById(R.id.plant_family);
         famille.setText("Famille: "+profile.getFamille());
 
+
+
         resume = (TextView) findViewById(R.id.plant_resume);
         resume.setText(profile.getResume());
 
-        constituants = (TextView) findViewById(R.id.plant_constituents);
-        constituants.setText(profile.getConstituants());
 
-        partiesUtilisees = (TextView) findViewById(R.id.plant_used_parts);
-        partiesUtilisees.setText(profile.getPartiesUtilisees());
 
-        effets = (TextView) findViewById(R.id.plant_effects);
-        effets.setText(profile.getEffets());
 
-        effetsSecondaires = (TextView) findViewById(R.id.plant_2nd_effects);
-        effetsSecondaires.setText(profile.getEffetsSecondaires());
+        setField(constituants,"CONSTITUANTS",R.id.plant_constituents,profile.getConstituants(),R.id.container_constituants);
+        setField(partiesUtilisees,"PARTIES_UTILISEES",R.id.plant_used_parts,profile.getPartiesUtilisees(),R.id.container_parties_utilisees);
+        setField(effets,"LES_EFFETS",R.id.plant_effects,profile.getEffets(),R.id.container_effets);
+        setField(effetsSecondaires,"LES_EFFETS_SECONDAIRE",R.id.plant_2nd_effects,profile.getEffetsSecondaires(),R.id.container_effets_secondaires);
+        setField(indications,"LES_INDECATION",R.id.plant_indications,profile.getIndications(),R.id.container_indications);
+        setField(contreIndications,"LES_CONTRE_INDECATION",R.id.plant_contreIndications,profile.getContreIndication(),R.id.container_contre_indications);
+        setField(preparation,"LES_PREPARATION",R.id.plant_preparation,profile.getContreIndication(),R.id.container_preparation);
+        setField(lieu,"HABITAT",R.id.plant_habitat,profile.getLieu(),R.id.container_habitat);
+        setField(periodeRecolte,"TEMPS_DE_RECOLTE",R.id.plant_harvest,profile.getPeriodeRecolte(),R.id.container_temps_recolte);
+        setField(remarques,"LES_REMARQUES",R.id.plant_remarks,profile.getRemarques(),R.id.container_remarks);
 
-        indications = (TextView) findViewById(R.id.plant_indications);
-        indications.setText(profile.getIndications());
-
-        contreIndications = (TextView) findViewById(R.id.plant_contreIndications);
-        contreIndications.setText(profile.getContreIndication());
-
-        preparation = (TextView) findViewById(R.id.plant_preparation);
-        preparation.setText(profile.getPreparation());
-
-        lieu = (TextView) findViewById(R.id.plant_habitat);
-        lieu.setText(profile.getLieu());
-
-        periodeRecolte = (TextView) findViewById(R.id.plant_harvest);
-        periodeRecolte.setText(profile.getPeriodeRecolte());
-
-        remarques = (TextView) findViewById(R.id.plant_remarks);
-        remarques.setText(profile.getRemarques());
 
 
 

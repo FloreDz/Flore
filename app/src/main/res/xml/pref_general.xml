@@ -36,6 +36,11 @@
         <PreferenceScreen
             android:title="@string/settings_plant_profile_benefits">
             <SwitchPreference
+                android:defaultValue="true"
+                android:key="LES_EFFETS"
+                android:summary="@string/les_effets_discription"
+                android:title="@string/les_effets"></SwitchPreference>
+            <SwitchPreference
              android:defaultValue="true"
                 android:key="LES_EFFETS_SECONDAIRE"
                 android:summary="@string/les_effets_secondaires_discription"
@@ -52,7 +57,7 @@
                 android:title="@string/les_indecation"></SwitchPreference>
             <SwitchPreference
              android:defaultValue="true"
-                android:key="LES_INDECATION"
+                android:key="LES_CONTRE_INDECATION"
                 android:summary="@string/contre_indecation_discription"
                 android:title="@string/contre_indecation"></SwitchPreference>
             <SwitchPreference

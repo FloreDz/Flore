@@ -91,6 +91,10 @@
     <string name="parties_utilisées">Parties utilisées</string>
     <string name="parties_utilisées_discription">parties_utilisées_discrption</string>
 
+    <string name="les_effets">Les effets</string>
+    <string name="les_effets_discription">les_effets_discription</string>
+
+
     <!-- les effets secondaires -->
     <string name="les_effets_secondaires">Les effets secondaires</string>
     <string name="les_effets_secondaires_discription">les_effets_secondaires_discription</string>
