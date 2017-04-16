@@ -60,7 +60,7 @@ public class SearchActivity extends BaseActivity{
         setContentView(R.layout.search_plantes);
 
         // this method will activate the layout toolBar , it is implemented in the BaseActivity
-//        activateToolBar(false);
+        activateToolBar(false);
 
         // todo: Mohamed added :
         progressBar = (ProgressBar) findViewById(R.id.search_progress_bar);
