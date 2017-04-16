@@ -3,6 +3,7 @@
         android:dialogTitle="@string/settings_plants_display_state_content"
         android:entries="@array/plants_display_state_label"
         android:entryValues="@array/plants_display_state_values"
+        android:defaultValue="0"
         android:key="DISPLAY_STATE"
         android:summary="@string/settings_plants_display_state_discription"
         android:title="@string/settings_plants_display_state_title"></ListPreference>

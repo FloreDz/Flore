@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/cropper/build/intermediates/res/merged/release/layout/crop__layout_done_cancel.xml",
+        "source": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/cropper/src/main/res/layout/crop__layout_done_cancel.xml"
+    },
+    {
+        "merged": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/cropper/build/intermediates/res/merged/release/layout/crop__activity_crop.xml",
+        "source": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/cropper/src/main/res/layout/crop__activity_crop.xml"
+    }
+]
