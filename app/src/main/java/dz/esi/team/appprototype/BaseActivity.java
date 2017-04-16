@@ -10,13 +10,11 @@ import android.support.v7.widget.Toolbar;
 
 public class BaseActivity extends AppCompatActivity {
 
-    public static final String PLANT_QUERY = "plant" ;
-    private static final String TAG = "BaseActivity";
-
     public void activateToolBar(boolean enableHome) {
 
-        ActionBar actionBar= getSupportActionBar();
-        if(actionBar!=null) {
+        ActionBar actionBar = getSupportActionBar();
+
+        if (actionBar!=null) {
             Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_search);
 
             if (toolbar == null) {
@@ -25,9 +23,9 @@ public class BaseActivity extends AppCompatActivity {
             }
         }
 
-        if(actionBar!=null){
-                actionBar.setDefaultDisplayHomeAsUpEnabled(enableHome);
-                getSupportActionBar().setDisplayShowHomeEnabled(enableHome);
+        if (actionBar != null){
+            actionBar.setDefaultDisplayHomeAsUpEnabled(enableHome);
+            getSupportActionBar().setDisplayShowHomeEnabled(enableHome);
         }
     }
 

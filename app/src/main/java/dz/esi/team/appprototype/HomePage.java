@@ -7,15 +7,12 @@ import android.content.Loader;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.IntentCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -48,7 +45,6 @@ import static dz.esi.team.appprototype.data.PlantContract.PlantEntry._ID;
 import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.famille;
 import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.image;
 import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.sci_name;
-import static java.lang.Thread.currentThread;
 
 
 public class HomePage extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -69,28 +65,33 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
     public static ArrayList<String> plantsHeaders = null;
     ProgressBar progressBar;
     ListViewLoader listViewLoader;
+
     //layouts
     LinearLayout takeImageLayout;
     LinearLayout importImageLayout;
     DrawerLayout drawer;
     FrameLayout optionMenuBackground;
+
     // buttons
     FloatingActionButton fabRecognise;
     FloatingActionButton fabTakeImage;
     FloatingActionButton fabImportImage;
+
     //labels
     TextView importImageLabel;
     TextView takeImageLabel;
     ListView plantsListView;
+
     //image path
     private String imagePath;
+
     //costum components
     private ListView plantListView;
     private NavigationView navigationView;
     private Toolbar toolbar_search_access;
     private ActionBarDrawerToggle toggle;
     private Menu optionMenu;
-    private String[] homeMenuProjection = {
+    public static String[] homeMenuProjection = {
             _ID,
             sci_name,
             image,
@@ -106,7 +107,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         super.onCreate(savedInstanceState);
         Log.v("HomePage", "ACTIVITY CREATED");
         setContentView(R.layout.activity_home_page);
-        setupWindowAnimations();
+//        setupWindowAnimations();
 
         widgetHydration();
 
@@ -191,15 +192,8 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         Log.v("HomePage", "ACTIVITY RESTARTED");
     }
 
-
-//    private void refreshList() {
-//        Log.d(TAG ,"about to refresh activity");
-//        mCursorAdapter.swapCursor(PlantRetriever.RetrievePlants(homeMenuProjection, null, null, DISPLAY_STATE));
-//        plantsListView.setAdapter(mCursorAdapter);
-//    }
-
     private void switchDisplayState() {
-        String displayMessage = null;
+        String displayMessage;
         if (DISPLAY_STATE.equals(SHOW_PLANTS_BY_FAMILIES)) {
             DISPLAY_STATE = SHOW_PLANTS_BY_DEFAULT;
             displayMessage = "Affichage par plantes";
@@ -211,15 +205,15 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         Log.d(TAG, "display state  changed to : " + DISPLAY_STATE);
     }
 
-    private void setupWindowAnimations() {
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-            Log.v(TAG, "Into LOLLIPOP");
-            Fade fade = new Fade();
-            fade.setDuration(1000);
-            getWindow().setEnterTransition(fade);
-            getWindow().setExitTransition(fade);
-        }
-    }
+//    private void setupWindowAnimations() {
+//        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+//            Log.v(TAG, "Into LOLLIPOP");
+//            Fade fade = new Fade();
+//            fade.setDuration(1000);
+//            getWindow().setEnterTransition(fade);
+//            getWindow().setExitTransition(fade);
+//        }
+//    }
 
     private void initializePlantsHeaders() {
         String[] projection = {famille, sci_name};
@@ -343,7 +337,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         Log.d(TAG, "onCreateOptionsMenu: creating the option menu");
-        getMenuInflater().inflate(R.menu.search_menu, menu);
+        getMenuInflater().inflate(R.menu.home_menu, menu);
         menu.getItem(0).setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
         menu.getItem(1).setChecked(DISPLAY_STATE.equals(SHOW_PLANTS_BY_FAMILIES));
         this.optionMenu = menu;
@@ -357,13 +351,11 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
 
-        Intent intent;
-        MenuItem optionMenuItem;
         int id = item.getItemId();
         switch (id) {
-            case R.id.app_search_bar:   // start the search activity
-                intent = new Intent(HomePage.this, SearchPlantesActivity.class);
-                startActivity(intent);
+            case R.id.search:   // start the search activity
+                Log.d(TAG, "onOptionsItemSelected: about to go into SearchActivity");
+                startActivity(new Intent(HomePage.this, SearchActivity.class));
                 break;
             case R.id.option_show_by_family:
                 switchDisplayState();
@@ -646,7 +638,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
             mCursorAdapter.swapCursor(null);
         }
 
-    };
+    }
 
 
 }
