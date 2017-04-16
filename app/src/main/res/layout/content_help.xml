@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginRight="8dp"
-        android:background="@android:color/white">
+        android:background="@color/clean_white">
 
         <TextView
             android:id="@+id/expandableButton1"

@@ -37,8 +37,8 @@
     <string name="crop">Recadrer</string>
     <string name="process">Traiter</string>
 
-    <!-- The team members names -->
-    <string name="chenine_name">CHENINE Azzedine</string>
+    <!-- team members -->
+    <string name="chenine_name">CHENINE Azzeddine</string>
     <string name="bouguesri_name">BOUGUESRI Mohammed Adel</string>
     <string name="boutifour_name">BOUTIFOUR Abdelhak</string>
     <string name="borsali_name">BORSALI Fayçal</string>
@@ -53,6 +53,72 @@
     <string name="plant_family">Plant Family</string>
     <string name="title_activity_database_test">DatabaseTest</string>
     <string name="plant_profile_app_bar_title">This is changed by JAVA</string>
+
+    <!-- Strings related to Settings -->
+    <!-- Display state-->
+    <string name="settings_plants_display_state_title">Affichage des plantes</string>
+    <string name="settings_plants_display_state_content">Afficher par :</string>
+    <string name="settings_plants_display_state_discription">Affichage par default des plantes dans la page d\'acceuille</string>
+    <string-array name="plants_display_state_label">
+        <item>Familles</item>
+        <item>Noms scientifiques</item>
+    </string-array>
+    <string-array name="plants_display_state_values">
+        <item>1</item>
+        <item>0</item>
+    </string-array>
+    <!-- plant profile -->
+    <string name="settings_plants_profile_group_title">Profile du plante</string>
+    <string name="settings_plants_profile_group_summery">activer ou desactiver</string>
+
+    <string name="settings_plant_profile_discription">Description</string>
+    <string name="settings_plant_profile_benefits">Bénéfices</string>
+
+    <string name="settings_plant_profile_details">Details</string>
+    <!--constituants-->
+    <string name="constituants_title">Constituants</string>
+    <string name="constituants_description">constituants_description</string>
+
+    <!--habitat-->
+    <string name="habitat_title">Habitat</string>
+    <string name="habitat_discription">habitat_discription</string>
+
+    <!--temps_recoltes-->
+    <string name="temps_de_recolte">Temps de Récolte</string>
+    <string name="temps_de_recolte_discription">temps_de_recolte_discription</string>
+
+    <!-- parties utilisées -->
+    <string name="parties_utilisées">Parties utilisées</string>
+    <string name="parties_utilisées_discription">parties_utilisées_discrption</string>
+
+    <!-- les effets secondaires -->
+    <string name="les_effets_secondaires">Les effets secondaires</string>
+    <string name="les_effets_secondaires_discription">les_effets_secondaires_discription</string>
+
+    <!-- les interaction -->
+    <string name="les_interaction">Les interaction</string>
+    <string name="les_interaction_discription">les_interaction_discription</string>
+
+    <!-- les indecation -->
+    <string name="les_indecation">Les indecation</string>
+    <string name="les_indecation_discription">les_indecation_discription</string>
+
+    <!-- contre indecation -->
+    <string name="contre_indecation">Contre indecations</string>
+    <string name="contre_indecation_discription">contre_indecation_discription</string>
+
+    <!-- preparation -->
+    <string name="preparation">Préparations</string>
+    <string name="preparation_discription">preparation_discription</string>
+
+    <!-- remarque -->
+    <string name="remarques">Remarques</string>
+    <string name="remarques_description">remarques_description</string>
+
+
+
+
+
 
 
 </resources>

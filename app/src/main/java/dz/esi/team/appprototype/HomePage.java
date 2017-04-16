@@ -154,12 +154,14 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
 
         listViewLoader = new ListViewLoader(progressBar,true);
         listViewLoader.execute();
+        PreferenceManager.setDefaultValues(this, R.xml.pref_general, false);
 
     }
 
     @Override
     protected void onStart() {
         super.onStart();
+        // reading the default desplay state from the sharedPrefrences
         Log.v("HomePage", "ACTIVITY STARTED");
     }
 
@@ -372,7 +374,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         int id = item.getItemId();
 
         if (id == R.id.nav_preferences) {
-
+            startActivity(new Intent(HomePage.this, SettingsActivity.class));
         } else if (id == R.id.nav_aboutus) {
             startActivity(new Intent(HomePage.this, AboutUsActivity.class));
         } else if (id == R.id.nav_user_guide) {

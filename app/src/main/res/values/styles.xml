@@ -40,6 +40,10 @@
         <item name="android:padding">5dp</item>
         <item name="android:clickable">true</item>
     </style>
+    <style name="PreferencesTheme" parent="AppTheme">
+        <item name="android:windowBackground">@color/clean_white</item>
+        <item name="android:actionBarStyle">@style/AppTheme</item>
+    </style>
 
     <style name="CollapsingToolbarExpandedTextAppearance" parent="AppTheme.NoActionBar">
         <item name="android:textColor">@android:color/transparent</item>

@@ -1,0 +1,75 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <ListPreference
+        android:dialogTitle="@string/settings_plants_display_state_content"
+        android:entries="@array/plants_display_state_label"
+        android:entryValues="@array/plants_display_state_values"
+        android:key="DISPLAY_STATE"
+        android:summary="@string/settings_plants_display_state_discription"
+        android:title="@string/settings_plants_display_state_title"></ListPreference>
+
+    <PreferenceCategory android:title="@string/settings_plants_profile_group_title">
+        <PreferenceScreen
+            android:title="@string/settings_plant_profile_discription">
+            <SwitchPreference
+                android:defaultValue="true"
+                android:key="CONSTITUANTS"
+                android:summary="@string/constituants_description"
+                android:title="@string/constituants_title"></SwitchPreference>
+            <SwitchPreference
+             android:defaultValue="true"
+                android:key="HABITAT"
+                android:summary="@string/habitat_discription"
+                android:title="@string/habitat_title"></SwitchPreference>
+            <SwitchPreference
+             android:defaultValue="true"
+                android:key="TEMPS_DE_RECOLTE"
+                android:summary="@string/temps_de_recolte_discription"
+                android:title="@string/temps_de_recolte"></SwitchPreference>
+            <SwitchPreference
+             android:defaultValue="true"
+                android:key="PARTIES_UTILISEES"
+                android:summary="@string/parties_utilisées_discription"
+                android:title="@string/parties_utilisées"></SwitchPreference>
+        </PreferenceScreen>
+        <PreferenceScreen
+            android:title="@string/settings_plant_profile_benefits">
+            <SwitchPreference
+             android:defaultValue="true"
+                android:key="LES_EFFETS_SECONDAIRE"
+                android:summary="@string/les_effets_secondaires_discription"
+                android:title="@string/les_effets_secondaires"></SwitchPreference>
+            <SwitchPreference
+             android:defaultValue="true"
+                android:key="LES_INTERACTION"
+                android:summary="@string/les_interaction_discription"
+                android:title="@string/les_interaction"></SwitchPreference>
+            <SwitchPreference
+             android:defaultValue="true"
+                android:key="LES_INDECATION"
+                android:summary="@string/les_indecation_discription"
+                android:title="@string/les_indecation"></SwitchPreference>
+            <SwitchPreference
+             android:defaultValue="true"
+                android:key="LES_INDECATION"
+                android:summary="@string/contre_indecation_discription"
+                android:title="@string/contre_indecation"></SwitchPreference>
+            <SwitchPreference
+             android:defaultValue="true"
+                android:key="LES_PREPARATION"
+                android:summary="@string/preparation_discription"
+                android:title="@string/preparation"></SwitchPreference>
+
+        </PreferenceScreen>
+
+
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="LES_REMARQUES"
+            android:summary="@string/remarques_description"
+            android:title="@string/remarques"></SwitchPreference>
+
+
+    </PreferenceCategory>
+
+
+</PreferenceScreen>

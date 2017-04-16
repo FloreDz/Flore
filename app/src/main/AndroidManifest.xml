@@ -99,6 +99,15 @@
             android:name="dz.esi.team.appprototype.glide.GlideConfiguration"
             android:value="GlideModule" />
 
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:theme="@style/PreferencesTheme"
+            android:parentActivityName=".HomePage">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="dz.esi.team.appprototype.HomePage" />
+        </activity>
     </application>
 
 </manifest>
