@@ -476,6 +476,39 @@
                         android:text="remarks" />
                 </LinearLayout>
 
+                <LinearLayout
+                    android:id="@+id/container_source"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/plant_source_title"
+                        style="@style/profileFieldsTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:text="Source" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:background="@drawable/title_border_bottom"></View>
+                    <!--TODO: CREATING A LINK STYLE -->
+                    <TextView
+                        android:id="@+id/plant_source"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:gravity="center_vertical"
+                        android:text="source"
+                        android:textColor="@color/logo_blue_light"
+                        android:textStyle="italic" />
+                </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/container_liens"
@@ -488,7 +521,6 @@
                         style="@style/profileFieldsTitle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
                         android:gravity="center_vertical"
                         android:text="Liens supplémentaires" />
 
@@ -510,39 +542,6 @@
                 </LinearLayout>
 
 
-                <LinearLayout
-                    android:id="@+id/container_source"
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:id="@+id/plant_source_title"
-                        style="@style/profileFieldsTitle"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:gravity="center_vertical"
-                        android:text="Source" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="3dp"
-                        android:layout_marginBottom="2dp"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:background="@drawable/title_border_bottom"></View>
-                    <!--TODO: CREATING A LINK STYLE -->
-                    <TextView
-                        android:id="@+id/plant_source"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:gravity="center_vertical"
-                        android:text="source"
-                        android:textColor="@color/logo_blue_light"
-                        android:textStyle="italic" />
-                </LinearLayout>
 
 
             </LinearLayout>

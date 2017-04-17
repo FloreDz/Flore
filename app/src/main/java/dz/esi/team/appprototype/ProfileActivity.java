@@ -232,7 +232,7 @@ public class ProfileActivity extends AppCompatActivity {
         setField(lieu,"HABITAT",R.id.plant_habitat,profile.getLieu(),R.id.container_habitat);
         setField(periodeRecolte,"TEMPS_DE_RECOLTE",R.id.plant_harvest,profile.getPeriodeRecolte(),R.id.container_temps_recolte);
         setField(remarques,"LES_REMARQUES",R.id.plant_remarks,profile.getRemarques(),R.id.container_remarks);
-
+        setField(interactions,"LES_INTERACTION",R.id.plant_interactions,profile.getInteraction(),R.id.container_interactions);
 
 
 
@@ -242,20 +242,13 @@ public class ProfileActivity extends AppCompatActivity {
             source = (TextView) findViewById(R.id.plant_source);
             source.setText(profile.getSource());
         }
-
-
+        
         if (profile.getLiens() == null ) {
             findViewById(R.id.container_liens).setVisibility(View.GONE);
         }else {
             liens = (TextView) findViewById(R.id.plant_liens);
             liens.setText(profile.getLiens());
         }
-
-
-
-        interactions = (TextView) findViewById(R.id.plant_interactions) ;
-        interactions.setText(profile.getInteraction());
-
         image = (ImageView) findViewById(R.id.plant_image);
         Glide.with(this)
                 .load("file:///android_asset/thumbnails/" + profile.getImage())
