@@ -60,8 +60,9 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
     private static final int PLANT_LOADER = 0;
     public static String DISPLAY_STATE = SHOW_PLANTS_BY_FAMILIES;
     public static PlantDbHelper mDbHelper;
+    private  SharedPreferences sharedPref ;
 
-    /* TODO : MOHAMED added : */
+
     public static ArrayList<String> plantsHeaders = null;
     ProgressBar progressBar;
     ListViewLoader listViewLoader;
@@ -93,24 +94,22 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
             famille
     };
 
-    // ****************************************************************************
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         introPageHandler();
+        if(savedInstanceState == null) {
+            sharedPref=PreferenceManager.getDefaultSharedPreferences(this);
+           if(sharedPref.getString("DISPLAY_STATE","0").compareTo("0")==0)  DISPLAY_STATE=SHOW_PLANTS_BY_DEFAULT; else DISPLAY_STATE=SHOW_PLANTS_BY_FAMILIES ;
+        }
         super.onCreate(savedInstanceState);
         Log.v("HomePage", "ACTIVITY CREATED");
         setContentView(R.layout.activity_home_page);
         setupWindowAnimations();
-
         widgetHydration();
-
-        //costume components
         navigationView.setNavigationItemSelectedListener(this);
         setSupportActionBar(toolbar_search_access);
 
-        //layout
         optionMenuBackground.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -121,7 +120,6 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         });
 
 
-        /* TODO : MOHAMED added : */
 
         plantsListView = (ListView) findViewById(R.id.plantes_list_view);
         View emptyView = findViewById(R.id.empty_view);
@@ -142,14 +140,12 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         });
 
         mDbHelper = new PlantDbHelper(this);
-
         try {
             mDbHelper.createDataBase();
         } catch (Exception e) {
             Log.e("From Main.db creation", e.getMessage());
         }
         mDbHelper.openDataBase();
-
         initializePlantsHeaders();
 
         listViewLoader = new ListViewLoader(progressBar,true);
@@ -161,7 +157,6 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
     @Override
     protected void onStart() {
         super.onStart();
-        // reading the default desplay state from the sharedPrefrences
         Log.v("HomePage", "ACTIVITY STARTED");
     }
 
@@ -246,7 +241,6 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         Log.v(TAG, "Finally : ArrayList = " + plantsHeaders.toString());
 
     }
-
 
     public void widgetHydration() {
 

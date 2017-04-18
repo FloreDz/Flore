@@ -58,7 +58,7 @@
     <!-- Display state-->
     <string name="settings_plants_display_state_title">Affichage des plantes</string>
     <string name="settings_plants_display_state_content">Afficher par :</string>
-    <string name="settings_plants_display_state_discription">Affichage par default des plantes dans la page d\'acceuille</string>
+    <string name="settings_plants_display_state_discription">Affichage par default des plantes dans la page d\'acceuille lors le lancement de démarrage d\'application</string>
     <string-array name="plants_display_state_label">
         <item>Familles</item>
         <item>Noms scientifiques</item>
