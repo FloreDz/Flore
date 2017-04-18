@@ -358,7 +358,6 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         // as you specify a parent activity in AndroidManifest.xml.
 
         Intent intent;
-        MenuItem optionMenuItem;
         int id = item.getItemId();
         switch (id) {
             case R.id.app_search_bar:   // start the search activity

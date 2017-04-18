@@ -30,6 +30,7 @@ public class ImageOptionsActivity extends AppCompatActivity {
     public static final String LOADED_IMAGE_URI = "LOADED_IMAGE_URI";
     public static final String STATE_IMAGE = "STATE_IMAGE";
     private static final String TAG = "ImageOptionsActivity";
+
     // image proprieties
     private ImageView imageViewUploadedImage;
     private Uri imageViewUri;
@@ -37,8 +38,8 @@ public class ImageOptionsActivity extends AppCompatActivity {
     private boolean croppedImage = false;
     private int croppedVersion = 0;
 
-
     private BottomNavigationView bottomNavigationViewImageOption;
+
 
     private static int exifToDegrees(int exifOrientation) {
         if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_90) {
@@ -74,11 +75,10 @@ public class ImageOptionsActivity extends AppCompatActivity {
                             case R.id.btn_crop:
                                 croppedImage = true;
                                 beginCrop(imageViewUri);
-
-
                                 break;
                             case R.id.btn_image_process:
-                                Toast.makeText(ImageOptionsActivity.this, "next", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(ImageOptionsActivity.this, "recognition", Toast.LENGTH_SHORT).show();
+
                                 break;
                             default:
                         }
