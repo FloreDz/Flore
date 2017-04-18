@@ -36,11 +36,6 @@
                 android:summary="@string/parties_utilisées_discription"
                 android:title="@string/parties_utilisées"></SwitchPreference>
             <SwitchPreference
-                android:defaultValue="true"
-                android:key="LES_EFFETS"
-                android:summary="@string/les_effets_discription"
-                android:title="@string/les_effets"></SwitchPreference>
-            <SwitchPreference
              android:defaultValue="true"
                 android:key="LES_EFFETS_SECONDAIRE"
                 android:summary="@string/les_effets_secondaires_discription"

@@ -196,41 +196,6 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/plant_identification">
-
-                <LinearLayout
-
-                    android:id="@+id/container_parties_utilisees"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/plant_used_parts_title"
-                        style="@style/profileFieldsTitle"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:gravity="center_vertical"
-                        android:text="Parties utilisées" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="3dp"
-                        android:layout_marginBottom="2dp"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:background="@drawable/title_border_bottom"></View>
-
-                    <com.codesgood.views.JustifiedTextView
-                        android:id="@+id/plant_used_parts"
-                        style="@style/profileFieldsContent"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:text="déclaration des parties utilisés de la plante" />
-                </LinearLayout>
-
-
                 <LinearLayout
                     android:id="@+id/container_effets"
                     android:layout_width="wrap_content"
@@ -242,7 +207,6 @@
                         style="@style/profileFieldsTitle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
                         android:gravity="center_vertical"
                         android:text="Les effets" />
 
@@ -262,7 +226,6 @@
                         android:gravity="center_vertical"
                         android:text="les effets de la plante" />
                 </LinearLayout>
-
 
                 <LinearLayout
                     android:id="@+id/container_effets_secondaires"
@@ -296,6 +259,38 @@
                         android:text="les effets secondaires de la plante" />
                 </LinearLayout>
 
+                <LinearLayout
+
+                    android:id="@+id/container_parties_utilisees"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/plant_used_parts_title"
+                        style="@style/profileFieldsTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical"
+                        android:text="Parties utilisées" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:background="@drawable/title_border_bottom"></View>
+
+                    <com.codesgood.views.JustifiedTextView
+                        android:id="@+id/plant_used_parts"
+                        style="@style/profileFieldsContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:text="déclaration des parties utilisés de la plante" />
+                </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/container_interactions"

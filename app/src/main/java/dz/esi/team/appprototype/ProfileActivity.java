@@ -207,12 +207,14 @@ public class ProfileActivity extends AppCompatActivity {
         resume = (TextView) findViewById(R.id.plant_resume);
         resume.setText(profile.getResume());
 
+        effets = (TextView) findViewById(R.id.plant_effects);
+        effets.setText(profile.getEffets());
+
 
 
 
         setField(constituants,"CONSTITUANTS",R.id.plant_constituents,profile.getConstituants(),R.id.container_constituants);
         setField(partiesUtilisees,"PARTIES_UTILISEES",R.id.plant_used_parts,profile.getPartiesUtilisees(),R.id.container_parties_utilisees);
-        setField(effets,"LES_EFFETS",R.id.plant_effects,profile.getEffets(),R.id.container_effets);
         setField(effetsSecondaires,"LES_EFFETS_SECONDAIRE",R.id.plant_2nd_effects,profile.getEffetsSecondaires(),R.id.container_effets_secondaires);
         setField(indications,"LES_INDECATION",R.id.plant_indications,profile.getIndications(),R.id.container_indications);
         setField(contreIndications,"LES_CONTRE_INDECATION",R.id.plant_contreIndications,profile.getContreIndication(),R.id.container_contre_indications);
