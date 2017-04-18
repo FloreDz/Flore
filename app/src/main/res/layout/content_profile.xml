@@ -36,7 +36,7 @@
             android:layout_margin="8dp">
 
             <LinearLayout
-                android:id="@+id/plant_description"
+                android:id="@+id/plant_identification"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -175,6 +175,28 @@
                 </LinearLayout>
 
 
+
+
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp">
+
+            <LinearLayout
+                android:id="@+id/plant_usage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="8dp"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/plant_identification">
+
                 <LinearLayout
 
                     android:id="@+id/container_parties_utilisees"
@@ -307,26 +329,6 @@
                         android:text="les interactions de la plantes avec d'autres espèces" />
                 </LinearLayout>
 
-
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp">
-
-            <LinearLayout
-                android:id="@+id/plant_benefit"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="8dp"
-                app:layout_behavior="@string/appbar_scrolling_view_behavior"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/plant_description">
-
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -434,7 +436,7 @@
             android:layout_margin="8dp">
 
             <LinearLayout
-                android:id="@+id/plant_extra"
+                android:id="@+id/plant_details"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -442,7 +444,7 @@
                 app:layout_behavior="@string/appbar_scrolling_view_behavior"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/plant_description">
+                app:layout_constraintTop_toBottomOf="@+id/plant_identification">
 
                 <LinearLayout
                     android:orientation="vertical"

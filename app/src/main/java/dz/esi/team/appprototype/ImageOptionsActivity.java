@@ -60,7 +60,7 @@ public class ImageOptionsActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.imageOption_toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        getSupportActionBar().setTitle("Modifier");
         imageViewUploadedImage = (ImageView) findViewById(R.id.imageView_uploadedImage);
         bottomNavigationViewImageOption = (BottomNavigationView) findViewById(R.id.bottomNavigationView_ImageOption);
 

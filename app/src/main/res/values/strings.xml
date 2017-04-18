@@ -26,7 +26,7 @@
     <string name="activity_search">Rechercher</string>
     <string name="title_activity_settings">Préférences</string>
     <string name="title_activity_main">activité principale</string>
-    <string name="title_activity_image_options">Modifier</string>
+    <string name="title_activity_image_options">Flore</string>
     <string name="title_activity_help">Guide d\'utilisateur</string>
     <string name="title_activity_about_us">A propos</string>
 
@@ -71,54 +71,58 @@
     <string name="settings_plants_profile_group_title">Profile du plante</string>
     <string name="settings_plants_profile_group_summery">activer ou desactiver</string>
 
-    <string name="settings_plant_profile_discription">Description</string>
-    <string name="settings_plant_profile_benefits">Bénéfices</string>
-
+    <string name="settings_plant_profile_discription">Identification</string>
+    <string name="settings_plant_profile_benefits">Usage</string>
     <string name="settings_plant_profile_details">Details</string>
+
     <!--constituants-->
     <string name="constituants_title">Constituants</string>
-    <string name="constituants_description">constituants_description</string>
+    <string name="constituants_description">Description les composants alimentaires constituant la plante</string>
 
     <!--habitat-->
     <string name="habitat_title">Habitat</string>
-    <string name="habitat_discription">habitat_discription</string>
+    <string name="habitat_discription">Les lieux où se trouve la plante dans le monde</string>
 
     <!--temps_recoltes-->
     <string name="temps_de_recolte">Temps de Récolte</string>
-    <string name="temps_de_recolte_discription">temps_de_recolte_discription</string>
+    <string name="temps_de_recolte_discription">Les périodes et les saisons de récolte de la plante</string>
 
     <!-- parties utilisées -->
     <string name="parties_utilisées">Parties utilisées</string>
-    <string name="parties_utilisées_discription">parties_utilisées_discrption</string>
+    <string name="parties_utilisées_discription">Les organes de la plante utilisés pour guérir les maladies</string>
 
     <string name="les_effets">Les effets</string>
-    <string name="les_effets_discription">les_effets_discription</string>
+    <string name="les_effets_discription">Les conséquences préférables d’utilisation de la plante</string>
 
 
     <!-- les effets secondaires -->
     <string name="les_effets_secondaires">Les effets secondaires</string>
-    <string name="les_effets_secondaires_discription">les_effets_secondaires_discription</string>
+    <string name="les_effets_secondaires_discription">Les conséquences indésirables d’utilisation de la plante</string>
 
     <!-- les interaction -->
     <string name="les_interaction">Les interaction</string>
-    <string name="les_interaction_discription">les_interaction_discription</string>
+    <string name="les_interaction_discription">Les effets résultants de l’utilisation de la plante avec d’autres plantes ** à valider</string>
 
     <!-- les indecation -->
     <string name="les_indecation">Les indecation</string>
-    <string name="les_indecation_discription">les_indecation_discription</string>
+    <string name="les_indecation_discription">Les maladies pour lesquelles cette plante est indiquer</string>
 
     <!-- contre indecation -->
     <string name="contre_indecation">Contre indecations</string>
-    <string name="contre_indecation_discription">contre_indecation_discription</string>
+    <string name="contre_indecation_discription">Les utilisation induisant à des multiplications ** à valider</string>
 
     <!-- preparation -->
     <string name="preparation">Préparations</string>
-    <string name="preparation_discription">preparation_discription</string>
+    <string name="preparation_discription">les méthodes d’utilisation de la plante ** à valider</string>
 
     <!-- remarque -->
     <string name="remarques">Remarques</string>
     <string name="remarques_description">remarques_description</string>
 
+
+    <!-- liens -->
+    <string name="liens">Liens</string>
+    <string name="liens_description">liens_description</string>
 
 
 

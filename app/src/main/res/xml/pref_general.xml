@@ -27,14 +27,14 @@
                 android:key="TEMPS_DE_RECOLTE"
                 android:summary="@string/temps_de_recolte_discription"
                 android:title="@string/temps_de_recolte"></SwitchPreference>
-            <SwitchPreference
-             android:defaultValue="true"
-                android:key="PARTIES_UTILISEES"
-                android:summary="@string/parties_utilisées_discription"
-                android:title="@string/parties_utilisées"></SwitchPreference>
         </PreferenceScreen>
         <PreferenceScreen
             android:title="@string/settings_plant_profile_benefits">
+            <SwitchPreference
+                android:defaultValue="true"
+                android:key="PARTIES_UTILISEES"
+                android:summary="@string/parties_utilisées_discription"
+                android:title="@string/parties_utilisées"></SwitchPreference>
             <SwitchPreference
                 android:defaultValue="true"
                 android:key="LES_EFFETS"
@@ -67,13 +67,21 @@
                 android:title="@string/preparation"></SwitchPreference>
 
         </PreferenceScreen>
+        <PreferenceScreen android:title="@string/settings_plant_profile_details">
+            <SwitchPreference
+                android:defaultValue="true"
+                android:key="LES_REMARQUES"
+                android:summary="@string/remarques_description"
+                android:title="@string/remarques"></SwitchPreference>
+            <SwitchPreference
+                android:defaultValue="true"
+                android:key="LES_LIENS"
+                android:summary="@string/liens_description"
+                android:title="@string/liens"></SwitchPreference>
+
+        </PreferenceScreen>
 
 
-        <SwitchPreference
-            android:defaultValue="true"
-            android:key="LES_REMARQUES"
-            android:summary="@string/remarques_description"
-            android:title="@string/remarques"></SwitchPreference>
 
 
     </PreferenceCategory>

@@ -234,8 +234,7 @@ public class ProfileActivity extends AppCompatActivity {
         if (profile.getLiens() == null ) {
             findViewById(R.id.container_liens).setVisibility(View.GONE);
         }else {
-            liens = (TextView) findViewById(R.id.plant_liens);
-            liens.setText(profile.getLiens());
+            setField((TextView) findViewById(R.id.plant_liens),"LES_LIENS",R.id.plant_liens,profile.getLiens(),R.id.container_liens);
         }
         image = (ImageView) findViewById(R.id.plant_image);
         Glide.with(this)
