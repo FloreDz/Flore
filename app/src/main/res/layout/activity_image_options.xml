@@ -32,8 +32,8 @@
         android:contentDescription="image_placeholder"
         android:maxHeight="200dp"
         android:minHeight="150dp"
-        android:paddingTop="52dp"
-        android:paddingBottom="52dp"
+        android:paddingTop="60dp"
+        android:paddingBottom="60dp"
         android:minWidth="176dp" />
 
 
