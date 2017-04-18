@@ -33,8 +33,7 @@ public class ProfileActivity extends AppCompatActivity {
     static private boolean PLANT_IMAGE_POPUP_STATE = false;
     private final String TAG = this.getClass().getSimpleName();
     private  SharedPreferences sharedPref ;
-    TextView collapseConstituent;
-    LinearLayout Constituents;
+
 
     // TODO : Mohamed aded :
     TextView sci_name;
@@ -77,13 +76,11 @@ public class ProfileActivity extends AppCompatActivity {
 
 
     }
-
     @Override
     protected void onStart() {
         super.onStart();
         Log.v(TAG, "ACTIVITY STARTED");
     }
-
     @Override
     protected void onResume() {
         super.onResume();
@@ -123,7 +120,6 @@ public class ProfileActivity extends AppCompatActivity {
         });
 
     }
-
     private void showPlantImagePopuop() {
         PLANT_IMAGE_POPUP_STATE = true;
         LayoutInflater inflater = ProfileActivity.this.getLayoutInflater();
@@ -156,25 +152,21 @@ public class ProfileActivity extends AppCompatActivity {
         super.onPause();
         Log.v(TAG, "ACTIVITY PAUSED");
     }
-
     @Override
     protected void onStop() {
         super.onStop();
         Log.v(TAG, "ACTIVITY STOPPED");
     }
-
     @Override
     protected void onRestart() {
         super.onRestart();
         Log.v(TAG, "ACTIVITY RESTARTED");
     }
-
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         PLANT_IMAGE_POPUP_STATE = savedInstanceState.getBoolean("PLANT_IMAGE_POPUP_STATE");
         super.onRestoreInstanceState(savedInstanceState);
     }
-
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         outState.putBoolean("PLANT_IMAGE_POPUP_STATE", PLANT_IMAGE_POPUP_STATE);
@@ -184,7 +176,6 @@ public class ProfileActivity extends AppCompatActivity {
     private  void  setField(TextView textView,String key,int id,String value,int containerId){
 
         boolean state = sharedPref.getBoolean(key,true);
-        Log.d(TAG, "setFieldText: "+state);
         if(state){
             textView = (TextView) findViewById(id);
             textView.setText(value);
@@ -193,9 +184,6 @@ public class ProfileActivity extends AppCompatActivity {
         }
 
     }
-
-
-
     private void widgetsPopulation(PlantProfile profile) {
 
         Log.v("PlantProfile", "in widgets population");
@@ -256,9 +244,6 @@ public class ProfileActivity extends AppCompatActivity {
                 .transform(new RoundedCornersTransformation(this, 20, 0))
                 .override(300, 200)
                 .into(image);
-
-
-
 
     }
 }

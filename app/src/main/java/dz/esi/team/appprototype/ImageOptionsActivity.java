@@ -102,7 +102,6 @@ public class ImageOptionsActivity extends AppCompatActivity {
             //uploadedImagePath = imageViewUri.getPath();
             uploadedImagePath = getRealPathFromURI(this, this.imageViewUri);
         }
-        Log.d(TAG, "displayImage: =============================================== " + uploadedImagePath);
         Bitmap bitmap = fixImageRotation(uploadedImagePath);
         this.imageViewUploadedImage.setImageBitmap(bitmap);
 

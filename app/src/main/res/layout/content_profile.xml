@@ -66,7 +66,7 @@
                         android:layout_marginRight="5dp"
                         android:background="@drawable/title_border_bottom"></View>
 
-                    <TextView
+                    <com.codesgood.views.JustifiedTextView
                         android:id="@+id/plant_noms"
                         style="@style/profileFieldsContent"
                         android:layout_width="match_parent"
@@ -99,7 +99,7 @@
                         android:layout_marginRight="5dp"
                         android:background="@drawable/title_border_bottom"></View>
 
-                    <TextView
+                    <com.codesgood.views.JustifiedTextView
                         android:id="@+id/plant_constituents"
                         style="@style/profileFieldsContent"
                         android:layout_width="match_parent"
@@ -132,7 +132,7 @@
                         android:layout_marginRight="5dp"
                         android:background="@drawable/title_border_bottom"></View>
 
-                    <TextView
+                    <com.codesgood.views.JustifiedTextView
                         android:id="@+id/plant_habitat"
                         style="@style/profileFieldsContent"
                         android:layout_width="match_parent"
@@ -165,7 +165,7 @@
                         android:layout_marginRight="5dp"
                         android:background="@drawable/title_border_bottom"></View>
 
-                    <TextView
+                    <com.codesgood.views.JustifiedTextView
                         android:id="@+id/plant_harvest"
                         style="@style/profileFieldsContent"
                         android:layout_width="match_parent"
@@ -199,7 +199,7 @@
                         android:layout_marginRight="5dp"
                         android:background="@drawable/title_border_bottom"></View>
 
-                    <TextView
+                    <com.codesgood.views.JustifiedTextView
                         android:id="@+id/plant_used_parts"
                         style="@style/profileFieldsContent"
                         android:layout_width="match_parent"
@@ -232,7 +232,7 @@
                         android:layout_marginRight="5dp"
                         android:background="@drawable/title_border_bottom"></View>
 
-                    <TextView
+                    <com.codesgood.views.JustifiedTextView
                         android:id="@+id/plant_effects"
                         style="@style/profileFieldsContent"
                         android:layout_width="match_parent"
@@ -265,7 +265,7 @@
                         android:layout_marginRight="5dp"
                         android:background="@drawable/title_border_bottom"></View>
 
-                    <TextView
+                    <com.codesgood.views.JustifiedTextView
                         android:id="@+id/plant_2nd_effects"
                         style="@style/profileFieldsContent"
                         android:layout_width="match_parent"
@@ -298,7 +298,7 @@
                         android:layout_marginRight="5dp"
                         android:background="@drawable/title_border_bottom"></View>
 
-                    <TextView
+                    <com.codesgood.views.JustifiedTextView
                         android:id="@+id/plant_interactions"
                         style="@style/profileFieldsContent"
                         android:layout_width="match_parent"
@@ -350,7 +350,7 @@
                         android:layout_marginRight="5dp"
                         android:background="@drawable/title_border_bottom"></View>
 
-                    <TextView
+                    <com.codesgood.views.JustifiedTextView
                         android:id="@+id/plant_indications"
                         style="@style/profileFieldsContent"
                         android:layout_width="match_parent"
@@ -467,7 +467,7 @@
                         android:layout_marginRight="5dp"
                         android:background="@drawable/title_border_bottom"></View>
 
-                    <TextView
+                    <com.codesgood.views.JustifiedTextView
                         android:id="@+id/plant_remarks"
                         style="@style/profileFieldsContent"
                         android:layout_width="match_parent"
@@ -493,7 +493,6 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="3dp"
-                        android:layout_marginTop="10dp"
                         android:layout_marginBottom="2dp"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"

@@ -74,6 +74,7 @@
         <item name="android:paddingRight">5dp</item>
         <item name="android:paddingBottom">0dp</item>
         <item name="android:textStyle">bold</item>
+
     </style>
     <style name="profileFieldsContent" parent="TextAppearance.AppCompat.Widget.TextView.SpinnerItem">
         <item name="android:textColor">@android:color/black</item>
