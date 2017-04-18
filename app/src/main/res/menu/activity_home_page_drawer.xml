@@ -6,7 +6,8 @@
         <item
             android:id="@+id/nav_preferences"
             android:icon="@drawable/settings"
-            android:title="Préférences" />
+            android:title="Préférences"
+            android:checkable="false"/>
     </group>
 
     <item android:title="Aide"
@@ -18,13 +19,15 @@
                 android:id="@+id/nav_user_guide"
                 android:icon="@drawable/help"
                 android:title="Guide utilisateur"
-                android:checkable="true" />
+                android:checkable="false"
+                />
             <item
                 android:checkableBehavior="single"
                 android:id="@+id/nav_aboutus"
                 android:icon="@drawable/info"
                 android:title="Apropos"
-                android:checkable="true" />
+                android:checkable="false"
+                />
         </menu>
     </item>
 
