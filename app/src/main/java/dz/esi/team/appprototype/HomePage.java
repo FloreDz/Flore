@@ -1,6 +1,9 @@
 package dz.esi.team.appprototype;
 
 import android.app.LoaderManager;
+import android.app.SearchManager;
+import android.app.SearchableInfo;
+import android.content.Context;
 import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.Loader;
@@ -17,7 +20,6 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
-import android.transition.Fade;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -29,6 +31,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -97,6 +100,11 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
             image,
             famille
     };
+
+    // TODO : SearchTest
+    public static final String PLANT_QUERY = "PLANT_QUERY";
+    private SearchView searchView;
+    private String queryText = null;
 
     // ****************************************************************************
 
@@ -342,6 +350,49 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         menu.getItem(1).setChecked(DISPLAY_STATE.equals(SHOW_PLANTS_BY_FAMILIES));
         this.optionMenu = menu;
 
+        // TODO : SearchTest
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        final SearchableInfo searchableInfo = searchManager.getSearchableInfo(getComponentName());
+
+        searchView = (SearchView) menu.findItem(R.id.app_bar_search_test).getActionView();
+        searchView.setSearchableInfo(searchableInfo);
+        searchView.setIconified(true);
+        searchView.setQuery(this.queryText,false);
+
+        if ("".equals(queryText)) searchView.setQueryHint(getResources().getString(R.string.search_hint));
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+
+
+                queryText =  newText ;
+                if (queryText == null) queryText = "";
+
+                final Cursor cursor = PlantRetriever.SearchPlants(newText);
+                listViewLoader.reloadWithNewCursor(cursor);
+
+                if ("".equals(queryText)) searchView.setQueryHint(getResources().getString(R.string.search_hint));
+
+                return true;
+
+            }
+        });
+
+        searchView.setOnCloseListener(new SearchView.OnCloseListener() {
+            @Override
+            public boolean onClose() {
+                searchView.setIconified(true);
+                return true;
+            }
+        });
+
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -352,11 +403,11 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         // as you specify a parent activity in AndroidManifest.xml.
 
         int id = item.getItemId();
-        switch (id) {
-            case R.id.search:   // start the search activity
-                Log.d(TAG, "onOptionsItemSelected: about to go into SearchActivity");
-                startActivity(new Intent(HomePage.this, SearchActivity.class));
-                break;
+        switch (id) { // TODO : SearchTest
+//            case R.id.search:   // start the search activity
+//                Log.d(TAG, "onOptionsItemSelected: about to go into SearchActivity");
+//                startActivity(new Intent(HomePage.this, SearchActivity.class));
+//                break;
             case R.id.option_show_by_family:
                 switchDisplayState();
                 item.setChecked(DISPLAY_STATE.equals(SHOW_PLANTS_BY_FAMILIES));
@@ -367,6 +418,10 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
 
         return toggle.onOptionsItemSelected(item);
 
+    }
+
+    public void doNothing (View v) {
+        /* this method is to ignore family header clicks */
     }
 
     //selecting a navigation item from the menu drawer event handling
@@ -603,6 +658,13 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
                     }
                 }, 1000);
             }
+        }
+
+        // TODO : SearchTest
+        public void reloadWithNewCursor(Cursor cursor) {
+            listViewLoader.progressBar.setVisibility(GONE);
+            mCursorAdapter.swapCursor(cursor);
+            plantsListView.setAdapter(mCursorAdapter);
         }
 
 

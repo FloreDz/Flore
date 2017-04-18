@@ -9,24 +9,24 @@ import android.support.v7.widget.Toolbar;
  */
 
 public class BaseActivity extends AppCompatActivity {
-
-    public void activateToolBar(boolean enableHome) {
-
-        ActionBar actionBar = getSupportActionBar();
-
-        if (actionBar!=null) {
-            Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_search);
-
-            if (toolbar == null) {
-                setSupportActionBar(toolbar);
-                actionBar = getSupportActionBar();
-            }
-        }
-
-        if (actionBar != null){
-            actionBar.setDefaultDisplayHomeAsUpEnabled(enableHome);
-            getSupportActionBar().setDisplayShowHomeEnabled(enableHome);
-        }
-    }
+// TODO : SearchTest
+//    public void activateToolBar(boolean enableHome) {
+//
+//        ActionBar actionBar = getSupportActionBar();
+//
+//        if (actionBar!=null) {
+//            Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_search);
+//
+//            if (toolbar == null) {
+//                setSupportActionBar(toolbar);
+//                actionBar = getSupportActionBar();
+//            }
+//        }
+//
+//        if (actionBar != null){
+//            actionBar.setDefaultDisplayHomeAsUpEnabled(enableHome);
+//            getSupportActionBar().setDisplayShowHomeEnabled(enableHome);
+//        }
+//    }
 
 }

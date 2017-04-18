@@ -5,10 +5,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/search"
+        android:id="@+id/app_bar_search_test"
+        app:actionViewClass="android.widget.SearchView"
         android:icon="@drawable/search"
-        android:title="@string/activity_search"
-        app:showAsAction="ifRoom" />
+        android:title="Search"
+        app:showAsAction="collapseActionView|ifRoom" />
 
     <item
         android:id="@+id/option_show_by_family"
