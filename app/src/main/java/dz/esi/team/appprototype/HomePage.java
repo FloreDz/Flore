@@ -146,20 +146,6 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
             }
         });
 
-        mDbHelper = new PlantDbHelper(this);
-
-        try {
-            mDbHelper.createDataBase();
-        } catch (Exception e) {
-            Log.e("From Main.db creation", e.getMessage());
-        }
-        mDbHelper.openDataBase();
-
-        initializePlantsHeaders();
-
-        listViewLoader = new ListViewLoader(progressBar,true);
-        listViewLoader.execute();
-
     }
 
     @Override
@@ -172,12 +158,28 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
     public void onResume() {
         super.onResume();
         Log.v("HomePage", "ACTIVITY RESUMED");
+
+        mDbHelper = new PlantDbHelper(this);
+
+        try {
+            mDbHelper.createDataBase();
+        } catch (Exception e) {
+            Log.e("From Main, .db creation", e.getMessage());
+        }
+        mDbHelper.openDataBase();
+
+        initializePlantsHeaders();
+
+        listViewLoader = new ListViewLoader(progressBar,true);
+        listViewLoader.execute();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
         Log.v("HomePage", "ACTIVITY PAUSED");
+
+        mDbHelper.close();
     }
 
     @Override
