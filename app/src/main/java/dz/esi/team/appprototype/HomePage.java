@@ -104,7 +104,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
     // TODO : SearchTest
     public static final String PLANT_QUERY = "PLANT_QUERY";
     private SearchView searchView;
-    private String queryText = null;
+    private String queryText = "";
 
     // ****************************************************************************
 
@@ -365,18 +365,18 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
 
             @Override
             public boolean onQueryTextSubmit(String query) {
+                Log.d(TAG, "onQueryTextSubmit: in");
+
                 return true;
             }
 
             @Override
             public boolean onQueryTextChange(String newText) {
 
+                queryText =  newText;
 
-                queryText =  newText ;
-                if (queryText == null) queryText = "";
-
-                final Cursor cursor = PlantRetriever.SearchPlants(newText);
-                listViewLoader.reloadWithNewCursor(cursor);
+                Log.d(TAG, "onQueryTextChange: in try about to reload");
+                listViewLoader.reloadWithNewCursor(PlantRetriever.SearchPlants(newText));
 
                 if ("".equals(queryText)) searchView.setQueryHint(getResources().getString(R.string.search_hint));
 
@@ -388,6 +388,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         searchView.setOnCloseListener(new SearchView.OnCloseListener() {
             @Override
             public boolean onClose() {
+                Log.d(TAG, "onClose: ");
                 searchView.setIconified(true);
                 return true;
             }

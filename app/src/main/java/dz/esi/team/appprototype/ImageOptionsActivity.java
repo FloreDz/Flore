@@ -74,8 +74,6 @@ public class ImageOptionsActivity extends AppCompatActivity {
                             case R.id.btn_crop:
                                 croppedImage = true;
                                 beginCrop(imageViewUri);
-
-
                                 break;
                             case R.id.btn_image_process:
                                 Toast.makeText(ImageOptionsActivity.this, "next", Toast.LENGTH_SHORT).show();
