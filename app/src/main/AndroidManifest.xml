@@ -101,13 +101,7 @@
 
         <activity
             android:name=".RecognitionResult"
-            android:label="@string/title_activity_recognition_result"
-            android:parentActivityName=".HomePage"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="dz.esi.team.appprototype.HomePage" />
-        </activity>
+            android:parentActivityName=".HomePage"/>
     </application>
 
 </manifest>

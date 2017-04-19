@@ -111,7 +111,7 @@ public class ORBRecognition extends AppCompatActivity {
 
                 LinkedList<DMatch> good_matches = new LinkedList<>();
                 for (int j = 0; j < matchesList.size(); j++) {
-                    if (matchesList.get(j).distance <= (max_dist-min_dist) )
+                    if (matchesList.get(j).distance <= (max_dist - min_dist) )
                         good_matches.addLast(matchesList.get(j));
                 }
 
