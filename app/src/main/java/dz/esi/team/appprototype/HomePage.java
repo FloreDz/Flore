@@ -52,6 +52,7 @@ import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.sci_name;
 public class HomePage extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     public static final int LOAD_IMAGE_RESULT = 1;
+    public static final String FEEDBACK_FORM_URL = "https://goo.gl/IMDiRB";
     public static final String LOADED_IMAGE_PATH = "LOADED_IMAGE_PATH";
     public static final String LOADED_IMAGE_URI = "LOADED_IMAGE_URI";
     public static final String DISPLAY_TYPE = "DISPLAY_TYPE";
@@ -379,7 +380,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         }else if (id == R.id.nav_feedback){
 
             Intent browserIntent = new Intent(Intent.ACTION_VIEW);
-            browserIntent.setData(Uri.parse("https://material.io/icons/"));
+            browserIntent.setData(Uri.parse(FEEDBACK_FORM_URL));
             if (browserIntent.resolveActivity(getPackageManager()) != null) {
                 startActivity(browserIntent);
             }
