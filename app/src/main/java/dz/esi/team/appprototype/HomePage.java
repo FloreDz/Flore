@@ -374,6 +374,8 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         } else if (id == R.id.nav_user_guide) {
             intent = new Intent(HomePage.this, HelpActivity.class);
             startActivity(intent);
+        }else if (id == R.id.nav_feedback){
+
         }
         if (isVisible()) hideOptionMenu();
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
