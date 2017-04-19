@@ -23,16 +23,16 @@
                 />
             <item
                 android:checkableBehavior="single"
-                android:id="@+id/nav_aboutus"
-                android:icon="@drawable/info"
-                android:title="A propos"
+                android:id="@+id/nav_feedback"
+                android:icon="@drawable/feedback"
+                android:title="Feedback"
                 android:checkable="false"
                 />
             <item
                 android:checkableBehavior="single"
-                android:id="@+id/nav_feedback"
-                android:icon="@drawable/feedback"
-                android:title="Feedback"
+                android:id="@+id/nav_aboutus"
+                android:icon="@drawable/info"
+                android:title="A propos"
                 android:checkable="false"
                 />
 
