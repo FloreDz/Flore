@@ -5,16 +5,8 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.util.SortedList;
 import android.util.Log;
-
-/*import com.google.android.gms.appindexing.Action;
-import com.google.android.gms.appindexing.AppIndex;
-import com.google.android.gms.appindexing.Thing;
-import com.google.android.gms.common.api.GoogleApiClient;
-
-import org.opencv.android.BaseLoaderCallback;
-import org.opencv.android.LoaderCallbackInterface;*/
-
 import org.opencv.android.OpenCVLoader;
 import org.opencv.android.Utils;
 import org.opencv.core.CvType;
@@ -28,8 +20,13 @@ import org.opencv.features2d.FeatureDetector;
 import org.opencv.imgproc.Imgproc;
 
 import java.io.File;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 
 import dz.esi.team.appprototype.data.PlantRetriever;
 
@@ -72,9 +69,15 @@ public class ORBRecognition extends AppCompatActivity {
 
         Cursor cursor = PlantRetriever.RetrievePlants(new String[]{_ID,sci_name},null,null,null);
 
+        Map<Long,Integer> recognitionResult = new HashMap<>();
+
         while (cursor.moveToNext()) {
-            File directory = new File(cursor.getString(1));
+            String rep_name = cursor.getString(1).toLowerCase().replaceAll(" ", "_");
+            File directory = new File(rep_name);
+
             File[] fList = directory.listFiles();
+
+            TreeSet<Integer> plantGoodMatches = new TreeSet<>();
 
             for (int i = 0; i < fList.length; i++) {
                 Bitmap query = BitmapFactory.decodeFile(fList[i].getPath());
@@ -112,143 +115,26 @@ public class ORBRecognition extends AppCompatActivity {
                         good_matches.addLast(matchesList.get(j));
                 }
 
-                MatOfDMatch mGood_matches = new MatOfDMatch();
+                /*MatOfDMatch mGood_matches = new MatOfDMatch();
                 mGood_matches.fromList(good_matches);
-                //   mGood_matches.fromList(matchesList);
+                //   mGood_matches.fromList(matchesList);*/
                 
                 Log.d(TAG, "size of goodmatches is : " + good_matches.size());
                 Log.d(TAG, "size of matches is: " + matchesList.size());
-                Log.d(TAG,"distance of "+i+" = " + good_matches.size()+"  while size of matches is "+ matchesList.size()+"  min= "+min_dist+" max= "+max_dist +"  taux = "+ (double) good_matches.size()/matchesList.size()  );
+                Log.d(TAG,"distance of " + i + " = " + good_matches.size()+"  while size of matches is "+ matchesList.size()+"  min= "+min_dist+" max= "+max_dist +"  taux = "+ (double) good_matches.size()/matchesList.size()  );
 
+                plantGoodMatches.add(100*good_matches.size()/matchesList.size());
             }
+
+            recognitionResult.put( Long.parseLong(cursor.getString(0)) , plantGoodMatches.last() );
+            plantGoodMatches.clear();
+            Log.d(TAG, "ORBRecognition: plantGoodMatches list size " + plantGoodMatches.size());
 
         }
 
 
     }
+
+ 
 }
 
-
-//package com.example.hakoo.myapplication;
-//
-//import android.support.v7.app.AppCompatActivity;
-//import android.os.Bundle;
-//import android.util.Log;
-//import android.view.MenuItem;
-//import android.view.SurfaceView;
-//import android.view.WindowManager;
-//
-//import org.opencv.android.BaseLoaderCallback;
-//import org.opencv.android.CameraBridgeViewBase;
-//import org.opencv.android.LoaderCallbackInterface;
-//import org.opencv.android.OpenCVLoader;
-//import org.opencv.core.Core;
-//import org.opencv.core.CvType;
-//import org.opencv.core.Mat;
-//import org.opencv.highgui.Highgui;
-//import org.opencv.imgproc.Imgproc;
-//
-//public class MainActivity extends AppCompatActivity implements CameraBridgeViewBase.CvCameraViewListener2{
-//
-//    public static final String TAG = MainActivity.class.getSimpleName();
-//    private CameraBridgeViewBase cameraBridgeViewBase;
-//    private boolean mIsJavaCamera=true;
-//    private MenuItem mItemSwuitchCamera = null ;
-//    Mat mRgba;
-//    Mat mRgbaF;
-//    Mat mRgbaT;
-//
-//
-//
-//
-//    static{
-//        if(OpenCVLoader.initDebug()){
-//            Log.d(TAG,"opencv is loaded!");
-//        }
-//        else{
-//            Log.d(TAG,"opencv is not loaded!");
-//        }
-//    }
-//
-//    BaseLoaderCallback baseLoaderCallback = new BaseLoaderCallback(this) {
-//        @Override
-//        public void onManagerConnected(int status) {
-//            switch(status){
-//                case BaseLoaderCallback.SUCCESS:{
-//                    cameraBridgeViewBase.enableView();
-//                    break;
-//                }
-//                default:{
-//                    super.onManagerConnected(status);
-//                    break;
-//                }
-//            }
-//
-//        }
-//    };
-//
-//
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main);
-//        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-//        cameraBridgeViewBase = (CameraBridgeViewBase) findViewById(R.id.java_camera_view);
-//        cameraBridgeViewBase.setVisibility(SurfaceView.VISIBLE);
-//        cameraBridgeViewBase.setCvCameraViewListener(this);
-//
-//    }
-//
-//    @Override
-//    protected void onPause() {
-//        super.onPause();
-//            if(cameraBridgeViewBase!=null)
-//            cameraBridgeViewBase.disableView();
-//
-//    }
-//
-//    @Override
-//    protected void onDestroy() {
-//        super.onDestroy();
-//        if(cameraBridgeViewBase!=null)
-//            cameraBridgeViewBase.disableView();
-//    }
-//
-//    @Override
-//    protected void onResume() {
-//        super.onResume();
-//        if(OpenCVLoader.initDebug()){
-//            baseLoaderCallback.onManagerConnected(LoaderCallbackInterface.SUCCESS);
-//        }
-//        else{
-//            OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_2_4_11,this,baseLoaderCallback);
-//
-//        }
-//    }
-//
-//    @Override
-//    public void onCameraViewStarted(int width, int height) {
-//        mRgba =new Mat(height,width, CvType.CV_8UC4);
-//        mRgbaF=new Mat(height,width, CvType.CV_8UC4);
-//        mRgbaT=new Mat(height,width, CvType.CV_8UC4);
-//        Mat mGray= new Mat(height,width, CvType.CV_8UC1);
-//
-//    }
-//
-//    @Override
-//    public void onCameraViewStopped() {
-//      mRgba.release();
-//    }
-//
-//    @Override
-//    public Mat onCameraFrame(CameraBridgeViewBase.CvCameraViewFrame inputFrame) {
-//        mRgba=inputFrame.rgba();
-//        Core.transpose(mRgba,mRgbaT);
-//
-//        Imgproc.resize(mRgbaT,mRgbaF,mRgbaF.size(),0,0,0);
-//        Core.flip(mRgbaT,mRgba,1);
-//
-//        return mRgba;
-//    }
-//
-//}

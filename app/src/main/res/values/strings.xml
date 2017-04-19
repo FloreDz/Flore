@@ -53,6 +53,7 @@
     <string name="plant_family">Plant Family</string>
     <string name="title_activity_database_test">DatabaseTest</string>
     <string name="plant_profile_app_bar_title">This is changed by JAVA</string>
+    <string name="title_activity_recognition_result">RecognitionResult</string>
 
 
 </resources>
