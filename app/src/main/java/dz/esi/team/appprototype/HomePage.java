@@ -24,6 +24,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
@@ -376,6 +378,11 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
             startActivity(intent);
         }else if (id == R.id.nav_feedback){
 
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW);
+            browserIntent.setData(Uri.parse("https://material.io/icons/"));
+            if (browserIntent.resolveActivity(getPackageManager()) != null) {
+                startActivity(browserIntent);
+            }
         }
         if (isVisible()) hideOptionMenu();
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

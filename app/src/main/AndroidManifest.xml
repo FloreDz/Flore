@@ -102,8 +102,8 @@
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:theme="@style/PreferencesTheme"
-            android:parentActivityName=".HomePage">
+            android:parentActivityName=".HomePage"
+            android:theme="@style/PreferencesTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="dz.esi.team.appprototype.HomePage" />
