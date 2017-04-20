@@ -373,7 +373,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         if (id == R.id.nav_preferences) {
             startActivity(new Intent(HomePage.this, SettingsActivity.class));
         } else if (id == R.id.nav_aboutus) {
-            startActivity(new Intent(HomePage.this, AboutUsActivity.class));
+            startActivity(new Intent(HomePage.this, AboutUs.class));
         } else if (id == R.id.nav_user_guide) {
             intent = new Intent(HomePage.this, HelpActivity.class);
             startActivity(intent);

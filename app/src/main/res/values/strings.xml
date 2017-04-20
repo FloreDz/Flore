@@ -39,11 +39,17 @@
 
     <!-- team members -->
     <string name="chenine_name">CHENINE Azzeddine</string>
+    <string name="chenine_email">fa_chenine@esi.dz</string>
     <string name="bouguesri_name">BOUGUESRI Mohammed Adel</string>
+    <string name="bouguesri_email">fa_bouguesri@esi.dz</string>
     <string name="boutifour_name">BOUTIFOUR Abdelhak</string>
+    <string name="boutifour_email">fa_boutifour@esi.dz</string>
     <string name="borsali_name">BORSALI Fayçal</string>
+    <string name="borsali_email">ff_borsali@esi.dz</string>
     <string name="souab_name">SOUAB Nadjib</string>
+    <string name="souab_email">fn_souab@esi.dz</string>
     <string name="benchohra_name">BENCHOHRA Mohammed Amine</string>
+    <string name="benchohra_email">fm_benchohra@esi.dz</string>
 
 
     <string name="plant_resume_default_text">Un résumé sur la plante</string>

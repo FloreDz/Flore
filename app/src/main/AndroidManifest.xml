@@ -83,10 +83,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="dz.esi.team.appprototype.HomePage" />
         </activity>
-        <activity
-            android:name=".AboutUsActivity"
-            android:label="@string/title_activity_about_us"
-            android:theme="@style/AppTheme.NoActionBar" />
 
         <!-- TODO : add the provider here -->
         <provider
@@ -104,6 +100,15 @@
             android:label="@string/title_activity_settings"
             android:parentActivityName=".HomePage"
             android:theme="@style/PreferencesTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="dz.esi.team.appprototype.HomePage" />
+        </activity>
+        <activity
+            android:name=".AboutUs"
+            android:label="@string/title_activity_about_us"
+            android:parentActivityName=".HomePage"
+            android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="dz.esi.team.appprototype.HomePage" />

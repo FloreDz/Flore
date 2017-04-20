@@ -200,7 +200,7 @@ public class ProfileActivity extends AppCompatActivity {
 
 
         famille = (TextView) findViewById(R.id.plant_family);
-        famille.setText("Famille: "+profile.getFamille());
+        famille.setText("Famille : "+profile.getFamille());
 
 
 
