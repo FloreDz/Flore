@@ -64,6 +64,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
     private static final int PLANT_LOADER = 0;
     public static String DISPLAY_STATE = SHOW_PLANTS_BY_FAMILIES;
     public static PlantDbHelper mDbHelper;
+    public static boolean showingRecognitionResults;
 
     /* TODO : MOHAMED added : */
     public static ArrayList<String> plantsHeaders = null;
@@ -124,6 +125,24 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
             }
         });
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.v("HomePage", "ACTIVITY STARTED");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.v("HomePage", "ACTIVITY RESUMED");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.v("HomePage", "ACTIVITY PAUSED");
 
         /* TODO : MOHAMED added : */
 
@@ -158,25 +177,6 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
 
         listViewLoader = new ListViewLoader(progressBar,true);
         listViewLoader.execute();
-
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        Log.v("HomePage", "ACTIVITY STARTED");
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        Log.v("HomePage", "ACTIVITY RESUMED");
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Log.v("HomePage", "ACTIVITY PAUSED");
     }
 
     @Override
@@ -214,10 +214,8 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
     private void setupWindowAnimations() {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
             Log.v(TAG, "Into LOLLIPOP");
-            Fade fade = new Fade();
-            fade.setDuration(1000);
-            getWindow().setEnterTransition(fade);
-            getWindow().setExitTransition(fade);
+            getWindow().setEnterTransition(new Fade().setDuration(1000));
+            getWindow().setExitTransition(new Fade().setDuration(1000));
         }
     }
 

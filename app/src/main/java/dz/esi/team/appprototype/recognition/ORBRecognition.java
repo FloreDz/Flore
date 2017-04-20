@@ -1,12 +1,20 @@
 
 package dz.esi.team.appprototype.recognition;
 
+import android.app.LoaderManager;
+import android.content.CursorLoader;
+import android.content.Loader;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.util.SortedList;
 import android.util.Log;
+import android.widget.ProgressBar;
+
 import org.opencv.android.OpenCVLoader;
 import org.opencv.android.Utils;
 import org.opencv.core.CvType;
@@ -28,8 +36,11 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
+import dz.esi.team.appprototype.HomePage;
+import dz.esi.team.appprototype.data.PlantCursorAdapter;
 import dz.esi.team.appprototype.data.PlantRetriever;
 
+import static dz.esi.team.appprototype.HomePage.DISPLAY_STATE;
 import static dz.esi.team.appprototype.data.PlantContract.PlantEntry._ID;
 import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.sci_name;
 
@@ -121,7 +132,10 @@ public class ORBRecognition extends AppCompatActivity {
                 
                 Log.d(TAG, "size of goodmatches is : " + good_matches.size());
                 Log.d(TAG, "size of matches is: " + matchesList.size());
-                Log.d(TAG,"distance of " + i + " = " + good_matches.size()+"  while size of matches is "+ matchesList.size()+"  min= "+min_dist+" max= "+max_dist +"  taux = "+ (double) good_matches.size()/matchesList.size()  );
+                Log.d(TAG,"distance of " + i + " = " + good_matches.size()
+                        +"  while size of matches is "+ matchesList.size()
+                        +"  min= "+min_dist+" max= "+max_dist +"  taux = "
+                        + (double) good_matches.size()/matchesList.size()  );
 
                 plantGoodMatches.add(100*good_matches.size()/matchesList.size());
             }
@@ -132,9 +146,7 @@ public class ORBRecognition extends AppCompatActivity {
 
         }
 
-
     }
 
- 
 }
 
