@@ -47,7 +47,7 @@ public class SearchPlantesActivity extends BaseActivity implements AdapterView.O
 
         /************************************************************************************************/
 
-        MedicalPlant plant = new MedicalPlant("Allium sativum L", R.mipmap.ail, "medical plants family");
+       /* MedicalPlant plant = new MedicalPlant("Allium sativum L", R.mipmap.ail, "medical plants family");
         medicalPlantsList.add(plant);
         medicalPlantsList.add(plant);
         medicalPlantsList.add(plant);
