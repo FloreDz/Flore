@@ -23,16 +23,13 @@ import dz.esi.team.appprototype.data.PlantRetriever;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
-import static dz.esi.team.appprototype.HomePage.DISPLAY_STATE;
-import static dz.esi.team.appprototype.HomePage.SHOW_PLANTS_BY_DEFAULT;
-import static dz.esi.team.appprototype.HomePage.SHOW_PLANTS_BY_FAMILIES;
 import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.CONTENT_URI;
 import static dz.esi.team.appprototype.data.PlantContract.PlantEntry._ID;
 import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.famille;
 import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.image;
 import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.sci_name;
 
-public class SearchActivity extends BaseActivity{
+public class SearchActivity extends BaseActivity {
     public static final String PLANT_QUERY = "PLANT_QUERY";
     private static final String TAG = HomePage.class.getSimpleName();
     private SearchView searchView;
@@ -53,8 +50,6 @@ public class SearchActivity extends BaseActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        if (DISPLAY_STATE.equals(SHOW_PLANTS_BY_FAMILIES)) DISPLAY_STATE = SHOW_PLANTS_BY_DEFAULT;
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.search_plantes);
@@ -113,7 +108,7 @@ public class SearchActivity extends BaseActivity{
             @Override
             public boolean onQueryTextChange(String newText) {
 
-                queryText =  newText ;
+                queryText =  newText;
 
                 final Cursor cursor = PlantRetriever.SearchPlants(newText);
                 listViewLoader.reloadWithNewCursor(cursor);
@@ -126,7 +121,6 @@ public class SearchActivity extends BaseActivity{
         searchView.setOnCloseListener(new SearchView.OnCloseListener() {
             @Override
             public boolean onClose() {
-                finish();
                 return true;
             }
         });
@@ -148,7 +142,7 @@ public class SearchActivity extends BaseActivity{
 
     class ListViewLoader implements LoaderManager.LoaderCallbacks<Cursor> {
 
-        PlantCursorAdapter mCursorAdapter = new PlantCursorAdapter(SearchActivity.this, null);
+        PlantCursorAdapter mCursorAdapter = new PlantCursorAdapter(SearchActivity.this, null ,SHOW_PLANTS_BY_SCIENTIFIQUE_NAMES);
         ProgressBar progressBar;
         boolean firstRun;
 
@@ -165,8 +159,7 @@ public class SearchActivity extends BaseActivity{
                 Log.v(TAG, "loader inited");
                 firstRun = false;
             } else {
-                Cursor cursor = PlantRetriever.RetrievePlants(homeMenuProjection, null, null, DISPLAY_STATE);
-
+                Cursor cursor = PlantRetriever.RetrievePlants(homeMenuProjection, null, null, SHOW_PLANTS_BY_SCIENTIFIQUE_NAMES);
                 listViewLoader.progressBar.setVisibility(GONE);
                 mCursorAdapter.swapCursor(cursor);
                 searchResultListView.setAdapter(mCursorAdapter);
@@ -185,7 +178,7 @@ public class SearchActivity extends BaseActivity{
             Log.v(TAG, "in loader creation");
 
             // the loader will execute the CP query method on a background thread
-            return new CursorLoader(SearchActivity.this, CONTENT_URI, homeMenuProjection, null, null, DISPLAY_STATE);
+            return new CursorLoader(SearchActivity.this, CONTENT_URI, homeMenuProjection, null, null, SHOW_PLANTS_BY_SCIENTIFIQUE_NAMES);
         }
 
         @Override

@@ -17,7 +17,6 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
-import android.transition.Fade;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -49,17 +48,15 @@ import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.sci_name;
 
 public class HomePage extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    public static final int LOAD_IMAGE_RESULT = 1;
-    public static final String LOADED_IMAGE_PATH = "LOADED_IMAGE_PATH";
-    public static final String LOADED_IMAGE_URI = "LOADED_IMAGE_URI";
-    public static final String DISPLAY_TYPE = "DISPLAY_TYPE";
-    public static final String SHOW_PLANTS_BY_DEFAULT = sci_name + " ASC";
-    public static final String SHOW_PLANTS_BY_FAMILIES = famille + " ASC";
+    private static final int LOAD_IMAGE_RESULT = 1;
+    private static final String LOADED_IMAGE_PATH = "LOADED_IMAGE_PATH";
+    private static final String LOADED_IMAGE_URI = "LOADED_IMAGE_URI";
+    private static final String DISPLAY_TYPE = "DISPLAY_TYPE";
     private static final String TAG = HomePage.class.getSimpleName();
     private static final String ERROR_MESS = "something went wrong";
     private static final int PLANT_LOADER = 0;
-    public static String DISPLAY_STATE = SHOW_PLANTS_BY_FAMILIES;
     public static PlantDbHelper mDbHelper;
+    private static String DISPLAY_STATE = SHOW_PLANTS_BY_FAMILIES;
 
     /* TODO : MOHAMED added : */
     public static ArrayList<String> plantsHeaders = null;
@@ -197,7 +194,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
     private void switchDisplayState() {
         String displayMessage;
         if (DISPLAY_STATE.equals(SHOW_PLANTS_BY_FAMILIES)) {
-            DISPLAY_STATE = SHOW_PLANTS_BY_DEFAULT;
+            DISPLAY_STATE = SHOW_PLANTS_BY_SCIENTIFIQUE_NAMES;
             displayMessage = "Affichage par plantes";
         } else {
             DISPLAY_STATE = SHOW_PLANTS_BY_FAMILIES;
@@ -576,7 +573,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
 
     class ListViewLoader implements LoaderManager.LoaderCallbacks<Cursor> {
 
-        PlantCursorAdapter mCursorAdapter = new PlantCursorAdapter(HomePage.this, null);
+        PlantCursorAdapter mCursorAdapter = new PlantCursorAdapter(HomePage.this, null ,DISPLAY_STATE);
         ProgressBar progressBar;
         boolean firstRun;
 
@@ -593,8 +590,8 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
                 Log.v(TAG, "loader inited");
                 firstRun = false;
             } else {
+                mCursorAdapter.setDISPLAY_STATE(DISPLAY_STATE);
                 final Cursor cursor = PlantRetriever.RetrievePlants(homeMenuProjection, null, null, DISPLAY_STATE);
-
                 mCursorAdapter.swapCursor(null);
                 new Handler().postDelayed(new Runnable() {
                     @Override

@@ -5,7 +5,7 @@ import android.database.StaleDataException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-import static dz.esi.team.appprototype.HomePage.DISPLAY_STATE;
+import static dz.esi.team.appprototype.BaseActivity.SHOW_PLANTS_BY_SCIENTIFIQUE_NAMES;
 import static dz.esi.team.appprototype.HomePage.mDbHelper;
 import static dz.esi.team.appprototype.HomePage.homeMenuProjection;
 import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.TABLE_NAME;
@@ -18,7 +18,6 @@ import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.sci_name;
 public class PlantRetriever {
 
     private static final String TAG = PlantRetriever.class.getSimpleName();
-
 
     public static Cursor RetrievePlants(String[] projection, String selection, String[] selectionArgs, String order) {
         SQLiteDatabase db = mDbHelper.getReadableDatabase();
@@ -36,7 +35,7 @@ public class PlantRetriever {
         String[] selectionArgs = new String[] {nameStartsWith + "%"};
 
         Log.d(TAG, "RetrievePlants: , about to query");
-        Cursor cursor = db.query(TABLE_NAME, homeMenuProjection, selection, selectionArgs, null, null, DISPLAY_STATE);
+        Cursor cursor = db.query(TABLE_NAME, homeMenuProjection, selection, selectionArgs, null, null, SHOW_PLANTS_BY_SCIENTIFIQUE_NAMES);
         Log.d(TAG, "RetrievePlants: , done query");
 
         return cursor;
