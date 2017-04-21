@@ -16,7 +16,7 @@
         android:layout_marginTop="0dp"
         android:background="@color/white_color_smoke"
         android:gravity="center_vertical"
-        android:onClick="familyHeaderListener"
+        android:onClick="doNothing"
         android:paddingBottom="4dp"
         android:paddingStart="8dp"
         android:paddingTop="4dp"

@@ -539,6 +539,10 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         return (takeImageLayout.getVisibility() == VISIBLE && importImageLayout.getVisibility() == VISIBLE);
     }
 
+    public void doNothing(View view){
+        // ignoring the familly header clicks
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
