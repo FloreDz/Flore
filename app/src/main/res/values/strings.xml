@@ -14,12 +14,12 @@
     <string name="import_photo">Importer une photo</string>
 
     <!-- Search activity -->
-    <string name="searchable">le nom de la plante</string>
+    <string name="searchable">  Entrez le nom de la plante</string>
     <string name="search">rechercher</string>
 
     <!-- Activities titles -->
     <string name="title_activity_home_page">Page d\'acceuille</string>
-    <string name="title_activity_search_plants">Rechercher des plantes</string>
+    <string name="title_activity_search_plants"></string>
     <string name="title_activity_plant_profile">Profil</string>
     <string name="title_activity_image_process">Traitement d\'image</string>
     <string name="title_activity_search_menu">Menu de recherche</string>

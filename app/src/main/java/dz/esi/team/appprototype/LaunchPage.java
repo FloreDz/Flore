@@ -18,11 +18,6 @@ public class LaunchPage extends AppCompatActivity {
 
         nextPage = new Intent(LaunchPage.this, HomePage.class);
 
-//        Glide.with(this)
-//                .load(R.drawable.logo_glass_material)
-//                .crossFade(250)
-//                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-//                .into((ImageView) findViewById(R.id.logo));
 
         new Handler().postDelayed(new Runnable() {
             @Override

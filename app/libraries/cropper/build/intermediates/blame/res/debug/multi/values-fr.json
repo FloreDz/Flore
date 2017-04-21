@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/cropper/build/intermediates/incremental/mergeDebugResources/merged.dir/values-fr/values-fr.xml",
+        "outputFile": "C:\\Android\\Projects\\Flore\\app\\libraries\\cropper\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-fr\\values-fr.xml",
         "map": [
             {
                 "to": {
@@ -11,13 +11,13 @@
                     "endOffset": 168
                 },
                 "from": {
-                    "file": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/cropper/src/main/res/values-fr/strings.xml",
+                    "file": "C:\\Android\\Projects\\Flore\\app\\libraries\\cropper\\src\\main\\res\\values-fr\\strings.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
-                        "startOffset": 310,
+                        "startOffset": 317,
                         "endColumn": 74,
-                        "endOffset": 380
+                        "endOffset": 387
                     }
                 }
             },
@@ -30,13 +30,13 @@
                     "endOffset": 216
                 },
                 "from": {
-                    "file": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/cropper/src/main/res/values-fr/strings.xml",
+                    "file": "C:\\Android\\Projects\\Flore\\app\\libraries\\cropper\\src\\main\\res\\values-fr\\strings.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
-                        "startOffset": 262,
+                        "startOffset": 268,
                         "endColumn": 47,
-                        "endOffset": 305
+                        "endOffset": 311
                     }
                 }
             },
@@ -49,13 +49,13 @@
                     "endOffset": 285
                 },
                 "from": {
-                    "file": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/cropper/src/main/res/values-fr/strings.xml",
+                    "file": "C:\\Android\\Projects\\Flore\\app\\libraries\\cropper\\src\\main\\res\\values-fr\\strings.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
-                        "startOffset": 192,
+                        "startOffset": 196,
                         "endColumn": 68,
-                        "endOffset": 256
+                        "endOffset": 260
                     }
                 }
             },
@@ -68,13 +68,13 @@
                     "endOffset": 354
                 },
                 "from": {
-                    "file": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/cropper/src/main/res/values-fr/strings.xml",
+                    "file": "C:\\Android\\Projects\\Flore\\app\\libraries\\cropper\\src\\main\\res\\values-fr\\strings.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
-                        "startOffset": 64,
+                        "startOffset": 66,
                         "endColumn": 68,
-                        "endOffset": 128
+                        "endOffset": 130
                     }
                 }
             },
@@ -87,13 +87,13 @@
                     "endOffset": 413
                 },
                 "from": {
-                    "file": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/cropper/src/main/res/values-fr/strings.xml",
+                    "file": "C:\\Android\\Projects\\Flore\\app\\libraries\\cropper\\src\\main\\res\\values-fr\\strings.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
-                        "startOffset": 133,
+                        "startOffset": 136,
                         "endColumn": 58,
-                        "endOffset": 187
+                        "endOffset": 190
                     }
                 }
             }
