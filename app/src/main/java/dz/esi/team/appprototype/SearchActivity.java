@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -30,17 +31,19 @@ import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.image;
 import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.sci_name;
 
 public class SearchActivity extends BaseActivity {
-    public static final String PLANT_QUERY = "PLANT_QUERY";
-    private static final String TAG = HomePage.class.getSimpleName();
-    private SearchView searchView;
-    private String queryText = null;
 
-    /* TODO : MOHAMED added : */
     private static final int PLANT_LOADER = 0;
-    public static PlantDbHelper mDbHelper;
-    ProgressBar progressBar;
-    ListViewLoader listViewLoader;
-    ListView searchResultListView;
+    private static final String PLANT_QUERY = "PLANT_QUERY";
+    private static final String TAG = SearchActivity.class.getSimpleName();
+
+    private static PlantDbHelper mDbHelper;
+
+    private SearchView searchView;
+    private SearchListViewLoader searchListViewLoader;
+    private ListView searchResultListView;
+    private View emptyView;
+
+    private String queryText = "";
     private String[] homeMenuProjection = {
             _ID,
             sci_name,
@@ -48,19 +51,21 @@ public class SearchActivity extends BaseActivity {
             famille
     };
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.search_plantes);
 
-        // this method will activate the layout toolBar , it is implemented in the BaseActivity
+        if (savedInstanceState != null)
+            this.queryText = savedInstanceState.getString(PLANT_QUERY);
+
         activateToolBar(false);
 
-        // todo: Mohamed added :
-        progressBar = (ProgressBar) findViewById(R.id.search_progress_bar);
         searchResultListView = (ListView) findViewById(R.id.search_result_list_view);
-        View emptyView = findViewById(R.id.empty_view);
+        emptyView = findViewById(R.id.empty_view);
+
         searchResultListView.setEmptyView(emptyView);
         searchResultListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -73,17 +78,24 @@ public class SearchActivity extends BaseActivity {
 
         mDbHelper = new PlantDbHelper(this);
 
+        initDatabase();
+
+        searchListViewLoader = new SearchListViewLoader();
+
+        searchListViewLoader.populateSearchListView();
+
+
+    }
+
+    private void initDatabase() {
         try {
             mDbHelper.createDataBase();
         } catch (Exception e) {
             Log.e("From Main.db creation", e.getMessage());
         }
         mDbHelper.openDataBase();
-
-        listViewLoader = new ListViewLoader(progressBar,true);
-        listViewLoader.execute();
-
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -95,7 +107,7 @@ public class SearchActivity extends BaseActivity {
         searchView = (SearchView) menu.findItem(R.id.app_bar_search).getActionView();
         searchView.setSearchableInfo(searchableInfo);
         searchView.setIconified(false);
-        searchView.setQuery(this.queryText,false);
+        searchView.setQuery(this.queryText, false);
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 
@@ -108,10 +120,10 @@ public class SearchActivity extends BaseActivity {
             @Override
             public boolean onQueryTextChange(String newText) {
 
-                queryText =  newText;
+                queryText = newText;
 
                 final Cursor cursor = PlantRetriever.SearchPlants(newText);
-                listViewLoader.reloadWithNewCursor(cursor);
+                searchListViewLoader.reloadWithUpdatedCursor(cursor);
 
                 return true;
 
@@ -121,57 +133,40 @@ public class SearchActivity extends BaseActivity {
         searchView.setOnCloseListener(new SearchView.OnCloseListener() {
             @Override
             public boolean onClose() {
+                Log.d(TAG, "onClose: in");
                 return true;
             }
         });
-        return true;
 
+        return true;
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-        outState.putString(PLANT_QUERY,this.queryText);
         super.onSaveInstanceState(outState);
+        outState.putString(PLANT_QUERY, this.queryText);
+        Log.d(TAG, "onSaveInstanceState: in");
     }
 
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-       this.queryText =  savedInstanceState.getString(PLANT_QUERY)  ;
-        super.onRestoreInstanceState(savedInstanceState);
-    }
+    class SearchListViewLoader implements LoaderManager.LoaderCallbacks<Cursor> {
 
-    class ListViewLoader implements LoaderManager.LoaderCallbacks<Cursor> {
+        private PlantCursorAdapter mCursorAdapter = new PlantCursorAdapter(SearchActivity.this, null, SHOW_PLANTS_BY_SCIENTIFIQUE_NAMES);
 
-        PlantCursorAdapter mCursorAdapter = new PlantCursorAdapter(SearchActivity.this, null ,SHOW_PLANTS_BY_SCIENTIFIQUE_NAMES);
-        ProgressBar progressBar;
-        boolean firstRun;
 
-        public ListViewLoader(ProgressBar progressBar, boolean firstRun) {
-            this.progressBar = progressBar;
-            this.firstRun = firstRun;
+        public void populateSearchListView() {
+
+            Log.v(TAG, "about to init loader");
+            getLoaderManager().initLoader(PLANT_LOADER, null, this);
+            Log.v(TAG, "loader inited");
+            Cursor cursor = PlantRetriever.SearchPlants(queryText);
+            reloadWithUpdatedCursor(cursor);
+
         }
 
-        public void execute() {
-            this.progressBar.setVisibility(VISIBLE);
-            if (firstRun) {
-                Log.v(TAG, "about to init loader");
-                getLoaderManager().initLoader(PLANT_LOADER, null, this);
-                Log.v(TAG, "loader inited");
-                firstRun = false;
-            } else {
-                Cursor cursor = PlantRetriever.RetrievePlants(homeMenuProjection, null, null, SHOW_PLANTS_BY_SCIENTIFIQUE_NAMES);
-                listViewLoader.progressBar.setVisibility(GONE);
-                mCursorAdapter.swapCursor(cursor);
-                searchResultListView.setAdapter(mCursorAdapter);
-            }
-        }
-
-        public void reloadWithNewCursor(Cursor cursor) {
-            listViewLoader.progressBar.setVisibility(GONE);
+        public void reloadWithUpdatedCursor(Cursor cursor) {
             mCursorAdapter.swapCursor(cursor);
             searchResultListView.setAdapter(mCursorAdapter);
         }
-
 
         @Override
         public Loader<Cursor> onCreateLoader(int id, Bundle args) {
@@ -182,13 +177,7 @@ public class SearchActivity extends BaseActivity {
         }
 
         @Override
-        public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
-            Log.v(TAG, "in loader finish");
-            // update the adapter with this new cursor containing updated plant data
-            listViewLoader.progressBar.setVisibility(GONE);
-            mCursorAdapter.swapCursor(cursor);
-            searchResultListView.setAdapter(mCursorAdapter);
-        }
+        public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {}
 
         @Override
         public void onLoaderReset(Loader<Cursor> loader) {

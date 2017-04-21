@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    >
-
-
-
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item android:title="@string/crop"
         android:id="@+id/btn_crop"
-        android:icon="@drawable/crop_image"
-        />
+        android:icon="@drawable/crop_image"/>
 
     <item android:title="@string/app_intro_done_button"
         android:id="@+id/btn_image_process"
-        android:icon="@drawable/start_recognition"
-        />
+        android:icon="@drawable/start_recognition"/>
+
 </menu>

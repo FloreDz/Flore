@@ -8,5 +8,6 @@
         android:icon="@drawable/search"
         android:title="Search"
         android:visible="true"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always" />
+
 </menu>

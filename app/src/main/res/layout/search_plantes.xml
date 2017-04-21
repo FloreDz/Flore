@@ -22,6 +22,7 @@
             app:elevation="0dp"/>
 
     </android.support.design.widget.AppBarLayout>
+
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

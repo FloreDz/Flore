@@ -610,7 +610,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
 
             Log.v(TAG, "in loader creation");
 
-            // the loader will execute the CP query method on a background thread
+            // the loader will executeSearchQuery the CP query method on a background thread
             return new CursorLoader(HomePage.this, CONTENT_URI, homeMenuProjection, null, null, DISPLAY_STATE);
         }
 

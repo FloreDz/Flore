@@ -19,7 +19,7 @@
 
     <!-- Activities titles -->
     <string name="title_activity_home_page">Page d\'acceuille</string>
-    <string name="title_activity_search_plants">Rechercher des plantes</string>
+    <string name="title_activity_search_plants"></string>
     <string name="title_activity_plant_profile">Profil</string>
     <string name="title_activity_image_process">Traitement d\'image</string>
     <string name="title_activity_search_menu">Menu de recherche</string>
