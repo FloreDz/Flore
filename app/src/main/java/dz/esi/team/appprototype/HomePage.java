@@ -146,21 +146,6 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
                 startActivity(intent);
             }
         });
-
-        PreferenceManager.setDefaultValues(this, R.xml.pref_general, false);
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        Log.v("HomePage", "ACTIVITY STARTED");
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        Log.v("HomePage", "ACTIVITY RESUMED");
-
         mDbHelper = new PlantDbHelper(this);
 
         try {
@@ -174,6 +159,19 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
 
         listViewLoader = new ListViewLoader(progressBar,true);
         listViewLoader.execute();
+        PreferenceManager.setDefaultValues(this, R.xml.pref_general, false);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.v("HomePage", "ACTIVITY STARTED");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.v("HomePage", "ACTIVITY RESUMED");
     }
 
     @Override
@@ -181,12 +179,12 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         super.onPause();
         Log.v("HomePage", "ACTIVITY PAUSED");
 
-        mDbHelper.close();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
+        mDbHelper.close();
         Log.v("HomePage", "ACTIVITY STOPPED");
     }
 

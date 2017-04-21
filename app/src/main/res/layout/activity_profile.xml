@@ -24,13 +24,6 @@
             app:expandedTitleTextAppearance="@style/CollapsingToolbarExpandedTextAppearance"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar_profile"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:layout_collapseMode="parallax"
-                app:popupTheme="@style/AppTheme.PopupOverlay" />
-
             <android.support.constraint.ConstraintLayout
                 android:id="@+id/plant_main_info"
                 android:layout_width="match_parent"
@@ -92,7 +85,12 @@
 
             </android.support.constraint.ConstraintLayout>
 
-
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar_profile"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="parallax"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
 
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
