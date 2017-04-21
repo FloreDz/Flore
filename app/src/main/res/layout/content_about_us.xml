@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,11 +8,22 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="dz.esi.team.appprototype.AboutUs"
     tools:showIn="@layout/activity_about_us">
-
-
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/logo_glass_material"/>
+</FrameLayout>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white_color_smoke_lowOpacity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingBottom="32dp"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
@@ -26,8 +37,8 @@
             android:layout_weight="1"
             android:layout_marginBottom="8dp"
             style="@style/profileFieldsTitle"
-            android:textColor="@color/gray_color_dark"
-            android:text="Notre equipe" />
+            android:textColor="@color/logo_green_dark"
+            android:text="Equipe Flore" />
 
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
@@ -43,10 +54,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/clean_white"
-                android:paddingBottom="16dp"
+                android:paddingBottom="8dp"
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
-                android:paddingTop="16dp">
+                android:paddingTop="8dp">
 
                 <TextView
                     android:id="@+id/textView11"
@@ -57,8 +68,8 @@
                     android:textStyle="bold"
                     android:textColor="@color/gray_color_darker"
                     app:layout_constraintLeft_toRightOf="@+id/imageView1"
-                    android:layout_marginLeft="32dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
                     app:layout_constraintTop_toTopOf="@+id/imageView1" />
                 <TextView
                     android:id="@+id/textView12"
@@ -74,14 +85,14 @@
                     android:layout_marginLeft="0dp" />
                 <ImageView
                     android:id="@+id/imageView1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginTop="0dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_launcher" />
+                    app:srcCompat="@drawable/mohammed_img" />
             </android.support.constraint.ConstraintLayout>
         </android.support.v7.widget.CardView>
         <android.support.v7.widget.CardView
@@ -98,10 +109,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/clean_white"
-                android:paddingBottom="16dp"
+                android:paddingBottom="8dp"
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
-                android:paddingTop="16dp">
+                android:paddingTop="8dp">
 
                 <TextView
                     android:id="@+id/textView21"
@@ -112,8 +123,8 @@
                     android:textStyle="bold"
                     android:textColor="@color/gray_color_darker"
                     app:layout_constraintLeft_toRightOf="@+id/imageView2"
-                    android:layout_marginLeft="32dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
                     app:layout_constraintTop_toTopOf="@+id/imageView2" />
                 <TextView
                     android:id="@+id/textView22"
@@ -129,14 +140,14 @@
                     android:layout_marginLeft="0dp" />
                 <ImageView
                     android:id="@+id/imageView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginTop="0dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_launcher" />
+                    app:srcCompat="@drawable/faycal_img" />
             </android.support.constraint.ConstraintLayout>
         </android.support.v7.widget.CardView>
         <android.support.v7.widget.CardView
@@ -153,10 +164,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/clean_white"
-                android:paddingBottom="16dp"
+                android:paddingBottom="8dp"
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
-                android:paddingTop="16dp">
+                android:paddingTop="8dp">
 
                 <TextView
                     android:id="@+id/textView31"
@@ -167,8 +178,8 @@
                     android:textStyle="bold"
                     android:textColor="@color/gray_color_darker"
                     app:layout_constraintLeft_toRightOf="@+id/imageView3"
-                    android:layout_marginLeft="32dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
                     app:layout_constraintTop_toTopOf="@+id/imageView3" />
                 <TextView
                     android:id="@+id/textView32"
@@ -184,14 +195,14 @@
                     android:layout_marginLeft="0dp" />
                 <ImageView
                     android:id="@+id/imageView3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginTop="0dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_launcher" />
+                    app:srcCompat="@drawable/adel_img" />
             </android.support.constraint.ConstraintLayout>
         </android.support.v7.widget.CardView>
         <android.support.v7.widget.CardView
@@ -208,10 +219,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/clean_white"
-                android:paddingBottom="16dp"
+                android:paddingBottom="8dp"
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
-                android:paddingTop="16dp">
+                android:paddingTop="8dp">
 
                 <TextView
                     android:id="@+id/textView41"
@@ -222,8 +233,8 @@
                     android:textStyle="bold"
                     android:textColor="@color/gray_color_darker"
                     app:layout_constraintLeft_toRightOf="@+id/imageView4"
-                    android:layout_marginLeft="32dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
                     app:layout_constraintTop_toTopOf="@+id/imageView4" />
                 <TextView
                     android:id="@+id/textView42"
@@ -239,14 +250,14 @@
                     android:layout_marginLeft="0dp" />
                 <ImageView
                     android:id="@+id/imageView4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginTop="0dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_launcher" />
+                    app:srcCompat="@drawable/abdelhak_img" />
             </android.support.constraint.ConstraintLayout>
         </android.support.v7.widget.CardView>
         <android.support.v7.widget.CardView
@@ -263,10 +274,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/clean_white"
-                android:paddingBottom="16dp"
+                android:paddingBottom="8dp"
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
-                android:paddingTop="16dp">
+                android:paddingTop="8dp">
 
                 <TextView
                     android:id="@+id/textView51"
@@ -277,8 +288,8 @@
                     android:textStyle="bold"
                     android:textColor="@color/gray_color_darker"
                     app:layout_constraintLeft_toRightOf="@+id/imageView5"
-                    android:layout_marginLeft="32dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
                     app:layout_constraintTop_toTopOf="@+id/imageView5" />
                 <TextView
                     android:id="@+id/textView52"
@@ -294,14 +305,14 @@
                     android:layout_marginLeft="0dp" />
                 <ImageView
                     android:id="@+id/imageView5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginTop="0dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_launcher" />
+                    app:srcCompat="@drawable/azeddine_img" />
             </android.support.constraint.ConstraintLayout>
         </android.support.v7.widget.CardView>
         <android.support.v7.widget.CardView
@@ -318,10 +329,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/clean_white"
-                android:paddingBottom="16dp"
+                android:paddingBottom="8dp"
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
-                android:paddingTop="16dp">
+                android:paddingTop="8dp">
 
                 <TextView
                     android:id="@+id/textView61"
@@ -332,8 +343,8 @@
                     android:textStyle="bold"
                     android:textColor="@color/gray_color_darker"
                     app:layout_constraintLeft_toRightOf="@+id/imageView6"
-                    android:layout_marginLeft="32dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
                     app:layout_constraintTop_toTopOf="@+id/imageView6" />
                 <TextView
                     android:id="@+id/textView62"
@@ -349,17 +360,139 @@
                     android:layout_marginLeft="0dp" />
                 <ImageView
                     android:id="@+id/imageView6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginTop="0dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_launcher" />
+                    app:srcCompat="@drawable/nadjib_img" />
+            </android.support.constraint.ConstraintLayout>
+        </android.support.v7.widget.CardView>
+
+        <TextView
+            android:id="@+id/ourContact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginBottom="8dp"
+            style="@style/profileFieldsTitle"
+            android:textColor="@color/logo_green_medium"
+            android:text="En collaboration avec" />
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            android:layout_weight="6"
+            app:cardCornerRadius="4dp"
+            app:cardUseCompatPadding="true"
+            app:elevation="0dp">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/clean_white"
+                android:paddingBottom="8dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="8dp">
+
+                <TextView
+                    android:id="@+id/textView71"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rahmoune_name"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/gray_color_darker"
+                    app:layout_constraintLeft_toRightOf="@+id/imageView7"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintTop_toTopOf="@+id/imageView7" />
+                <TextView
+                    android:id="@+id/textView72"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rahmoune_job"
+                    android:textSize="14sp"
+                    android:textStyle="italic"
+                    android:textColor="@color/gray_color_dark"
+                    android:layout_marginTop="0dp"
+                    app:layout_constraintTop_toBottomOf="@+id/textView71"
+                    app:layout_constraintLeft_toLeftOf="@+id/textView71"
+                    android:layout_marginLeft="0dp" />
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/rahmoune_img" />
+            </android.support.constraint.ConstraintLayout>
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            android:layout_weight="6"
+            app:cardCornerRadius="4dp"
+            app:cardUseCompatPadding="true"
+            app:elevation="0dp">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/clean_white"
+                android:paddingBottom="8dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="8dp">
+
+                <TextView
+                    android:id="@+id/textView81"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/belkacemi_name"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/gray_color_darker"
+                    app:layout_constraintLeft_toRightOf="@+id/imageView8"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintTop_toTopOf="@+id/imageView8" />
+                <TextView
+                    android:id="@+id/textView82"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/belkacemi_job"
+                    android:textSize="14sp"
+                    android:textStyle="italic"
+                    android:textColor="@color/gray_color_dark"
+                    android:layout_marginTop="0dp"
+                    app:layout_constraintTop_toBottomOf="@+id/textView81"
+                    app:layout_constraintLeft_toLeftOf="@+id/textView81"
+                    android:layout_marginLeft="0dp" />
+                <ImageView
+                    android:id="@+id/imageView8"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/aimen_img" />
             </android.support.constraint.ConstraintLayout>
         </android.support.v7.widget.CardView>
 
     </LinearLayout>
 </ScrollView>
+
+</RelativeLayout>
 
