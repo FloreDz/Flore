@@ -174,12 +174,12 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private  void  setField(TextView textView,String key,int id,String value,int containerId){
-
         boolean state = sharedPref.getBoolean(key,true);
-        if(state){
+
+        if (state) {
             textView = (TextView) findViewById(id);
             textView.setText(value);
-        }else{
+        } else {
             findViewById(containerId).setVisibility(View.GONE);
         }
 
