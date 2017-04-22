@@ -1,20 +1,12 @@
 
 package dz.esi.team.appprototype.recognition;
 
-import android.app.LoaderManager;
 import android.content.Context;
-import android.content.CursorLoader;
-import android.content.Loader;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.util.SortedList;
 import android.util.Log;
-import android.widget.ProgressBar;
 
 import org.opencv.android.OpenCVLoader;
 import org.opencv.android.Utils;
@@ -34,8 +26,6 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
-import java.util.TreeSet;
 
 import dz.esi.team.appprototype.data.PlantRetriever;
 
@@ -48,7 +38,7 @@ public class ORBRecognition extends AppCompatActivity {
 
     static {
         if (!OpenCVLoader.initDebug()) Log.d("ERROR", "opencv not loaded");
-        else Log.d("SUCCES", "opencv loaded succesfuly");
+        else Log.d("SUCCESS", "opencv loaded successfully");
     }
 
     Context context;
