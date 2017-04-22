@@ -45,7 +45,6 @@ public class IntroActivity extends AppIntro {
     @Override
     public void onSkipPressed() {
         loadMainActivity();
-        Toast.makeText(getApplicationContext(), "Flore", Toast.LENGTH_SHORT).show();
     }
 
     @Override

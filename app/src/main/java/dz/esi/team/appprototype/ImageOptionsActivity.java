@@ -29,6 +29,7 @@ import java.util.HashMap;
 import dz.esi.team.appprototype.recognition.ORBRecognition;
 
 public class ImageOptionsActivity extends AppCompatActivity {
+
     public static final String LOADED_IMAGE_PATH = "LOADED_IMAGE_PATH";
     public static final String LOADED_IMAGE_URI = "LOADED_IMAGE_URI";
     public static final String STATE_IMAGE = "STATE_IMAGE";
@@ -43,6 +44,7 @@ public class ImageOptionsActivity extends AppCompatActivity {
 
     private BottomNavigationView bottomNavigationViewImageOption;
     private Bitmap uploadedBitmap;
+
 
 
     private static int exifToDegrees(int exifOrientation) {
