@@ -24,6 +24,9 @@ import com.soundcloud.android.crop.Crop;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
+
+import dz.esi.team.appprototype.recognition.ORBRecognition;
 
 public class ImageOptionsActivity extends AppCompatActivity {
     public static final String LOADED_IMAGE_PATH = "LOADED_IMAGE_PATH";
@@ -39,6 +42,7 @@ public class ImageOptionsActivity extends AppCompatActivity {
     private int croppedVersion = 0;
 
     private BottomNavigationView bottomNavigationViewImageOption;
+    private Bitmap uploadedBitmap;
 
 
     private static int exifToDegrees(int exifOrientation) {
@@ -78,7 +82,7 @@ public class ImageOptionsActivity extends AppCompatActivity {
                                 break;
                             case R.id.btn_image_process:
                                 Toast.makeText(ImageOptionsActivity.this, "recognition", Toast.LENGTH_SHORT).show();
-
+                                startRecognition();
                                 break;
                             default:
                         }
@@ -92,7 +96,6 @@ public class ImageOptionsActivity extends AppCompatActivity {
     private void displayImage() {
         String uploadedImagePath = getIntent().getStringExtra(LOADED_IMAGE_PATH);
 
-
         if(uploadedImagePath!= null){
             this.imageViewUri = Uri.parse(getIntent().getStringExtra(LOADED_IMAGE_URI));
 //            this.imageViewUploadedImage.setImageBitmap(BitmapFactory.decodeFile(uploadedImagePath));
@@ -102,8 +105,8 @@ public class ImageOptionsActivity extends AppCompatActivity {
             //uploadedImagePath = imageViewUri.getPath();
             uploadedImagePath = getRealPathFromURI(this, this.imageViewUri);
         }
-        Bitmap bitmap = fixImageRotation(uploadedImagePath);
-        this.imageViewUploadedImage.setImageBitmap(bitmap);
+        this.uploadedBitmap = fixImageRotation(uploadedImagePath);
+        this.imageViewUploadedImage.setImageBitmap(this.uploadedBitmap);
 
     }///storage/emulated/0/Pictures/Screenshots/Screenshot_2017-04-04-22-36-45.png
 
@@ -151,14 +154,13 @@ public class ImageOptionsActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent result) {
     String path ;
-    Bitmap bitmap ;
+
         if (requestCode == Crop.REQUEST_CROP && resultCode == RESULT_OK) {
             this.croppedVersion++;
             this.imageViewUri = Crop.getOutput(result);
             path = imageViewUri.getPath();
-            bitmap = fixImageRotation(path);
-
-            this.imageViewUploadedImage.setImageBitmap(bitmap);
+            this.uploadedBitmap = fixImageRotation(path);
+            this.imageViewUploadedImage.setImageBitmap(this.uploadedBitmap);
         }
     }
 
@@ -176,8 +178,9 @@ public class ImageOptionsActivity extends AppCompatActivity {
     }
 
     public void startRecognition() {
-        // convert the bitmap to mat using openCv
+        ORBRecognition orbRecognition = new ORBRecognition(ImageOptionsActivity.this);
+        HashMap<Long,Float> recognitionResult = orbRecognition.Recognize(this.uploadedBitmap);
+        Log.d(TAG, "startRecognition: recognitionResult : " + recognitionResult.toString());
     }
-
 
 }

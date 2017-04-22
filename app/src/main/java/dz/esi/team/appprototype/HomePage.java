@@ -128,26 +128,6 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
             }
         });
 
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        Log.v("HomePage", "ACTIVITY STARTED");
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        Log.v("HomePage", "ACTIVITY RESUMED");
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Log.v("HomePage", "ACTIVITY PAUSED");
-
-
         plantsListView = (ListView) findViewById(R.id.plantes_list_view);
         View emptyView = findViewById(R.id.empty_view);
         plantsListView.setEmptyView(emptyView);
@@ -179,6 +159,25 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         listViewLoader = new ListViewLoader(progressBar,true);
         listViewLoader.execute();
         PreferenceManager.setDefaultValues(this, R.xml.pref_general, false);
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.v("HomePage", "ACTIVITY STARTED");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.v("HomePage", "ACTIVITY RESUMED");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.v("HomePage", "ACTIVITY PAUSED");
     }
 
     @Override

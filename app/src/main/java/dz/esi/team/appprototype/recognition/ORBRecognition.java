@@ -2,6 +2,7 @@
 package dz.esi.team.appprototype.recognition;
 
 import android.app.LoaderManager;
+import android.content.Context;
 import android.content.CursorLoader;
 import android.content.Loader;
 import android.database.Cursor;
@@ -28,6 +29,8 @@ import org.opencv.features2d.FeatureDetector;
 import org.opencv.imgproc.Imgproc;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -48,9 +51,13 @@ public class ORBRecognition extends AppCompatActivity {
         else Log.d("SUCCES", "opencv loaded succesfuly");
     }
 
+    Context context;
 
+    public ORBRecognition(Context context) {
+        this.context = context;
+    }
 
-    public ORBRecognition(Bitmap entry) {
+    public HashMap<Long , Float> Recognize(Bitmap entry) {
 
         if (entry == null) Log.d(TAG, "null");
         else Log.d(TAG, "not null!");
@@ -75,18 +82,41 @@ public class ORBRecognition extends AppCompatActivity {
 
         Cursor cursor = PlantRetriever.RetrievePlants(new String[]{_ID,sci_name},null,null,null);
 
-        Map<Long,Integer> recognitionResult = new HashMap<>();
+        HashMap<Long,Float> recognitionResult = new HashMap<>();
 
-        while (cursor.moveToNext()) {
-            String rep_name = cursor.getString(1).toLowerCase().replaceAll(" ", "_");
-            File directory = new File(rep_name);
+//        while (cursor.moveToNext()) {
+//            String rep_name = "file:///android_asset/dataset/" + cursor.getString(1).toLowerCase().replaceAll(" ", "_");
+//            Log.d(TAG, "Recognize: rep_name == " + rep_name);
+//            File directory = new File(rep_name);
+//
+//            File[] fList = directory.listFiles();
+//            Log.d(TAG, "Recognize: fList == null ? : " + (fList == null));
+//
+//            TreeSet<Float> plantGoodMatches = new TreeSet<>();
 
-            File[] fList = directory.listFiles();
+        String plantPath = "file:///android_asset/dataset/allium_sativum_l/3-2.png";
 
-            TreeSet<Integer> plantGoodMatches = new TreeSet<>();
 
-            for (int i = 0; i < fList.length; i++) {
-                Bitmap query = BitmapFactory.decodeFile(fList[i].getPath());
+        // added from StackOverFlow ///////////////////////////////////////////////////////////////
+        File f = new File(this.getCacheDir()+"/allium_sativum_l/3-2.png");
+        if (!f.exists()) try {
+
+            InputStream is = getAssets().open("/dataset/allium_sativum_l/3-2.png");
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+
+            FileOutputStream fos = new FileOutputStream(f);
+            fos.write(buffer);
+            fos.close();
+        } catch (Exception e) { throw new RuntimeException(e); }
+
+        ///////////////////////////////////////////////////////////////////////////////////////////
+
+//            for (int i = 0; i < fList.length; i++) {
+//                Bitmap query = BitmapFactory.decodeFile(fList[i].getPath());
+                Bitmap query = BitmapFactory.decodeFile(f.getPath());
                 Mat queryImg = new Mat(query.getWidth(), query.getHeight(), CvType.CV_8UC1);
                 Utils.bitmapToMat(query, queryImg);
 
@@ -127,19 +157,23 @@ public class ORBRecognition extends AppCompatActivity {
                 
                 Log.d(TAG, "size of goodmatches is : " + good_matches.size());
                 Log.d(TAG, "size of matches is: " + matchesList.size());
-                Log.d(TAG,"distance of " + i + " = " + good_matches.size()
-                        +"  while size of matches is "+ matchesList.size()
-                        +"  min= "+min_dist+" max= "+max_dist +"  taux = "
-                        + (double) good_matches.size()/matchesList.size()  );
+//                Log.d(TAG,"distance of " + i + " = " + good_matches.size()
+//                        +"  while size of matches is "+ matchesList.size()
+//                        +"  min= "+min_dist+" max= "+max_dist +"  taux = "
+//                        + (double) good_matches.size()/matchesList.size()  );
 
-                plantGoodMatches.add(100*good_matches.size()/matchesList.size());
-            }
+//                plantGoodMatches.add((float) (good_matches.size()/matchesList.size()));
+//                good_matches.clear();
+//            }
 
-            recognitionResult.put( Long.parseLong(cursor.getString(0)) , plantGoodMatches.last() );
-            plantGoodMatches.clear();
-            Log.d(TAG, "ORBRecognition: plantGoodMatches list size " + plantGoodMatches.size());
+//            recognitionResult.put( Long.parseLong(cursor.getString(0)) , plantGoodMatches.last() );
+            recognitionResult.put( Long.parseLong(cursor.getString(0)) , (float) (good_matches.size()/matchesList.size()) );
+//            plantGoodMatches.clear();
 
-        }
+//            Log.d(TAG, "ORBRecognition: plantGoodMatches list size " + plantGoodMatches.size());
+//        }
+
+        return recognitionResult;
 
     }
 
