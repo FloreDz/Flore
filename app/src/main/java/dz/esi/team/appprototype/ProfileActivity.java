@@ -72,7 +72,7 @@ public class ProfileActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         profile = new PlantProfile(getIntent().getLongExtra("PlantID", 0L));
-        sharedPref=PreferenceManager.getDefaultSharedPreferences(this);
+        sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
 
 
     }

@@ -36,6 +36,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import dz.esi.team.appprototype.data.PlantCompactProfile;
 import dz.esi.team.appprototype.data.PlantCursorAdapter;
 import dz.esi.team.appprototype.data.PlantDbHelper;
 import dz.esi.team.appprototype.data.PlantRetriever;

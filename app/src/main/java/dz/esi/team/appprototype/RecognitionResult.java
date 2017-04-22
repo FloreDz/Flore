@@ -6,17 +6,18 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.FrameLayout;
 import android.widget.ListView;
-import android.widget.ProgressBar;
+
+import java.util.ArrayList;
+
+import dz.esi.team.appprototype.data.PlantCompactProfile;
+import dz.esi.team.appprototype.utils.ResultAdapter;
 
 public class RecognitionResult extends AppCompatActivity {
 
     private static final String TAG = RecognitionResult.class.getSimpleName();
 
-    ProgressBar resultProgressBar;
     ListView resultListView;
-    FrameLayout resultBackground;
 
 
     @Override
@@ -31,8 +32,30 @@ public class RecognitionResult extends AppCompatActivity {
         resultListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.d(TAG, "onItemClick: item clicked ! pos = " + position + ", id = " + id);
                 Intent intent = new Intent(RecognitionResult.this, ProfileActivity.class);
                 intent.putExtra("PlantID", id);
+                Log.d(TAG, "about to start activity 'plantactivity'");
+                startActivity(intent);
+            }
+        });
+
+        ArrayList<PlantCompactProfile> plantList = new ArrayList<>();
+        plantList.add(new PlantCompactProfile(1L));
+        plantList.add(new PlantCompactProfile(3L));
+        plantList.add(new PlantCompactProfile(9L));
+        plantList.add(new PlantCompactProfile(6L));
+        plantList.add(new PlantCompactProfile(4L));
+
+        ResultAdapter resultAdapter = new ResultAdapter(this,plantList);
+
+        resultListView.setAdapter(resultAdapter);
+        resultListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(RecognitionResult.this, ProfileActivity.class);
+                String plantId = ((PlantCompactProfile)parent.getAdapter().getItem(position)).get_ID();
+                intent.putExtra("PlantID", Long.parseLong(plantId));
                 Log.d(TAG, "about to start activity 'plantactivity'");
                 startActivity(intent);
             }

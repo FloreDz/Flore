@@ -46,7 +46,6 @@ public class ImageOptionsActivity extends AppCompatActivity {
     private Bitmap uploadedBitmap;
 
 
-
     private static int exifToDegrees(int exifOrientation) {
         if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_90) {
             return 90;
@@ -61,7 +60,7 @@ public class ImageOptionsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-
+        Log.d(TAG, ": activity CREATED");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image_options);
         Toolbar toolbar = (Toolbar) findViewById(R.id.imageOption_toolbar);
@@ -84,7 +83,10 @@ public class ImageOptionsActivity extends AppCompatActivity {
                                 break;
                             case R.id.btn_image_process:
                                 Toast.makeText(ImageOptionsActivity.this, "recognition", Toast.LENGTH_SHORT).show();
-                                startRecognition();
+                                Intent intent = new Intent(ImageOptionsActivity.this,RecognitionResult.class);
+                                intent.putExtra("bitmapImage",uploadedBitmap);
+                                startActivity(intent);
+//                                startRecognition();
                                 break;
                             default:
                         }
@@ -93,6 +95,26 @@ public class ImageOptionsActivity extends AppCompatActivity {
                 });
 
         if (!croppedImage) displayImage();
+    }
+
+
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d(TAG, ": activity PAUSED");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d(TAG, ": activity STOPPED");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d(TAG, ": activity DESTROYED");
     }
 
     private void displayImage() {
