@@ -8,3 +8,4 @@
 /captures
 .externalNativeBuild
 /app/src/main/jniLibs
+/app/src/main/assets
