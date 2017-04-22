@@ -24,8 +24,6 @@ public class RecognitionResult extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recognition_result);
 
-        resultBackground = (FrameLayout) findViewById(R.id.result_background);
-        resultProgressBar = (ProgressBar) findViewById(R.id.progress_bar_result);
         resultListView = (ListView) findViewById(R.id.recognition_result_list_view);
         View emptyView = findViewById(R.id.empty_view);
 

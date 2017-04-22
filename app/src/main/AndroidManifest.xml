@@ -9,7 +9,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/logo_with_white_background"
+        android:icon="@mipmap/flore_launcher"
         android:label="@string/app_name"
         android:largeHeap="true"
         android:supportsRtl="true">
@@ -30,24 +30,9 @@
         <activity
             android:name=".HomePage"
             android:theme="@style/AppTheme.NoActionBar" />
+
         <!-- TODO : fix landscape problem for : homepage, searchPlant, ImageOption and CropImage -->
 
-        <activity
-            android:name=".SearchPlantesActivity"
-            android:label="@string/title_activity_search_plants"
-            android:parentActivityName=".HomePage"
-            android:theme="@style/AppTheme">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="dz.esi.team.appprototype.HomePage" />
-            <meta-data
-                android:name="android.app.searchable"
-                android:resource="@xml/searchable" />
-
-            <intent-filter>
-                <action android:name="android.intent.action.SEARCH" />
-            </intent-filter>
-        </activity>
         <activity
             android:name=".ImageOptionsActivity"
             android:label="@string/title_activity_image_options"
@@ -66,6 +51,24 @@
                 <data android:mimeType="image/*" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".SearchActivity"
+            android:label="@string/title_activity_search_plants"
+            android:parentActivityName=".HomePage"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="dz.esi.team.appprototype.HomePage" />
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+        </activity>
+
         <activity
             android:name="com.soundcloud.android.crop.CropImageActivity"
             android:screenOrientation="portrait"
@@ -83,10 +86,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="dz.esi.team.appprototype.HomePage" />
         </activity>
-        <activity
-            android:name=".AboutUsActivity"
-            android:label="@string/title_activity_about_us"
-            android:theme="@style/AppTheme.NoActionBar" />
 
         <!-- TODO : add the provider here -->
         <provider
@@ -103,6 +102,25 @@
             android:theme="@style/AppTheme"
             android:name=".RecognitionResult"
             android:parentActivityName=".HomePage"/>
+
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName=".HomePage"
+            android:theme="@style/PreferencesTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="dz.esi.team.appprototype.HomePage" />
+        </activity>
+        <activity
+            android:name=".AboutUs"
+            android:label="@string/title_activity_about_us"
+            android:parentActivityName=".HomePage"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="dz.esi.team.appprototype.HomePage" />
+        </activity>
     </application>
 
 </manifest>

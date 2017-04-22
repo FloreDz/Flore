@@ -18,8 +18,7 @@ import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
-import static dz.esi.team.appprototype.HomePage.DISPLAY_STATE;
-import static dz.esi.team.appprototype.HomePage.SHOW_PLANTS_BY_DEFAULT;
+import static dz.esi.team.appprototype.HomePage.SHOW_PLANTS_BY_SCIENTIFIQUE_NAMES;
 import static dz.esi.team.appprototype.HomePage.plantsHeaders;
 import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.famille;
 import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.image;
@@ -34,18 +33,24 @@ public class PlantCursorAdapter extends CursorAdapter {
     private final String TAG = this.getClass().getSimpleName();
     
     Context mContext = null;
+    String DISPLAY_STATE;
 
 
-    public PlantCursorAdapter(Context context, Cursor c) {
+    public PlantCursorAdapter(Context context, Cursor c, String DISPLAY_STATE) {
         super(context, c, 0);
-        mContext = context;
+        this.mContext = context;
+        this.DISPLAY_STATE = DISPLAY_STATE;
         Log.d(TAG, "an object just got instantiated");
+    }
+
+    public void setDISPLAY_STATE(String DISPLAY_STATE) {
+        this.DISPLAY_STATE = DISPLAY_STATE;
     }
 
     @Override
     public View newView(Context context, Cursor cursor, ViewGroup parent) {
         Log.d(TAG, "newView in");
-        if (DISPLAY_STATE.equals(SHOW_PLANTS_BY_DEFAULT))
+        if (DISPLAY_STATE.equals(SHOW_PLANTS_BY_SCIENTIFIQUE_NAMES))
             return LayoutInflater.from(context).inflate(R.layout.item_plant, parent, false);
         else
             return LayoutInflater.from(context).inflate(R.layout.item_family, parent, false);
@@ -64,7 +69,7 @@ public class PlantCursorAdapter extends CursorAdapter {
         String plantSciName = cursor.getString(cursor.getColumnIndex(sci_name));
         String plantImage = cursor.getString(cursor.getColumnIndex(image));
 
-        if (DISPLAY_STATE.equals(SHOW_PLANTS_BY_DEFAULT)) {
+        if (DISPLAY_STATE.equals(SHOW_PLANTS_BY_SCIENTIFIQUE_NAMES)) {
 
             tvPlantName = (TextView) view.findViewById(R.id.plant_sci_name_in_plant_view);
             tvPlantFamily = (TextView) view.findViewById(R.id.plant_family_in_plant_view);
@@ -96,7 +101,7 @@ public class PlantCursorAdapter extends CursorAdapter {
                 .asBitmap()
                 .override(300, 200)
                 .transform(new RoundedCornersTransformation(context, 20, 0))
-                .placeholder(R.drawable.placeholder_image)
+                .placeholder(R.drawable.thumbnail_placeholder)
                 .into(ivPlantImage);
 
         Log.d(TAG, "bindView finished");

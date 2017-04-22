@@ -7,15 +7,12 @@ import android.content.Loader;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.IntentCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -27,6 +24,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
@@ -48,74 +47,78 @@ import static dz.esi.team.appprototype.data.PlantContract.PlantEntry._ID;
 import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.famille;
 import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.image;
 import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.sci_name;
-import static java.lang.Thread.currentThread;
 
 
 public class HomePage extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    public static final int LOAD_IMAGE_RESULT = 1;
-    public static final String LOADED_IMAGE_PATH = "LOADED_IMAGE_PATH";
-    public static final String LOADED_IMAGE_URI = "LOADED_IMAGE_URI";
-    public static final String DISPLAY_TYPE = "DISPLAY_TYPE";
-    public static final String SHOW_PLANTS_BY_DEFAULT = sci_name + " ASC";
-    public static final String SHOW_PLANTS_BY_FAMILIES = famille + " ASC";
+    public static final String FEEDBACK_FORM_URL = "https://goo.gl/IMDiRB";
+    private static final int LOAD_IMAGE_RESULT = 1;
+    private static final String LOADED_IMAGE_PATH = "LOADED_IMAGE_PATH";
+    private static final String LOADED_IMAGE_URI = "LOADED_IMAGE_URI";
+    private static final String DISPLAY_TYPE = "DISPLAY_TYPE";
     private static final String TAG = HomePage.class.getSimpleName();
     private static final String ERROR_MESS = "something went wrong";
     private static final int PLANT_LOADER = 0;
-    public static String DISPLAY_STATE = SHOW_PLANTS_BY_FAMILIES;
     public static PlantDbHelper mDbHelper;
     public static boolean showingRecognitionResults;
+    private  SharedPreferences sharedPref ;
+    private static String DISPLAY_STATE = SHOW_PLANTS_BY_FAMILIES;
 
-    /* TODO : MOHAMED added : */
     public static ArrayList<String> plantsHeaders = null;
     ProgressBar progressBar;
     ListViewLoader listViewLoader;
+
     //layouts
     LinearLayout takeImageLayout;
     LinearLayout importImageLayout;
     DrawerLayout drawer;
     FrameLayout optionMenuBackground;
+
     // buttons
     FloatingActionButton fabRecognise;
     FloatingActionButton fabTakeImage;
     FloatingActionButton fabImportImage;
+
     //labels
     TextView importImageLabel;
     TextView takeImageLabel;
     ListView plantsListView;
+
     //image path
     private String imagePath;
+
     //costum components
     private ListView plantListView;
     private NavigationView navigationView;
     private Toolbar toolbar_search_access;
     private ActionBarDrawerToggle toggle;
     private Menu optionMenu;
-    private String[] homeMenuProjection = {
+    public static String[] homeMenuProjection = {
             _ID,
             sci_name,
             image,
             famille
     };
 
-    // ****************************************************************************
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         introPageHandler();
+        if(savedInstanceState == null) {
+            sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+            if (sharedPref.getString("DISPLAY_STATE","0").compareTo("0") == 0)
+                DISPLAY_STATE=SHOW_PLANTS_BY_SCIENTIFIQUE_NAMES;
+            else
+                DISPLAY_STATE=SHOW_PLANTS_BY_FAMILIES ;
+        }
         super.onCreate(savedInstanceState);
         Log.v("HomePage", "ACTIVITY CREATED");
         setContentView(R.layout.activity_home_page);
         setupWindowAnimations();
-
         widgetHydration();
-
-        //costume components
         navigationView.setNavigationItemSelectedListener(this);
         setSupportActionBar(toolbar_search_access);
 
-        //layout
         optionMenuBackground.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -144,7 +147,6 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         super.onPause();
         Log.v("HomePage", "ACTIVITY PAUSED");
 
-        /* TODO : MOHAMED added : */
 
         plantsListView = (ListView) findViewById(R.id.plantes_list_view);
         View emptyView = findViewById(R.id.empty_view);
@@ -163,13 +165,12 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
                 startActivity(intent);
             }
         });
-
         mDbHelper = new PlantDbHelper(this);
 
         try {
             mDbHelper.createDataBase();
         } catch (Exception e) {
-            Log.e("From Main.db creation", e.getMessage());
+            Log.e("From Main, .db creation", e.getMessage());
         }
         mDbHelper.openDataBase();
 
@@ -177,11 +178,13 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
 
         listViewLoader = new ListViewLoader(progressBar,true);
         listViewLoader.execute();
+        PreferenceManager.setDefaultValues(this, R.xml.pref_general, false);
     }
 
     @Override
     protected void onStop() {
         super.onStop();
+        mDbHelper.close();
         Log.v("HomePage", "ACTIVITY STOPPED");
     }
 
@@ -191,17 +194,10 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         Log.v("HomePage", "ACTIVITY RESTARTED");
     }
 
-
-//    private void refreshList() {
-//        Log.d(TAG ,"about to refresh activity");
-//        mCursorAdapter.swapCursor(PlantRetriever.RetrievePlants(homeMenuProjection, null, null, DISPLAY_STATE));
-//        plantsListView.setAdapter(mCursorAdapter);
-//    }
-
     private void switchDisplayState() {
-        String displayMessage = null;
+        String displayMessage;
         if (DISPLAY_STATE.equals(SHOW_PLANTS_BY_FAMILIES)) {
-            DISPLAY_STATE = SHOW_PLANTS_BY_DEFAULT;
+            DISPLAY_STATE = SHOW_PLANTS_BY_SCIENTIFIQUE_NAMES;
             displayMessage = "Affichage par plantes";
         } else {
             DISPLAY_STATE = SHOW_PLANTS_BY_FAMILIES;
@@ -253,10 +249,6 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         Log.v(TAG, "Finally : ArrayList = " + plantsHeaders.toString());
 
     }
-
-
-    // *******************************************************************************************************
-
 
     public void widgetHydration() {
 
@@ -341,7 +333,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         Log.d(TAG, "onCreateOptionsMenu: creating the option menu");
-        getMenuInflater().inflate(R.menu.search_menu, menu);
+        getMenuInflater().inflate(R.menu.home_menu, menu);
         menu.getItem(0).setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
         menu.getItem(1).setChecked(DISPLAY_STATE.equals(SHOW_PLANTS_BY_FAMILIES));
         this.optionMenu = menu;
@@ -355,12 +347,11 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
 
-        Intent intent;
         int id = item.getItemId();
         switch (id) {
-            case R.id.app_search_bar:   // start the search activity
-                intent = new Intent(HomePage.this, SearchPlantesActivity.class);
-                startActivity(intent);
+            case R.id.search:   // start the search activity
+                Log.d(TAG, "onOptionsItemSelected: about to go into SearchActivity");
+                startActivity(new Intent(HomePage.this, SearchActivity.class));
                 break;
             case R.id.option_show_by_family:
                 switchDisplayState();
@@ -383,12 +374,19 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         int id = item.getItemId();
 
         if (id == R.id.nav_preferences) {
-
+            startActivity(new Intent(HomePage.this, SettingsActivity.class));
         } else if (id == R.id.nav_aboutus) {
-            startActivity(new Intent(HomePage.this, AboutUsActivity.class));
+            startActivity(new Intent(HomePage.this, AboutUs.class));
         } else if (id == R.id.nav_user_guide) {
             intent = new Intent(HomePage.this, HelpActivity.class);
             startActivity(intent);
+        }else if (id == R.id.nav_feedback){
+
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW);
+            browserIntent.setData(Uri.parse(FEEDBACK_FORM_URL));
+            if (browserIntent.resolveActivity(getPackageManager()) != null) {
+                startActivity(browserIntent);
+            }
         }
         if (isVisible()) hideOptionMenu();
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -467,18 +465,20 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         switchFabImageTo(fabRecognise, R.drawable.camera_fab);
 
         final Animation rotateCamera = AnimationUtils.loadAnimation(HomePage.this, R.anim.rotate_to_camera);
-        final Animation hideOptionButtons = AnimationUtils.loadAnimation(HomePage.this, R.anim.hide_buttons);
+        final Animation hideOptionButtons = AnimationUtils.loadAnimation(HomePage.this, R.anim.fade_out_with_translation);
+        final Animation hideOptionMenuBackground = AnimationUtils.loadAnimation(HomePage.this, R.anim.fade_out);
+
+
+
+        takeImageLayout.startAnimation(hideOptionButtons);
+        importImageLayout.startAnimation(hideOptionButtons);
+        optionMenuBackground.startAnimation(hideOptionMenuBackground);
+        fabRecognise.startAnimation(rotateCamera);
 
         this.disableLayoutsVisibility();
         this.disableClickable();
 
-        takeImageLayout.startAnimation(hideOptionButtons);
-        importImageLayout.startAnimation(hideOptionButtons);
-        fabRecognise.startAnimation(rotateCamera);
-
     }
-
-    // optionMenu display handling
 
     private void showOptionMenu() {
         Log.d(TAG, "showOptionMenu: showing the option menu");
@@ -486,11 +486,14 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         switchFabImageTo(fabRecognise, R.drawable.plus_button);
 
         final Animation rotateCamera = AnimationUtils.loadAnimation(HomePage.this, R.anim.rotate_to_x);
-        final Animation showOptionButtons = AnimationUtils.loadAnimation(HomePage.this, R.anim.show_buttons);
+        final Animation showOptionButtons = AnimationUtils.loadAnimation(HomePage.this, R.anim.fade_in_with_translation);
+        final Animation showOptionMenuBackground = AnimationUtils.loadAnimation(HomePage.this, R.anim.fade_in);
 
         this.enableLayoutsVisibility();
         this.enableClickable();
 
+
+        optionMenuBackground.startAnimation(showOptionMenuBackground);
         takeImageLayout.startAnimation(showOptionButtons);
         importImageLayout.startAnimation(showOptionButtons);
         fabRecognise.startAnimation(rotateCamera);
@@ -524,6 +527,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         importImageLayout.setVisibility(VISIBLE);
         optionMenuBackground.setVisibility(VISIBLE);
 
+
     }
 
     public void disableLayoutsVisibility() {
@@ -536,6 +540,10 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
 
     public boolean isVisible() {
         return (takeImageLayout.getVisibility() == VISIBLE && importImageLayout.getVisibility() == VISIBLE);
+    }
+
+    public void doNothing(View view){
+        // ignoring the familly header clicks
     }
 
     @Override
@@ -579,7 +587,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
 
     class ListViewLoader implements LoaderManager.LoaderCallbacks<Cursor> {
 
-        PlantCursorAdapter mCursorAdapter = new PlantCursorAdapter(HomePage.this, null);
+        PlantCursorAdapter mCursorAdapter = new PlantCursorAdapter(HomePage.this, null ,DISPLAY_STATE);
         ProgressBar progressBar;
         boolean firstRun;
 
@@ -589,26 +597,23 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         }
 
         public void execute() {
-            this.progressBar.setVisibility(VISIBLE);
+
             if (firstRun) {
+                this.progressBar.setVisibility(VISIBLE);
                 Log.v(TAG, "about to init loader");
                 getLoaderManager().initLoader(PLANT_LOADER, null, this);
                 Log.v(TAG, "loader inited");
                 firstRun = false;
             } else {
+                mCursorAdapter.setDISPLAY_STATE(DISPLAY_STATE);
                 final Cursor cursor = PlantRetriever.RetrievePlants(homeMenuProjection, null, null, DISPLAY_STATE);
-
-                mCursorAdapter.swapCursor(null);
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        listViewLoader.progressBar.setVisibility(GONE);
-                        mCursorAdapter.swapCursor(cursor);
-                        plantsListView.setAdapter(mCursorAdapter);
-                    }
-                }, 1000);
+                final Animation showListView = AnimationUtils.loadAnimation(HomePage.this, R.anim.fade_in_with_translation);
+                mCursorAdapter.swapCursor(cursor);
+                plantsListView.setAdapter(mCursorAdapter);
+                plantListView.startAnimation(showListView);
             }
         }
+
 
 
         @Override
@@ -616,14 +621,14 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
 
             Log.v(TAG, "in loader creation");
 
-            // the loader will execute the CP query method on a background thread
+            // the loader will executeSearchQuery the CP query method on a background thread
             return new CursorLoader(HomePage.this, CONTENT_URI, homeMenuProjection, null, null, DISPLAY_STATE);
         }
 
         @Override
         public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
             final Cursor cur = cursor;
-
+            final Animation showListView = AnimationUtils.loadAnimation(HomePage.this, R.anim.fade_in_with_translation);
             Log.v(TAG, "in loader finish");
             // update the adapter with this new cursor containing updated plant data
             new Handler().postDelayed(new Runnable() {
@@ -632,6 +637,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
                     listViewLoader.progressBar.setVisibility(GONE);
                     mCursorAdapter.swapCursor(cur);
                     plantsListView.setAdapter(mCursorAdapter);
+                    plantListView.startAnimation(showListView);
                 }
             }, 1000);
         }
@@ -643,7 +649,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
             mCursorAdapter.swapCursor(null);
         }
 
-    };
+    }
 
 
 }

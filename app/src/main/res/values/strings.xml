@@ -14,19 +14,19 @@
     <string name="import_photo">Importer une photo</string>
 
     <!-- Search activity -->
-    <string name="searchable">le nom de la plante</string>
+    <string name="searchable">  Entrez le nom de la plante</string>
     <string name="search">rechercher</string>
 
     <!-- Activities titles -->
     <string name="title_activity_home_page">Page d\'acceuille</string>
-    <string name="title_activity_search_plants">Rechercher des plantes</string>
+    <string name="title_activity_search_plants"></string>
     <string name="title_activity_plant_profile">Profil</string>
     <string name="title_activity_image_process">Traitement d\'image</string>
     <string name="title_activity_search_menu">Menu de recherche</string>
     <string name="activity_search">Rechercher</string>
     <string name="title_activity_settings">Préférences</string>
     <string name="title_activity_main">activité principale</string>
-    <string name="title_activity_image_options">Modifier</string>
+    <string name="title_activity_image_options">Flore</string>
     <string name="title_activity_help">Guide d\'utilisateur</string>
     <string name="title_activity_about_us">A propos</string>
 
@@ -37,13 +37,24 @@
     <string name="crop">Recadrer</string>
     <string name="process">Traiter</string>
 
-    <!-- The team members names -->
-    <string name="chenine_name">CHENINE Azzedine</string>
+    <!-- team members -->
+    <string name="chenine_name">CHENINE Azzeddine</string>
+    <string name="chenine_email">fa_chenine@esi.dz</string>
     <string name="bouguesri_name">BOUGUESRI Mohammed Adel</string>
+    <string name="bouguesri_email">fm_bouguesri@esi.dz</string>
     <string name="boutifour_name">BOUTIFOUR Abdelhak</string>
+    <string name="boutifour_email">fa_boutifour@esi.dz</string>
     <string name="borsali_name">BORSALI Fayçal</string>
+    <string name="borsali_email">ff_borsali@esi.dz</string>
     <string name="souab_name">SOUAB Nadjib</string>
+    <string name="souab_email">fn_souab@esi.dz</string>
     <string name="benchohra_name">BENCHOHRA Mohammed Amine</string>
+    <string name="benchohra_email">fm_benchohra@esi.dz</string>
+    <!-- agronomists -->
+    <string name="rahmoune_name">RAHMOUNE Bilal</string>
+    <string name="rahmoune_job">Etudiant en doctorat à ENSA</string>
+    <string name="belkacemi_name">BELKACEMI Aymen</string>
+    <string name="belkacemi_job">Etudiant à ENSA</string>
 
 
     <string name="plant_resume_default_text">Un résumé sur la plante</string>
@@ -54,6 +65,76 @@
     <string name="title_activity_database_test">DatabaseTest</string>
     <string name="plant_profile_app_bar_title">This is changed by JAVA</string>
     <string name="title_activity_recognition_result">RecognitionResult</string>
+
+    <!-- Strings related to Settings -->
+    <!-- Display state-->
+    <string name="settings_plants_display_state_title">Affichage des plantes</string>
+    <string name="settings_plants_display_state_content">Afficher par :</string>
+    <string name="settings_plants_display_state_discription">Affichage par default des plantes dans la page d\'acceuille lors le lancement de démarrage d\'application</string>
+    <string-array name="plants_display_state_label">
+        <item>Familles</item>
+        <item>Noms scientifiques</item>
+    </string-array>
+    <string-array name="plants_display_state_values">
+        <item>1</item>
+        <item>0</item>
+    </string-array>
+    <!-- plant profile -->
+    <string name="settings_plants_profile_group_title">Profile du plante</string>
+    <string name="settings_plants_profile_group_summery">activer ou desactiver</string>
+
+    <string name="settings_plant_profile_discription">Identification</string>
+    <string name="settings_plant_profile_benefits">Usage</string>
+    <string name="settings_plant_profile_details">Details</string>
+
+    <!--constituants-->
+    <string name="constituants_title">Constituants</string>
+    <string name="constituants_description">Description les composants alimentaires constituant la plante</string>
+
+    <!--habitat-->
+    <string name="habitat_title">Habitat</string>
+    <string name="habitat_discription">Les lieux où se trouve la plante dans le monde</string>
+
+    <!--temps_recoltes-->
+    <string name="temps_de_recolte">Temps de Récolte</string>
+    <string name="temps_de_recolte_discription">Les périodes et les saisons de récolte de la plante</string>
+
+    <!-- parties utilisées -->
+    <string name="parties_utilisées">Parties utilisées</string>
+    <string name="parties_utilisées_discription">Les organes de la plante utilisés pour guérir les maladies</string>
+
+    <string name="les_effets">Les effets</string>
+    <string name="les_effets_discription">Les conséquences préférables d’utilisation de la plante</string>
+
+
+    <!-- les effets secondaires -->
+    <string name="les_effets_secondaires">Les effets secondaires</string>
+    <string name="les_effets_secondaires_discription">Les conséquences indésirables d’utilisation de la plante</string>
+
+    <!-- les interaction -->
+    <string name="les_interaction">Les interaction</string>
+    <string name="les_interaction_discription">Les effets résultants de l’utilisation de la plante avec d’autres plantes ** à valider</string>
+
+    <!-- les indecation -->
+    <string name="les_indecation">Les indecation</string>
+    <string name="les_indecation_discription">Les maladies pour lesquelles cette plante est indiquer</string>
+
+    <!-- contre indecation -->
+    <string name="contre_indecation">Contre indecations</string>
+    <string name="contre_indecation_discription">Les utilisation induisant à des multiplications ** à valider</string>
+
+    <!-- preparation -->
+    <string name="preparation">Préparations</string>
+    <string name="preparation_discription">les méthodes d’utilisation de la plante ** à valider</string>
+
+    <!-- remarque -->
+    <string name="remarques">Remarques</string>
+    <string name="remarques_description">remarques_description</string>
+
+
+    <!-- liens -->
+    <string name="liens">Liens</string>
+    <string name="liens_description">liens_description</string>
 
 
 </resources>

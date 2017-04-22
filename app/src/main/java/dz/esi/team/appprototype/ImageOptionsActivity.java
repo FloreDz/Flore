@@ -61,7 +61,7 @@ public class ImageOptionsActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.imageOption_toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        getSupportActionBar().setTitle("Modifier");
         imageViewUploadedImage = (ImageView) findViewById(R.id.imageView_uploadedImage);
         bottomNavigationViewImageOption = (BottomNavigationView) findViewById(R.id.bottomNavigationView_ImageOption);
 
@@ -102,7 +102,6 @@ public class ImageOptionsActivity extends AppCompatActivity {
             //uploadedImagePath = imageViewUri.getPath();
             uploadedImagePath = getRealPathFromURI(this, this.imageViewUri);
         }
-        Log.d(TAG, "displayImage: =============================================== " + uploadedImagePath);
         Bitmap bitmap = fixImageRotation(uploadedImagePath);
         this.imageViewUploadedImage.setImageBitmap(bitmap);
 

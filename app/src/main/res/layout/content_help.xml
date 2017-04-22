@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginRight="8dp"
-        android:background="@android:color/white">
+        android:background="@color/clean_white">
 
         <TextView
             android:id="@+id/expandableButton1"
@@ -39,7 +39,7 @@
             android:paddingLeft="8dp"
             android:textSize="22sp"
             android:layout_marginBottom="4dp"
-            android:textColor="@color/logo_blue_medium" />
+            android:textColor="@color/gray_color_darker" />
         <com.github.aakira.expandablelayout.ExpandableRelativeLayout
             android:id="@+id/expandableLayout1"
             android:layout_width="match_parent"
@@ -49,10 +49,9 @@
             android:padding="16dp"
 
             app:ael_duration="400"
-            app:ael_expanded="false"
+            app:ael_expanded="true"
             app:ael_interpolator="fastOutSlowIn"
             app:ael_orientation="vertical">
-
             <TextView
                 android:id="@+id/subtitle1"
                 android:layout_width="match_parent"
@@ -98,6 +97,8 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="3dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
             android:layout_below="@id/expandableLayout1"
             android:background="@drawable/border_bottom"/>
 
@@ -115,7 +116,7 @@
             android:layout_marginBottom="4dp"
             android:text="Comment reconnaître une plante à travers sa photo ?"
             android:textAlignment="textStart"
-            android:textColor="@color/logo_blue_medium"
+            android:textColor="@color/gray_color_darker"
             android:textSize="22sp" />
         <com.github.aakira.expandablelayout.ExpandableRelativeLayout
             android:id="@+id/expandableLayout2"
@@ -143,6 +144,8 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="3dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
             android:layout_below="@id/expandableLayout2"
             android:background="@drawable/border_bottom"/>
 
@@ -161,7 +164,7 @@
             android:paddingRight="10dp"
             android:text="Si la photo contient beaucoup de plantes ?"
             android:textAlignment="textStart"
-            android:textColor="@color/logo_blue_medium"
+            android:textColor="@color/gray_color_darker"
             android:textSize="22sp" />
         <com.github.aakira.expandablelayout.ExpandableRelativeLayout
             android:id="@+id/expandableLayout3"
@@ -191,6 +194,8 @@
             android:layout_width="match_parent"
             android:layout_height="3dp"
             android:layout_marginBottom="16dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
             android:layout_below="@id/expandableLayout3"
             android:background="@drawable/border_bottom"/>
 
@@ -208,7 +213,7 @@
             android:textAlignment="textStart"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="4dp"
-            android:textColor="@color/logo_blue_medium"
+            android:textColor="@color/gray_color_darker"
             android:textSize="22sp" />
         <com.github.aakira.expandablelayout.ExpandableRelativeLayout
             android:id="@+id/expandableLayout4"
@@ -239,6 +244,8 @@
             android:layout_width="match_parent"
             android:layout_height="3dp"
             android:layout_marginBottom="16dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
             android:layout_below="@id/expandableLayout4"
             android:background="@drawable/border_bottom"/>
 
@@ -256,7 +263,7 @@
             android:paddingRight="10dp"
             android:text="Comment catégoriser les plantes ?"
             android:textAlignment="textStart"
-            android:textColor="@color/logo_blue_medium"
+            android:textColor="@color/gray_color_darker"
             android:textSize="22sp" />
         <com.github.aakira.expandablelayout.ExpandableRelativeLayout
             android:id="@+id/expandableLayout5"
@@ -286,6 +293,8 @@
             android:layout_width="match_parent"
             android:layout_height="3dp"
             android:layout_marginBottom="16dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
             android:layout_below="@id/expandableLayout5"
             android:background="@drawable/border_bottom"/>
         </RelativeLayout>

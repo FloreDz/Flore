@@ -3,9 +3,11 @@ package dz.esi.team.appprototype;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -30,8 +32,8 @@ public class ProfileActivity extends AppCompatActivity {
     static private PlantProfile profile = null;
     static private boolean PLANT_IMAGE_POPUP_STATE = false;
     private final String TAG = this.getClass().getSimpleName();
-    TextView collapseConstituent;
-    LinearLayout Constituents;
+    private  SharedPreferences sharedPref ;
+
 
     // TODO : Mohamed aded :
     TextView sci_name;
@@ -47,6 +49,7 @@ public class ProfileActivity extends AppCompatActivity {
     TextView contreIndications;
     TextView preparation;
     TextView lieu;
+    TextView interactions;
     TextView periodeRecolte;
     TextView remarques;
     TextView source;
@@ -69,16 +72,15 @@ public class ProfileActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         profile = new PlantProfile(getIntent().getLongExtra("PlantID", 0L));
+        sharedPref=PreferenceManager.getDefaultSharedPreferences(this);
 
 
     }
-
     @Override
     protected void onStart() {
         super.onStart();
         Log.v(TAG, "ACTIVITY STARTED");
     }
-
     @Override
     protected void onResume() {
         super.onResume();
@@ -118,7 +120,6 @@ public class ProfileActivity extends AppCompatActivity {
         });
 
     }
-
     private void showPlantImagePopuop() {
         PLANT_IMAGE_POPUP_STATE = true;
         LayoutInflater inflater = ProfileActivity.this.getLayoutInflater();
@@ -151,84 +152,101 @@ public class ProfileActivity extends AppCompatActivity {
         super.onPause();
         Log.v(TAG, "ACTIVITY PAUSED");
     }
-
     @Override
     protected void onStop() {
         super.onStop();
         Log.v(TAG, "ACTIVITY STOPPED");
     }
-
     @Override
     protected void onRestart() {
         super.onRestart();
         Log.v(TAG, "ACTIVITY RESTARTED");
     }
-
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         PLANT_IMAGE_POPUP_STATE = savedInstanceState.getBoolean("PLANT_IMAGE_POPUP_STATE");
         super.onRestoreInstanceState(savedInstanceState);
     }
-
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         outState.putBoolean("PLANT_IMAGE_POPUP_STATE", PLANT_IMAGE_POPUP_STATE);
         super.onSaveInstanceState(outState);
     }
 
+    private  void  setField(TextView textView,String key,int id,String value,int containerId){
 
-    public void onClickConstituents(View v) {
-        if (v == collapseConstituent) {
-            Constituents.setVisibility( (Constituents.getVisibility() == VISIBLE) ? GONE : VISIBLE);
+        boolean state = sharedPref.getBoolean(key,true);
+        if(state){
+            textView = (TextView) findViewById(id);
+            textView.setText(value);
+        }else{
+            findViewById(containerId).setVisibility(View.GONE);
         }
-    }
 
+    }
     private void widgetsPopulation(PlantProfile profile) {
 
         Log.v("PlantProfile", "in widgets population");
 
         plantProfileAppBar = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout_profile);
-        sci_name = (TextView) findViewById(R.id.plant_name_sci);
-        noms = (TextView) findViewById(R.id.plant_noms);
-        famille = (TextView) findViewById(R.id.plant_family);
-        resume = (TextView) findViewById(R.id.plant_resume);
-        constituants = (TextView) findViewById(R.id.plant_constituents);
-        partiesUtilisees = (TextView) findViewById(R.id.plant_used_parts);
-        effets = (TextView) findViewById(R.id.plant_effects);
-        effetsSecondaires = (TextView) findViewById(R.id.plant_2nd_effects);
-        indications = (TextView) findViewById(R.id.plant_interactions);
-        contreIndications = (TextView) findViewById(R.id.plant_contreIndications);
-        preparation = (TextView) findViewById(R.id.plant_preparation);
-        lieu = (TextView) findViewById(R.id.plant_habitat);
-        periodeRecolte = (TextView) findViewById(R.id.plant_harvest);
-        remarques = (TextView) findViewById(R.id.plant_remarks);
-        source = (TextView) findViewById(R.id.plant_source);
-        liens = (TextView) findViewById(R.id.plant_liens);
-        image = (ImageView) findViewById(R.id.plant_image);
-
         plantProfileAppBar.setTitle(profile.getSci_name());
+
+
+        sci_name = (TextView) findViewById(R.id.plant_name_sci);
         sci_name.setText(profile.getSci_name());
+
+        noms = (TextView) findViewById(R.id.plant_noms);
         noms.setText(profile.getNom());
-        famille.setText(profile.getFamille());
+
+
+        famille = (TextView) findViewById(R.id.plant_family);
+        famille.setText("Famille : "+profile.getFamille());
+
+
+
+        resume = (TextView) findViewById(R.id.plant_resume);
         resume.setText(profile.getResume());
-        constituants.setText(profile.getConstituants());
-        partiesUtilisees.setText(profile.getPartiesUtilisees());
+
+        effets = (TextView) findViewById(R.id.plant_effects);
         effets.setText(profile.getEffets());
-        effetsSecondaires.setText(profile.getEffetsSecondaires());
-        indications.setText(profile.getIndications());
-        contreIndications.setText(profile.getContreIndication());
-        preparation.setText(profile.getPreparation());
-        lieu.setText(profile.getLieu());
-        periodeRecolte.setText(profile.getPeriodeRecolte());
-        remarques.setText(profile.getRemarques());
-        source.setText(profile.getSource());
-        liens.setText(profile.getLiens());
+
+
+
+
+        setField(constituants,"CONSTITUANTS",R.id.plant_constituents,profile.getConstituants(),R.id.container_constituants);
+        setField(partiesUtilisees,"PARTIES_UTILISEES",R.id.plant_used_parts,profile.getPartiesUtilisees(),R.id.container_parties_utilisees);
+        setField(effetsSecondaires,"LES_EFFETS_SECONDAIRE",R.id.plant_2nd_effects,profile.getEffetsSecondaires(),R.id.container_effets_secondaires);
+        setField(indications,"LES_INDECATION",R.id.plant_indications,profile.getIndications(),R.id.container_indications);
+        setField(contreIndications,"LES_CONTRE_INDECATION",R.id.plant_contreIndications,profile.getContreIndication(),R.id.container_contre_indications);
+        setField(preparation,"LES_PREPARATION",R.id.plant_preparation,profile.getContreIndication(),R.id.container_preparation);
+        setField(lieu,"HABITAT",R.id.plant_habitat,profile.getLieu(),R.id.container_habitat);
+        setField(periodeRecolte,"TEMPS_DE_RECOLTE",R.id.plant_harvest,profile.getPeriodeRecolte(),R.id.container_temps_recolte);
+        setField(remarques,"LES_REMARQUES",R.id.plant_remarks,profile.getRemarques(),R.id.container_remarks);
+        setField(interactions,"LES_INTERACTION",R.id.plant_interactions,profile.getInteraction(),R.id.container_interactions);
+
+
+
+        if(profile.getSource() == null ){
+            findViewById(R.id.container_source).setVisibility(View.GONE);
+        }else{
+            source = (TextView) findViewById(R.id.plant_source);
+            source.setText(profile.getSource());
+        }
+        
+        if (profile.getLiens() == null ) {
+            findViewById(R.id.container_liens).setVisibility(View.GONE);
+        }else {
+            setField((TextView) findViewById(R.id.plant_liens),"LES_LIENS",R.id.plant_liens,profile.getLiens(),R.id.container_liens);
+        }
+        image = (ImageView) findViewById(R.id.plant_image);
         Glide.with(this)
                 .load("file:///android_asset/thumbnails/" + profile.getImage())
                 .asBitmap()
                 .transform(new RoundedCornersTransformation(this, 20, 0))
                 .override(300, 200)
                 .into(image);
-    }
 
+    }
 }
+
+

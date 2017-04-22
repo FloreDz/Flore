@@ -28,19 +28,14 @@ import org.opencv.features2d.FeatureDetector;
 import org.opencv.imgproc.Imgproc;
 
 import java.io.File;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.TreeSet;
 
-import dz.esi.team.appprototype.HomePage;
-import dz.esi.team.appprototype.data.PlantCursorAdapter;
 import dz.esi.team.appprototype.data.PlantRetriever;
 
-import static dz.esi.team.appprototype.HomePage.DISPLAY_STATE;
 import static dz.esi.team.appprototype.data.PlantContract.PlantEntry._ID;
 import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.sci_name;
 
