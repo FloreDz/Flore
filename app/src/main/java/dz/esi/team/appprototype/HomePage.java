@@ -128,7 +128,6 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         });
 
 
-
         plantsListView = (ListView) findViewById(R.id.plantes_list_view);
         View emptyView = findViewById(R.id.empty_view);
         plantsListView.setEmptyView(emptyView);
