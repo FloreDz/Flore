@@ -218,7 +218,7 @@ public class ProfileActivity extends AppCompatActivity {
         setField(effetsSecondaires,"LES_EFFETS_SECONDAIRE",R.id.plant_2nd_effects,profile.getEffetsSecondaires(),R.id.container_effets_secondaires);
         setField(indications,"LES_INDECATION",R.id.plant_indications,profile.getIndications(),R.id.container_indications);
         setField(contreIndications,"LES_CONTRE_INDECATION",R.id.plant_contreIndications,profile.getContreIndication(),R.id.container_contre_indications);
-        setField(preparation,"LES_PREPARATION",R.id.plant_preparation,profile.getContreIndication(),R.id.container_preparation);
+        setField(preparation,"LES_PREPARATION",R.id.plant_preparation,profile.getPreparation(),R.id.container_preparation);
         setField(lieu,"HABITAT",R.id.plant_habitat,profile.getLieu(),R.id.container_habitat);
         setField(periodeRecolte,"TEMPS_DE_RECOLTE",R.id.plant_harvest,profile.getPeriodeRecolte(),R.id.container_temps_recolte);
         setField(remarques,"LES_REMARQUES",R.id.plant_remarks,profile.getRemarques(),R.id.container_remarks);
