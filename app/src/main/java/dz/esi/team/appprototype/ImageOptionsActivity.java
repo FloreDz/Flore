@@ -26,6 +26,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
@@ -33,6 +34,7 @@ import java.util.Set;
 import java.util.TreeMap;
 
 import dz.esi.team.appprototype.recognition.ORBRecognition;
+import dz.esi.team.appprototype.recognition.ORBRecognition.Couple;
 
 public class ImageOptionsActivity extends AppCompatActivity {
 
@@ -105,26 +107,19 @@ public class ImageOptionsActivity extends AppCompatActivity {
         if (!croppedImage) displayImage();
     }
 
-    public ArrayList<ORBRecognition.Couple> startRecognition(Bitmap uploadedBitmap) {
+    public ArrayList<Couple> startRecognition(Bitmap uploadedBitmap) {
+        ORBRecognition orbRecognition = new ORBRecognition(this);
+        Log.d(TAG, "startRecognition: about to start recognition");
+        ArrayList<Couple> recognitionResult = orbRecognition.Recognize(uploadedBitmap);
+        Log.d(TAG, "startRecognition: recognition finished");
 
-//        Log.d(TAG, "startRecognition: about to start recognition");
-//        ArrayList<ORBRecognition.Couple> recognitionResult = ORBRecognition.Recognize(uploadedBitmap);
-//        Log.d(TAG, "startRecognition: recognition finished");
-//        Log.d(TAG, "startRecognition: recognitionResult : " + recognitionResult.toString());
-//        //noinspection Since15
-//        recognitionResult.sort(new Comparator<ORBRecognition.Couple>() {
-//            @Override
-//            public int compare(ORBRecognition.Couple o1, ORBRecognition.Couple o2) {
-//                if (o1.percentage > o2.percentage) return 1;
-//                else return -1;
-//            }-
-//        });
-
-        ArrayList<ORBRecognition.Couple> recognitionResult = new ArrayList<>();
-        recognitionResult.add(new ORBRecognition.Couple(2L,11.2f));
-        recognitionResult.add(new ORBRecognition.Couple(9L,91.2f));
-        recognitionResult.add(new ORBRecognition.Couple(5L,01.2f));
-        recognitionResult.add(new ORBRecognition.Couple(8L,51.52f));
+        Collections.sort(recognitionResult, new Comparator<Couple>() {
+            @Override
+            public int compare(Couple o1, Couple o2) {
+                if (o1.percentage < o2.percentage) return 1;
+                else return -1;
+            }
+        });
 
         return recognitionResult;
     }

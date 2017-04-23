@@ -1,6 +1,7 @@
 package dz.esi.team.appprototype.recognition;
 
 import android.content.Context;
+import android.content.res.AssetManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -24,8 +25,10 @@ import org.opencv.imgproc.Imgproc;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -39,7 +42,7 @@ import static dz.esi.team.appprototype.RecognitionResult.i;
 import static dz.esi.team.appprototype.data.PlantContract.PlantEntry._ID;
 import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.sci_name;
 
-public class ORBRecognition extends AppCompatActivity {
+public class ORBRecognition {
 
     final static String TAG = ORBRecognition.class.getSimpleName();
 
@@ -89,7 +92,14 @@ public class ORBRecognition extends AppCompatActivity {
     }
 
 
-    public static ArrayList<Couple> Recognize(Bitmap entry) {
+    Context context;
+
+    public ORBRecognition (Context context) {
+        this.context = context;
+        Log.d(TAG, "ORBRecognition: an instance was just created");
+    }
+
+    public ArrayList<Couple> Recognize(Bitmap entry) {
 
         if (entry == null) Log.d(TAG, "bitmap null");
         else Log.d(TAG, "bitmap not null!");
@@ -118,18 +128,15 @@ public class ORBRecognition extends AppCompatActivity {
 
 
         while (cursor.moveToNext()) {
-            String rep_name = "file:///android_asset/dataset/" + cursor.getString(1).toLowerCase().replaceAll(" ", "_");
+            String rep_name = "dataset/" + cursor.getString(1).toLowerCase().replaceAll(" ", "_");
             Log.d(TAG, "Recognize: rep_name == " + rep_name);
-            File directory = new File(rep_name);
-
-            File[] fList = directory.listFiles();
-            Log.d(TAG, "Recognize: fList == null ? : " + (fList == null));
 
             TreeSet<Float> plantGoodMatches = new TreeSet<>();
 
-            for (int i = 0; i < fList.length; i++) {
-                Bitmap query = BitmapFactory.decodeFile(fList[i].getPath());
-//                Bitmap query = BitmapFactory.decodeFile(f.getPath());
+            List<String> imagesList = getDirectoryContent(rep_name);
+
+            for (int i = 0; i < imagesList.size() ; i++) {
+                Bitmap query = getBitmapFromAssets(rep_name + "/" + imagesList.get(i));
                 Mat queryImg = new Mat(query.getWidth(), query.getHeight(), CvType.CV_8UC1);
                 Utils.bitmapToMat(query, queryImg);
 
@@ -142,7 +149,7 @@ public class ORBRecognition extends AppCompatActivity {
                 descriptor.compute(queryImg, keyPoints2, descriptors2);
                 
                 // Matching
-//                MatOfDMatch matches = new MatOfDMatch();
+                MatOfDMatch matches = new MatOfDMatch();
 
                 matcher.match(descriptors1, descriptors2, matches);
                 Log.d(TAG, "size of matches = " + matches.size());
@@ -160,14 +167,10 @@ public class ORBRecognition extends AppCompatActivity {
 
                 LinkedList<DMatch> good_matches = new LinkedList<>();
                 for (int j = 0; j < matchesList.size(); j++) {
-                    if (matchesList.get(j).distance <= (max_dist - min_dist) )
+                    if (matchesList.get(j).distance <= (max_dist - min_dist) ) // todo: a change
                         good_matches.addLast(matchesList.get(j));
                 }
 
-                /*MatOfDMatch mGood_matches = new MatOfDMatch();
-                mGood_matches.fromList(good_matches);
-                //   mGood_matches.fromList(matchesList);*/
-                
                 Log.d(TAG, "size of goodmatches is : " + good_matches.size());
                 Log.d(TAG, "size of matches is: " + matchesList.size());
                 Log.d(TAG,"distance of " + i + " = " + good_matches.size()
@@ -175,22 +178,54 @@ public class ORBRecognition extends AppCompatActivity {
                         +"  min= "+min_dist+" max= "+max_dist +"  taux = "
                         + (double) good_matches.size()/matchesList.size()  );
 
-                plantGoodMatches.add((float) (good_matches.size()/matchesList.size()));
+                plantGoodMatches.add((float)(good_matches.size()/matchesList.size()));
                 good_matches.clear();
             }
 
-            recognitionResult.put( Long.parseLong(cursor.getString(0)) , plantGoodMatches.last() );
-            recognitionResult.put( Long.parseLong(cursor.getString(0)) , (float) (good_matches.size()/matchesList.size()) );
+            recognitionResult.add(new Couple (Long.parseLong(cursor.getString(0)), plantGoodMatches.last()));
+
+            Log.d(TAG, "ORBRecognition: plantGoodMatches list size before clear : " + plantGoodMatches.size());
+
             plantGoodMatches.clear();
 
-            Log.d(TAG, "ORBRecognition: plantGoodMatches list size " + plantGoodMatches.size());
+            Log.d(TAG, "ORBRecognition: plantGoodMatches list size after clear : " + plantGoodMatches.size());
         }
-
-
-
 
         return recognitionResult;
 
+    }
+
+    private Bitmap getBitmapFromAssets(String path) {
+
+        AssetManager assetManager = this.context.getAssets();
+        Bitmap bitmap = null;
+        InputStream str = null;
+
+        try {
+            str = assetManager.open(path);
+            bitmap = BitmapFactory.decodeStream(str);
+        } catch (IOException e) {
+            e.printStackTrace();
+            try {
+                str.close();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        }
+
+        return bitmap;
+    }
+
+    private List<String> getDirectoryContent(String directoryPath) {
+        AssetManager assetManager = this.context.getAssets();
+        List<String> list = new ArrayList<>();
+        try {
+            String[] files = assetManager.list(directoryPath);
+            list = Arrays.asList(files);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return list;
     }
 
 }

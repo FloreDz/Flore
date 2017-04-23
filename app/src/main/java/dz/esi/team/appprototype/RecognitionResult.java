@@ -11,11 +11,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 import dz.esi.team.appprototype.data.PlantCompactProfile;
 import dz.esi.team.appprototype.utils.ResultAdapter;
@@ -38,11 +34,11 @@ public class RecognitionResult extends AppCompatActivity {
         resultListView = (ListView) findViewById(R.id.recognition_result_list_view);
         View emptyView = findViewById(R.id.empty_view);
 
-            ArrayList<Couple> couplesList =  this.getIntent().getParcelableArrayListExtra("couplesArrayList");
-            ArrayList<PlantCompactProfile> plantsList = extractPlantsCompactProfilesArrayListFromCouplesArrayList(couplesList);
-            ArrayList<Float> percentagesList = extractPercentagesArrayListFromCouplesArrayList(couplesList);
+        ArrayList<Couple> couplesList =  this.getIntent().getParcelableArrayListExtra("couplesArrayList");
+        ArrayList<PlantCompactProfile> plantsList = extractPlantsCompactProfilesArrayListFromCouplesArrayList(couplesList);
+        ArrayList<Float> percentagesList = extractPercentagesArrayListFromCouplesArrayList(couplesList);
 
-            ResultAdapter resultAdapter = new ResultAdapter(this,plantsList,percentagesList);
+        ResultAdapter resultAdapter = new ResultAdapter(this,plantsList,percentagesList);
 
         resultListView.setEmptyView(emptyView);
         resultListView.setAdapter(resultAdapter);
@@ -79,42 +75,10 @@ public class RecognitionResult extends AppCompatActivity {
             ArrayList<Float> plantsPercentages = new ArrayList<>();
 
             for (Couple couple : recognitionResult) {
-                plantsPercentages.add(couple.percentage);
+                plantsPercentages.add(100*couple.percentage);
             }
 
             return plantsPercentages;
     }
 
-    private Bitmap getBitmapFromAssets(String path) {
-
-        AssetManager assetManager = getAssets();
-        Bitmap bitmap = null;
-        InputStream str = null;
-
-        try {
-            str = assetManager.open(path);
-            bitmap = BitmapFactory.decodeStream(str);
-        } catch (IOException e) {
-            e.printStackTrace();
-            try {
-                str.close();
-            } catch (IOException e1) {
-                e1.printStackTrace();
-            }
-        }
-
-        return bitmap;
-    }
-
-    private List<String> getDirectoryContent(String directoryPath) {
-        AssetManager assetManager = getAssets();
-        List<String> list = new ArrayList<>();
-        try {
-            String[] files = assetManager.list(directoryPath);
-            list = Arrays.asList(files);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return list;
-    }
 }
