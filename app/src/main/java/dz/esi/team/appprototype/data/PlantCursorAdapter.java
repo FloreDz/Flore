@@ -49,7 +49,6 @@ public class PlantCursorAdapter extends CursorAdapter {
 
     @Override
     public View newView(Context context, Cursor cursor, ViewGroup parent) {
-        Log.d(TAG, "newView in");
         if (DISPLAY_STATE.equals(SHOW_PLANTS_BY_SCIENTIFIQUE_NAMES))
             return LayoutInflater.from(context).inflate(R.layout.item_plant, parent, false);
         else
@@ -58,8 +57,6 @@ public class PlantCursorAdapter extends CursorAdapter {
 
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
-
-        Log.d(TAG, "bindView in");
 
         TextView tvPlantFamily;
         TextView tvPlantName;

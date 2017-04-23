@@ -24,7 +24,13 @@ import com.soundcloud.android.crop.Crop;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
 
 import dz.esi.team.appprototype.recognition.ORBRecognition;
 
@@ -82,11 +88,13 @@ public class ImageOptionsActivity extends AppCompatActivity {
                                 beginCrop(imageViewUri);
                                 break;
                             case R.id.btn_image_process:
-                                Toast.makeText(ImageOptionsActivity.this, "recognition", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(ImageOptionsActivity.this, "recognition started", Toast.LENGTH_SHORT).show();
+                                Log.d(TAG, "onNavigationItemSelected: about to create intent");
                                 Intent intent = new Intent(ImageOptionsActivity.this,RecognitionResult.class);
-                                intent.putExtra("bitmapImage",uploadedBitmap);
+                                Log.d(TAG, "onNavigationItemSelected: intent created, about to put array list extra");
+                                intent.putParcelableArrayListExtra("couplesArrayList",startRecognition(uploadedBitmap));
+                                Log.d(TAG, "onNavigationItemSelected: extra put, about to start activity (RecognitionResult)");
                                 startActivity(intent);
-//                                startRecognition();
                                 break;
                             default:
                         }
@@ -97,6 +105,28 @@ public class ImageOptionsActivity extends AppCompatActivity {
         if (!croppedImage) displayImage();
     }
 
+    public ArrayList<ORBRecognition.Couple> startRecognition(Bitmap uploadedBitmap) {
+//        Log.d(TAG, "startRecognition: about to start recognition");
+//        ArrayList<ORBRecognition.Couple> recognitionResult = ORBRecognition.Recognize(uploadedBitmap);
+//        Log.d(TAG, "startRecognition: recognition finished");
+//        Log.d(TAG, "startRecognition: recognitionResult : " + recognitionResult.toString());
+//        //noinspection Since15
+//        recognitionResult.sort(new Comparator<ORBRecognition.Couple>() {
+//            @Override
+//            public int compare(ORBRecognition.Couple o1, ORBRecognition.Couple o2) {
+//                if (o1.percentage > o2.percentage) return 1;
+//                else return -1;
+//            }
+//        });
+
+        ArrayList<ORBRecognition.Couple> recognitionResult = new ArrayList<>();
+        recognitionResult.add(new ORBRecognition.Couple(2L,11.2f));
+        recognitionResult.add(new ORBRecognition.Couple(9L,91.2f));
+        recognitionResult.add(new ORBRecognition.Couple(5L,01.2f));
+        recognitionResult.add(new ORBRecognition.Couple(8L,51.52f));
+
+        return recognitionResult;
+    }
 
 
     @Override
@@ -122,17 +152,17 @@ public class ImageOptionsActivity extends AppCompatActivity {
 
         if(uploadedImagePath!= null){
             this.imageViewUri = Uri.parse(getIntent().getStringExtra(LOADED_IMAGE_URI));
-//            this.imageViewUploadedImage.setImageBitmap(BitmapFactory.decodeFile(uploadedImagePath));
+//            this.imageViewUploadedImage.setImageBitmap(BitmapFactory.decodeFile(uploadedImagePath)); todo:check this comments
         }else{
             this.imageViewUri = (Uri) getIntent().getExtras().get(Intent.EXTRA_STREAM);
-            //uploadedImagePath = new File(this.imageViewUri.toString()).getPath();
+            //uploadedImagePath = new File(this.imageViewUri.toString()).getPath(); todo: and these
             //uploadedImagePath = imageViewUri.getPath();
             uploadedImagePath = getRealPathFromURI(this, this.imageViewUri);
         }
         this.uploadedBitmap = fixImageRotation(uploadedImagePath);
         this.imageViewUploadedImage.setImageBitmap(this.uploadedBitmap);
 
-    }///storage/emulated/0/Pictures/Screenshots/Screenshot_2017-04-04-22-36-45.png
+    }
 
     private String getRealPathFromURI(Context context, Uri contentUri) {
         String[] proj = {MediaStore.Audio.Media.DATA};
@@ -201,10 +231,5 @@ public class ImageOptionsActivity extends AppCompatActivity {
         Log.d(TAG, "onSaveInstanceState:  the cropped image " + croppedImage);
     }
 
-    public void startRecognition() {
-        ORBRecognition orbRecognition = new ORBRecognition(ImageOptionsActivity.this);
-        HashMap<Long,Float> recognitionResult = orbRecognition.Recognize(this.uploadedBitmap);
-        Log.d(TAG, "startRecognition: recognitionResult : " + recognitionResult.toString());
-    }
 
 }

@@ -1,4 +1,3 @@
-
 package dz.esi.team.appprototype.recognition;
 
 import android.content.Context;
@@ -6,6 +5,8 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Path;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
@@ -24,11 +25,15 @@ import org.opencv.imgproc.Imgproc;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 import dz.esi.team.appprototype.data.PlantRetriever;
+import jp.co.cyberagent.android.gpuimage.PixelBuffer;
 
 import static dz.esi.team.appprototype.data.PlantContract.PlantEntry._ID;
 import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.sci_name;
@@ -42,13 +47,48 @@ public class ORBRecognition extends AppCompatActivity {
         else Log.d("SUCCESS", "opencv loaded successfully");
     }
 
-    Context context;
+    public static class Couple implements Parcelable {
+        public long plantId;
+        public float percentage;
 
-    public ORBRecognition(Context context) {
-        this.context = context;
+        public Couple () {}
+
+        public Couple(long plantId, float percentage) {
+            this.plantId = plantId;
+            this.percentage = percentage;
+        }
+
+        protected Couple(Parcel in) {
+            plantId = in.readLong();
+            percentage = in.readFloat();
+        }
+
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override
+        public void writeToParcel(Parcel dest, int flags) {
+            dest.writeLong(plantId);
+            dest.writeFloat(percentage);
+        }
+
+        public static final Creator<Couple> CREATOR = new Creator<Couple>() {
+            @Override
+            public Couple createFromParcel(Parcel in) {
+                return new Couple(in);
+            }
+
+            @Override
+            public Couple[] newArray(int size) {
+                return new Couple[size];
+            }
+        };
     }
 
-    public HashMap<Long , Float> Recognize(Bitmap entry) {
+
+    public static ArrayList<Couple> Recognize(Bitmap entry) {
 
         if (entry == null) Log.d(TAG, "null");
         else Log.d(TAG, "not null!");
@@ -73,7 +113,7 @@ public class ORBRecognition extends AppCompatActivity {
 
         Cursor cursor = PlantRetriever.RetrievePlants(new String[]{_ID,sci_name},null,null,null);
 
-        HashMap<Long,Float> recognitionResult = new HashMap<>();
+        ArrayList<Couple> recognitionResult = new ArrayList<>();
 
 //        while (cursor.moveToNext()) {
 //            String rep_name = "file:///android_asset/dataset/" + cursor.getString(1).toLowerCase().replaceAll(" ", "_");
@@ -89,40 +129,40 @@ public class ORBRecognition extends AppCompatActivity {
 
 
         // added from StackOverFlow ///////////////////////////////////////////////////////////////
-        File f = new File(this.getCacheDir()+"/allium_sativum_l/3-2.png");
-        if (!f.exists()) try {
+//        File f = new File(this.getCacheDir()+"/allium_sativum_l/3-2.png");
+//        if (!f.exists()) try {
+//
+//            InputStream is = getAssets().open("/dataset/allium_sativum_l/3-2.png");
+//            int size = is.available();
+//            byte[] buffer = new byte[size];
+//            is.read(buffer);
+//            is.close();
 
-            InputStream is = getAssets().open("/dataset/allium_sativum_l/3-2.png");
-            int size = is.available();
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-
-            FileOutputStream fos = new FileOutputStream(f);
-            fos.write(buffer);
-            fos.close();
-        } catch (Exception e) { throw new RuntimeException(e); }
+//            FileOutputStream fos = new FileOutputStream(f);
+//            fos.write(buffer);
+//            fos.close();
+//        } catch (Exception e) { throw new RuntimeException(e); }
 
         ///////////////////////////////////////////////////////////////////////////////////////////
 
 //            for (int i = 0; i < fList.length; i++) {
 //                Bitmap query = BitmapFactory.decodeFile(fList[i].getPath());
-                Bitmap query = BitmapFactory.decodeFile(f.getPath());
-                Mat queryImg = new Mat(query.getWidth(), query.getHeight(), CvType.CV_8UC1);
-                Utils.bitmapToMat(query, queryImg);
+////                Bitmap query = BitmapFactory.decodeFile(f.getPath());
+//                Mat queryImg = new Mat(query.getWidth(), query.getHeight(), CvType.CV_8UC1);
+//                Utils.bitmapToMat(query, queryImg);
 
-                Imgproc.cvtColor(queryImg, queryImg, Imgproc.COLOR_RGB2GRAY);
-
-                Mat descriptors2 = new Mat();
-                MatOfKeyPoint keyPoints2 = new MatOfKeyPoint();
-
-                detector.detect(queryImg, keyPoints2);
-                descriptor.compute(queryImg, keyPoints2, descriptors2);
+//                Imgproc.cvtColor(queryImg, queryImg, Imgproc.COLOR_RGB2GRAY);
+//
+//                Mat descriptors2 = new Mat();
+//                MatOfKeyPoint keyPoints2 = new MatOfKeyPoint();
+//
+//                detector.detect(queryImg, keyPoints2);
+//                descriptor.compute(queryImg, keyPoints2, descriptors2);
                 
                 // Matching
                 MatOfDMatch matches = new MatOfDMatch();
 
-                matcher.match(descriptors1, descriptors2, matches);
+//                matcher.match(descriptors1, descriptors2, matches);
                 Log.d(TAG, "size of matches = " + matches.size());
                                 
                 List<DMatch> matchesList = matches.toList();
@@ -158,7 +198,7 @@ public class ORBRecognition extends AppCompatActivity {
 //            }
 
 //            recognitionResult.put( Long.parseLong(cursor.getString(0)) , plantGoodMatches.last() );
-            recognitionResult.put( Long.parseLong(cursor.getString(0)) , (float) (good_matches.size()/matchesList.size()) );
+//            recognitionResult.put( Long.parseLong(cursor.getString(0)) , (float) (good_matches.size()/matchesList.size()) );
 //            plantGoodMatches.clear();
 
 //            Log.d(TAG, "ORBRecognition: plantGoodMatches list size " + plantGoodMatches.size());

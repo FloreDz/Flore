@@ -12,6 +12,7 @@ import java.util.ArrayList;
 
 import dz.esi.team.appprototype.data.PlantCompactProfile;
 import dz.esi.team.appprototype.utils.ResultAdapter;
+import dz.esi.team.appprototype.recognition.ORBRecognition.Couple;
 
 public class RecognitionResult extends AppCompatActivity {
 
@@ -40,14 +41,11 @@ public class RecognitionResult extends AppCompatActivity {
             }
         });
 
-        ArrayList<PlantCompactProfile> plantList = new ArrayList<>();
-        plantList.add(new PlantCompactProfile(1L));
-        plantList.add(new PlantCompactProfile(3L));
-        plantList.add(new PlantCompactProfile(9L));
-        plantList.add(new PlantCompactProfile(6L));
-        plantList.add(new PlantCompactProfile(4L));
+        ArrayList<Couple> couplesList =  this.getIntent().getParcelableArrayListExtra("couplesArrayList");
+        ArrayList<PlantCompactProfile> plantsList = extractPlantsCompactProfilesArrayListFromCouplesArrayList(couplesList);
+        ArrayList<Float> percentagesList = extractPercentagesArrayListFromCouplesArrayList(couplesList);
 
-        ResultAdapter resultAdapter = new ResultAdapter(this,plantList);
+        ResultAdapter resultAdapter = new ResultAdapter(this,plantsList,percentagesList);
 
         resultListView.setAdapter(resultAdapter);
         resultListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -62,5 +60,29 @@ public class RecognitionResult extends AppCompatActivity {
         });
 
         
+    }
+
+    private ArrayList<PlantCompactProfile>
+        extractPlantsCompactProfilesArrayListFromCouplesArrayList(ArrayList<Couple> recognitionResult) {
+
+            ArrayList<PlantCompactProfile> plants = new ArrayList<>();
+
+            for (Couple couple : recognitionResult) {
+                plants.add(new PlantCompactProfile(couple.plantId));
+            }
+
+            return plants;
+    }
+
+    private ArrayList<Float>
+        extractPercentagesArrayListFromCouplesArrayList(ArrayList<Couple> recognitionResult) {
+
+            ArrayList<Float> plantsPercentages = new ArrayList<>();
+
+            for (Couple couple : recognitionResult) {
+                plantsPercentages.add(couple.percentage);
+            }
+
+            return plantsPercentages;
     }
 }

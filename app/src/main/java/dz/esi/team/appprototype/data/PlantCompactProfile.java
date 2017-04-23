@@ -16,7 +16,6 @@ public class PlantCompactProfile {
 
     private String id;
     private String sci_name;
-    private String nom;
     private String image;
     private String famille;
 
