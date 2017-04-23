@@ -106,6 +106,7 @@ public class ImageOptionsActivity extends AppCompatActivity {
     }
 
     public ArrayList<ORBRecognition.Couple> startRecognition(Bitmap uploadedBitmap) {
+
 //        Log.d(TAG, "startRecognition: about to start recognition");
 //        ArrayList<ORBRecognition.Couple> recognitionResult = ORBRecognition.Recognize(uploadedBitmap);
 //        Log.d(TAG, "startRecognition: recognition finished");
@@ -116,7 +117,7 @@ public class ImageOptionsActivity extends AppCompatActivity {
 //            public int compare(ORBRecognition.Couple o1, ORBRecognition.Couple o2) {
 //                if (o1.percentage > o2.percentage) return 1;
 //                else return -1;
-//            }
+//            }-
 //        });
 
         ArrayList<ORBRecognition.Couple> recognitionResult = new ArrayList<>();
