@@ -57,8 +57,7 @@ public class PlantProfile {
                     getString(plantProfile.getColumnIndexOrThrow(PlantEntry.sci_name));
             this.nom = plantProfile.
                     getString(plantProfile.getColumnIndexOrThrow(PlantEntry.nom));
-            this.image = plantProfile.
-                    getString(plantProfile.getColumnIndexOrThrow(PlantEntry.image));
+            this.image = this.sci_name.toLowerCase();
             this.famille = plantProfile.
                     getString(plantProfile.getColumnIndexOrThrow(PlantEntry.famille));
             this.resume = plantProfile.

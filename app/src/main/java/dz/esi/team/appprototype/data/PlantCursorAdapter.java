@@ -64,7 +64,7 @@ public class PlantCursorAdapter extends CursorAdapter {
 
         String plantFamily = cursor.getString(cursor.getColumnIndex(famille));
         String plantSciName = cursor.getString(cursor.getColumnIndex(sci_name));
-        String plantImage = cursor.getString(cursor.getColumnIndex(image));
+        String plantImage = plantSciName.toLowerCase() + ".jpg";
 
         if (DISPLAY_STATE.equals(SHOW_PLANTS_BY_SCIENTIFIQUE_NAMES)) {
 

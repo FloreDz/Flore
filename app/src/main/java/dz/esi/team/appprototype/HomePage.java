@@ -97,7 +97,6 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
     public static String[] homeMenuProjection = {
             _ID,
             sci_name,
-            image,
             famille
     };
 

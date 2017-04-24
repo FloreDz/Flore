@@ -198,19 +198,14 @@ public class ProfileActivity extends AppCompatActivity {
         noms = (TextView) findViewById(R.id.plant_noms);
         noms.setText(profile.getNom());
 
-
         famille = (TextView) findViewById(R.id.plant_family);
         famille.setText("Famille : "+profile.getFamille());
-
-
 
         resume = (TextView) findViewById(R.id.plant_resume);
         resume.setText(profile.getResume());
 
         effets = (TextView) findViewById(R.id.plant_effects);
         effets.setText(profile.getEffets());
-
-
 
 
         setField(constituants,"CONSTITUANTS",R.id.plant_constituents,profile.getConstituants(),R.id.container_constituants);
@@ -240,7 +235,7 @@ public class ProfileActivity extends AppCompatActivity {
         }
         image = (ImageView) findViewById(R.id.plant_image);
         Glide.with(this)
-                .load("file:///android_asset/thumbnails/" + profile.getImage())
+                .load("file:///android_asset/thumbnails/" + profile.getImage() + ".jpg")
                 .asBitmap()
                 .transform(new RoundedCornersTransformation(this, 20, 0))
                 .override(300, 200)
