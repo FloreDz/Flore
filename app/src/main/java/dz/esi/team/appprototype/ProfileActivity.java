@@ -21,6 +21,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
+import java.io.File;
+
 import dz.esi.team.appprototype.data.PlantProfile;
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
@@ -171,6 +173,7 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onSaveInstanceState(Bundle outState) {
         outState.putBoolean("PLANT_IMAGE_POPUP_STATE", PLANT_IMAGE_POPUP_STATE);
         super.onSaveInstanceState(outState);
+
     }
 
     private  void  setField(TextView textView,String key,int id,String value,int containerId){
@@ -243,7 +246,7 @@ public class ProfileActivity extends AppCompatActivity {
                 .load("file:///android_asset/thumbnails/" + profile.getImage())
                 .asBitmap()
                 .transform(new RoundedCornersTransformation(this, 20, 0))
-                .override(300, 200)
+                 .override(300, 200)
                 .into(image);
 
     }
