@@ -178,11 +178,15 @@ public class ORBRecognition {
                         +"  min= "+min_dist+" max= "+max_dist +"  taux = "
                         + (double) good_matches.size()/matchesList.size()  );
 
-                plantGoodMatches.add((float)(good_matches.size()/matchesList.size()));
+                plantGoodMatches.add((float)good_matches.size()/matchesList.size());
                 good_matches.clear();
             }
 
             recognitionResult.add(new Couple (Long.parseLong(cursor.getString(0)), plantGoodMatches.last()));
+
+            Log.d(TAG, "Recognize: all the plantGoodMatches : " + plantGoodMatches.toString());
+            Log.d(TAG, "Recognize: last (biggest) = " + plantGoodMatches.last());
+            Log.d(TAG, "Recognize: first (smallest) = " + plantGoodMatches.first());
 
             Log.d(TAG, "ORBRecognition: plantGoodMatches list size before clear : " + plantGoodMatches.size());
 
