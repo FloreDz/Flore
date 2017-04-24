@@ -167,7 +167,8 @@ public class ORBRecognition {
 
                 LinkedList<DMatch> good_matches = new LinkedList<>();
                 for (int j = 0; j < matchesList.size(); j++) {
-                    if (matchesList.get(j).distance <= (max_dist - min_dist) ) // todo: a change
+//                    if (matchesList.get(j).distance <= (max_dist - min_dist) ) // todo: a change
+                    if (matchesList.get(j).distance <= 64 ) // todo: a change
                         good_matches.addLast(matchesList.get(j));
                 }
 

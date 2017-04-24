@@ -63,5 +63,19 @@
 
     </LinearLayout>
 
+    <FrameLayout
+        android:id="@+id/image_options_background"
+        android:visibility="gone"
+        android:background="@color/clean_white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></FrameLayout>
+
+    <ProgressBar
+        android:visibility="gone"
+        android:id="@+id/image_options_progress_bar"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"/>
+
 
 </android.support.design.widget.CoordinatorLayout>

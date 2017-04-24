@@ -8,6 +8,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.media.ExifInterface;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
@@ -17,7 +18,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.soundcloud.android.crop.Crop;
@@ -36,6 +39,9 @@ import java.util.TreeMap;
 import dz.esi.team.appprototype.recognition.ORBRecognition;
 import dz.esi.team.appprototype.recognition.ORBRecognition.Couple;
 
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
+
 public class ImageOptionsActivity extends AppCompatActivity {
 
     public static final String LOADED_IMAGE_PATH = "LOADED_IMAGE_PATH";
@@ -52,6 +58,7 @@ public class ImageOptionsActivity extends AppCompatActivity {
 
     private BottomNavigationView bottomNavigationViewImageOption;
     private Bitmap uploadedBitmap;
+
 
 
     private static int exifToDegrees(int exifOrientation) {
@@ -90,13 +97,7 @@ public class ImageOptionsActivity extends AppCompatActivity {
                                 beginCrop(imageViewUri);
                                 break;
                             case R.id.btn_image_process:
-                                Toast.makeText(ImageOptionsActivity.this, "recognition started", Toast.LENGTH_SHORT).show();
-                                Log.d(TAG, "onNavigationItemSelected: about to create intent");
-                                Intent intent = new Intent(ImageOptionsActivity.this,RecognitionResult.class);
-                                Log.d(TAG, "onNavigationItemSelected: intent created, about to put array list extra");
-                                intent.putParcelableArrayListExtra("couplesArrayList",startRecognition(uploadedBitmap));
-                                Log.d(TAG, "onNavigationItemSelected: extra put, about to start activity (RecognitionResult)");
-                                startActivity(intent);
+                                new Recognition().execute(uploadedBitmap);
                                 break;
                             default:
                         }
@@ -225,6 +226,42 @@ public class ImageOptionsActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState);
         outState.putBoolean(STATE_IMAGE, croppedImage);
         Log.d(TAG, "onSaveInstanceState:  the cropped image " + croppedImage);
+    }
+
+
+    class Recognition extends AsyncTask<Bitmap,Void,ArrayList<Couple>> {
+
+        private ProgressBar progressBar = (ProgressBar) findViewById(R.id.image_options_progress_bar);
+        private FrameLayout imageOptionsBackground = (FrameLayout) findViewById(R.id.image_options_background);
+
+        @Override
+        protected void onPreExecute() {
+            imageOptionsBackground.setVisibility(VISIBLE);
+            progressBar.setVisibility(VISIBLE);
+            super.onPreExecute();
+        }
+
+        @Override
+        protected ArrayList<Couple> doInBackground(Bitmap... params) {
+            Log.d(TAG, "onNavigationItemSelected , doInBackground: about to start recognition ");
+            return startRecognition(params[0]);
+        }
+
+        @Override
+        protected void onPostExecute(ArrayList<Couple> couples) {
+            imageOptionsBackground.setVisibility(GONE);
+            progressBar.setVisibility(GONE);
+
+            Log.d(TAG, "onNavigationItemSelected , onPostExecute : about to create intent");
+            Intent intent = new Intent(ImageOptionsActivity.this,RecognitionResult.class);
+            Log.d(TAG, "onNavigationItemSelected , onPostExecute : intent created, about to put array list extra");
+            intent.putParcelableArrayListExtra("couplesArrayList",couples);
+            Log.d(TAG, "onNavigationItemSelected , onPostExecute : extra put, about to start activity (RecognitionResult)");
+            startActivity(intent);
+
+            super.onPostExecute(couples);
+        }
+
     }
 
 

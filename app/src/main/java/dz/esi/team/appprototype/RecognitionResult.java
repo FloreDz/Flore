@@ -4,12 +4,15 @@ import android.content.Intent;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.FrameLayout;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 
 import java.util.ArrayList;
 
@@ -17,13 +20,15 @@ import dz.esi.team.appprototype.data.PlantCompactProfile;
 import dz.esi.team.appprototype.utils.ResultAdapter;
 import dz.esi.team.appprototype.recognition.ORBRecognition.Couple;
 
+import static android.view.View.*;
+
 public class RecognitionResult extends AppCompatActivity {
 
     private static final String TAG = RecognitionResult.class.getSimpleName();
 
     public static int i = 0;
 
-    ListView resultListView;
+    private ListView resultListView;
 
 
     @Override
