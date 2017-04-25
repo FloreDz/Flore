@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/appIntro/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sw720dp-v13/values-sw720dp-v13.xml",
+        "outputFile": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sw720dp-v13\\values-sw720dp-v13.xml",
         "map": [
             {
                 "to": {
@@ -11,13 +11,13 @@
                     "endOffset": 108
                 },
                 "from": {
-                    "file": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/appIntro/src/main/res/values-sw720dp/dimen.xml",
+                    "file": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\src\\main\\res\\values-sw720dp\\dimen.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
-                        "startOffset": 55,
+                        "startOffset": 57,
                         "endColumn": 57,
-                        "endOffset": 108
+                        "endOffset": 110
                     }
                 }
             },
@@ -30,13 +30,13 @@
                     "endOffset": 167
                 },
                 "from": {
-                    "file": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/appIntro/src/main/res/values-sw720dp/dimen.xml",
+                    "file": "C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\src\\main\\res\\values-sw720dp\\dimen.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
-                        "startOffset": 113,
+                        "startOffset": 116,
                         "endColumn": 58,
-                        "endOffset": 167
+                        "endOffset": 170
                     }
                 }
             }

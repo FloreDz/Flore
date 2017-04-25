@@ -74,7 +74,7 @@ public class ProfileActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         profile = new PlantProfile(getIntent().getLongExtra("PlantID", 0L));
-        sharedPref=PreferenceManager.getDefaultSharedPreferences(this);
+        sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
 
 
     }
@@ -177,12 +177,12 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private  void  setField(TextView textView,String key,int id,String value,int containerId){
-
         boolean state = sharedPref.getBoolean(key,true);
-        if(state){
+
+        if (state) {
             textView = (TextView) findViewById(id);
             textView.setText(value);
-        }else{
+        } else {
             findViewById(containerId).setVisibility(View.GONE);
         }
 
@@ -201,11 +201,8 @@ public class ProfileActivity extends AppCompatActivity {
         noms = (TextView) findViewById(R.id.plant_noms);
         noms.setText(profile.getNom());
 
-
         famille = (TextView) findViewById(R.id.plant_family);
         famille.setText("Famille : "+profile.getFamille());
-
-
 
         resume = (TextView) findViewById(R.id.plant_resume);
         resume.setText(profile.getResume());
@@ -213,21 +210,16 @@ public class ProfileActivity extends AppCompatActivity {
         effets = (TextView) findViewById(R.id.plant_effects);
         effets.setText(profile.getEffets());
 
-
-
-
         setField(constituants,"CONSTITUANTS",R.id.plant_constituents,profile.getConstituants(),R.id.container_constituants);
         setField(partiesUtilisees,"PARTIES_UTILISEES",R.id.plant_used_parts,profile.getPartiesUtilisees(),R.id.container_parties_utilisees);
         setField(effetsSecondaires,"LES_EFFETS_SECONDAIRE",R.id.plant_2nd_effects,profile.getEffetsSecondaires(),R.id.container_effets_secondaires);
         setField(indications,"LES_INDECATION",R.id.plant_indications,profile.getIndications(),R.id.container_indications);
         setField(contreIndications,"LES_CONTRE_INDECATION",R.id.plant_contreIndications,profile.getContreIndication(),R.id.container_contre_indications);
-        setField(preparation,"LES_PREPARATION",R.id.plant_preparation,profile.getContreIndication(),R.id.container_preparation);
+        setField(preparation,"LES_PREPARATION",R.id.plant_preparation,profile.getPreparation(),R.id.container_preparation);
         setField(lieu,"HABITAT",R.id.plant_habitat,profile.getLieu(),R.id.container_habitat);
         setField(periodeRecolte,"TEMPS_DE_RECOLTE",R.id.plant_harvest,profile.getPeriodeRecolte(),R.id.container_temps_recolte);
         setField(remarques,"LES_REMARQUES",R.id.plant_remarks,profile.getRemarques(),R.id.container_remarks);
         setField(interactions,"LES_INTERACTION",R.id.plant_interactions,profile.getInteraction(),R.id.container_interactions);
-
-
 
         if(profile.getSource() == null ){
             findViewById(R.id.container_source).setVisibility(View.GONE);
@@ -243,7 +235,7 @@ public class ProfileActivity extends AppCompatActivity {
         }
         image = (ImageView) findViewById(R.id.plant_image);
         Glide.with(this)
-                .load("file:///android_asset/thumbnails/" + profile.getImage())
+                .load("file:///android_asset/thumbnails/" + profile.getImage() + ".jpg")
                 .asBitmap()
                 .transform(new RoundedCornersTransformation(this, 20, 0))
                  .override(300, 200)

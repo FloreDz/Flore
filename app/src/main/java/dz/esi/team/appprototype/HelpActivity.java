@@ -33,8 +33,6 @@ public class HelpActivity extends AppCompatActivity{
         textView4 = (TextView) findViewById(R.id.textView4);
         textView5 = (TextView) findViewById(R.id.textView5);
 
-
-
         SpannableStringBuilder builder = new SpannableStringBuilder();
 
         builder.append("Que ce soit vous avez son image dans votre galerie");
@@ -75,14 +73,17 @@ public class HelpActivity extends AppCompatActivity{
         expandableLayout2 = (ExpandableRelativeLayout) findViewById(R.id.expandableLayout2);
         expandableLayout2.toggle(); // toggle expand and collapse
     }
+
     public void expandableButton3(View view) {
         expandableLayout3 = (ExpandableRelativeLayout) findViewById(R.id.expandableLayout3);
         expandableLayout3.toggle(); // toggle expand and collapse
     }
+
     public void expandableButton4(View view) {
         expandableLayout4 = (ExpandableRelativeLayout) findViewById(R.id.expandableLayout4);
         expandableLayout4.toggle(); // toggle expand and collapse
     }
+
     public void expandableButton5(View view) {
         expandableLayout5 = (ExpandableRelativeLayout) findViewById(R.id.expandableLayout5);
         expandableLayout5.toggle(); // toggle expand and collapse

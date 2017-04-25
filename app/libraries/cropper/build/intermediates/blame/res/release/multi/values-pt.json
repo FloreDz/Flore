@@ -1,5 +1,105 @@
 [
     {
+        "outputFile": "/home/azeddine/AndroidStudioProjects/Flore/C:\\Android\\Projects\\Flore\\app\\libraries\\cropper\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-pt\\values-pt.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 100,
+                    "endColumn": 73,
+                    "endOffset": 169
+                },
+                "from": {
+                    "file": "/home/azeddine/AndroidStudioProjects/Flore/C:\\Android\\Projects\\Flore\\app\\libraries\\cropper\\src\\main\\res\\values-pt\\strings.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 317,
+                        "endColumn": 75,
+                        "endOffset": 388
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 174,
+                    "endColumn": 49,
+                    "endOffset": 219
+                },
+                "from": {
+                    "file": "/home/azeddine/AndroidStudioProjects/Flore/C:\\Android\\Projects\\Flore\\app\\libraries\\cropper\\src\\main\\res\\values-pt\\strings.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 266,
+                        "endColumn": 49,
+                        "endOffset": 311
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 224,
+                    "endColumn": 77,
+                    "endOffset": 297
+                },
+                "from": {
+                    "file": "/home/azeddine/AndroidStudioProjects/Flore/C:\\Android\\Projects\\Flore\\app\\libraries\\cropper\\src\\main\\res\\values-pt\\strings.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 185,
+                        "endColumn": 77,
+                        "endOffset": 258
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 302,
+                    "endColumn": 57,
+                    "endOffset": 355
+                },
+                "from": {
+                    "file": "/home/azeddine/AndroidStudioProjects/Flore/C:\\Android\\Projects\\Flore\\app\\libraries\\cropper\\src\\main\\res\\values-pt\\strings.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 66,
+                        "endColumn": 57,
+                        "endOffset": 119
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 360,
+                    "endColumn": 58,
+                    "endOffset": 414
+                },
+                "from": {
+                    "file": "/home/azeddine/AndroidStudioProjects/Flore/C:\\Android\\Projects\\Flore\\app\\libraries\\cropper\\src\\main\\res\\values-pt\\strings.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 125,
+                        "endColumn": 58,
+                        "endOffset": 179
+                    }
+                }
+            }
+        ]
+    },
+    {
         "outputFile": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/cropper/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-pt/values-pt.xml",
         "map": [
             {

@@ -36,6 +36,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import dz.esi.team.appprototype.data.PlantCompactProfile;
 import dz.esi.team.appprototype.data.PlantCursorAdapter;
 import dz.esi.team.appprototype.data.PlantDbHelper;
 import dz.esi.team.appprototype.data.PlantRetriever;
@@ -51,49 +52,51 @@ import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.sci_name;
 
 public class HomePage extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    public static final int LOAD_IMAGE_RESULT = 1;
     public static final String FEEDBACK_FORM_URL = "https://goo.gl/IMDiRB";
-    public static final String LOADED_IMAGE_PATH = "LOADED_IMAGE_PATH";
-    public static final String LOADED_IMAGE_URI = "LOADED_IMAGE_URI";
-    public static final String DISPLAY_TYPE = "DISPLAY_TYPE";
-    public static final String SHOW_PLANTS_BY_DEFAULT = sci_name + " ASC";
-    public static final String SHOW_PLANTS_BY_FAMILIES = famille + " ASC";
+    private static final int LOAD_IMAGE_RESULT = 1;
+    private static final String LOADED_IMAGE_PATH = "LOADED_IMAGE_PATH";
+    private static final String LOADED_IMAGE_URI = "LOADED_IMAGE_URI";
+    private static final String DISPLAY_TYPE = "DISPLAY_TYPE";
     private static final String TAG = HomePage.class.getSimpleName();
     private static final String ERROR_MESS = "something went wrong";
     private static final int PLANT_LOADER = 0;
-    public static String DISPLAY_STATE = SHOW_PLANTS_BY_FAMILIES;
     public static PlantDbHelper mDbHelper;
+    public static boolean showingRecognitionResults;
     private  SharedPreferences sharedPref ;
-
+    private static String DISPLAY_STATE = SHOW_PLANTS_BY_FAMILIES;
 
     public static ArrayList<String> plantsHeaders = null;
     ProgressBar progressBar;
     ListViewLoader listViewLoader;
+
     //layouts
     LinearLayout takeImageLayout;
     LinearLayout importImageLayout;
     DrawerLayout drawer;
     FrameLayout optionMenuBackground;
+
     // buttons
     FloatingActionButton fabRecognise;
     FloatingActionButton fabTakeImage;
     FloatingActionButton fabImportImage;
+
     //labels
     TextView importImageLabel;
     TextView takeImageLabel;
     ListView plantsListView;
+
     //image path
     private String imagePath;
+
     //costum components
     private ListView plantListView;
     private NavigationView navigationView;
     private Toolbar toolbar_search_access;
     private ActionBarDrawerToggle toggle;
     private Menu optionMenu;
-    private String[] homeMenuProjection = {
+    public static String[] homeMenuProjection = {
             _ID,
             sci_name,
-            image,
             famille
     };
 
@@ -102,8 +105,11 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
 
         introPageHandler();
         if(savedInstanceState == null) {
-            sharedPref=PreferenceManager.getDefaultSharedPreferences(this);
-           if(sharedPref.getString("DISPLAY_STATE","0").compareTo("0")==0)  DISPLAY_STATE=SHOW_PLANTS_BY_DEFAULT; else DISPLAY_STATE=SHOW_PLANTS_BY_FAMILIES ;
+            sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+            if (sharedPref.getString("DISPLAY_STATE","0").compareTo("0") == 0)
+                DISPLAY_STATE=SHOW_PLANTS_BY_SCIENTIFIQUE_NAMES;
+            else
+                DISPLAY_STATE=SHOW_PLANTS_BY_FAMILIES ;
         }
         super.onCreate(savedInstanceState);
         Log.v("HomePage", "ACTIVITY CREATED");
@@ -122,8 +128,6 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
             }
         });
 
-
-
         plantsListView = (ListView) findViewById(R.id.plantes_list_view);
         View emptyView = findViewById(R.id.empty_view);
         plantsListView.setEmptyView(emptyView);
@@ -141,14 +145,15 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
                 startActivity(intent);
             }
         });
-
         mDbHelper = new PlantDbHelper(this);
+
         try {
             mDbHelper.createDataBase();
         } catch (Exception e) {
-            Log.e("From Main.db creation", e.getMessage());
+            Log.e("From Main, .db creation", e.getMessage());
         }
         mDbHelper.openDataBase();
+
         initializePlantsHeaders();
 
         listViewLoader = new ListViewLoader(progressBar,true);
@@ -178,6 +183,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
     @Override
     protected void onStop() {
         super.onStop();
+        mDbHelper.close();
         Log.v("HomePage", "ACTIVITY STOPPED");
     }
 
@@ -188,9 +194,9 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
     }
 
     private void switchDisplayState() {
-        String displayMessage = null;
+        String displayMessage;
         if (DISPLAY_STATE.equals(SHOW_PLANTS_BY_FAMILIES)) {
-            DISPLAY_STATE = SHOW_PLANTS_BY_DEFAULT;
+            DISPLAY_STATE = SHOW_PLANTS_BY_SCIENTIFIQUE_NAMES;
             displayMessage = "Affichage par plantes";
         } else {
             DISPLAY_STATE = SHOW_PLANTS_BY_FAMILIES;
@@ -203,10 +209,8 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
     private void setupWindowAnimations() {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
             Log.v(TAG, "Into LOLLIPOP");
-            Fade fade = new Fade();
-            fade.setDuration(1000);
-            getWindow().setEnterTransition(fade);
-            getWindow().setExitTransition(fade);
+            getWindow().setEnterTransition(new Fade().setDuration(1000));
+            getWindow().setExitTransition(new Fade().setDuration(1000));
         }
     }
 
@@ -328,7 +332,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         Log.d(TAG, "onCreateOptionsMenu: creating the option menu");
-        getMenuInflater().inflate(R.menu.search_menu, menu);
+        getMenuInflater().inflate(R.menu.home_menu, menu);
         menu.getItem(0).setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
         menu.getItem(1).setChecked(DISPLAY_STATE.equals(SHOW_PLANTS_BY_FAMILIES));
         this.optionMenu = menu;
@@ -342,13 +346,11 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
 
-        Intent intent;
-        MenuItem optionMenuItem;
         int id = item.getItemId();
         switch (id) {
-            case R.id.app_search_bar:   // start the search activity
-                intent = new Intent(HomePage.this, SearchPlantesActivity.class);
-                startActivity(intent);
+            case R.id.search:   // start the search activity
+                Log.d(TAG, "onOptionsItemSelected: about to go into SearchActivity");
+                startActivity(new Intent(HomePage.this, SearchActivity.class));
                 break;
             case R.id.option_show_by_family:
                 switchDisplayState();
@@ -584,7 +586,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
 
     class ListViewLoader implements LoaderManager.LoaderCallbacks<Cursor> {
 
-        PlantCursorAdapter mCursorAdapter = new PlantCursorAdapter(HomePage.this, null);
+        PlantCursorAdapter mCursorAdapter = new PlantCursorAdapter(HomePage.this, null ,DISPLAY_STATE);
         ProgressBar progressBar;
         boolean firstRun;
 
@@ -602,14 +604,14 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
                 Log.v(TAG, "loader inited");
                 firstRun = false;
             } else {
+                mCursorAdapter.setDISPLAY_STATE(DISPLAY_STATE);
                 final Cursor cursor = PlantRetriever.RetrievePlants(homeMenuProjection, null, null, DISPLAY_STATE);
                 final Animation showListView = AnimationUtils.loadAnimation(HomePage.this, R.anim.fade_in_with_translation);
                 mCursorAdapter.swapCursor(cursor);
                 plantsListView.setAdapter(mCursorAdapter);
                 plantListView.startAnimation(showListView);
             }
-
-            }
+        }
 
 
 
@@ -618,7 +620,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
 
             Log.v(TAG, "in loader creation");
 
-            // the loader will execute the CP query method on a background thread
+            // the loader will executeSearchQuery the CP query method on a background thread
             return new CursorLoader(HomePage.this, CONTENT_URI, homeMenuProjection, null, null, DISPLAY_STATE);
         }
 
@@ -646,7 +648,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
             mCursorAdapter.swapCursor(null);
         }
 
-    };
+    }
 
 
 }

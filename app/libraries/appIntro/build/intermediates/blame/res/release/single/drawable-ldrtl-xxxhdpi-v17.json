@@ -1,11 +1,23 @@
 [
     {
+        "merged": "/home/azeddine/AndroidStudioProjects/Flore/C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\release\\drawable-ldrtl-xxxhdpi-v17\\abc_ic_menu_copy_mtrl_am_alpha.png",
+        "source": "/home/azeddine/AndroidStudioProjects/Flore/C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\drawable-ldrtl-xxxhdpi-v17\\abc_ic_menu_copy_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "/home/azeddine/AndroidStudioProjects/Flore/C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\release\\drawable-ldrtl-xxxhdpi-v17\\abc_ic_menu_cut_mtrl_alpha.png",
+        "source": "/home/azeddine/AndroidStudioProjects/Flore/C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\drawable-ldrtl-xxxhdpi-v17\\abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
         "merged": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/appIntro/build/intermediates/res/merged/release/drawable-ldrtl-xxxhdpi-v17/abc_spinner_mtrl_am_alpha.9.png",
         "source": "/home/azeddine/.android/build-cache/0b1bbdf9ca6931607ae09de1c06227b30c392821/output/res/drawable-ldrtl-xxxhdpi-v17/abc_spinner_mtrl_am_alpha.9.png"
     },
     {
         "merged": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/appIntro/build/intermediates/res/merged/release/drawable-ldrtl-xxxhdpi-v17/abc_ic_menu_copy_mtrl_am_alpha.png",
         "source": "/home/azeddine/.android/build-cache/0b1bbdf9ca6931607ae09de1c06227b30c392821/output/res/drawable-ldrtl-xxxhdpi-v17/abc_ic_menu_copy_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "/home/azeddine/AndroidStudioProjects/Flore/C:\\Android\\Projects\\Flore\\app\\libraries\\appIntro\\build\\intermediates\\res\\merged\\release\\drawable-ldrtl-xxxhdpi-v17\\abc_spinner_mtrl_am_alpha.9.png",
+        "source": "/home/azeddine/AndroidStudioProjects/Flore/C:\\Users\\The King Mohamed\\.android\\build-cache\\9107914dcb8ff74d88314476f9dc620ab2237aca\\output\\res\\drawable-ldrtl-xxxhdpi-v17\\abc_spinner_mtrl_am_alpha.9.png"
     },
     {
         "merged": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/appIntro/build/intermediates/res/merged/release/drawable-ldrtl-xxxhdpi-v17/abc_ic_menu_cut_mtrl_alpha.png",

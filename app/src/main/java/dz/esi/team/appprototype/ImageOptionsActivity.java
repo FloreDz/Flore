@@ -7,7 +7,9 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.media.ExifInterface;
+import android.media.ImageReader;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
@@ -17,19 +19,38 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.soundcloud.android.crop.Crop;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+
+import dz.esi.team.appprototype.recognition.ORBRecognition;
+import dz.esi.team.appprototype.recognition.ORBRecognition.Couple;
+
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
 
 public class ImageOptionsActivity extends AppCompatActivity {
+
     public static final String LOADED_IMAGE_PATH = "LOADED_IMAGE_PATH";
     public static final String LOADED_IMAGE_URI = "LOADED_IMAGE_URI";
     public static final String STATE_IMAGE = "STATE_IMAGE";
     private static final String TAG = "ImageOptionsActivity";
+
     // image proprieties
     private ImageView imageViewUploadedImage;
     private Uri imageViewUri;
@@ -37,8 +58,10 @@ public class ImageOptionsActivity extends AppCompatActivity {
     private boolean croppedImage = false;
     private int croppedVersion = 0;
 
-
     private BottomNavigationView bottomNavigationViewImageOption;
+    private Bitmap uploadedBitmap;
+
+
 
     private static int exifToDegrees(int exifOrientation) {
         if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_90) {
@@ -54,7 +77,7 @@ public class ImageOptionsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-
+        Log.d(TAG, ": activity CREATED");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image_options);
         Toolbar toolbar = (Toolbar) findViewById(R.id.imageOption_toolbar);
@@ -74,11 +97,9 @@ public class ImageOptionsActivity extends AppCompatActivity {
                             case R.id.btn_crop:
                                 croppedImage = true;
                                 beginCrop(imageViewUri);
-
-
                                 break;
                             case R.id.btn_image_process:
-                                Toast.makeText(ImageOptionsActivity.this, "next", Toast.LENGTH_SHORT).show();
+                                new Recognition().execute(uploadedBitmap);
                                 break;
                             default:
                         }
@@ -89,23 +110,58 @@ public class ImageOptionsActivity extends AppCompatActivity {
         if (!croppedImage) displayImage();
     }
 
+    public ArrayList<Couple> startRecognition(Bitmap uploadedBitmap) {
+        ORBRecognition orbRecognition = new ORBRecognition(this);
+        Log.d(TAG, "startRecognition: about to start recognition");
+        ArrayList<Couple> recognitionResult = orbRecognition.Recognize(uploadedBitmap);
+        Log.d(TAG, "startRecognition: recognition finished");
+
+        Collections.sort(recognitionResult, new Comparator<Couple>() {
+            @Override
+            public int compare(Couple o1, Couple o2) {
+                if (o1.percentage < o2.percentage) return 1;
+                else return -1;
+            }
+        });
+
+        return recognitionResult;
+    }
+
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d(TAG, ": activity PAUSED");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d(TAG, ": activity STOPPED");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d(TAG, ": activity DESTROYED");
+    }
+
     private void displayImage() {
         String uploadedImagePath = getIntent().getStringExtra(LOADED_IMAGE_PATH);
 
-
         if(uploadedImagePath!= null){
             this.imageViewUri = Uri.parse(getIntent().getStringExtra(LOADED_IMAGE_URI));
-//            this.imageViewUploadedImage.setImageBitmap(BitmapFactory.decodeFile(uploadedImagePath));
+//            this.imageViewUploadedImage.setImageBitmap(BitmapFactory.decodeFile(uploadedImagePath)); todo:check this comments
         }else{
             this.imageViewUri = (Uri) getIntent().getExtras().get(Intent.EXTRA_STREAM);
-            //uploadedImagePath = new File(this.imageViewUri.toString()).getPath();
+            //uploadedImagePath = new File(this.imageViewUri.toString()).getPath(); todo: and these
             //uploadedImagePath = imageViewUri.getPath();
             uploadedImagePath = getRealPathFromURI(this, this.imageViewUri);
         }
-        Bitmap bitmap = fixImageRotation(uploadedImagePath);
-        this.imageViewUploadedImage.setImageBitmap(bitmap);
+        this.uploadedBitmap = fixImageRotation(uploadedImagePath);
+        this.imageViewUploadedImage.setImageBitmap(this.uploadedBitmap);
 
-    }///storage/emulated/0/Pictures/Screenshots/Screenshot_2017-04-04-22-36-45.png
+    }
 
     private String getRealPathFromURI(Context context, Uri contentUri) {
         String[] proj = {MediaStore.Audio.Media.DATA};
@@ -145,20 +201,19 @@ public class ImageOptionsActivity extends AppCompatActivity {
     private void beginCrop(Uri source) {
         this.croppedImageUri = Uri.fromFile(new File(getFilesDir(), "cropped" + croppedVersion));
 
-        Crop.of(source, this.croppedImageUri).asSquare().start(this);
+        Crop.of(source, this.croppedImageUri).start(this);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent result) {
     String path ;
-    Bitmap bitmap ;
+
         if (requestCode == Crop.REQUEST_CROP && resultCode == RESULT_OK) {
             this.croppedVersion++;
             this.imageViewUri = Crop.getOutput(result);
             path = imageViewUri.getPath();
-            bitmap = fixImageRotation(path);
-
-            this.imageViewUploadedImage.setImageBitmap(bitmap);
+            this.uploadedBitmap = fixImageRotation(path);
+            this.imageViewUploadedImage.setImageBitmap(this.uploadedBitmap);
         }
     }
 
@@ -175,8 +230,43 @@ public class ImageOptionsActivity extends AppCompatActivity {
         Log.d(TAG, "onSaveInstanceState:  the cropped image " + croppedImage);
     }
 
-    public void startRecognition() {
-        // convert the bitmap to mat using openCv
+
+    class Recognition extends AsyncTask<Bitmap,Void,ArrayList<Couple>> {
+
+        private ProgressBar progressBar = (ProgressBar) findViewById(R.id.image_options_progress_bar);
+        private FrameLayout imageOptionsBackground = (FrameLayout) findViewById(R.id.image_options_background);
+        private TextView recognitionProgress = (TextView) findViewById(R.id.image_options_recognition_progress);
+
+
+        @Override
+        protected void onPreExecute() {
+            imageOptionsBackground.setVisibility(VISIBLE);
+            progressBar.setVisibility(VISIBLE);
+            recognitionProgress.setVisibility(VISIBLE);
+        }
+
+        @Override
+        protected ArrayList<Couple> doInBackground(Bitmap... params) {
+            Log.d(TAG, "onNavigationItemSelected , doInBackground: about to start recognition ");
+            return startRecognition(params[0]);
+        }
+
+        @Override
+        protected void onPostExecute(ArrayList<Couple> couples) {
+
+            Log.d(TAG, "onNavigationItemSelected , onPostExecute : about to create intent");
+            Intent intent = new Intent(ImageOptionsActivity.this,RecognitionResult.class);
+            Log.d(TAG, "onNavigationItemSelected , onPostExecute : intent created, about to put array list extra");
+            intent.putParcelableArrayListExtra("couplesArrayList",couples);
+            Log.d(TAG, "onNavigationItemSelected , onPostExecute : extra put, about to start activity (RecognitionResult)");
+            startActivity(intent);
+
+            imageOptionsBackground.setVisibility(GONE);
+            progressBar.setVisibility(GONE);
+            recognitionProgress.setVisibility(GONE);
+
+        }
+
     }
 
 

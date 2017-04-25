@@ -44,15 +44,7 @@ public class PlantProfile {
 
         Cursor plantProfile = null;
 
-        try {     /*
-            PlantProvider pp = new PlantProvider();
-            Log.v("text", " pp == null ? : " + (pp == null));
-            Log.v("PlantProfile try", " new Uri : " + ContentUris.withAppendedId(CONTENT_URI, plantID).toString());
-            plantProfile = pp.query(ContentUris.withAppendedId(CONTENT_URI, plantID),
-                    null, null, null, null);
-            pp = null;  */
-
-
+        try {
             SQLiteDatabase db = mDbHelper.getReadableDatabase();
             String[] selectionArgs = {"" + plantID};
             Log.v("PlantProfile", " , about to query");
@@ -65,8 +57,7 @@ public class PlantProfile {
                     getString(plantProfile.getColumnIndexOrThrow(PlantEntry.sci_name));
             this.nom = plantProfile.
                     getString(plantProfile.getColumnIndexOrThrow(PlantEntry.nom));
-            this.image = plantProfile.
-                    getString(plantProfile.getColumnIndexOrThrow(PlantEntry.image));
+            this.image = this.sci_name.toLowerCase();
             this.famille = plantProfile.
                     getString(plantProfile.getColumnIndexOrThrow(PlantEntry.famille));
             this.resume = plantProfile.
@@ -110,79 +101,79 @@ public class PlantProfile {
     }
 
     public String get_ID() {
-        return id;
+        return this.id;
     }
 
     public String getSci_name() {
-        return sci_name;
+        return this.sci_name;
     }
 
     public String getNom() {
-        return nom;
+        return this.nom;
     }
 
     public String getImage() {
-        return image;
+        return this.image;
     }
 
     public String getFamille() {
-        return famille;
+        return this.famille;
     }
 
     public String getResume() {
-        return resume;
+        return this.resume;
     }
 
     public String getConstituants() {
-        return constituants;
+        return this.constituants;
     }
 
     public String getPartiesUtilisees() {
-        return partiesUtilisees;
+        return this.partiesUtilisees;
     }
 
     public String getEffets() {
-        return effets;
+        return this.effets;
     }
 
     public String getEffetsSecondaires() {
-        return effetsSecondaires;
+        return this.effetsSecondaires;
     }
 
     public String getIndications() {
-        return indications;
+        return this.indications;
     }
 
     public String getContreIndication() {
-        return contreIndication;
+        return this.contreIndication;
     }
 
     public String getInteraction() {
-        return interaction;
+        return this.interaction;
     }
 
     public String getPreparation() {
-        return preparation;
+        return this.preparation;
     }
 
     public String getLieu() {
-        return lieu;
+        return this.lieu;
     }
 
     public String getPeriodeRecolte() {
-        return periodeRecolte;
+        return this.periodeRecolte;
     }
 
     public String getRemarques() {
-        return remarques;
+        return this.remarques;
     }
 
     public String getSource() {
-        return source;
+        return this.source;
     }
 
     public String getLiens() {
-        return liens;
+        return this.liens;
     }
 
 
