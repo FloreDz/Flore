@@ -30,7 +30,6 @@ public class PlantCompactProfile {
             SQLiteDatabase db = mDbHelper.getReadableDatabase();
             String[] projection = {
                     PlantEntry.sci_name,
-                    PlantEntry.image,
                     PlantEntry.famille
             };
             String[] selectionArgs = {"" + plantID};
@@ -42,8 +41,7 @@ public class PlantCompactProfile {
 
             this.sci_name = plantProfile.
                     getString(plantProfile.getColumnIndexOrThrow(PlantContract.PlantEntry.sci_name));
-            this.image = plantProfile.
-                    getString(plantProfile.getColumnIndexOrThrow(PlantContract.PlantEntry.image));
+            this.image = this.sci_name.toLowerCase();
             this.famille = plantProfile.
                     getString(plantProfile.getColumnIndexOrThrow(PlantContract.PlantEntry.famille));
             this.id = plantID.toString();

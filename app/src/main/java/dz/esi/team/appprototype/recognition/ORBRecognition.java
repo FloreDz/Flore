@@ -55,7 +55,6 @@ public class ORBRecognition {
         public long plantId;
         public float percentage;
 
-        public Couple () {}
 
         public Couple(long plantId, float percentage) {
             this.plantId = plantId;
@@ -172,18 +171,22 @@ public class ORBRecognition {
                         good_matches.addLast(matchesList.get(j));
                 }
 
+                Log.d(TAG, "Recognize: good_matches size = " + good_matches.size());
+
                 Log.d(TAG, "size of goodmatches is : " + good_matches.size());
                 Log.d(TAG, "size of matches is: " + matchesList.size());
                 Log.d(TAG,"distance of " + i + " = " + good_matches.size()
                         +"  while size of matches is "+ matchesList.size()
                         +"  min= "+min_dist+" max= "+max_dist +"  taux = "
-                        + (double) good_matches.size()/matchesList.size()  );
+                        + (double) good_matches.size()/matchesList.size());
 
+                Log.d(TAG, "Recognize: good_matches == null ? " + (good_matches == null));
                 plantGoodMatches.add((float)good_matches.size()/matchesList.size());
                 good_matches.clear();
             }
 
-            recognitionResult.add(new Couple (Long.parseLong(cursor.getString(0)), plantGoodMatches.last()));
+            Log.d(TAG, "Recognize: plantGoodMatches == null ? " + (plantGoodMatches == null));
+            recognitionResult.add(new Couple (Long.parseLong(cursor.getString(0)) , plantGoodMatches.last()));
 
             Log.d(TAG, "Recognize: all the plantGoodMatches : " + plantGoodMatches.toString());
             Log.d(TAG, "Recognize: last (biggest) = " + plantGoodMatches.last());

@@ -70,7 +70,7 @@
     <!-- Display state-->
     <string name="settings_plants_display_state_title">Affichage des plantes</string>
     <string name="settings_plants_display_state_content">Afficher par :</string>
-    <string name="settings_plants_display_state_discription">Affichage par default des plantes dans la page d\'acceuille lors le lancement de démarrage d\'application</string>
+    <string name="settings_plants_display_state_discription">Affichage par défaut des plantes dans la page d\'acceuil au lancement de l\'application</string>
     <string-array name="plants_display_state_label">
         <item>Familles</item>
         <item>Noms scientifiques</item>
@@ -80,16 +80,16 @@
         <item>0</item>
     </string-array>
     <!-- plant profile -->
-    <string name="settings_plants_profile_group_title">Profile du plante</string>
-    <string name="settings_plants_profile_group_summery">activer ou desactiver</string>
+    <string name="settings_plants_profile_group_title">Profil de la plante</string>
+    <string name="settings_plants_profile_group_summery">activer ou désactiver</string>
 
     <string name="settings_plant_profile_discription">Identification</string>
     <string name="settings_plant_profile_benefits">Usage</string>
-    <string name="settings_plant_profile_details">Details</string>
+    <string name="settings_plant_profile_details">Détails</string>
 
     <!--constituants-->
     <string name="constituants_title">Constituants</string>
-    <string name="constituants_description">Description les composants alimentaires constituant la plante</string>
+    <string name="constituants_description">Les composants alimentaires constituant la plante</string>
 
     <!--habitat-->
     <string name="habitat_title">Habitat</string>
@@ -101,40 +101,39 @@
 
     <!-- parties utilisées -->
     <string name="parties_utilisées">Parties utilisées</string>
-    <string name="parties_utilisées_discription">Les organes de la plante utilisés pour guérir les maladies</string>
+    <string name="parties_utilisées_discription">Les organes de la plante ayant des effets médicinaux</string>
 
     <string name="les_effets">Les effets</string>
     <string name="les_effets_discription">Les conséquences préférables d’utilisation de la plante</string>
 
-
     <!-- les effets secondaires -->
     <string name="les_effets_secondaires">Les effets secondaires</string>
-    <string name="les_effets_secondaires_discription">Les conséquences indésirables d’utilisation de la plante</string>
+    <string name="les_effets_secondaires_discription">Les conséquences indésirables suite à l’utilisation de la plante</string>
 
     <!-- les interaction -->
-    <string name="les_interaction">Les interaction</string>
-    <string name="les_interaction_discription">Les effets résultants de l’utilisation de la plante avec d’autres plantes ** à valider</string>
+    <string name="les_interaction">Les interactions</string>
+    <string name="les_interaction_discription">Les effets résultants de l’utilisation de la plante avec d’autres composants alimentaires</string>
 
     <!-- les indecation -->
-    <string name="les_indecation">Les indecation</string>
-    <string name="les_indecation_discription">Les maladies pour lesquelles cette plante est indiquer</string>
+    <string name="les_indecation">Les indications</string>
+    <string name="les_indecation_discription">Quand est-il conseillé d\'utiliser cette plante</string>
 
     <!-- contre indecation -->
-    <string name="contre_indecation">Contre indecations</string>
-    <string name="contre_indecation_discription">Les utilisation induisant à des multiplications ** à valider</string>
+    <string name="contre_indecation">Contre indications</string>
+    <string name="contre_indecation_discription">Quand est-il déconseillé d\'utiliser cette plante</string>
 
     <!-- preparation -->
     <string name="preparation">Préparations</string>
-    <string name="preparation_discription">les méthodes d’utilisation de la plante ** à valider</string>
+    <string name="preparation_discription">Les méthodes d’utilisation de la plante</string>
 
     <!-- remarque -->
     <string name="remarques">Remarques</string>
-    <string name="remarques_description">remarques_description</string>
+    <string name="remarques_description">Des remarques générales sur la plante</string>
 
 
     <!-- liens -->
     <string name="liens">Liens</string>
-    <string name="liens_description">liens_description</string>
+    <string name="liens_description">Des liens supplémentaires</string>
 
 
 </resources>

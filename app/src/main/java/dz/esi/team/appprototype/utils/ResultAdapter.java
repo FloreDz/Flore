@@ -71,7 +71,7 @@ public class ResultAdapter extends ArrayAdapter<PlantCompactProfile> {
         viewHolder.plantPercentage.setText(percentages.get(position).toString());
         Glide
                 .with(getContext())
-                .load(Uri.parse("file:///android_asset/thumbnails/" + plantCompactProfile.getImage()))
+                .load(Uri.parse("file:///android_asset/thumbnails/" + plantCompactProfile.getImage() + ".jpg"))
                 .asBitmap()
                 .override(300, 200)
                 .transform(new RoundedCornersTransformation(getContext(), 20, 0))

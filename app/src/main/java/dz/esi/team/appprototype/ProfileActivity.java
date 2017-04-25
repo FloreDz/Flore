@@ -207,7 +207,6 @@ public class ProfileActivity extends AppCompatActivity {
         effets = (TextView) findViewById(R.id.plant_effects);
         effets.setText(profile.getEffets());
 
-
         setField(constituants,"CONSTITUANTS",R.id.plant_constituents,profile.getConstituants(),R.id.container_constituants);
         setField(partiesUtilisees,"PARTIES_UTILISEES",R.id.plant_used_parts,profile.getPartiesUtilisees(),R.id.container_parties_utilisees);
         setField(effetsSecondaires,"LES_EFFETS_SECONDAIRE",R.id.plant_2nd_effects,profile.getEffetsSecondaires(),R.id.container_effets_secondaires);
@@ -218,8 +217,6 @@ public class ProfileActivity extends AppCompatActivity {
         setField(periodeRecolte,"TEMPS_DE_RECOLTE",R.id.plant_harvest,profile.getPeriodeRecolte(),R.id.container_temps_recolte);
         setField(remarques,"LES_REMARQUES",R.id.plant_remarks,profile.getRemarques(),R.id.container_remarks);
         setField(interactions,"LES_INTERACTION",R.id.plant_interactions,profile.getInteraction(),R.id.container_interactions);
-
-
 
         if(profile.getSource() == null ){
             findViewById(R.id.container_source).setVisibility(View.GONE);
