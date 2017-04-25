@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.media.ExifInterface;
+import android.media.ImageReader;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -21,6 +22,7 @@ import android.view.MenuItem;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.soundcloud.android.crop.Crop;
@@ -233,12 +235,13 @@ public class ImageOptionsActivity extends AppCompatActivity {
 
         private ProgressBar progressBar = (ProgressBar) findViewById(R.id.image_options_progress_bar);
         private FrameLayout imageOptionsBackground = (FrameLayout) findViewById(R.id.image_options_background);
+        private TextView recognitionProgress = (TextView) findViewById(R.id.image_options_recognition_progress);
 
         @Override
         protected void onPreExecute() {
             imageOptionsBackground.setVisibility(VISIBLE);
             progressBar.setVisibility(VISIBLE);
-            super.onPreExecute();
+            recognitionProgress.setVisibility(VISIBLE);
         }
 
         @Override
@@ -249,8 +252,6 @@ public class ImageOptionsActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(ArrayList<Couple> couples) {
-            imageOptionsBackground.setVisibility(GONE);
-            progressBar.setVisibility(GONE);
 
             Log.d(TAG, "onNavigationItemSelected , onPostExecute : about to create intent");
             Intent intent = new Intent(ImageOptionsActivity.this,RecognitionResult.class);
@@ -259,7 +260,10 @@ public class ImageOptionsActivity extends AppCompatActivity {
             Log.d(TAG, "onNavigationItemSelected , onPostExecute : extra put, about to start activity (RecognitionResult)");
             startActivity(intent);
 
-            super.onPostExecute(couples);
+            imageOptionsBackground.setVisibility(GONE);
+            progressBar.setVisibility(GONE);
+            recognitionProgress.setVisibility(GONE);
+
         }
 
     }

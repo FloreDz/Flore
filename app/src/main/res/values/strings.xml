@@ -65,6 +65,7 @@
     <string name="title_activity_database_test">DatabaseTest</string>
     <string name="plant_profile_app_bar_title">This is changed by JAVA</string>
     <string name="title_activity_recognition_result">RecognitionResult</string>
+    <string name="recognition_in_progress">Reconnaissance en cours  ...</string>
 
     <!-- Strings related to Settings -->
     <!-- Display state-->
@@ -126,7 +127,7 @@
     <string name="preparation">Préparations</string>
     <string name="preparation_discription">Les méthodes d’utilisation de la plante</string>
 
-    <!-- remarque -->
+    <!-- remark -->
     <string name="remarques">Remarques</string>
     <string name="remarques_description">Des remarques générales sur la plante</string>
 
