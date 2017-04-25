@@ -1,19 +1,7 @@
 [
     {
-        "merged": "/home/azeddine/AndroidStudioProjects/Flore/C:\\Android\\Projects\\Flore\\app\\libraries\\cropper\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\crop__divider.9.png",
-        "source": "/home/azeddine/AndroidStudioProjects/Flore/C:\\Android\\Projects\\Flore\\app\\libraries\\cropper\\src\\main\\res\\drawable-hdpi\\crop__divider.9.png"
-    },
-    {
         "merged": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/cropper/build/intermediates/res/merged/release/drawable-hdpi-v4/done.png",
         "source": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/cropper/build/generated/res/pngs/release/drawable-hdpi/done.png"
-    },
-    {
-        "merged": "/home/azeddine/AndroidStudioProjects/Flore/C:\\Android\\Projects\\Flore\\app\\libraries\\cropper\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\crop__ic_cancel.png",
-        "source": "/home/azeddine/AndroidStudioProjects/Flore/C:\\Android\\Projects\\Flore\\app\\libraries\\cropper\\src\\main\\res\\drawable-hdpi\\crop__ic_cancel.png"
-    },
-    {
-        "merged": "/home/azeddine/AndroidStudioProjects/Flore/C:\\Android\\Projects\\Flore\\app\\libraries\\cropper\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\done.png",
-        "source": "/home/azeddine/AndroidStudioProjects/Flore/C:\\Android\\Projects\\Flore\\app\\libraries\\cropper\\build\\generated\\res\\pngs\\release\\drawable-hdpi\\done.png"
     },
     {
         "merged": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/cropper/build/intermediates/res/merged/release/drawable-hdpi-v4/crop__ic_done.png",
@@ -22,14 +10,6 @@
     {
         "merged": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/cropper/build/intermediates/res/merged/release/drawable-hdpi-v4/crop__divider.9.png",
         "source": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/cropper/src/main/res/drawable-hdpi/crop__divider.9.png"
-    },
-    {
-        "merged": "/home/azeddine/AndroidStudioProjects/Flore/C:\\Android\\Projects\\Flore\\app\\libraries\\cropper\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\cancel.png",
-        "source": "/home/azeddine/AndroidStudioProjects/Flore/C:\\Android\\Projects\\Flore\\app\\libraries\\cropper\\build\\generated\\res\\pngs\\release\\drawable-hdpi\\cancel.png"
-    },
-    {
-        "merged": "/home/azeddine/AndroidStudioProjects/Flore/C:\\Android\\Projects\\Flore\\app\\libraries\\cropper\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\crop__ic_done.png",
-        "source": "/home/azeddine/AndroidStudioProjects/Flore/C:\\Android\\Projects\\Flore\\app\\libraries\\cropper\\src\\main\\res\\drawable-hdpi\\crop__ic_done.png"
     },
     {
         "merged": "/home/azeddine/AndroidStudioProjects/Flore/app/libraries/cropper/build/intermediates/res/merged/release/drawable-hdpi-v4/crop__ic_cancel.png",
