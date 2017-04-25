@@ -199,7 +199,7 @@ public class ImageOptionsActivity extends AppCompatActivity {
     private void beginCrop(Uri source) {
         this.croppedImageUri = Uri.fromFile(new File(getFilesDir(), "cropped" + croppedVersion));
 
-        Crop.of(source, this.croppedImageUri).asSquare().start(this);
+        Crop.of(source, this.croppedImageUri).start(this);
     }
 
     @Override
