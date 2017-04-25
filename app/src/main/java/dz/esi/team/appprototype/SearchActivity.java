@@ -27,7 +27,6 @@ import static android.view.View.VISIBLE;
 import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.CONTENT_URI;
 import static dz.esi.team.appprototype.data.PlantContract.PlantEntry._ID;
 import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.famille;
-import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.image;
 import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.sci_name;
 
 public class SearchActivity extends BaseActivity {
@@ -47,7 +46,6 @@ public class SearchActivity extends BaseActivity {
     private String[] homeMenuProjection = {
             _ID,
             sci_name,
-            image,
             famille
     };
 
