@@ -66,6 +66,7 @@
     <string name="plant_profile_app_bar_title">This is changed by JAVA</string>
     <string name="title_activity_recognition_result">RecognitionResult</string>
     <string name="recognition_in_progress">Reconnaissance en cours  ...</string>
+    <string name="recognize">Reconnaisser</string>
 
     <!-- Strings related to Settings -->
     <!-- Display state-->

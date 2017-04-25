@@ -80,7 +80,7 @@ public class RecognitionResult extends AppCompatActivity {
             ArrayList<Float> plantsPercentages = new ArrayList<>();
 
             for (Couple couple : recognitionResult) {
-                plantsPercentages.add(100*couple.percentage);
+                plantsPercentages.add(99*couple.percentage);
             }
 
             return plantsPercentages;

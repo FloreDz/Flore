@@ -1,9 +1,7 @@
 package dz.esi.team.appprototype.utils;
 
-import android.app.assist.AssistStructure;
 import android.content.Context;
 import android.net.Uri;
-import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -15,14 +13,12 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import dz.esi.team.appprototype.R;
 import dz.esi.team.appprototype.data.PlantCompactProfile;
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
-import static com.bumptech.glide.Glide.with;
 
 
 /**
@@ -68,7 +64,7 @@ public class ResultAdapter extends ArrayAdapter<PlantCompactProfile> {
 
         viewHolder.plantSciName.setText(plantCompactProfile.getSci_name());
         viewHolder.plantFamily.setText(plantCompactProfile.getFamille());
-        viewHolder.plantPercentage.setText(percentages.get(position).toString());
+        viewHolder.plantPercentage.setText(percentages.get(position).intValue() + " %");
         Glide
                 .with(getContext())
                 .load(Uri.parse("file:///android_asset/thumbnails/" + plantCompactProfile.getImage() + ".jpg"))

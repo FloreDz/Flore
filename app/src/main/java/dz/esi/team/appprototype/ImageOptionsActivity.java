@@ -237,6 +237,7 @@ public class ImageOptionsActivity extends AppCompatActivity {
         private FrameLayout imageOptionsBackground = (FrameLayout) findViewById(R.id.image_options_background);
         private TextView recognitionProgress = (TextView) findViewById(R.id.image_options_recognition_progress);
 
+
         @Override
         protected void onPreExecute() {
             imageOptionsBackground.setVisibility(VISIBLE);

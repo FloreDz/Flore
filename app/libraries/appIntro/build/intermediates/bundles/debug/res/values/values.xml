@@ -9,7 +9,7 @@
     <dimen name="appIntroDefaultPaddingRight">16dp</dimen>
     <dimen name="appIntroDefaultPaddingTop">40dp</dimen>
     <dimen name="appIntroHeadingTextSize">28dp</dimen>
-    <string name="app_intro_done_button">Terminé</string>
+    <string name="app_intro_done_button">Terminer</string>
     <string name="app_intro_skip_button">Passer</string>
     <string name="define_appintro"/>
     <string name="library_appintro_author">Paolo Rotolo</string>

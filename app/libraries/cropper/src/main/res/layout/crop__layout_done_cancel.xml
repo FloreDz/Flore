@@ -14,7 +14,9 @@
     <FrameLayout
         android:id="@+id/btn_done"
         style="@style/Crop.ActionButton">
-        <TextView style="@style/Crop.ActionButtonText.Done" android:textColor="@color/white_color"
+        <TextView
+            style="@style/Crop.ActionButtonText.Done"
+            android:textColor="@color/white_color"
             android:drawableLeft="@drawable/done"
             tools:ignore="RtlHardcoded" />
     </FrameLayout>

@@ -6,7 +6,7 @@
         android:id="@+id/btn_crop"
         android:icon="@drawable/crop_image"/>
 
-    <item android:title="@string/app_intro_done_button"
+    <item android:title="@string/recognize"
         android:id="@+id/btn_image_process"
         android:icon="@drawable/start_recognition"/>
 
