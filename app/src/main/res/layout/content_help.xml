@@ -131,7 +131,7 @@
             app:ael_orientation="vertical">
 
 
-            <TextView
+            <com.codesgood.views.JustifiedTextView
                 android:layout_width="wrap_content"
                 android:textColor="@android:color/black"
                 android:id="@+id/textView2"
@@ -180,7 +180,7 @@
             app:ael_orientation="vertical">
 
 
-            <TextView
+            <com.codesgood.views.JustifiedTextView
                 android:layout_width="wrap_content"
                 android:textColor="@android:color/black"
                 android:textSize="15sp"
@@ -228,7 +228,7 @@
             app:ael_orientation="vertical">
 
 
-            <TextView
+            <com.codesgood.views.JustifiedTextView
                 android:layout_width="wrap_content"
                 android:textColor="@android:color/black"
                 android:id="@+id/textView4"
@@ -278,7 +278,7 @@
             app:ael_orientation="vertical">
 
 
-            <TextView
+            <com.codesgood.views.JustifiedTextView
                 android:layout_width="wrap_content"
                 android:textColor="@android:color/black"
                 android:textSize="15sp"
