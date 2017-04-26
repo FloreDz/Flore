@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/app/libraries/cropper/cropper.iml" filepath="$PROJECT_DIR$/app/libraries/cropper/cropper.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/libraries/libraries.iml" filepath="$PROJECT_DIR$/app/libraries/libraries.iml" />
       <module fileurl="file://$PROJECT_DIR$/openCVLibrary24110/openCVLibrary24110.iml" filepath="$PROJECT_DIR$/openCVLibrary24110/openCVLibrary24110.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/libraries/progress/progress.iml" filepath="$PROJECT_DIR$/app/libraries/progress/progress.iml" />
     </modules>
   </component>
 </project>

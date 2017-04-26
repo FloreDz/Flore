@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.github.lzyzsd.circleprogress.ArcProgress;
 
 import java.util.ArrayList;
 
@@ -30,7 +31,7 @@ public class ResultAdapter extends ArrayAdapter<PlantCompactProfile> {
     public static class ViewHolder {
         TextView plantSciName;
         TextView plantFamily;
-        TextView plantPercentage;
+        ArcProgress plantPercentage;
         ImageView plantImage;
     }
 
@@ -55,7 +56,7 @@ public class ResultAdapter extends ArrayAdapter<PlantCompactProfile> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_result, parent, false);
             viewHolder.plantSciName = (TextView) convertView.findViewById(R.id.plant_sci_name_in_result_view);
             viewHolder.plantFamily = (TextView) convertView.findViewById(R.id.plant_family_in_result_view);
-            viewHolder.plantPercentage = (TextView) convertView.findViewById(R.id.plant_percentage_in_result_view);
+            viewHolder.plantPercentage = (ArcProgress) convertView.findViewById(R.id.plant_percentage_in_result_view);
             viewHolder.plantImage = (ImageView) convertView.findViewById(R.id.plant_image_in_result_view);
             convertView.setTag(viewHolder);
         } else {
@@ -63,8 +64,8 @@ public class ResultAdapter extends ArrayAdapter<PlantCompactProfile> {
         }
 
         viewHolder.plantSciName.setText(plantCompactProfile.getSci_name());
-        viewHolder.plantFamily.setText(plantCompactProfile.getFamille());
-        viewHolder.plantPercentage.setText(percentages.get(position).intValue() + " %");
+        viewHolder.plantFamily.setText("Famille : "+plantCompactProfile.getFamille());
+        viewHolder.plantPercentage.setProgress(percentages.get(position).intValue());
         Glide
                 .with(getContext())
                 .load(Uri.parse("file:///android_asset/thumbnails/" + plantCompactProfile.getImage() + ".jpg"))
