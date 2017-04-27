@@ -1,5 +1,6 @@
 package dz.esi.team.appprototype;
 
+import android.animation.Animator;
 import android.app.LoaderManager;
 import android.content.CursorLoader;
 import android.content.Intent;
@@ -22,6 +23,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewAnimationUtils;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.webkit.WebSettings;
@@ -466,36 +468,155 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         final Animation rotateCamera = AnimationUtils.loadAnimation(HomePage.this, R.anim.rotate_to_camera);
         final Animation hideOptionButtons = AnimationUtils.loadAnimation(HomePage.this, R.anim.fade_out_with_translation);
         final Animation hideOptionMenuBackground = AnimationUtils.loadAnimation(HomePage.this, R.anim.fade_out);
+        rotateCamera.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+                switchFabImageTo(fabRecognise, R.drawable.camera_fab);
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
 
 
 
-        takeImageLayout.startAnimation(hideOptionButtons);
-        importImageLayout.startAnimation(hideOptionButtons);
-        optionMenuBackground.startAnimation(hideOptionMenuBackground);
-        fabRecognise.startAnimation(rotateCamera);
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP){
+            // get the center for the clipping circle
+            int centerX =optionMenuBackground.getRight();
+            int centerY = optionMenuBackground.getBottom();
+            // get the final radius for the clipping circle
+            int startRadius = (int) Math
+                    .hypot(optionMenuBackground.getWidth(), optionMenuBackground.getHeight());
+            int endRadius = 0;
+            // create the animator for this view (the start radius is zero)
+            Animator anim =
+                    ViewAnimationUtils.createCircularReveal(optionMenuBackground, centerX, centerY, startRadius, endRadius);
+            // make the view visible and start the animation
+            anim.setDuration(400);
+           anim.addListener(new Animator.AnimatorListener() {
+               @Override
+               public void onAnimationStart(Animator animation) {
+                   disableClickable();
+                   takeImageLayout.startAnimation(hideOptionButtons);
+                   importImageLayout.startAnimation(hideOptionButtons);
+                   fabRecognise.startAnimation(rotateCamera);
 
-        this.disableLayoutsVisibility();
-        this.disableClickable();
+               }
+
+               @Override
+               public void onAnimationEnd(Animator animation) {
+                   disableLayoutsVisibility();
+
+               }
+
+               @Override
+               public void onAnimationCancel(Animator animation) {
+
+               }
+
+               @Override
+               public void onAnimationRepeat(Animator animation) {
+
+               }
+           });
+
+            anim.start();
+        }else {
+            takeImageLayout.startAnimation(hideOptionButtons);
+            importImageLayout.startAnimation(hideOptionButtons);
+            optionMenuBackground.startAnimation(hideOptionMenuBackground);
+            fabRecognise.startAnimation(rotateCamera);
+            this.disableLayoutsVisibility();
+            this.disableClickable();
+        }
+
 
     }
 
     private void showOptionMenu() {
         Log.d(TAG, "showOptionMenu: showing the option menu");
 
-        switchFabImageTo(fabRecognise, R.drawable.plus_button);
-
         final Animation rotateCamera = AnimationUtils.loadAnimation(HomePage.this, R.anim.rotate_to_x);
         final Animation showOptionButtons = AnimationUtils.loadAnimation(HomePage.this, R.anim.fade_in_with_translation);
         final Animation showOptionMenuBackground = AnimationUtils.loadAnimation(HomePage.this, R.anim.fade_in);
+        rotateCamera.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+                switchFabImageTo(fabRecognise, R.drawable.plus_button);
+            }
 
-        this.enableLayoutsVisibility();
-        this.enableClickable();
+            @Override
+            public void onAnimationEnd(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP){
+            // get the center for the clipping circle
+            int centerX = optionMenuBackground.getRight();
+            int centerY = optionMenuBackground.getBottom();
+            // get the final radius for the clipping circle
+            int startRadius = 0;
+            int endRadius = (int) Math
+                    .hypot(optionMenuBackground.getWidth(), optionMenuBackground.getHeight());
+            // create the animator for this view (the start radius is zero)
+            Animator anim =
+                    ViewAnimationUtils.createCircularReveal(optionMenuBackground, centerX, centerY, startRadius, endRadius);
+            // make the view visible and start the animation
 
 
-        optionMenuBackground.startAnimation(showOptionMenuBackground);
-        takeImageLayout.startAnimation(showOptionButtons);
-        importImageLayout.startAnimation(showOptionButtons);
-        fabRecognise.startAnimation(rotateCamera);
+            anim.addListener(new Animator.AnimatorListener() {
+                @Override
+                public void onAnimationStart(Animator animation) {
+                    enableLayoutsVisibility();
+                    takeImageLayout.startAnimation(showOptionButtons);
+                    importImageLayout.startAnimation(showOptionButtons);
+                    fabRecognise.startAnimation(rotateCamera);
+
+                }
+
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    enableClickable();
+
+                }
+
+                @Override
+                public void onAnimationCancel(Animator animation) {
+
+                }
+
+                @Override
+                public void onAnimationRepeat(Animator animation) {
+
+                }
+            });
+            anim.setDuration(700);
+            anim.start();
+
+        }else{
+            enableLayoutsVisibility();
+            enableClickable();
+            optionMenuBackground.startAnimation(showOptionMenuBackground);
+            takeImageLayout.startAnimation(showOptionButtons);
+            importImageLayout.startAnimation(showOptionButtons);
+            fabRecognise.startAnimation(rotateCamera);
+
+        }
+
+
 
     }
 
@@ -524,7 +645,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
 
         takeImageLayout.setVisibility(VISIBLE);
         importImageLayout.setVisibility(VISIBLE);
-        optionMenuBackground.setVisibility(VISIBLE);
+        optionMenuBackground.setVisibility(View.VISIBLE);
 
 
     }
