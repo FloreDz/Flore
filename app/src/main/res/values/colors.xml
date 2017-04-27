@@ -14,6 +14,7 @@
     <!-- gray color -->
     <color name="white_color_smoke">#fafafa</color>
     <color name="white_color_smoke_lowOpacity">#e6eeeeee</color>
+    <color name="clean_white_color_smoke_lowOpacity">#e6fafafa</color>
     <color name="white_color">#fafafa</color>
     <color name="gray_color_darker">#333333</color>
     <color name="gray_color_dark">#9E9E9E</color>
