@@ -44,7 +44,7 @@ import dz.esi.team.appprototype.recognition.ORBRecognition.Couple;
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 
-public class ImageOptionsActivity extends AppCompatActivity {
+public class ImageOptionsActivity extends BaseActivity {
 
     public static final String LOADED_IMAGE_PATH = "LOADED_IMAGE_PATH";
     public static final String LOADED_IMAGE_URI = "LOADED_IMAGE_URI";
@@ -106,8 +106,8 @@ public class ImageOptionsActivity extends AppCompatActivity {
                         return true;
                     }
                 });
-
         if (!croppedImage) displayImage();
+        initDatabase(this);
     }
 
     public ArrayList<Couple> startRecognition(Bitmap uploadedBitmap) {

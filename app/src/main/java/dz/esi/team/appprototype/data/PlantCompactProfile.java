@@ -4,7 +4,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-import static dz.esi.team.appprototype.HomePage.mDbHelper;
+import static dz.esi.team.appprototype.BaseActivity.mDbHelper;
 import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.TABLE_NAME;
 import static dz.esi.team.appprototype.data.PlantContract.*;
 

@@ -35,8 +35,6 @@ public class SearchActivity extends BaseActivity {
     private static final String PLANT_QUERY = "PLANT_QUERY";
     private static final String TAG = SearchActivity.class.getSimpleName();
 
-    private static PlantDbHelper mDbHelper;
-
     private SearchView searchView;
     private SearchListViewLoader searchListViewLoader;
     private ListView searchResultListView;
@@ -74,9 +72,8 @@ public class SearchActivity extends BaseActivity {
             }
         });
 
-        mDbHelper = new PlantDbHelper(this);
 
-        initDatabase();
+        initDatabase(this);
 
         searchListViewLoader = new SearchListViewLoader();
 
@@ -85,14 +82,7 @@ public class SearchActivity extends BaseActivity {
 
     }
 
-    private void initDatabase() {
-        try {
-            mDbHelper.createDataBase();
-        } catch (Exception e) {
-            Log.e("From Main.db creation", e.getMessage());
-        }
-        mDbHelper.openDataBase();
-    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

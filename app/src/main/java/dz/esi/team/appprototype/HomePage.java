@@ -62,8 +62,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
     private static final String TAG = HomePage.class.getSimpleName();
     private static final String ERROR_MESS = "something went wrong";
     private static final int PLANT_LOADER = 0;
-    public static PlantDbHelper mDbHelper;
-    public static boolean showingRecognitionResults;
+
     private  SharedPreferences sharedPref ;
     private static String DISPLAY_STATE = SHOW_PLANTS_BY_FAMILIES;
 
@@ -147,14 +146,8 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
                 startActivity(intent);
             }
         });
-        mDbHelper = new PlantDbHelper(this);
-
-        try {
-            mDbHelper.createDataBase();
-        } catch (Exception e) {
-            Log.e("From Main, .db creation", e.getMessage());
-        }
-        mDbHelper.openDataBase();
+        
+       initDatabase(this);
 
         initializePlantsHeaders();
 
@@ -185,7 +178,6 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
     @Override
     protected void onStop() {
         super.onStop();
-        mDbHelper.close();
         Log.v("HomePage", "ACTIVITY STOPPED");
     }
 
@@ -193,6 +185,14 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
     protected void onRestart() {
         super.onRestart();
         Log.v("HomePage", "ACTIVITY RESTARTED");
+    }
+
+    @Override
+    protected void onDestroy() {
+        Log.d(TAG, "onStop: my db helper =?= null  "+(mDbHelper == null ) );
+        mDbHelper.close();
+        Log.d(TAG, "onStop: my db helper =?= null  "+(mDbHelper == null ) );
+        super.onDestroy();
     }
 
     private void switchDisplayState() {

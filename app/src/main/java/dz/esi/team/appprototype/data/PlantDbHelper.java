@@ -96,7 +96,7 @@ public class PlantDbHelper extends SQLiteOpenHelper {
 
     @Override
     public synchronized void close() {
-        if (mDataBase != null)
+        if (mDataBase != null )
             mDataBase.close();
         super.close();
     }
