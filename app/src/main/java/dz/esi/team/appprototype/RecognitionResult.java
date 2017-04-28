@@ -87,3 +87,7 @@ public class RecognitionResult extends AppCompatActivity {
     }
 
 }
+/**
+ * last verification 28/04/2017
+ */
+

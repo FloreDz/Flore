@@ -10,7 +10,7 @@ import com.github.paolorotolo.appintro.AppIntro;
 import com.github.paolorotolo.appintro.AppIntroFragment;
 
 /**
- * Created by azeddine on 27/02/17.
+ * Created on 27/02/17.
  */
 
 public class IntroActivity extends AppIntro {

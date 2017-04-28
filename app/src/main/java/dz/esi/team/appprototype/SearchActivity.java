@@ -143,9 +143,9 @@ public class SearchActivity extends BaseActivity {
 
         public void populateSearchListView() {
 
-            Log.v(TAG, "about to init loader");
+            Log.d(TAG, "about to init loader");
             getLoaderManager().initLoader(PLANT_LOADER, null, this);
-            Log.v(TAG, "loader inited");
+            Log.d(TAG, "loader inited");
             Cursor cursor = PlantRetriever.SearchPlants(queryText);
             reloadWithUpdatedCursor(cursor);
 
@@ -158,7 +158,7 @@ public class SearchActivity extends BaseActivity {
 
         @Override
         public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-            Log.v(TAG, "in loader creation");
+            Log.d(TAG, "in loader creation");
 
             // the loader will execute the CP query method on a background thread
             return new CursorLoader(SearchActivity.this, CONTENT_URI, homeMenuProjection, null, null, SHOW_PLANTS_BY_SCIENTIFIQUE_NAMES);
@@ -169,7 +169,7 @@ public class SearchActivity extends BaseActivity {
 
         @Override
         public void onLoaderReset(Loader<Cursor> loader) {
-            Log.v(TAG, "in loader reset");
+            Log.d(TAG, "in loader reset");
             // delete the current data
             mCursorAdapter.swapCursor(null);
         }

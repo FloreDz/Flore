@@ -25,7 +25,7 @@ import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.image;
 import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.sci_name;
 
 /**
- * Created by The King Mohamed on 25/03/2017.
+ * Created on 25/03/2017.
  */
 
 public class PlantCursorAdapter extends CursorAdapter {
@@ -104,3 +104,6 @@ public class PlantCursorAdapter extends CursorAdapter {
         Log.d(TAG, "bindView finished");
     }
 }
+/**
+ * last verification 28/04/2017
+ */

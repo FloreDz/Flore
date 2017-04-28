@@ -12,7 +12,7 @@ import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.famille;
 import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.sci_name;
 
 /**
- * Created by azeddine on 25/02/17.
+ * Created  on 25/02/17.
  */
 
 public class BaseActivity extends AppCompatActivity {
@@ -54,3 +54,7 @@ public class BaseActivity extends AppCompatActivity {
     }
 
 }
+/**
+ * last verification 28/04/2017
+ */
+

@@ -113,7 +113,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
                 DISPLAY_STATE=SHOW_PLANTS_BY_FAMILIES ;
         }
         super.onCreate(savedInstanceState);
-        Log.v("HomePage", "ACTIVITY CREATED");
+        Log.d("HomePage", "ACTIVITY CREATED");
         setContentView(R.layout.activity_home_page);
         setupWindowAnimations();
         widgetHydration();
@@ -157,23 +157,6 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
 
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        Log.v("HomePage", "ACTIVITY STARTED");
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        Log.v("HomePage", "ACTIVITY RESUMED");
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Log.v("HomePage", "ACTIVITY PAUSED");
-    }
 
     @Override
     protected void onStop() {
@@ -181,11 +164,6 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         Log.v("HomePage", "ACTIVITY STOPPED");
     }
 
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        Log.v("HomePage", "ACTIVITY RESTARTED");
-    }
 
     @Override
     protected void onDestroy() {
@@ -210,7 +188,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
 
     private void setupWindowAnimations() {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-            Log.v(TAG, "Into LOLLIPOP");
+            Log.d(TAG, "Into LOLLIPOP");
             getWindow().setEnterTransition(new Fade().setDuration(1000));
             getWindow().setExitTransition(new Fade().setDuration(1000));
         }
@@ -223,16 +201,16 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         Cursor cursor = null;
 
         try {
-            Log.v(TAG, "just got into try");
+            Log.d(TAG, "just got into try");
             plantsHeaders = new ArrayList<>();
-            Log.v(TAG, "beginning : ArrayList size = " + plantsHeaders.size());
+            Log.d(TAG, "beginning : ArrayList size = " + plantsHeaders.size());
             cursor = PlantRetriever.RetrievePlants(projection, null, null, SHOW_PLANTS_BY_FAMILIES);
-            Log.v(TAG, "about to loop");
+            Log.d(TAG, "about to loop");
 
             if (cursor.moveToFirst()) {
                 currentFamily = cursor.getString(0);
                 plantsHeaders.add(cursor.getString(1));
-                Log.v(TAG, "in if ,added in ArrayList : " + cursor.getString(1));
+                Log.d(TAG, "in if ,added in ArrayList : " + cursor.getString(1));
             }
 
             while (cursor.moveToNext()) {
@@ -240,14 +218,14 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
                 if (!currentFamily.equals(nextFamily)) {
                     plantsHeaders.add(cursor.getString(1));
                     currentFamily = nextFamily;
-                    Log.v(TAG, "in while ,added in ArrayList : " + cursor.getString(1));
+                    Log.d(TAG, "in while ,added in ArrayList : " + cursor.getString(1));
                 }
             }
-            Log.v(TAG, "end : ArrayList size = " + plantsHeaders.size());
+            Log.d(TAG, "end : ArrayList size = " + plantsHeaders.size());
         } finally {
             if (cursor != null) cursor.close();
         }
-        Log.v(TAG, "Finally : ArrayList = " + plantsHeaders.toString());
+        Log.d(TAG, "Finally : ArrayList = " + plantsHeaders.toString());
 
     }
 
@@ -687,8 +665,6 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
                 intent.putExtra(LOADED_IMAGE_URI, pickedImage.toString());
                 startActivity(intent);
 
-            } else {
-                Toast.makeText(HomePage.this, ERROR_MESS, Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -720,9 +696,9 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
 
             if (firstRun) {
                 this.progressBar.setVisibility(VISIBLE);
-                Log.v(TAG, "about to init loader");
+                Log.d(TAG, "about to init loader");
                 getLoaderManager().initLoader(PLANT_LOADER, null, this);
-                Log.v(TAG, "loader inited");
+                Log.d(TAG, "loader inited");
                 firstRun = false;
             } else {
                 mCursorAdapter.setDISPLAY_STATE(DISPLAY_STATE);
@@ -773,3 +749,6 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
 
 
 }
+/**
+ * last verification 28/04/2017
+ */

@@ -6,7 +6,7 @@
         android:startColor="#9444"
         android:endColor="#0000"
         android:type="linear"
-        android:angle="90"> <!-- Change this value to have the correct shadow angle, must be multiple from 45 -->
+        android:angle="90">
     </evaluation>
 
 </shape>

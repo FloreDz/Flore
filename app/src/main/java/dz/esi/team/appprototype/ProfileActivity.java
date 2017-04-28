@@ -37,7 +37,6 @@ public class ProfileActivity extends AppCompatActivity {
     private  SharedPreferences sharedPref ;
 
 
-    // TODO : Mohamed aded :
     TextView sci_name;
     ImageView image;
     TextView noms;
@@ -64,11 +63,11 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
 
         if (PLANT_IMAGE_POPUP_STATE) {
-            Log.v(TAG, "about to show plant image");
+            Log.d(TAG, "about to show plant image");
             showPlantImagePopuop();
         }
 
-        Log.v(TAG, "ACTIVITY CREATED");
+        Log.d(TAG, "ACTIVITY CREATED");
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_profile);
         setSupportActionBar(toolbar);
@@ -78,11 +77,7 @@ public class ProfileActivity extends AppCompatActivity {
 
 
     }
-    @Override
-    protected void onStart() {
-        super.onStart();
-        Log.v(TAG, "ACTIVITY STARTED");
-    }
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -149,21 +144,6 @@ public class ProfileActivity extends AppCompatActivity {
         dialog.show();
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Log.v(TAG, "ACTIVITY PAUSED");
-    }
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Log.v(TAG, "ACTIVITY STOPPED");
-    }
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        Log.v(TAG, "ACTIVITY RESTARTED");
-    }
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         PLANT_IMAGE_POPUP_STATE = savedInstanceState.getBoolean("PLANT_IMAGE_POPUP_STATE");
@@ -243,5 +223,9 @@ public class ProfileActivity extends AppCompatActivity {
 
     }
 }
+/**
+ * last verification 28/04/2017
+ */
+
 
 

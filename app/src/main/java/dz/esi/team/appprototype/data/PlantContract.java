@@ -4,12 +4,12 @@ import android.net.Uri;
 import android.provider.BaseColumns;
 
 /**
- * Created by The King Mohamed on 25/03/2017.
+ * Created on 25/03/2017.
  */
 
 public class PlantContract {
 
-    //TODO: do not forget to change the package name
+    //TODO:  change the package name
     public static final String CONTENT_AUTHORITY = "dz.esi.team.appprototype";
     public static final String PATH_PLANTS = "Plante";
 
@@ -48,3 +48,6 @@ public class PlantContract {
     }
 
 }
+/**
+ * last verification 28/04/2017
+ */

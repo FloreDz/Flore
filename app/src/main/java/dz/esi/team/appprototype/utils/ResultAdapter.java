@@ -23,7 +23,7 @@ import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
 
 /**
- * Created by The King Mohamed on 22/04/2017.
+ * Created by  22/04/2017.
  */
 
 public class ResultAdapter extends ArrayAdapter<PlantCompactProfile> {
@@ -79,3 +79,7 @@ public class ResultAdapter extends ArrayAdapter<PlantCompactProfile> {
     }
 
 }
+/**
+ * last verification 28/04/2017
+ */
+

@@ -12,7 +12,7 @@ import static dz.esi.team.appprototype.data.PlantContract.PlantEntry._ID;
 
 
 /**
- * Created by The King Mohamed on 28/03/2017.
+ * Created  on 28/03/2017.
  */
 
 public class PlantProfile {
@@ -38,7 +38,7 @@ public class PlantProfile {
     private String liens;
 
 
-    public PlantProfile(Long plantID) {  // TODO : free up the Cursor
+    public PlantProfile(Long plantID) {
 
         if (plantID < 0L) return;
 
@@ -178,3 +178,6 @@ public class PlantProfile {
 
 
 }
+/**
+ * last verification 28/04/2017
+ */

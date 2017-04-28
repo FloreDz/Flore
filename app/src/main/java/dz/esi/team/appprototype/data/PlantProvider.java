@@ -24,10 +24,9 @@ import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.TABLE_NAME;
 import static dz.esi.team.appprototype.data.PlantContract.PlantEntry._ID;
 
 /**
- * Created by The King Mohamed on 25/03/2017.
+ * Created on 25/03/2017.
  */
 
-// TODO : don't forget to add the provider to manifest
 
 public class PlantProvider extends ContentProvider {
 
@@ -59,17 +58,17 @@ public class PlantProvider extends ContentProvider {
                         @Nullable String selection, @Nullable String[] selectionArgs, @Nullable String sortOrder) {
 
 
-        Log.v("PlantProvider", "in query, about to get readable db");
+        Log.d("PlantProvider", "in query, about to get readable db");
         mDbHelper = HomePage.mDbHelper;
-        Log.v("PlantProvider", "mDbHelper initialized ; mDbHelper == null ?" + (mDbHelper == null));
+        Log.d("PlantProvider", "mDbHelper initialized ; mDbHelper == null ?" + (mDbHelper == null));
         SQLiteDatabase db = null;
         try {
             db = mDbHelper.getReadableDatabase();
         } catch (Exception e) {
             Log.e("PlantProvider Query", e.getMessage());
         }
-        Log.v("PlantProvider", "in query, db == null ?" + (db == null));
-        Log.v("PlantProvider", "in query, got readable db");
+        Log.d("PlantProvider", "in query, db == null ?" + (db == null));
+        Log.d("PlantProvider", "in query, got readable db");
         Cursor cursor;
         final int match = sUriMatcher.match(uri);
         switch (match) {

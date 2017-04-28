@@ -13,7 +13,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 /**
- * Created by The King Mohamed on 25/03/2017.
+ * Created  on 25/03/2017.
  */
 
 public class PlantDbHelper extends SQLiteOpenHelper {
@@ -31,24 +31,22 @@ public class PlantDbHelper extends SQLiteOpenHelper {
         super(context, DB_NAME, null, DB_VERSION);
         this.mContext = context;
         DB_PATH = "/data/data/dz.esi.team.appprototype/databases/";
-        Log.v(TAG, "DB path " + DB_PATH);
-        //TODO: check the other code for sdk backward compatibility
-        //TODO: do not forget to change the package name
+        Log.d(TAG, "DB path " + DB_PATH);
     }
 
     public void createDataBase() throws IOException {
         if (!checkDataBase())  // database does not exist
         {
-            Log.v("into if, DB not exist", "from PlantDbHelper class -> createDataBase method.");
+            Log.d("into if, DB not exist", "from PlantDbHelper class -> createDataBase method.");
             this.getReadableDatabase();
             try {
                 copyDataBase();   // copy the database from assests
-                Log.v(TAG, "createDatabase , database created");
+                Log.d(TAG, "createDatabase , database created");
             } catch (IOException mIOException) {
                 throw new Error("ErrorCopyingDataBase");
             }
         } else
-            Log.v("DB exists!", "from PlantDbHelper class -> createDataBase method.");
+            Log.d("DB exists!", "from PlantDbHelper class -> createDataBase method.");
     }
 
     // check if the database exists here: /data/data/package/databases/
@@ -90,7 +88,7 @@ public class PlantDbHelper extends SQLiteOpenHelper {
     // open the database, so we can query it
     public void openDataBase() throws SQLException {
         String mPath = DB_PATH + DB_NAME;
-        Log.v("mPath", mPath);
+        Log.d("mPath", mPath);
         mDataBase = SQLiteDatabase.openDatabase(mPath, null, SQLiteDatabase.OPEN_READONLY);
     }
 
@@ -109,4 +107,8 @@ public class PlantDbHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
     }
 }
+
+/**
+ * last verification 28/04/2017
+ */
 

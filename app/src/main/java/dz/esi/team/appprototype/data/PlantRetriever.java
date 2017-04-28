@@ -12,7 +12,7 @@ import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.TABLE_NAME;
 import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.sci_name;
 
 /**
- * Created by The King Mohamed on 28/03/2017.
+ * Created by  28/03/2017.
  */
 
 public class PlantRetriever {
@@ -42,3 +42,7 @@ public class PlantRetriever {
     }
 
 }
+/**
+ * last verification 28/04/2017
+ */
+

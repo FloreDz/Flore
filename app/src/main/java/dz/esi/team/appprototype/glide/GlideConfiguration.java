@@ -8,7 +8,7 @@ import com.bumptech.glide.load.DecodeFormat;
 import com.bumptech.glide.module.GlideModule;
 
 /**
- * Created by The King Mohamed on 28/03/2017.
+ * Created  on 28/03/2017.
  */
 
 public class GlideConfiguration implements GlideModule {
@@ -24,3 +24,7 @@ public class GlideConfiguration implements GlideModule {
         // register ModelLoaders here.
     }
 }
+/**
+ * last verification 28/04/2017
+ */
+

@@ -9,7 +9,7 @@ import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.TABLE_NAME;
 import static dz.esi.team.appprototype.data.PlantContract.*;
 
 /**
- * Created by The King Mohamed on 22/04/2017.
+ * Created on 22/04/2017.
  */
 
 public class PlantCompactProfile {
@@ -20,7 +20,7 @@ public class PlantCompactProfile {
     private String famille;
 
 
-    public PlantCompactProfile(Long plantID) {  // TODO : free up the Cursor
+    public PlantCompactProfile(Long plantID) {
 
         if (plantID < 0L) return;
 
@@ -73,3 +73,7 @@ public class PlantCompactProfile {
         return this.famille;
     }
 }
+
+/**
+ * last verification 28/04/2017
+ */

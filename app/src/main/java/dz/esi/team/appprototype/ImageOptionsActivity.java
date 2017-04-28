@@ -146,16 +146,14 @@ public class ImageOptionsActivity extends BaseActivity {
         Log.d(TAG, ": activity DESTROYED");
     }
 
+    // todo : checking compatibility with marshmillo android version
     private void displayImage() {
         String uploadedImagePath = getIntent().getStringExtra(LOADED_IMAGE_PATH);
 
         if(uploadedImagePath!= null){
             this.imageViewUri = Uri.parse(getIntent().getStringExtra(LOADED_IMAGE_URI));
-//            this.imageViewUploadedImage.setImageBitmap(BitmapFactory.decodeFile(uploadedImagePath)); todo:check this comments
         }else{
             this.imageViewUri = (Uri) getIntent().getExtras().get(Intent.EXTRA_STREAM);
-            //uploadedImagePath = new File(this.imageViewUri.toString()).getPath(); todo: and these
-            //uploadedImagePath = imageViewUri.getPath();
             uploadedImagePath = getRealPathFromURI(this, this.imageViewUri);
         }
         this.uploadedBitmap = fixImageRotation(uploadedImagePath);
@@ -271,3 +269,7 @@ public class ImageOptionsActivity extends BaseActivity {
 
 
 }
+/**
+ * last verification 28/04/2017
+ */
+
