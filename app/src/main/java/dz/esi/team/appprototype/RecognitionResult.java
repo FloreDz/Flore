@@ -88,6 +88,6 @@ public class RecognitionResult extends AppCompatActivity {
 
 }
 /**
- * last verification 28/04/2017
+ * last verification 29/04/2017
  */
 

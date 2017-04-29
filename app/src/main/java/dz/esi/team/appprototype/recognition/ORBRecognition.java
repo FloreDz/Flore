@@ -34,10 +34,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
-
 import dz.esi.team.appprototype.data.PlantRetriever;
 import jp.co.cyberagent.android.gpuimage.PixelBuffer;
-
+import static  dz.esi.team.appprototype.ImageOptionsActivity.threadEnabled ;
 import static dz.esi.team.appprototype.RecognitionResult.i;
 import static dz.esi.team.appprototype.data.PlantContract.PlantEntry._ID;
 import static dz.esi.team.appprototype.data.PlantContract.PlantEntry.sci_name;
@@ -125,77 +124,93 @@ public class ORBRecognition {
 
         ArrayList<Couple> recognitionResult = new ArrayList<>();
 
+        TreeSet<Float> plantGoodMatches = new TreeSet<>();
 
-        while (cursor.moveToNext()) {
-            String rep_name = "dataset/" + cursor.getString(1).toLowerCase().replaceAll(" ", "_");
-            Log.d(TAG, "Recognize: rep_name == " + rep_name);
+        List<String> imagesList = new ArrayList<>();
 
-            TreeSet<Float> plantGoodMatches = new TreeSet<>();
 
-            List<String> imagesList = getDirectoryContent(rep_name);
+        try {
+            while (cursor.moveToNext() && threadEnabled ) {
+                String rep_name = "dataset/" + cursor.getString(1).toLowerCase().replaceAll(" ", "_");
+                Log.d(TAG, "Recognize: rep_name == " + rep_name);
 
-            for (int i = 0; i < imagesList.size() ; i++) {
-                Bitmap query = getBitmapFromAssets(rep_name + "/" + imagesList.get(i));
-                Mat queryImg = new Mat(query.getWidth(), query.getHeight(), CvType.CV_8UC1);
-                Utils.bitmapToMat(query, queryImg);
+                plantGoodMatches = new TreeSet<>();
 
-                Imgproc.cvtColor(queryImg, queryImg, Imgproc.COLOR_RGB2GRAY);
+                imagesList = getDirectoryContent(rep_name);
 
-                Mat descriptors2 = new Mat();
-                MatOfKeyPoint keyPoints2 = new MatOfKeyPoint();
+                for (int i = 0; i < imagesList.size() ; i++) {
+                    Bitmap query = getBitmapFromAssets(rep_name + "/" + imagesList.get(i));
+                    Mat queryImg = new Mat(query.getWidth(), query.getHeight(), CvType.CV_8UC1);
+                    Utils.bitmapToMat(query, queryImg);
 
-                detector.detect(queryImg, keyPoints2);
-                descriptor.compute(queryImg, keyPoints2, descriptors2);
-                
-                // Matching
-                MatOfDMatch matches = new MatOfDMatch();
+                    Imgproc.cvtColor(queryImg, queryImg, Imgproc.COLOR_RGB2GRAY);
 
-                matcher.match(descriptors1, descriptors2, matches);
-                Log.d(TAG, "size of matches = " + matches.size());
+                    Mat descriptors2 = new Mat();
+                    MatOfKeyPoint keyPoints2 = new MatOfKeyPoint();
 
-                List<DMatch> matchesList = matches.toList();
+                    detector.detect(queryImg, keyPoints2);
+                    descriptor.compute(queryImg, keyPoints2, descriptors2);
 
-                double max_dist = 0.0;
-                double min_dist = 100.0;
+                    // Matching
+                    MatOfDMatch matches = new MatOfDMatch();
 
-                for (int j = 0; j < matchesList.size(); j++) {
-                    double dist = (double) matchesList.get(j).distance;
-                    if (dist < min_dist) min_dist = dist;
-                    if (dist > max_dist) max_dist = dist;
+                    matcher.match(descriptors1, descriptors2, matches);
+                    Log.d(TAG, "size of matches = " + matches.size());
+
+                    List<DMatch> matchesList = matches.toList();
+
+                    double max_dist = 0.0;
+                    double min_dist = 100.0;
+
+                    for (int j = 0; j < matchesList.size(); j++) {
+                        double dist = (double) matchesList.get(j).distance;
+                        if (dist < min_dist) min_dist = dist;
+                        if (dist > max_dist) max_dist = dist;
+                    }
+
+                    LinkedList<DMatch> good_matches = new LinkedList<>();
+                    for (int j = 0; j < matchesList.size(); j++) {
+                        if (matchesList.get(j).distance <= 64 ) // todo: to update later
+                            good_matches.addLast(matchesList.get(j));
+                    }
+
+                    Log.d(TAG, "Recognize: good_matches size = " + good_matches.size());
+
+                    Log.d(TAG, "size of goodmatches is : " + good_matches.size());
+                    Log.d(TAG, "size of matches is: " + matchesList.size());
+                    Log.d(TAG,"distance of " + i + " = " + good_matches.size()
+                            +"  while size of matches is "+ matchesList.size()
+                            +"  min= "+min_dist+" max= "+max_dist +"  taux = "
+                            + (double) good_matches.size()/matchesList.size());
+
+                    Log.d(TAG, "Recognize: good_matches == null ? " + (good_matches == null));
+                    plantGoodMatches.add((float)good_matches.size()/matchesList.size());
+                    good_matches.clear();
+
+                    if (!threadEnabled)
+                        break;
                 }
 
-                LinkedList<DMatch> good_matches = new LinkedList<>();
-                for (int j = 0; j < matchesList.size(); j++) {
-                    if (matchesList.get(j).distance <= 64 ) // todo: to update later
-                        good_matches.addLast(matchesList.get(j));
-                }
+                Log.d(TAG, "Recognize: plantGoodMatches == null ? " + (plantGoodMatches == null));
+                recognitionResult.add(new Couple (Long.parseLong(cursor.getString(0)) , plantGoodMatches.last()));
 
-                Log.d(TAG, "Recognize: good_matches size = " + good_matches.size());
+                Log.d(TAG, "Recognize: all the plantGoodMatches : " + plantGoodMatches.toString());
+                Log.d(TAG, "Recognize: last (biggest) = " + plantGoodMatches.last());
+                Log.d(TAG, "Recognize: first (smallest) = " + plantGoodMatches.first());
 
-                Log.d(TAG, "size of goodmatches is : " + good_matches.size());
-                Log.d(TAG, "size of matches is: " + matchesList.size());
-                Log.d(TAG,"distance of " + i + " = " + good_matches.size()
-                        +"  while size of matches is "+ matchesList.size()
-                        +"  min= "+min_dist+" max= "+max_dist +"  taux = "
-                        + (double) good_matches.size()/matchesList.size());
+                Log.d(TAG, "ORBRecognition: plantGoodMatches list size before clear : " + plantGoodMatches.size());
 
-                Log.d(TAG, "Recognize: good_matches == null ? " + (good_matches == null));
-                plantGoodMatches.add((float)good_matches.size()/matchesList.size());
-                good_matches.clear();
+                plantGoodMatches.clear();
+
+                Log.d(TAG, "ORBRecognition: plantGoodMatches list size after clear : " + plantGoodMatches.size());
+
             }
-
-            Log.d(TAG, "Recognize: plantGoodMatches == null ? " + (plantGoodMatches == null));
-            recognitionResult.add(new Couple (Long.parseLong(cursor.getString(0)) , plantGoodMatches.last()));
-
-            Log.d(TAG, "Recognize: all the plantGoodMatches : " + plantGoodMatches.toString());
-            Log.d(TAG, "Recognize: last (biggest) = " + plantGoodMatches.last());
-            Log.d(TAG, "Recognize: first (smallest) = " + plantGoodMatches.first());
-
-            Log.d(TAG, "ORBRecognition: plantGoodMatches list size before clear : " + plantGoodMatches.size());
-
+        } finally {
+            cursor.close();
             plantGoodMatches.clear();
-
-            Log.d(TAG, "ORBRecognition: plantGoodMatches list size after clear : " + plantGoodMatches.size());
+            imagesList.clear();
+            if (!threadEnabled)
+                recognitionResult.clear();
         }
 
         return recognitionResult;

@@ -41,6 +41,7 @@ public class ImageOptionsActivity extends BaseActivity {
     public static final String LOADED_IMAGE_PATH = "LOADED_IMAGE_PATH";
     public static final String LOADED_IMAGE_URI = "LOADED_IMAGE_URI";
     public static final String STATE_IMAGE = "STATE_IMAGE";
+    public static boolean threadEnabled = false ;
     private static final String TAG = "ImageOptionsActivity";
 
     // image proprieties
@@ -53,6 +54,7 @@ public class ImageOptionsActivity extends BaseActivity {
     private BottomNavigationView bottomNavigationViewImageOption;
     private Bitmap uploadedBitmap;
     private Recognition recognition ;
+
 
 
 
@@ -131,17 +133,22 @@ public class ImageOptionsActivity extends BaseActivity {
     @Override
     protected void onStop() {
         super.onStop();
+        Log.d(TAG, "onStop: checking the state of the thread");
+        if(threadEnabled) {
+            threadEnabled = false ;
+            this.recognition.cancel(true);
+        }
+
     }
 
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        this.recognition.cancel(true);
         Log.d(TAG, ": activity DESTROYED");
     }
 
-    // todo : checking compatibility with marshmillo android version
+    // todo : checking compatibility with marshmallow android version
     private void displayImage() {
         String uploadedImagePath = getIntent().getStringExtra(LOADED_IMAGE_PATH);
 
@@ -224,7 +231,7 @@ public class ImageOptionsActivity extends BaseActivity {
     }
 
 
-    class Recognition extends AsyncTask<Bitmap,Void,ArrayList<Couple>> {
+    public  class Recognition extends AsyncTask<Bitmap,Void,ArrayList<Couple>> {
 
         private ProgressBar progressBar = (ProgressBar) findViewById(R.id.image_options_progress_bar);
         private FrameLayout imageOptionsBackground = (FrameLayout) findViewById(R.id.image_options_background);
@@ -236,12 +243,14 @@ public class ImageOptionsActivity extends BaseActivity {
             imageOptionsBackground.setVisibility(VISIBLE);
             progressBar.setVisibility(VISIBLE);
             recognitionProgress.setVisibility(VISIBLE);
+            threadEnabled = true ;
         }
 
         @Override
         protected ArrayList<Couple> doInBackground(Bitmap... params) {
             Log.d(TAG, "onNavigationItemSelected , doInBackground: about to start recognition ");
                 return startRecognition(params[0]);
+
 
         }
 
@@ -262,14 +271,20 @@ public class ImageOptionsActivity extends BaseActivity {
 
         @Override
         protected void onCancelled() {
+            Log.d(TAG, "onCancelled:API < 3");
             super.onCancelled();
+        }
+
+        @Override
+        protected void onCancelled(ArrayList<Couple> couples) {
+            Log.d(TAG, "onCancelled: API > 3 ");
+            super.onCancelled(couples);
         }
     }
 
 
-
 }
 /**
- * last verification 28/04/2017
+ * last verification 29/04/2017
  */
 
