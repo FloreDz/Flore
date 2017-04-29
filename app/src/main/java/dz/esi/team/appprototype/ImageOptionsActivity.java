@@ -7,7 +7,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.media.ExifInterface;
-import android.media.ImageReader;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -15,7 +14,6 @@ import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.content.CursorLoader;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
@@ -23,20 +21,14 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.soundcloud.android.crop.Crop;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
 
 import dz.esi.team.appprototype.recognition.ORBRecognition;
 import dz.esi.team.appprototype.recognition.ORBRecognition.Couple;
@@ -60,6 +52,7 @@ public class ImageOptionsActivity extends BaseActivity {
 
     private BottomNavigationView bottomNavigationViewImageOption;
     private Bitmap uploadedBitmap;
+    private Recognition recognition ;
 
 
 
@@ -99,7 +92,8 @@ public class ImageOptionsActivity extends BaseActivity {
                                 beginCrop(imageViewUri);
                                 break;
                             case R.id.btn_image_process:
-                                new Recognition().execute(uploadedBitmap);
+                               recognition = new Recognition();
+                                recognition.execute(uploadedBitmap);
                                 break;
                             default:
                         }
@@ -137,12 +131,13 @@ public class ImageOptionsActivity extends BaseActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        Log.d(TAG, ": activity STOPPED");
     }
+
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        this.recognition.cancel(true);
         Log.d(TAG, ": activity DESTROYED");
     }
 
@@ -246,12 +241,12 @@ public class ImageOptionsActivity extends BaseActivity {
         @Override
         protected ArrayList<Couple> doInBackground(Bitmap... params) {
             Log.d(TAG, "onNavigationItemSelected , doInBackground: about to start recognition ");
-            return startRecognition(params[0]);
+                return startRecognition(params[0]);
+
         }
 
         @Override
         protected void onPostExecute(ArrayList<Couple> couples) {
-
             Log.d(TAG, "onNavigationItemSelected , onPostExecute : about to create intent");
             Intent intent = new Intent(ImageOptionsActivity.this,RecognitionResult.class);
             Log.d(TAG, "onNavigationItemSelected , onPostExecute : intent created, about to put array list extra");
@@ -265,7 +260,12 @@ public class ImageOptionsActivity extends BaseActivity {
 
         }
 
+        @Override
+        protected void onCancelled() {
+            super.onCancelled();
+        }
     }
+
 
 
 }
