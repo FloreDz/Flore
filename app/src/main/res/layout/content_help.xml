@@ -12,7 +12,7 @@
     android:paddingRight="8dp"
     android:paddingTop="8dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="dz.esi.team.appprototype.HelpActivity"
+    tools:context=".HelpActivity"
     tools:showIn="@layout/activity_help">
 <ScrollView
     android:layout_width="match_parent"

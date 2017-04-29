@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/clean_white"
     android:fitsSystemWindows="true"
-    tools:context="dz.esi.team.appprototype.HelpActivity">
+    tools:context=".HelpActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
