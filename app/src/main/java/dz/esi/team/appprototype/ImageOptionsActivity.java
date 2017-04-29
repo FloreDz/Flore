@@ -230,7 +230,7 @@ public class ImageOptionsActivity extends BaseActivity {
         Log.d(TAG, "onSaveInstanceState:  the cropped image " + croppedImage);
     }
 
-
+    // TODO: STOPPING THE IMAGE RECOGNITION THREAD ON THE BACKGROUND
     class Recognition extends AsyncTask<Bitmap,Void,ArrayList<Couple>> {
 
         private ProgressBar progressBar = (ProgressBar) findViewById(R.id.image_options_progress_bar);

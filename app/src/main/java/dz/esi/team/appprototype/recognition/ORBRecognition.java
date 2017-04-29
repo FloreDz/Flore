@@ -125,7 +125,7 @@ public class ORBRecognition {
 
         ArrayList<Couple> recognitionResult = new ArrayList<>();
 
-
+        // TODO: implementing the thread state test and clearing the unused arrayLists
         while (cursor.moveToNext()) {
             String rep_name = "dataset/" + cursor.getString(1).toLowerCase().replaceAll(" ", "_");
             Log.d(TAG, "Recognize: rep_name == " + rep_name);
