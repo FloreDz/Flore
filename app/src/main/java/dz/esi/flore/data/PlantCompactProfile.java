@@ -6,6 +6,7 @@ import android.util.Log;
 
 import static dz.esi.flore.BaseActivity.mDbHelper;
 import static dz.esi.flore.data.PlantContract.PlantEntry.TABLE_NAME;
+import static dz.esi.flore.data.PlantContract.*;
 
 /**
  * Created on 22/04/2017.

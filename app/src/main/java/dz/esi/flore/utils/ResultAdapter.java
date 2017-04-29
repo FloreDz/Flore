@@ -16,7 +16,7 @@ import com.github.lzyzsd.circleprogress.ArcProgress;
 
 import java.util.ArrayList;
 
-import dz.esi.b.flore.R;
+import dz.esi.flore.R;
 import dz.esi.flore.data.PlantCompactProfile;
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
@@ -72,6 +72,7 @@ public class ResultAdapter extends ArrayAdapter<PlantCompactProfile> {
                 .asBitmap()
                 .override(300, 200)
                 .transform(new RoundedCornersTransformation(getContext(), 20, 0))
+                //TODO ADDING BACKWARD COMPTIBILITY API 17
                 .placeholder(R.drawable.thumbnail_placeholder)
                 .into(viewHolder.plantImage);
 

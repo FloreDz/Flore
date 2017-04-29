@@ -198,10 +198,6 @@ public class ORBRecognition {
             }
         } finally {
             cursor.close();
-            plantGoodMatches.clear();
-            imagesList.clear();
-            if (!ImageOptionsActivity.threadEnabled)
-                recognitionResult.clear();
         }
 
         return recognitionResult;

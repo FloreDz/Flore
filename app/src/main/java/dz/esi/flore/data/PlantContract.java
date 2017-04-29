@@ -10,7 +10,7 @@ import android.provider.BaseColumns;
 public class PlantContract {
 
     //TODO:  change the package name
-    public static final String CONTENT_AUTHORITY = "dz.esi.team.appprototype";
+    public static final String CONTENT_AUTHORITY = "dz.esi.flore";
     public static final String PATH_PLANTS = "Plante";
 
     public static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);

@@ -4,7 +4,7 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
-        applicationId "dz.esi.team.appprototype"
+        applicationId "dz.esi.flore"
         minSdkVersion 17
         targetSdkVersion 25
         versionCode 1
@@ -19,6 +19,9 @@ android {
         }
     }
     sourceSets { main { jniLibs.srcDirs = ['src/main/jni', 'src/main/jniLibs/'] } }
+    defaultConfig {
+        vectorDrawables.useSupportLibrary = true
+    }
 }
 
 dependencies {

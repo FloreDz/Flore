@@ -30,7 +30,7 @@ public class PlantDbHelper extends SQLiteOpenHelper {
     public PlantDbHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
         this.mContext = context;
-        DB_PATH = "/data/data/dz.esi.team.appprototype/databases/";
+        DB_PATH = "/data/data/dz.esi.flore/databases/";
         Log.d(TAG, "DB path " + DB_PATH);
     }
 

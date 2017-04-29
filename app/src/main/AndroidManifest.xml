@@ -82,7 +82,7 @@
         </activity>
         <provider
             android:name=".data.PlantProvider"
-            android:authorities="dz.esi.b.flore"
+            android:authorities="dz.esi.flore"
             android:exported="false" />
         <meta-data
             android:name="dz.esi.flore.glide.GlideConfiguration"

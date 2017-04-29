@@ -17,6 +17,7 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.Toolbar;
 import android.transition.Fade;
 import android.util.Log;
@@ -123,7 +124,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
                 }
             }
         });
-
+        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
         plantsListView = (ListView) findViewById(R.id.plantes_list_view);
         View emptyView = findViewById(R.id.empty_view);
         plantsListView.setEmptyView(emptyView);

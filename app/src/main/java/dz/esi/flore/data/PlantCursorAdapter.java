@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
-import dz.esi.b.flore.R;
+import dz.esi.flore.R;
 import dz.esi.flore.HomePage;
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
