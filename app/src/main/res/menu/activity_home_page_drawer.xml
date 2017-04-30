@@ -18,7 +18,7 @@
                 android:checkableBehavior="single"
                 android:id="@+id/nav_user_guide"
                 android:icon="@drawable/help"
-                android:title="Guide utilisateur"
+                android:title="Guide d'utilisateur"
                 android:checkable="false"
                 />
             <item

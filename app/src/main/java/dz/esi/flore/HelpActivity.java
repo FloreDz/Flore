@@ -30,18 +30,18 @@ public class HelpActivity extends AppCompatActivity{
         SpannableStringBuilder builder = new SpannableStringBuilder();
 
         builder.append("Que ce soit vous avez son image dans votre galerie");
-        builder.append(",ou vous rencontrez la plante pour la première fois, en cliquant sur le Button ").append(" .");
+        builder.append(",ou vous rencontrez la plante pour la première fois, en cliquant sur le bouton ").append(" .");
         //TODO: change it to camera insted of plus
-        builder.setSpan(new ImageSpan(HelpActivity.this, R.drawable.ic_fab_icone),
+        builder.setSpan(new ImageSpan(HelpActivity.this, R.drawable.fab_camera),
                 builder.length() - 2, builder.length()-1, 0);
         builder.append(" Vous pouvez importer la photo dont vous voulez reconnaitre la plante, ou prendre une photo de cette dernière. Après, l’application va s’occuper de trouver son profil pour vous.");
         textView2.setText(builder);
 
         SpannableStringBuilder builderFour = new SpannableStringBuilder();
-        builderFour.append("Dans ce cas en appuyant sur le Button ").append(" .");
+        builderFour.append("Dans ce cas en appuyant sur le bouton ").append(" .");
         builderFour.setSpan(new ImageSpan(HelpActivity.this , R.drawable.search_icone),
                 builderFour.length() -2, builderFour.length()-1, 0);
-        builderFour.append(" grâce à une recherche vivante, vous aurez toutes les résultats possibles,après l’introduction de chaque caractère");
+        builderFour.append(" grâce à une recherche vivante et en temps réel, vous aurez tous les résultats possibles, après l’introduction de chaque caractère");
 
         textView4.setText(builderFour);
 

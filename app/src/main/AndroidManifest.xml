@@ -88,8 +88,9 @@
             android:name="dz.esi.flore.glide.GlideConfiguration"
             android:value="GlideModule" />
         <activity
-            android:theme="@style/AppTheme"
             android:name=".RecognitionResult"
+            android:label="Resultats"
+            android:theme="@style/AppTheme"
             android:parentActivityName=".HomePage"/>
         <activity
             android:name=".SettingsActivity"

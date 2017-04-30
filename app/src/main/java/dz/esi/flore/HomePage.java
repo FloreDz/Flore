@@ -173,7 +173,7 @@ public class HomePage extends BaseActivity implements NavigationView.OnNavigatio
         String displayMessage;
         if (DISPLAY_STATE.equals(SHOW_PLANTS_BY_FAMILIES)) {
             DISPLAY_STATE = SHOW_PLANTS_BY_SCIENTIFIQUE_NAMES;
-            displayMessage = "Affichage par plantes";
+            displayMessage = "Affichage par nom scientifiques";
         } else {
             DISPLAY_STATE = SHOW_PLANTS_BY_FAMILIES;
             displayMessage = "Affichage par familles";
