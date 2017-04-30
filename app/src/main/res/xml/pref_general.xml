@@ -1,4 +1,5 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/settings_plants_display_state_title">
     <ListPreference
         android:dialogTitle="@string/settings_plants_display_state_content"
         android:negativeButtonText="Annuler"
@@ -7,11 +8,12 @@
         android:defaultValue="0"
         android:key="DISPLAY_STATE"
         android:summary="@string/settings_plants_display_state_discription"
-        android:title="@string/settings_plants_display_state_title"></ListPreference>
-
+        android:title=""></ListPreference>
+    </PreferenceCategory>
     <PreferenceCategory android:title="@string/settings_plants_profile_group_title">
         <PreferenceScreen
-            android:title="@string/settings_plant_profile_discription">
+            android:title="@string/settings_plant_profile_discription"
+            >
             <SwitchPreference
                 android:defaultValue="true"
                 android:key="CONSTITUANTS"

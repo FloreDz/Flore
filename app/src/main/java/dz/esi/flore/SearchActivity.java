@@ -3,6 +3,7 @@ package dz.esi.flore;
 import android.app.LoaderManager;
 import android.app.SearchManager;
 import android.app.SearchableInfo;
+import android.content.Context;
 import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.Loader;
@@ -11,6 +12,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SearchView;
@@ -90,12 +93,14 @@ public class SearchActivity extends BaseActivity {
         searchView.setSearchableInfo(searchableInfo);
         searchView.setIconified(false);
         searchView.setQuery(this.queryText, false);
+        searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 
             @Override
             public boolean onQueryTextSubmit(String query) {
                 Log.d(TAG, "onQueryTextSubmit: query = " + query);
+                hideKeyboard();
                 return true;
             }
 
@@ -121,6 +126,12 @@ public class SearchActivity extends BaseActivity {
         });
 
         return true;
+    }
+
+    private void hideKeyboard() {
+        ((InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE))
+                .hideSoftInputFromWindow(SearchActivity.this.getCurrentFocus()
+                        .getWindowToken(),0);
     }
 
     @Override
