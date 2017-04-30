@@ -30,7 +30,7 @@ public class HelpActivity extends AppCompatActivity{
         SpannableStringBuilder builder = new SpannableStringBuilder();
 
         builder.append("Que ce soit vous avez son image dans votre galerie");
-        builder.append(",ou vous rencontrez la plante pour la première fois, en cliquant sur le bouton ").append(" .");
+        builder.append(", ou vous rencontrez la plante pour la première fois, en cliquant sur le bouton ").append(" .");
         //TODO: change it to camera insted of plus
         builder.setSpan(new ImageSpan(HelpActivity.this, R.drawable.fab_camera),
                 builder.length() - 2, builder.length()-1, 0);
@@ -48,10 +48,10 @@ public class HelpActivity extends AppCompatActivity{
 
 
         SpannableStringBuilder builderFive = new SpannableStringBuilder();
-        builderFive.append("Parce que la plus importante catégorisation et celle des familles, une option est offerte pour faire cela dans la page d’accueil en appuyant sur").append(" .");
+        builderFive.append("Parce que la plus importante catégorisation est celle des familles, une option est offerte pour faire cela dans la page d’accueil en appuyant sur").append(" .");
         builderFive.setSpan(new ImageSpan(HelpActivity.this, R.drawable.option_menu),
                 builderFive.length() - 2, builderFive.length() -1 , 0);
-        builderFive.append(" puis « Afficher par famille »");
+        builderFive.append(" puis « Afficher par familles »");
 
         textView5.setText(builderFive);
 
