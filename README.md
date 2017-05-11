@@ -9,12 +9,7 @@ this is the repository of our second year project : 2cpi/team number 1
     *  buildToolsVersion "25.0.2"
     *  com.android.support version "25.1.1"
     *  NDK 
-## collaboration  guidlines 
- - you must not fork the repo just clone it to your sys and work simply ,each colaborater has a direct writing access
- - any indivdual changes must be done in an independent branch 
- - to evoid the mergin conflicts , each branch must be used to make just one new feature 
- - to update the forked repository follow these instructions https://help.github.com/articles/syncing-a-fork/ 
-       * 
+    
 ## reporting bugs 
 all the bugs must be declared in the issues https://github.com/chenineazeddine/Flore/issues 
 
@@ -22,9 +17,7 @@ all the bugs must be declared in the issues https://github.com/chenineazeddine/F
   - if any one had issues with the gradel version follow these instructions :
     1.  File > Settings > Build ,Execution .. > Gradel 
     2.  Select : use default gradle wrapper 
-#### GitHub courses for collaboration : 
-  * https://www.youtube.com/watch?v=YTbRzhQju4c
-  * working as a colaboraters : https://help.github.com/articles/why-are-my-contributions-not-showing-up-on-my-profile/
+
 
    
           
