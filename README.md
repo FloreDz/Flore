@@ -1,5 +1,33 @@
 # Flore : Remedy in Nature
 this is the repository of our second year project : 2cpi/team number 1 
+# Demo
+
+<div align="center">
+  <div align="center"><img  src="screenShots/5.png" height="500"/></div>
+  <div align="center"><img src="screenShots/2.png" height="500"/></div>
+  <div align="center"><img src="screenShots/1.png" height="500"/></div>
+  
+  <div align="center"><img  src="screenShots/3.png" height="500"/></div>
+  <div align="center"><img  src="screenShots/10.png" height="500"/></div>
+  <div align="center"><img  src="screenShots/11.png" height="500"/></div>
+  
+  <div align="center"><img  src="screenShots/12.png" height="500"/></div>
+  <div align="center"><img  src="screenShots/13.png" height="500"/></div>
+  <div align="center"><img  src="screenShots/18.png" height="500"/></div> 
+  
+  
+  <div align="center"><img  src="screenShots/19.png" height="500"/></div>
+  <div align="center"><img  src="screenShots/21.png" height="500"/></div>
+  <div align="center"><img  src="screenShots/9.png" height="500"/></div>
+  
+  <div align="center"><img  src="screenShots/22.png" height="500"/></div>
+  <div align="center"><img  src="screenShots/16.png" height="500"/></div>
+  <div align="center"><img  src="screenShots/15.png" height="500"/></div>
+  
+  <div align="center"><img  src="screenShots/14.png" height="500"/></div>
+   <div align="center"><img  src="screenShots/7.png" height="500"/></div>
+  
+</div>
 
 ## setting up the project on github  : 
  1 fork the repository 
