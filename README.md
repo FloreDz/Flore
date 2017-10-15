@@ -1,3 +1,4 @@
+<img  src="screenShots/flore-logo.png" height="50"/>
 # Flore - Remedy in Nature
              This is the repository of our second year project, 2CPI-TEAM N°1 
 # Demo
