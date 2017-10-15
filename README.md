@@ -1,5 +1,5 @@
 <div align="center">
-  <img  src="screenShots/flore-logo.png" height="100"/> 
+  <img  src="screenShots/flore-logo.png" height="150"/> 
 </div>
   
 # Flore - Remedy in Nature
@@ -35,16 +35,16 @@
  1 fork the repository 
  2 clone it using the link or the terminal 
 ## Setting up the project on Android Studio :
- - first , you must have the following dependencies :
+ - First , you must have the following dependencies :
     *  buildToolsVersion "25.0.2"
     *  com.android.support version "25.1.1"
     *  NDK 
     
 ## Reporting bugs 
-all the bugs must be declared in the issues https://github.com/chenineazeddine/Flore/issues 
+all bugs must be declared in the issues tab : https://github.com/chenineazeddine/Flore/issues 
 
 ## Remarks : 
-  - if any one had issues with the gradel version follow these instructions :
+  - if anyone had issues with the gradel version follow these instructions :
     1.  File > Settings > Build ,Execution .. > Gradel 
     2.  Select : use default gradle wrapper 
 
