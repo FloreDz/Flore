@@ -1,5 +1,5 @@
 <div align="center">
-  <img  src="screenShots/flore-logo.png" height="50"/> 
+  <img  src="screenShots/flore-logo.png" height="100"/> 
 </div>
   
 # Flore - Remedy in Nature
