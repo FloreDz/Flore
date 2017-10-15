@@ -31,22 +31,21 @@
   
 </div>
 
-## Setting up the project on github  : 
- 1 fork the repository 
- 2 clone it using the link or the terminal 
+
 ## Setting up the project on Android Studio :
  - First , you must have the following dependencies :
     *  buildToolsVersion "25.0.2"
     *  com.android.support version "25.1.1"
     *  NDK 
+ - Second, import the project using this URL : https://github.com/FloreDz/Flore.git
     
 ## Reporting bugs 
-all bugs must be declared in the issues tab : https://github.com/chenineazeddine/Flore/issues 
+    all bugs must be declared in the issues tab : https://github.com/chenineazeddine/Flore/issues 
 
 ## Remarks : 
   - if anyone had issues with the gradel version follow these instructions :
-    1.  File > Settings > Build ,Execution .. > Gradel 
-    2.  Select : use default gradle wrapper 
+       1.  File > Settings > Build ,Execution .. > Gradel 
+       2.  Select : use default gradle wrapper 
 
 
    
