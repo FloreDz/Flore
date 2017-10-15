@@ -1,5 +1,5 @@
 # Flore - Remedy in Nature
-             This is the repository of our second year project : 2CPI-TEAM N°1 
+             This is the repository of our second year project, 2CPI-TEAM N°1 
 # Demo
 
 <div align="center">
@@ -36,10 +36,10 @@
     *  com.android.support version "25.1.1"
     *  NDK 
     
-## Seporting bugs 
+## Reporting bugs 
 all the bugs must be declared in the issues https://github.com/chenineazeddine/Flore/issues 
 
-## Semarks : 
+## Remarks : 
   - if any one had issues with the gradel version follow these instructions :
     1.  File > Settings > Build ,Execution .. > Gradel 
     2.  Select : use default gradle wrapper 
