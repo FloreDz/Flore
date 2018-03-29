@@ -3,7 +3,7 @@
 </div>
   
 # Flore - Remedy in Nature
-             This is the repository of our second year project, 2CPI-TEAM N°1 
+             This is the repository of our second year project, 2CPI-TEAM N°01 
 # Demo
 
 <div align="center">
@@ -40,13 +40,11 @@
  - Second, import the project using this URL : https://github.com/FloreDz/Flore.git
     
 ## Reporting bugs 
-    all bugs must be declared in the issues tab : https://github.com/FloreDz/Flore/issues
+  All bugs must be declared in the issues tab : https://github.com/FloreDz/Flore/issues
+     
     
 ## Remarks : 
-  - if anyone had issues with the gradel version follow these instructions :
+  - If anyone had issues with the gradel version follow these instructions :
        1.  File > Settings > Build ,Execution .. > Gradel 
        2.  Select : use default gradle wrapper 
-
-
-   
-          
+       
