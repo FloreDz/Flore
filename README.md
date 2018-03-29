@@ -40,11 +40,11 @@
  - Second, import the project using this URL : https://github.com/FloreDz/Flore.git
     
 ## Reporting bugs 
-  All bugs must be declared in the issues tab : https://github.com/FloreDz/Flore/issues
+   All bugs must be declared in the issues tab : https://github.com/FloreDz/Flore/issues
      
     
 ## Remarks : 
-  - If anyone had issues with the gradel version follow these instructions :
+   If anyone had issues with the gradel version follow these instructions :
        1.  File > Settings > Build ,Execution .. > Gradel 
        2.  Select : use default gradle wrapper 
        
