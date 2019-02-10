@@ -45,6 +45,6 @@
     
 ## Remarks : 
    - If anyone had issues with the gradel version follow these instructions :
-       1.  File > Settings > Build ,Execution .. > Gradel 
+       1.  File > Settings > Build ,Execution .. > Gradle 
        2.  Select : use default gradle wrapper 
        
