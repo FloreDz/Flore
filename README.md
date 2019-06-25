@@ -3,7 +3,7 @@
 </div>
   
 # Flore - Remedy in Nature
-             This is the repository of our second year project, 2CPI-TEAM N°01 
+             Android Mobile Application for Medicinal Plants Recognition 
 # Demo
 
 <div align="center">
